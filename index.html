@@ -23,21 +23,22 @@
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════════
-         PARTICLE CANVAS
-         ═══════════════════════════════════════════ -->
+    <!-- PARTICLE CANVAS -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- ═══════════════════════════════════════════
-         NAVIGATION
-         ═══════════════════════════════════════════ -->
+    <!-- NAVIGATION -->
     <nav id="main-nav">
         <a href="#hero" class="nav-logo">✨ <span>Neosys Aeon</span></a>
         <div class="nav-links">
-            <a href="#mandamientos">Mandamientos</a>
-            <a href="#que-es">Marco</a>
-            <a href="#whitepaper">Whitepaper</a>
-            <a href="#unete" class="nav-cta">Únete</a>
+            <a href="#mandamientos" data-i18n="nav_mandamientos">Mandamientos</a>
+            <a href="#que-es" data-i18n="nav_marco">Marco</a>
+            <a href="#whitepaper" data-i18n="nav_whitepaper">Whitepaper</a>
+            <a href="#unete" class="nav-cta" data-i18n="nav_unete">Únete</a>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="es">🇲🇽 ES</button>
+            <button class="lang-btn" data-lang="en">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="cn">🇨🇳 CN</button>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -53,15 +54,15 @@
             <h1 class="hero-title reveal">
                 <span class="hero-title-main">NEOSYS AEON</span>
             </h1>
-            <p class="hero-tagline reveal">No exige creencia. Exige coherencia.</p>
-            <p class="hero-subtitle reveal">Un marco abierto para la comprensión de la realidad</p>
+            <p class="hero-tagline reveal" data-i18n="hero_tagline">No exige creencia. Exige coherencia.</p>
+            <p class="hero-subtitle reveal" data-i18n="hero_subtitle">Un marco abierto para la comprensión de la realidad</p>
             <div class="hero-actions reveal">
-                <a href="#mandamientos" class="btn btn-primary">Los 12 Mandamientos</a>
-                <a href="#whitepaper" class="btn btn-glass">Leer Whitepaper</a>
+                <a href="#mandamientos" class="btn btn-primary" data-i18n="hero_btn_mandamientos">Los 12 Mandamientos</a>
+                <a href="#whitepaper" class="btn btn-glass" data-i18n="hero_btn_whitepaper">Leer Whitepaper</a>
             </div>
         </div>
         <div class="hero-scroll-indicator">
-            <span>Explora</span>
+            <span data-i18n="hero_explore">Explora</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
@@ -73,88 +74,101 @@
         <div class="container">
             <div class="manifesto-grid">
                 <div class="manifesto-left reveal">
-                    <span class="section-label">El Manifiesto</span>
-                    <h2 class="section-title">La información es abundante.<br><span class="text-accent">La comprensión es limitada.</span></h2>
+                    <span class="section-label" data-i18n="manifesto_label">El Manifiesto</span>
+                    <h2 class="section-title" data-i18n="manifesto_title">La información es abundante.<br><span class="text-accent">La comprensión es limitada.</span></h2>
                 </div>
                 <div class="manifesto-right reveal">
-                    <p class="manifesto-text">La humanidad enfrenta una creciente desconexión entre la evidencia empírica, la percepción individual y los sistemas de creencias contemporáneos.</p>
-                    <p class="manifesto-text">Esta desconexión ha facilitado la proliferación de pseudociencia, sesgos cognitivos no cuestionados y modelos de pensamiento que limitan nuestra capacidad de interpretar el mundo.</p>
-                    <p class="manifesto-text highlight">Neosys Aeon propone un conjunto de principios operativos — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, estructurar la curiosidad, validar mediante evidencia y promover responsabilidad a largo plazo.</p>
+                    <p class="manifesto-text" data-i18n="manifesto_p1">La humanidad enfrenta una creciente desconexión entre la evidencia empírica, la percepción individual y los sistemas de creencias contemporáneos.</p>
+                    <p class="manifesto-text" data-i18n="manifesto_p2">Esta desconexión ha facilitado la proliferación de pseudociencia, sesgos cognitivos no cuestionados y modelos de pensamiento que limitan nuestra capacidad de interpretar el mundo.</p>
+                    <p class="manifesto-text highlight" data-i18n="manifesto_p3">Neosys Aeon propone un conjunto de principios operativos — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, estructurar la curiosidad, validar mediante evidencia y promover responsabilidad a largo plazo.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         12 MANDAMIENTOS
+         12 MANDAMIENTOS DEL COSMOS
          ═══════════════════════════════════════════ -->
     <section id="mandamientos" class="section mandamientos-section">
         <div class="container">
-            <span class="section-label reveal">Los Principios Fundamentales</span>
-            <h2 class="section-title reveal">Los 12 Mandamientos<br><span class="text-accent">del Cosmos</span></h2>
-            <p class="section-desc reveal">Reglas operativas para evaluar, construir y aplicar conocimiento de manera coherente.</p>
+            <span class="section-label reveal" data-i18n="mand_label">Los Principios Fundamentales</span>
+            <h2 class="section-title reveal" data-i18n="mand_title">Los 12 Mandamientos<br><span class="text-accent">del Cosmos</span></h2>
+            <p class="section-desc reveal" data-i18n="mand_desc">Principios inamovibles para evaluar, construir y aplicar conocimiento con coherencia.</p>
 
             <div class="mandamientos-grid">
-                <div class="mandamiento-card reveal" data-num="I">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">I</div>
-                    <h3>Verdad sobre comodidad</h3>
-                    <p>La realidad debe ser evaluada por su correspondencia con la evidencia, no por su conveniencia.</p>
+                    <h3 data-i18n="m1_title">Honrarás la verdad por encima de la comodidad.</h3>
+                    <p data-i18n="m1_body">No adorarás la certeza falsa; buscarás lo real, aunque incomode.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="II">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">II</div>
-                    <h3>Curiosidad estructurada</h3>
-                    <p>La formulación de preguntas es el motor del conocimiento.</p>
+                    <h3 data-i18n="m2_title">Cultivarás la curiosidad como virtud sagrada.</h3>
+                    <p data-i18n="m2_body">Preguntarás antes de afirmar, y explorarás antes de juzgar.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="III">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">III</div>
-                    <h3>Origen cósmico</h3>
-                    <p>El ser humano es resultado de procesos físicos universales, lo que redefine su lugar en el cosmos.</p>
+                    <h3 data-i18n="m3_title">Recordarás que eres polvo de estrellas.</h3>
+                    <p data-i18n="m3_body">No por pequeñez, sino por pertenencia: eres universo con conciencia.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="IV">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">IV</div>
-                    <h3>Evidencia como criterio</h3>
-                    <p>Las afirmaciones deben validarse mediante pruebas observables y verificables.</p>
+                    <h3 data-i18n="m4_title">Defenderás la evidencia como brújula.</h3>
+                    <p data-i18n="m4_body">Creerás menos por tradición y más por prueba, observación y razón.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="V">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">V</div>
-                    <h3>Humildad epistemológica</h3>
-                    <p>El conocimiento es provisional y sujeto a revisión.</p>
+                    <h3 data-i18n="m5_title">Practicarás la humildad cósmica.</h3>
+                    <p data-i18n="m5_body">Frente a la inmensidad, rechazarás el ego y abrazarás el asombro.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="VI">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">VI</div>
-                    <h3>Protección del sistema planetario</h3>
-                    <p>La Tierra es el único entorno confirmado que alberga vida; su preservación es prioritaria.</p>
+                    <h3 data-i18n="m6_title">Cuidarás la Tierra como tu único templo.</h3>
+                    <p data-i18n="m6_body">No hay otro hogar comprobado, ni cercano; protegerlo es un acto de fe racional.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="VII">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">VII</div>
-                    <h3>Valor de la vida</h3>
-                    <p>La vida es un fenómeno excepcional que debe ser protegido.</p>
+                    <h3 data-i18n="m7_title">Amarás la vida donde exista, y la respetarás donde pueda surgir.</h3>
+                    <p data-i18n="m7_body">Toda forma de vida merece dignidad, atención y cuidado.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="VIII">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">VIII</div>
-                    <h3>Investigación del misterio</h3>
-                    <p>Lo desconocido debe investigarse, no reemplazarse con explicaciones infundadas.</p>
+                    <h3 data-i18n="m8_title">No convertirás el misterio en ignorancia.</h3>
+                    <p data-i18n="m8_body">Lo desconocido no es magia; es una invitación a comprender e investigar.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="IX">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">IX</div>
-                    <h3>Transmisión del conocimiento</h3>
-                    <p>El conocimiento adquiere valor cuando se comparte.</p>
+                    <h3 data-i18n="m9_title">Transmitirás el conocimiento.</h3>
+                    <p data-i18n="m9_body">Lo aprendido no se guarda como poder; se comparte como luz.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="X">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">X</div>
-                    <h3>Responsabilidad intergeneracional</h3>
-                    <p>Las decisiones actuales impactan el futuro de la humanidad.</p>
+                    <h3 data-i18n="m10_title">Construirás futuro para quienes aún no nacen.</h3>
+                    <p data-i18n="m10_body">Tus actos no terminarán en ti; tu legado debe ampliar posibilidades.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="XI">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">XI</div>
-                    <h3>Rechazo de la pseudociencia</h3>
-                    <p>Las afirmaciones extraordinarias requieren evidencia proporcional.</p>
+                    <h3 data-i18n="m11_title">No darás lugar a la pseudociencia ni al engaño disfrazado de verdad.</h3>
+                    <p data-i18n="m11_body">Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.</p>
                 </div>
-                <div class="mandamiento-card reveal" data-num="XII">
+
+                <div class="mandamiento-card reveal">
                     <div class="mandamiento-num">XII</div>
-                    <h3>Acción basada en conocimiento</h3>
-                    <p>Comprender implica responsabilidad de actuar.</p>
+                    <h3 data-i18n="m12_title">No serás solo observador del universo: serás creador.</h3>
+                    <p data-i18n="m12_body">Aplicarás el conocimiento para mejorar la vida y transformar la realidad.</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -164,24 +178,24 @@
          ═══════════════════════════════════════════ -->
     <section id="problema" class="section">
         <div class="container">
-            <span class="section-label reveal">¿Por qué existe?</span>
-            <h2 class="section-title reveal">Tres Fallas Estructurales<br><span class="text-accent">del Pensamiento Contemporáneo</span></h2>
+            <span class="section-label reveal" data-i18n="prob_label">¿Por qué existe?</span>
+            <h2 class="section-title reveal" data-i18n="prob_title">Tres Fallas Estructurales<br><span class="text-accent">del Pensamiento Contemporáneo</span></h2>
 
             <div class="problems-grid">
                 <div class="problem-card reveal">
                     <div class="problem-icon">⚡</div>
-                    <h3>Comodidad sobre verdad</h3>
-                    <p>Las personas tienden a aceptar explicaciones que reducen incertidumbre emocional, incluso si carecen de sustento empírico.</p>
+                    <h3 data-i18n="prob1_title">Comodidad sobre verdad</h3>
+                    <p data-i18n="prob1_body">Las personas tienden a aceptar explicaciones que reducen incertidumbre emocional, incluso si carecen de sustento empírico.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-icon">🌫️</div>
-                    <h3>Confusión entre desconocimiento y explicación</h3>
-                    <p>La ausencia de conocimiento es frecuentemente reemplazada por narrativas no verificables en lugar de investigación.</p>
+                    <h3 data-i18n="prob2_title">Confusión entre desconocimiento y explicación</h3>
+                    <p data-i18n="prob2_body">La ausencia de conocimiento es frecuentemente reemplazada por narrativas no verificables en lugar de investigación.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-icon">⚖️</div>
-                    <h3>Falta de criterios de validación</h3>
-                    <p>No existe una adopción generalizada de estándares claros para distinguir entre conocimiento, creencia y especulación.</p>
+                    <h3 data-i18n="prob3_title">Falta de criterios de validación</h3>
+                    <p data-i18n="prob3_body">No existe una adopción generalizada de estándares claros para distinguir entre conocimiento, creencia y especulación.</p>
                 </div>
             </div>
         </div>
@@ -192,35 +206,35 @@
          ═══════════════════════════════════════════ -->
     <section id="que-es" class="section que-es-section">
         <div class="container">
-            <span class="section-label reveal">Distinción y Alcance</span>
-            <h2 class="section-title reveal">Qué es Neosys Aeon.<br><span class="text-accent">Y qué no es.</span></h2>
+            <span class="section-label reveal" data-i18n="dist_label">Distinción y Alcance</span>
+            <h2 class="section-title reveal" data-i18n="dist_title">Qué es Neosys Aeon.<br><span class="text-accent">Y qué no es.</span></h2>
 
             <div class="distinction-grid">
                 <div class="distinction-col">
-                    <h3 class="distinction-header is reveal">✨ Lo que ES</h3>
+                    <h3 class="distinction-header is reveal" data-i18n="dist_is_header">✨ Lo que ES</h3>
                     <ul class="distinction-list reveal">
-                        <li><strong>Abierto:</strong> no pertenece a ninguna entidad</li>
-                        <li><strong>No dogmático:</strong> sus principios pueden ser cuestionados</li>
-                        <li><strong>Basado en evidencia:</strong> prioriza validación empírica</li>
-                        <li><strong>Escalable:</strong> aplicable a nivel individual y colectivo</li>
-                        <li><strong>Voluntario:</strong> su adopción es libre</li>
-                        <li><strong>Una herramienta:</strong> su valor depende de su aplicación</li>
+                        <li data-i18n="dist_is_1"><strong>Abierto:</strong> no pertenece a ninguna entidad</li>
+                        <li data-i18n="dist_is_2"><strong>No dogmático:</strong> sus principios pueden ser cuestionados</li>
+                        <li data-i18n="dist_is_3"><strong>Basado en evidencia:</strong> prioriza validación empírica</li>
+                        <li data-i18n="dist_is_4"><strong>Escalable:</strong> aplicable a nivel individual y colectivo</li>
+                        <li data-i18n="dist_is_5"><strong>Voluntario:</strong> su adopción es libre</li>
+                        <li data-i18n="dist_is_6"><strong>Una herramienta:</strong> su valor depende de su aplicación</li>
                     </ul>
                 </div>
                 <div class="distinction-col">
-                    <h3 class="distinction-header not reveal">✕ Lo que NO es</h3>
+                    <h3 class="distinction-header not reveal" data-i18n="dist_not_header">✕ Lo que NO es</h3>
                     <ul class="distinction-list not reveal">
-                        <li>No es una <strong>religión</strong> — no requiere fe ni propone entidades sobrenaturales</li>
-                        <li>No es un <strong>sistema de creencias</strong> — no exige aceptación sin validación</li>
-                        <li>No es una <strong>organización</strong> — no tiene jerarquías ni liderazgo central</li>
-                        <li>No es un <strong>producto</strong> — no tiene fines comerciales ni barreras de acceso</li>
-                        <li>No <strong>reemplaza</strong> la ciencia — funciona como marco integrador</li>
+                        <li data-i18n="dist_not_1">No es una <strong>religión</strong> — no requiere fe ni propone entidades sobrenaturales</li>
+                        <li data-i18n="dist_not_2">No es un <strong>sistema de creencias</strong> — no exige aceptación sin validación</li>
+                        <li data-i18n="dist_not_3">No es una <strong>organización</strong> — no tiene jerarquías ni liderazgo central</li>
+                        <li data-i18n="dist_not_4">No es un <strong>producto</strong> — no tiene fines comerciales ni barreras de acceso</li>
+                        <li data-i18n="dist_not_5">No <strong>reemplaza</strong> la ciencia — funciona como marco integrador</li>
                     </ul>
                 </div>
             </div>
 
             <div class="distinction-quote reveal">
-                <blockquote>
+                <blockquote data-i18n="dist_quote">
                     "No ofrece respuestas finales. Ofrece un marco para acercarse a ellas.<br>
                     No promete certeza. Propone claridad."
                 </blockquote>
@@ -235,12 +249,12 @@
         <div class="container">
             <div class="whitepaper-block reveal">
                 <div class="whitepaper-info">
-                    <span class="section-label">Documento Fundacional</span>
-                    <h2 class="section-title">Whitepaper<br><span class="text-accent">Neosys Aeon v1.0</span></h2>
-                    <p class="whitepaper-desc">El documento completo que detalla el marco conceptual, los 12 mandamientos, el problema que aborda y su naturaleza abierta.</p>
+                    <span class="section-label" data-i18n="wp_label">Documento Fundacional</span>
+                    <h2 class="section-title" data-i18n="wp_title">Whitepaper<br><span class="text-accent">Neosys Aeon v1.0</span></h2>
+                    <p class="whitepaper-desc" data-i18n="wp_desc">El documento completo que detalla el marco conceptual, los 12 mandamientos, el problema que aborda y su naturaleza abierta.</p>
                     <a href="neosysaeon-whitepaper.pdf" download class="btn btn-primary btn-download" id="download-pdf">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        Descargar Whitepaper PDF
+                        <span data-i18n="wp_btn">Descargar Whitepaper PDF</span>
                     </a>
                 </div>
                 <div class="whitepaper-preview">
@@ -266,24 +280,24 @@
          ═══════════════════════════════════════════ -->
     <section id="unete" class="section unete-section">
         <div class="container">
-            <span class="section-label reveal">Sé Parte</span>
-            <h2 class="section-title reveal">Únete al Movimiento<br><span class="text-accent">#NeosysAeon</span></h2>
-            <p class="section-desc reveal">No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia y porta el símbolo ✨ como declaración.</p>
+            <span class="section-label reveal" data-i18n="join_label">Sé Parte</span>
+            <h2 class="section-title reveal" data-i18n="join_title">Únete al Movimiento<br><span class="text-accent">#NeosysAeon</span></h2>
+            <p class="section-desc reveal" data-i18n="join_desc">No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia y porta el símbolo ✨ como declaración.</p>
 
             <div class="join-card reveal">
                 <div class="join-form-side">
-                    <h3>Genera tu Badge ✨</h3>
-                    <p>Ingresa tu nombre para crear tu insignia digital del movimiento. Compártela con <strong>#NeosysAeon</strong></p>
+                    <h3 data-i18n="join_badge_title">Genera tu Badge ✨</h3>
+                    <p data-i18n="join_badge_desc">Ingresa tu nombre para crear tu insignia digital del movimiento. Compártela con <strong>#NeosysAeon</strong></p>
                     <form id="badge-form">
-                        <input type="text" id="badge-name" placeholder="Tu nombre" required maxlength="30">
-                        <button type="submit" class="btn btn-primary">Generar Badge</button>
+                        <input type="text" id="badge-name" data-i18n-placeholder="join_placeholder" placeholder="Tu nombre" required maxlength="30">
+                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate">Generar Badge</button>
                     </form>
                 </div>
                 <div class="join-badge-side">
                     <canvas id="badge-canvas" width="600" height="340"></canvas>
                     <button class="btn btn-glass btn-save-badge" id="save-badge" style="display:none;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        Guardar Badge
+                        <span data-i18n="join_btn_save">Guardar Badge</span>
                     </button>
                 </div>
             </div>
@@ -297,23 +311,21 @@
         <div class="container">
             <div class="conexion-block reveal">
                 <div class="conexion-text">
-                    <span class="section-label">De la Filosofía a la Acción</span>
-                    <h2 class="section-title">Neosys Aeon da el <em>por qué</em>.<br><span class="text-accent">JovenesSTEM da el <em>cómo</em>.</span></h2>
-                    <p>Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.</p>
-                    <p>Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.</p>
+                    <span class="section-label" data-i18n="con_label">De la Filosofía a la Acción</span>
+                    <h2 class="section-title" data-i18n="con_title">Neosys Aeon da el <em>por qué</em>.<br><span class="text-accent">JovenesSTEM da el <em>cómo</em>.</span></h2>
+                    <p data-i18n="con_p1">Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.</p>
+                    <p data-i18n="con_p2">Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.</p>
                     <div class="conexion-links">
-                        <a href="https://yepzhi.com/jovenesstem/" target="_blank" class="btn btn-glass">
-                            🚀 Conoce JovenesSTEM
-                        </a>
+                        <a href="https://yepzhi.com/jovenesstem/" target="_blank" class="btn btn-glass" data-i18n="con_btn">🚀 Conoce JovenesSTEM</a>
                     </div>
                 </div>
                 <div class="conexion-visual">
                     <div class="conexion-diagram">
-                        <div class="diagram-node node-nsa">✨<br><span>Neosys Aeon</span><br><small>Marco filosófico</small></div>
+                        <div class="diagram-node node-nsa">✨<br><span>Neosys Aeon</span><br><small data-i18n="con_node1">Marco filosófico</small></div>
                         <div class="diagram-arrow">→</div>
-                        <div class="diagram-node node-jstem">🚀<br><span>JovenesSTEM</span><br><small>Programa aplicado</small></div>
+                        <div class="diagram-node node-jstem">🚀<br><span>JovenesSTEM</span><br><small data-i18n="con_node2">Programa aplicado</small></div>
                         <div class="diagram-arrow">→</div>
-                        <div class="diagram-node node-bb">📘<br><span>BlueBook</span><br><small>Currículo STEM</small></div>
+                        <div class="diagram-node node-bb">📘<br><span>BlueBook</span><br><small data-i18n="con_node3">Currículo STEM</small></div>
                     </div>
                 </div>
             </div>
@@ -327,7 +339,7 @@
         <div class="container">
             <div class="footer-declaration reveal">
                 <span class="footer-sparkle">✨</span>
-                <p class="footer-quote">
+                <p class="footer-quote" data-i18n="footer_quote">
                     Neosys Aeon es un marco abierto para la comprensión de la realidad.<br>
                     No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br>
                     <strong>Es una herramienta.</strong><br>
@@ -336,11 +348,12 @@
             </div>
             <div class="footer-bottom">
                 <p class="footer-tag">#NeosysAeon</p>
-                <p class="footer-copy">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p class="footer-copy" data-i18n="footer_copy">Marco abierto. Sin propietarios. Sin barreras.</p>
             </div>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

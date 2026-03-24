@@ -1,7 +1,52 @@
 /* ═══════════════════════════════════════════
    NEOSYS AEON — App Logic
-   Particles / Reveal / Badge / Nav
+   Particles / Reveal / Badge / Nav / i18n
    ═══════════════════════════════════════════ */
+
+// ── Language System ───────────────────────
+let currentLang = 'es';
+
+function applyLanguage(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+    if (!t) return;
+
+    // Apply data-i18n text
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+            el.innerHTML = t[key];
+        }
+    });
+
+    // Apply data-i18n-placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] !== undefined) {
+            el.placeholder = t[key];
+        }
+    });
+
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Redraw badge with current language
+    const nameInput = document.getElementById('badge-name');
+    if (nameInput) {
+        drawBadge(nameInput.value.trim() || (t.join_placeholder || 'Tu nombre'));
+    }
+
+    document.documentElement.lang = lang === 'cn' ? 'zh-Hant' : lang;
+}
+
+// Init language buttons
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang);
+    });
+});
 
 // ── Particle Canvas ───────────────────────
 (function initParticles() {
@@ -67,9 +112,8 @@
 // ── Scroll Reveal ─────────────────────────
 (function initReveal() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Stagger the reveal of sibling elements
                 const siblings = entry.target.parentElement.querySelectorAll('.reveal');
                 let index = Array.from(siblings).indexOf(entry.target);
                 setTimeout(() => {
@@ -97,12 +141,10 @@
         }
     });
 
-    // Mobile toggle
     if (toggle && links) {
         toggle.addEventListener('click', () => {
             links.classList.toggle('open');
         });
-        // Close on link click
         links.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 links.classList.remove('open');
@@ -110,7 +152,6 @@
         });
     }
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', (e) => {
             e.preventDefault();
@@ -123,84 +164,86 @@
 })();
 
 // ── Badge Generator ───────────────────────
+function drawBadge(name) {
+    const canvas = document.getElementById('badge-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+
+    const t = translations[currentLang] || translations.es;
+    
+    // Background
+    const bg = ctx.createLinearGradient(0, 0, w, h);
+    bg.addColorStop(0, '#0a0a1a');
+    bg.addColorStop(0.5, '#12122e');
+    bg.addColorStop(1, '#0a0a1a');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+
+    // Border
+    ctx.strokeStyle = 'rgba(167, 139, 250, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(4, 4, w - 8, h - 8, 16);
+    ctx.stroke();
+
+    // Top accent line
+    const accent = ctx.createLinearGradient(0, 0, w, 0);
+    accent.addColorStop(0, '#a78bfa');
+    accent.addColorStop(1, '#7dd3fc');
+    ctx.fillStyle = accent;
+    ctx.fillRect(20, 4, w - 40, 2);
+
+    // Sparkle
+    ctx.font = '40px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('✨', w / 2, 65);
+
+    // Title
+    ctx.font = '600 18px Inter, sans-serif';
+    ctx.fillStyle = '#a78bfa';
+    ctx.fillText('NEOSYS AEON', w / 2, 100);
+
+    // Divider
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
+    ctx.fillRect(w / 2 - 40, 115, 80, 1);
+
+    // Name
+    ctx.font = '800 28px Inter, sans-serif';
+    ctx.fillStyle = '#f5f5f7';
+    ctx.fillText(name.toUpperCase(), w / 2, 160);
+
+    // Member label
+    ctx.font = '500 12px monospace';
+    ctx.fillStyle = 'rgba(245, 245, 247, 0.4)';
+    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, 195);
+
+    // Tagline
+    ctx.font = 'italic 500 14px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(245, 245, 247, 0.5)';
+    ctx.fillText(t.join_badge_tagline || '"No exige creencia. Exige coherencia."', w / 2, 240);
+
+    // Hashtag
+    ctx.font = '700 16px monospace';
+    ctx.fillStyle = '#a78bfa';
+    ctx.fillText('#NeosysAeon', w / 2, 280);
+
+    // Corner sparkles
+    ctx.font = '16px serif';
+    ctx.fillText('✨', 30, 30);
+    ctx.fillText('✨', w - 30, 30);
+    ctx.fillText('✨', 30, h - 15);
+    ctx.fillText('✨', w - 30, h - 15);
+}
+
 (function initBadge() {
     const form = document.getElementById('badge-form');
-    const canvas = document.getElementById('badge-canvas');
     const saveBtn = document.getElementById('save-badge');
+    const canvas = document.getElementById('badge-canvas');
     if (!form || !canvas) return;
 
-    const ctx = canvas.getContext('2d');
-
-    // Draw default badge
     drawBadge('Tu Nombre');
-
-    function drawBadge(name) {
-        const w = canvas.width;
-        const h = canvas.height;
-        
-        // Background
-        const bg = ctx.createLinearGradient(0, 0, w, h);
-        bg.addColorStop(0, '#0a0a1a');
-        bg.addColorStop(0.5, '#12122e');
-        bg.addColorStop(1, '#0a0a1a');
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, w, h);
-
-        // Border
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.4)';
-        ctx.lineWidth = 2;
-        ctx.roundRect(4, 4, w - 8, h - 8, 16);
-        ctx.stroke();
-
-        // Top accent line
-        const accent = ctx.createLinearGradient(0, 0, w, 0);
-        accent.addColorStop(0, '#a78bfa');
-        accent.addColorStop(1, '#7dd3fc');
-        ctx.fillStyle = accent;
-        ctx.fillRect(20, 4, w - 40, 2);
-
-        // Sparkle emoji
-        ctx.font = '40px serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('✨', w / 2, 65);
-
-        // Title
-        ctx.font = '600 18px Inter, sans-serif';
-        ctx.fillStyle = '#a78bfa';
-        ctx.letterSpacing = '3px';
-        ctx.fillText('NEOSYS AEON', w / 2, 100);
-
-        // Divider
-        ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
-        ctx.fillRect(w / 2 - 40, 115, 80, 1);
-
-        // Name
-        ctx.font = '800 28px Inter, sans-serif';
-        ctx.fillStyle = '#f5f5f7';
-        ctx.fillText(name.toUpperCase(), w / 2, 160);
-
-        // Member label
-        ctx.font = '500 12px "JetBrains Mono", monospace';
-        ctx.fillStyle = 'rgba(245, 245, 247, 0.4)';
-        ctx.fillText('MIEMBRO DEL MOVIMIENTO', w / 2, 195);
-
-        // Tagline
-        ctx.font = 'italic 500 14px Inter, sans-serif';
-        ctx.fillStyle = 'rgba(245, 245, 247, 0.5)';
-        ctx.fillText('"No exige creencia. Exige coherencia."', w / 2, 240);
-
-        // Hashtag
-        ctx.font = '700 16px "JetBrains Mono", monospace';
-        ctx.fillStyle = '#a78bfa';
-        ctx.fillText('#NeosysAeon', w / 2, 280);
-
-        // Subtle corner sparkles
-        ctx.font = '16px serif';
-        ctx.fillText('✨', 30, 30);
-        ctx.fillText('✨', w - 30, 30);
-        ctx.fillText('✨', 30, h - 15);
-        ctx.fillText('✨', w - 30, h - 15);
-    }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
