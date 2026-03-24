@@ -254,6 +254,10 @@ img { max-width: 100%; display: block; }
     margin-bottom: 50px;
 }
 
+/* ── Utility Classes ────────────────────── */
+.text-center { text-align: center !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
 /* ── Reveal Animation ───────────────────── */
 .reveal {
     opacity: 0;
