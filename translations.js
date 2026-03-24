@@ -54,7 +54,7 @@ const translations = {
 
         // Problema (4 faults)
         prob_label: "¿Por qué existe?",
-        prob_title: "Cuatro fallas en la generación, validación y aplicación del conocimiento",
+        prob_title: "Cuatro fallas en la generación, validación<br><span class='text-accent'>y aplicación del conocimiento</span>",
         prob1_title: "⚡ Sustitución de evidencia por creencias",
         prob1_body: "Las conclusiones se forman con base en creencias convenientes en lugar de evidencia verificable.",
         prob2_title: "🔗 Ruptura entre conocimiento y aplicación",
@@ -239,7 +239,7 @@ const translations = {
         m12_body: "You will apply knowledge to improve life and transform reality.",
 
         prob_label: "Why does it exist?",
-        prob_title: "Four flaws in the generation, validation, and application of knowledge",
+        prob_title: "Four flaws in the generation, validation,<br><span class='text-accent'>and application of knowledge</span>",
         prob1_title: "⚡ Substitution of evidence with beliefs",
         prob1_body: "Conclusions are formed based on convenient beliefs rather than verifiable evidence.",
         prob2_title: "🔗 Breakdown between knowledge and application",
@@ -413,7 +413,7 @@ const translations = {
         m12_body: "你將運用知識改善生活，改變現實。",
 
         prob_label: "為什麼存在？",
-        prob_title: "知識生成、驗證和應用中的四個缺陷",
+        prob_title: "知識生成、驗證和應用中的<br><span class='text-accent'>四個缺陷</span>",
         prob1_title: "⚡ 用信仰取代證據",
         prob1_body: "結論是基於方便的信仰而非可驗證的證據形成的。",
         prob2_title: "🔗 知識與應用之間的崩潰",
