@@ -497,8 +497,44 @@ function drawBadge() {
         ctx.fillText(tagline, w / 2, taglineY);
     }
 
+    // Secondary descriptive tagline
+    const descY = hashY - 45;
+    ctx.font = 'italic 400 12px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(245, 245, 247, 0.45)';
+    const desc = t.join_badge_desc2 || 'Una propuesta para vivir en ciencia, frente a la pseudociencia.';
+    
+    // Auto-wrap the description to max 2 lines
+    const maxWidth = w - 60;
+    const words = desc.split(' ');
+    let line = '';
+    let line1 = '';
+    let line2 = '';
+    for(let n = 0; n < words.length; n++) {
+        let testLine = line + words[n] + ' ';
+        let metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+            if (!line1) {
+                line1 = line;
+                line = words[n] + ' ';
+            } else {
+                line2 = line;
+                break;
+            }
+        } else {
+            line = testLine;
+        }
+    }
+    if (!line1) line1 = line;
+    else if (!line2) line2 = line;
+    
+    if (line1 && line2) {
+        ctx.fillText(line1.trim(), w / 2, descY - 14);
+        ctx.fillText(line2.trim(), w / 2, descY);
+    } else {
+        ctx.fillText(line1.trim(), w / 2, descY);
+    }
+
     // Hashtag
-    const hashY = h - 55;
     ctx.font = '700 18px monospace';
     ctx.fillStyle = '#a78bfa';
     ctx.fillText('#NeosysAeon  #ThinkWithEvidence', w / 2, hashY);
@@ -566,6 +602,7 @@ function drawBadge() {
         const emailInput = document.getElementById('badge-email');
         const phoneInput = document.getElementById('badge-phone');
         const socialInput = document.getElementById('badge-social');
+        const cityInput = document.getElementById('badge-city');
         const countryInput = document.getElementById('badge-country');
         const stateInput = document.getElementById('badge-state');
         
@@ -577,6 +614,7 @@ function drawBadge() {
         };
         if (phoneInput && phoneInput.value.trim()) memberData.phone = phoneInput.value.trim();
         if (socialInput && socialInput.value.trim()) memberData.social = socialInput.value.trim();
+        if (cityInput && cityInput.value.trim()) memberData.city = cityInput.value.trim();
         if (countryInput && countryInput.value) memberData.country = countryInput.value;
         if (stateInput && stateInput.value) memberData.state = stateInput.value;
 

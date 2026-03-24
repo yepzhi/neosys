@@ -184,7 +184,9 @@ const translations = {
         comm_tab_directory: "Directorio",
         comm_tab_map: "Mapa",
         comm_join_btn: "✨ Únete al movimiento",
-        join_privacy_note: "Tu nombre, ubicación y red social aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
+        join_privacy_note: "Tu nombre, dónde vives y red social aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
+        join_city: "Ciudad",
+        join_badge_desc2: "Una propuesta para vivir en ciencia, frente a la pseudociencia y la información no verificable mediante el método científico.",
 
         // Footer
         coll_title: "¿Te gustaría colaborar o mejorar esta iniciativa?",
@@ -364,7 +366,9 @@ const translations = {
         comm_tab_directory: "Directory",
         comm_tab_map: "Map",
         comm_join_btn: "✨ Join the movement",
-        join_privacy_note: "Your name, location, and social media will appear publicly in the Community section. Your email and phone are private.",
+        join_privacy_note: "Your name, where you live, and social media will appear publicly in the Community section. Your email and phone are private.",
+        join_city: "City",
+        join_badge_desc2: "A proposal to live in science, against pseudoscience and information that cannot be verified through the scientific method.",
 
         coll_title: "Would you like to collaborate or improve this initiative?",
         coll_desc: "Send us your feedback, ideas, or write directly to join the effort to promote evidence-based thinking.",
@@ -544,7 +548,9 @@ const translations = {
         comm_tab_directory: "目录",
         comm_tab_map: "地圖",
         comm_join_btn: "✨ 加入運動",
-        join_privacy_note: "您的姓名、位置和社交媒體將公開顯示在社區欄中。您的電子郵件和電話是私密的。",
+        join_privacy_note: "您的姓名、居住地和社交媒體將公開顯示在社區欄中。您的電子郵件和電話是私密的。",
+        join_city: "城市",
+        join_badge_desc2: "一项主张活在科学中，反对伪科学和无法通过科学方法验证的信息的提议。",
 
         coll_title: "您想合作或改進這個倡議嗎？",
         coll_desc: "發送您的反饋、想法或直接寫信加入我們，以推廣基於證據的思維。",

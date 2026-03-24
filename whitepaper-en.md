@@ -71,7 +71,7 @@ The system integrates critical thinking, the scientific method, and practical ap
 
 ### 1. Introduction
 
-Human progress has been driven by the ability to understand reality and act accordingly. Science allows for the explanation of phenomena through observation, measurement, and validation.
+The scientific method is the greatest discovery humanity has ever made to understand reality and separate truth from belief. Human progress has been driven by this ability to comprehend the objective environment and act accordingly. Science allows for the explanation of phenomena through observation, measurement, and empirical validation.
 
 However, the massive availability of information has not resulted in a proportional improvement in understanding. We observe:
 - Increase in misinformation.
