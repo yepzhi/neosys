@@ -32,11 +32,61 @@ try {
     console.warn("Firebase no inicializado aún:", e);
 }
 
+// ═══════════════════════════════════════════
+// STATE LISTS FOR USA & MEXICO
+// ═══════════════════════════════════════════
+const statesMX = [
+    'Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua',
+    'Ciudad de México','Coahuila','Colima','Durango','Estado de México','Guanajuato','Guerrero',
+    'Hidalgo','Jalisco','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla',
+    'Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas',
+    'Tlaxcala','Veracruz','Yucatán','Zacatecas'
+];
+
+const statesUS = [
+    'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware',
+    'Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky',
+    'Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi',
+    'Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico',
+    'New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania',
+    'Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
+    'Virginia','Washington','West Virginia','Wisconsin','Wyoming'
+];
+
+// ── Country/State Selector Logic ──────────
+(function initLocationSelector() {
+    const countrySelect = document.getElementById('badge-country');
+    const stateSelect = document.getElementById('badge-state');
+    if (!countrySelect || !stateSelect) return;
+
+    countrySelect.addEventListener('change', () => {
+        const country = countrySelect.value;
+        stateSelect.innerHTML = '';
+        if (country === 'MX' || country === 'US') {
+            const states = country === 'MX' ? statesMX : statesUS;
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = '';
+            defaultOpt.textContent = country === 'MX' ? 'Selecciona tu estado' : 'Select your state';
+            stateSelect.appendChild(defaultOpt);
+            states.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s;
+                opt.textContent = s;
+                stateSelect.appendChild(opt);
+            });
+            stateSelect.style.display = 'block';
+            stateSelect.required = true;
+        } else {
+            stateSelect.style.display = 'none';
+            stateSelect.required = false;
+        }
+    });
+})();
+
 function loadCommunity() {
     const list = document.getElementById('community-list');
     if (!list || !db) return;
     
-    // Si sigue con la configuración por defecto, mostramos un aviso
     if (firebaseConfig.projectId === "YOUR_PROJECT_ID") {
         list.innerHTML = `<p style="color: var(--accent); width: 100%;">Pendiente de conectar a Firebase</p>
         <div class="community-member"><div class="member-dot"></div>Carlos G.</div>
@@ -59,10 +109,35 @@ function loadCommunity() {
             const dot = document.createElement('div');
             dot.className = 'member-dot';
             
-            const txt = document.createTextNode(data.name || 'Constructor Anónimo');
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'member-name';
+            nameSpan.textContent = data.name || 'Constructor Anónimo';
             
             el.appendChild(dot);
-            el.appendChild(txt);
+            el.appendChild(nameSpan);
+
+            // Show location if available
+            if (data.country) {
+                const locSpan = document.createElement('span');
+                locSpan.className = 'member-location';
+                const countryEl = document.getElementById('badge-country');
+                let countryName = data.country;
+                if (countryEl) {
+                    const opt = countryEl.querySelector(`option[value="${data.country}"]`);
+                    if (opt) countryName = opt.textContent;
+                }
+                locSpan.textContent = data.state ? `${data.state}, ${countryName}` : countryName;
+                el.appendChild(locSpan);
+            }
+
+            // Show social handle if available
+            if (data.social) {
+                const socialSpan = document.createElement('span');
+                socialSpan.className = 'member-social';
+                socialSpan.textContent = data.social;
+                el.appendChild(socialSpan);
+            }
+
             list.appendChild(el);
         });
         
@@ -464,15 +539,26 @@ function drawBadge() {
         
         const nameInput = document.getElementById('badge-name');
         const emailInput = document.getElementById('badge-email');
+        const phoneInput = document.getElementById('badge-phone');
+        const socialInput = document.getElementById('badge-social');
+        const countryInput = document.getElementById('badge-country');
+        const stateInput = document.getElementById('badge-state');
         
+        // Build member data
+        const memberData = {
+            name: nameInput ? nameInput.value : '',
+            email: emailInput ? emailInput.value : '',
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        };
+        if (phoneInput && phoneInput.value.trim()) memberData.phone = phoneInput.value.trim();
+        if (socialInput && socialInput.value.trim()) memberData.social = socialInput.value.trim();
+        if (countryInput && countryInput.value) memberData.country = countryInput.value;
+        if (stateInput && stateInput.value) memberData.state = stateInput.value;
+
         // Guardar a Firebase
         if (db && firebaseConfig.projectId !== "YOUR_PROJECT_ID" && nameInput && emailInput) {
             try {
-                await db.collection('miembros').add({
-                    name: nameInput.value,
-                    email: emailInput.value, // Sugerencia: En Firebase Rules, no permitas la lectura pública de este array; restringe la UI a solo leer nombres.
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                });
+                await db.collection('miembros').add(memberData);
             } catch (err) {
                 console.error("Error al registrar miembro:", err);
             }
