@@ -485,14 +485,14 @@ function drawBadge() {
     });
 
     // ── Share helpers ──
-    const shareText = '✨ Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
     const shareUrl = 'https://yepzhi.com/neosys/';
 
     // Copiar Texto
     const copyBtn = document.getElementById('share-copy');
     if (copyBtn) {
         copyBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(shareText).then(() => {
+            const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
+            navigator.clipboard.writeText(textToShare).then(() => {
                 const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
                 alert(isEs ? 'Texto copiado. ¡Listo para pegar!' : 'Text copied. Ready to paste!');
             });
@@ -503,28 +503,31 @@ function drawBadge() {
     const igBtn = document.getElementById('share-instagram');
     if (igBtn) {
         igBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(shareText).then(() => {
+            const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
+            navigator.clipboard.writeText(textToShare).then(() => {
                 const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
-                alert(isEs ? 'Texto copiado.\n\nAbre Instagram y pega el texto al compartir tu Gafete guardado.' : 'Text copied.\n\nOpen Instagram and paste the text when sharing your saved Badge.');
+                alert(isEs ? 'Texto copiado.\n\nAbre Instagram y pega el texto al compartir tu Gafete descargado.' : 'Text copied.\n\nOpen Instagram and paste the text when sharing your saved Badge.');
             });
         });
     }
 
     // Twitter/X
     document.getElementById('share-twitter').addEventListener('click', () => {
-        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToShare)}`;
         window.open(url, '_blank');
     });
 
     // Facebook
     document.getElementById('share-facebook').addEventListener('click', () => {
-        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
         window.open(url, '_blank');
     });
 
     // WhatsApp
     document.getElementById('share-whatsapp').addEventListener('click', () => {
-        const url = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+        const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
+        const url = `https://wa.me/?text=${encodeURIComponent(textToShare)}`;
         window.open(url, '_blank');
     });
 
@@ -541,7 +544,7 @@ function drawBadge() {
 
                 const shareData = {
                     title: 'Neosys Aeon ✨',
-                    text: shareText,
+                    text: t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/',
                     url: shareUrl
                 };
 

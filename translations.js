@@ -103,7 +103,7 @@ const translations = {
         // Whitepaper
         wp_label: "Documento Fundacional",
         wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
-        wp_desc: "El documento completo que detalla el marco conceptual, los 12 mandamientos, la integración STEM, las implicaciones civilizatorias y su naturaleza abierta.",
+        wp_desc: "Un marco abierto para entender la realidad a través de evidencia verificable.",
         wp_btn: "Descargar Whitepaper PDF",
 
         // Únete
@@ -114,9 +114,10 @@ const translations = {
         join_badge_desc: "Sube tu foto, escribe tu nombre y correo para crear tu gafete digital y unirte a la base de constructores. Compártelo con <strong>#NeosysAeon</strong>",
         join_placeholder: "Tu nombre",
         join_email: "Tu correo electrónico",
-        join_btn_generate: "Generar y Registrar",
+        join_btn_generate: "Genera y Descarga",
         join_btn_save: "Guardar",
         join_btn_share: "Compartir",
+        join_share_text: "Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/",
         join_upload_text: "Toca para subir tu foto",
         join_badge_member: "MIEMBRO DEL MOVIMIENTO",
         join_badge_tagline: "\"Sin ciencia no hay verdad. Sin validación no hay progreso.\"",
@@ -285,7 +286,7 @@ const translations = {
 
         wp_label: "Founding Document",
         wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
-        wp_desc: "The complete document detailing the conceptual framework, the 12 commandments, STEM integration, civilizational implications, and its open nature.",
+        wp_desc: "An open framework to understand reality through verifiable evidence.",
         wp_btn: "Download Whitepaper PDF",
 
         join_label: "Be Part",
@@ -295,9 +296,10 @@ const translations = {
         join_badge_desc: "Upload your photo, enter your name and email to create your digital badge and join the builders base. Share it with <strong>#NeosysAeon</strong>",
         join_placeholder: "Your name",
         join_email: "Your email address",
-        join_btn_generate: "Generate & Register",
+        join_btn_generate: "Generate & Download",
         join_btn_save: "Save",
         join_btn_share: "Share",
+        join_share_text: "I am part of the #NeosysAeon movement #ThinkWithEvidence — Without science there is no truth. Without validation there is no progress. https://yepzhi.com/neosys/",
         join_upload_text: "Tap to upload your photo",
         join_badge_member: "MEMBER OF THE MOVEMENT",
         join_badge_tagline: "\"Without science there is no truth. Without validation there is no progress.\"",
@@ -458,7 +460,7 @@ const translations = {
 
         wp_label: "創始文件",
         wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
-        wp_desc: "詳細說明概念框架、十二誡命、STEM整合、文明影響及其開放性質的完整文件。",
+        wp_desc: "一個透過可驗證證據來理解現實的開放框架。",
         wp_btn: "下載白皮書 PDF",
 
         join_label: "成為一員",
@@ -468,9 +470,10 @@ const translations = {
         join_badge_desc: "上傳您的照片，輸入您的姓名和電子郵件，以創建您的數字徽章並加入建設者基地。 使用 <strong>#NeosysAeon</strong> 分享",
         join_placeholder: "你的名字",
         join_email: "您的電子郵件地址",
-        join_btn_generate: "生成並註冊",
+        join_btn_generate: "生成並下載",
         join_btn_save: "保存",
         join_btn_share: "分享",
+        join_share_text: "我是 #NeosysAeon 運動的一部分 #ThinkWithEvidence — 沒有科學就沒有真理。沒有驗證就沒有進步。 https://yepzhi.com/neosys/",
         join_upload_text: "點擊上傳你的照片",
         join_badge_member: "運動成員",
         join_badge_tagline: "\"沒有科學就沒有真理。沒有驗證就沒有進步。\"",
