@@ -242,7 +242,7 @@ Aplicarás el conocimiento para mejorar la vida y transformar la realidad.
   
 **Declaración Final**  
   
-**Neosys Aeon es un marco abierto para la comprensión, aplicación y transformación de la realidad.**  
+**Neosys Aeon es un marco abierto para la comprensión, aplicación y construcción de la realidad.**  
   
 **No es una autoridad.**  
 **No es una doctrina cerrada.**  

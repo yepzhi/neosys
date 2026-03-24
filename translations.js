@@ -184,7 +184,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon es un marco abierto para la comprensión, aplicación y transformación de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
+        footer_quote: "Neosys Aeon es un marco abierto para la comprensión, aplicación y construcción de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -355,7 +355,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon is an open framework for the understanding, application, and transformation of reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
+        footer_quote: "Neosys Aeon is an open framework for the understanding, application, and construction of reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -527,7 +527,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon 是一個用於理解、應用和改變現實的開放框架。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
+        footer_quote: "Neosys Aeon 是一個用於理解、應用和建設現實的開放框架。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
 };
