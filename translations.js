@@ -134,7 +134,7 @@ const translations = {
         // Acércate (Outreach)
         out_label: "Divulgación",
         out_title: "Acércate a la <span class='text-accent'>Ciencia</span>",
-        out_desc: "Expande tu mente con estos canales y organizaciones que hacen la ciencia accesible.",
+        out_desc: "Haz clic para conocer Series, Libros y Canales de YouTube que promueven activamente la ciencia y el método científico.",
         outreach_categories: [
             {
                 id: "youtube",
@@ -312,7 +312,7 @@ const translations = {
 
         out_label: "Outreach",
         out_title: "Get closer to <span class='text-accent'>Science</span>",
-        out_desc: "Expand your mind with these channels and organizations that make science accessible.",
+        out_desc: "Click to discover Series, Books, and YouTube channels that actively promote science and the scientific method.",
         outreach_categories: [
             {
                 id: "youtube",
@@ -485,7 +485,7 @@ const translations = {
 
         out_label: "科學普及",
         out_title: "深入了解 <span class='text-accent'>科學</span>",
-        out_desc: "通過這些普及科學的頻道和組織擴展你的視野。",
+        out_desc: "點擊了解積極推廣科學和科學方法的系列節目、書籍和 YouTube 頻道。",
         outreach_categories: [
             {
                 id: "youtube",
