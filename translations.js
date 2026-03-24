@@ -377,7 +377,7 @@ const translations = {
         manifesto_label: "宣言",
         manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來。</span>",
         manifesto_desc: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提倡整合並改進兩者。",
-        manifesto_p1: "科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
+        manifesto_p1: "✨ 科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
         manifesto_p2: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提出將兩者整合。",
         manifesto_p3: "這不是一個信仰體系。這是一個應用型理解系統——<strong>宇宙誡命</strong>——旨在優先考慮真理、通過證據驗證，並將知識轉化為切實的進步。",
 
