@@ -87,22 +87,22 @@ Neosys Aeon emerges as a framework to correct this deviation: **aligning thought
 
 Four flaws in the generation, validation, and application of knowledge
 
----
+***
 
 **Substitution of evidence with beliefs**
 Conclusions are formed based on convenient beliefs rather than verifiable evidence.
 
----
+***
 
 **Breakdown between knowledge and application**
 Knowledge does not translate into effective action or measurable results.
 
----
+***
 
 **Lack of rigorous validation**
 Claims are not subjected to systematic verification processes.
 
----
+***
 
 **Disconnection between knowledge and value**
 Validated knowledge is not integrated into decision-making or value generation.

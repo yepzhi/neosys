@@ -87,22 +87,22 @@ Neosys Aeon surge como un marco para corregir esta desviación: **alinear el pen
 
 Cuatro fallas en la generación, validación y aplicación del conocimiento
 
-⸻
+***
 
 **Sustitución de evidencia por creencias**
 Las conclusiones se forman con base en creencias convenientes en lugar de evidencia verificable.
 
-⸻
+***
 
 **Ruptura entre conocimiento y aplicación**
 El conocimiento no se traduce en acción efectiva ni en resultados medibles.
 
-⸻
+***
 
 **Falta de validación rigurosa**
 Las afirmaciones no se someten a procesos sistemáticos de comprobación.
 
-⸻
+***
 
 **Desconexión entre conocimiento y valor**
 El conocimiento validado no se integra en la toma de decisiones ni en la generación de valor.
