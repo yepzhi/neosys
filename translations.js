@@ -8,7 +8,7 @@ const translations = {
 
         // Hero
         hero_tagline: "Sin ciencia no hay verdad. Sin validación no hay progreso.",
-        hero_subtitle: "Un marco abierto para transformar conocimiento científico en progreso tangible.",
+        hero_subtitle: "Un marco abierto para entender la realidad a través de evidencia verificable.",
         hero_btn_mandamientos: "Los 12 Mandamientos",
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explora",
@@ -139,7 +139,7 @@ const translations = {
         nav_unete: "Join",
 
         hero_tagline: "Without science there is no truth. Without validation there is no progress.",
-        hero_subtitle: "An open framework to transform scientific knowledge into tangible progress.",
+        hero_subtitle: "An open framework to understand reality through verifiable evidence.",
         hero_btn_mandamientos: "The 12 Commandments",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
@@ -261,7 +261,7 @@ const translations = {
         nav_unete: "加入",
 
         hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
-        hero_subtitle: "一個將科學知識轉化為切實進步的開放框架。",
+        hero_subtitle: "一個通過可驗證的證據來理解現實的開放框架。",
         hero_btn_mandamientos: "宇宙十二誡命",
         hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
