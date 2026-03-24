@@ -71,7 +71,7 @@ El sistema integra pensamiento crítico, método científico y aplicación prác
 
 ### 1. Introducción
 
-El método científico es el descubrimiento más grande que ha hecho la humanidad para entender la realidad y separar la verdad de la creencia. El progreso humano ha sido impulsado por esta capacidad de comprender el entorno objetivo y actuar en consecuencia. La ciencia permite la explicación de fenómenos a través de observación, medición y validación empírica.
+El método científico es el descubrimiento más grande que ha hecho la humanidad. Es la única herramienta sistemática y comprobada que nos permite distinguir la realidad objetiva de lo que deseamos creer. Mientras que las ideologías exigen fe ciega y los dogmas imponen verdades inamovibles, la ciencia abraza la duda, exige evidencia rigurosa, y tiene el coraje de corregirse a sí misma a la luz de nuevos datos. Es el verdadero motor detrás de todo el progreso tecnológico y civilizatorio moderno, impulsando nuestra capacidad de comprender el entorno objetivo y actuar en consecuencia.
 
 Sin embargo, la disponibilidad masiva de información no ha resultado en una mejora proporcional en la comprensión. Se observa:
 - Incremento en desinformación.

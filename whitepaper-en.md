@@ -71,7 +71,7 @@ The system integrates critical thinking, the scientific method, and practical ap
 
 ### 1. Introduction
 
-The scientific method is the greatest discovery humanity has ever made to understand reality and separate truth from belief. Human progress has been driven by this ability to comprehend the objective environment and act accordingly. Science allows for the explanation of phenomena through observation, measurement, and empirical validation.
+The scientific method is the greatest discovery humanity has ever made. It is the only systematic and proven tool that allows us to distinguish objective reality from what we simply wish to believe. While ideologies demand blind faith and dogmas impose unmovable truths, science embraces doubt, demands rigorous evidence, and has the courage to correct itself in light of new data. It is the true engine behind all modern technological and civilizational progress, driving our ability to comprehend the objective environment and act accordingly.
 
 However, the massive availability of information has not resulted in a proportional improvement in understanding. We observe:
 - Increase in misinformation.

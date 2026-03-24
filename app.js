@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.0.2';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.0.2';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.0.2';
         }
     }
 
