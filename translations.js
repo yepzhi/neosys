@@ -16,7 +16,8 @@ const translations = {
         hero_explore: "Explora",
 
         postulado_label: "El Postulado Fundamental",
-        postulado_desc: "El método científico es el único proceso sistemático que permite validar afirmaciones sobre la realidad de forma confiable.<br><br>No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso, es la base de todo avance tecnológico y del conocimiento que realmente funciona.",
+        postulado_title_new: "El método científico es el único proceso sistemático que permite validar afirmaciones sobre la realidad de forma confiable.",
+        postulado_desc_new: "No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso, es la base de todo avance tecnológico y del conocimiento que realmente funciona.",
 
         // Manifesto
         manifesto_label: "El Manifiesto",
@@ -216,7 +217,8 @@ const translations = {
         hero_explore: "Explore",
 
         postulado_label: "The Fundamental Postulate",
-        postulado_desc: "The scientific method is the only systematic process that allows for the reliable validation of claims about reality.<br><br>It does not protect ideas: it puts them to the test.<br>It does not depend on beliefs: it depends on evidence.<br><br>Therefore, it is the foundation of all technological advancement and of knowledge that truly works.",
+        postulado_title_new: "The scientific method is the only systematic process that allows for the reliable validation of claims about reality.",
+        postulado_desc_new: "It does not protect ideas: it puts them to the test.<br>It does not depend on beliefs: it depends on evidence.<br><br>Therefore, it is the foundation of all technological advancement and of knowledge that truly works.",
 
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
@@ -400,7 +402,8 @@ const translations = {
         hero_explore: "探索",
 
         postulado_label: "基本假设",
-        postulado_desc: "科学方法是唯一能够可靠验证现实主张的系统化过程。<br><br>它不保护观点：它对观点进行测试。<br>它不依赖于信仰：它依赖于证据。<br><br>因此，它是所有技术进步和真正有效知识的基础。",
+        postulado_title_new: "科学方法是唯一能够可靠验证现实主张的系统化过程。",
+        postulado_desc_new: "它不保护观点：它对观点进行测试。<br>它不依赖于信仰：它依赖于证据。<br><br>因此，它是所有技术进步和真正有效知识的基础。",
 
         // Manifesto
         manifesto_label: "宣言",
