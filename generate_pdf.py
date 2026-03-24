@@ -98,18 +98,20 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         # Heading Detection
         is_heading = False
         if para.startswith("### "):
+            if y_pos > margin_top + 30: # Force new page for major sections
+                new_page()
             fontname = bold_font
             fontsize = 12.5
             color = (0, 0, 0)
             para = para.replace("### ", "")
-            y_pos += 15
+            y_pos += 5
             alignment = 0
             is_heading = True
         elif para.startswith("## "):
             fontname = bold_font
             fontsize = 14
             para = para.replace("## ", "")
-            y_pos += 20
+            y_pos += 10
             alignment = 0
             is_heading = True
             
@@ -142,7 +144,8 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         try:
             rc = page.insert_textbox(rect, para_render, fontsize=fontsize, fontname=fontname, color=color, align=alignment)
             if rc >= 0:
-                y_pos += (rect.height - rc) + (14 if is_heading else (11 if is_commandment else 9))
+                # Tighten spacing: 12 for headings, 8 for commandments, 7 for body
+                y_pos += (rect.height - rc) + (12 if is_heading else (8 if is_commandment else 7))
             else:
                 new_page()
                 rect = fitz.Rect(margin_left, y_pos, page_width - margin_right, page_height - margin_bottom)
