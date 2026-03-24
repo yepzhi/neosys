@@ -1,4 +1,4 @@
-# Neosys Aeon Whitepaper v3.2 (EN)
+# Neosys Aeon Whitepaper v3.0 (EN)
 
 NEOSYS AEON
 
