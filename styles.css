@@ -1000,6 +1000,47 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
 }
 
+/* ── Comunidad Grid ───────────── */
+.community-grid {
+    background: rgba(5, 5, 16, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 30px;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.community-member {
+    background: var(--glass);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.community-member:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.15);
+}
+
+.member-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+}
+
 /* ═══════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════ */

@@ -34,6 +34,7 @@
             <a href="#que-es" data-i18n="nav_marco">Marco</a>
             <a href="#whitepaper" data-i18n="nav_whitepaper">Whitepaper</a>
             <a href="#acercate" data-i18n="nav_acercate">Acércate</a>
+            <a href="#comunidad" data-i18n="nav_comunidad">Comunidad</a>
             <a href="#unete" class="nav-cta" data-i18n="nav_unete">Únete</a>
         </div>
         <div class="lang-switcher">
@@ -363,7 +364,8 @@
                             <img id="photo-preview" class="photo-preview" style="display:none;" alt="preview">
                         </label>
                         <input type="text" id="badge-name" data-i18n-placeholder="join_placeholder" placeholder="Tu nombre" required maxlength="30">
-                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate">Generar Gafete</button>
+                        <input type="email" id="badge-email" data-i18n-placeholder="join_email" placeholder="Tu correo electrónico" required style="margin-top: 10px;">
+                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate" style="margin-top: 15px;">Generar y Registrar</button>
                     </form>
                 </div>
                 <div class="join-badge-side">
@@ -390,6 +392,21 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         COMUNIDAD
+         ═══════════════════════════════════════════ -->
+    <section id="comunidad" class="section comunidad-section">
+        <div class="container text-center">
+            <span class="section-label reveal" data-i18n="comm_label">Directorio Abierto</span>
+            <h2 class="section-title reveal" data-i18n="comm_title">Comunidad Neosys Aeon</h2>
+            <p class="section-desc reveal mx-auto" style="max-width: 600px;" data-i18n="comm_desc">Las mentes que han decidido unirse al movimiento y adoptar los principios de validación y evidencia.</p>
+            
+            <div id="community-list" class="community-grid reveal" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <p style="color: var(--text-tertiary); width: 100%;">Cargando base de datos...</p>
             </div>
         </div>
     </section>
@@ -464,6 +481,10 @@
         </div>
     </footer>
 
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
     <script src="translations.js"></script>
     <script src="app.js"></script>
     <!-- Default Statcounter code for yepzhi.com -->

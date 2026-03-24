@@ -4,7 +4,81 @@
    ═══════════════════════════════════════════ */
 
 // ── Language System ───────────────────────
-let currentLang = 'es';
+let actLang = localStorage.getItem('nsa_lang') || 'es';
+
+// ═══════════════════════════════════════════
+// FIREBASE CONFIGURATION
+// ═══════════════════════════════════════════
+// NOTA: Reemplazar este objeto con tus credenciales reales y habilitar Firestore.
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+let db = null;
+try {
+    if (typeof firebase !== 'undefined') {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.firestore();
+    }
+} catch (e) {
+    console.warn("Firebase no inicializado aún:", e);
+}
+
+function loadCommunity() {
+    const list = document.getElementById('community-list');
+    if (!list || !db) return;
+    
+    // Si sigue con la configuración por defecto, mostramos un aviso
+    if (firebaseConfig.projectId === "YOUR_PROJECT_ID") {
+        list.innerHTML = `<p style="color: var(--accent); width: 100%;">Pendiente de conectar a Firebase</p>
+        <div class="community-member"><div class="member-dot"></div>Carlos G.</div>
+        <div class="community-member"><div class="member-dot"></div>Ana P.</div>
+        <div class="community-member"><div class="member-dot"></div>Elena R.</div>`;
+        return;
+    }
+
+    db.collection('miembros').orderBy('timestamp', 'desc').limit(100).onSnapshot((snapshot) => {
+        list.innerHTML = '';
+        if (snapshot.empty) {
+            list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Sé el primero en unirte al directorio.</p>';
+            return;
+        }
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const el = document.createElement('div');
+            el.className = 'community-member reveal';
+            
+            const dot = document.createElement('div');
+            dot.className = 'member-dot';
+            
+            const txt = document.createTextNode(data.name || 'Constructor Anónimo');
+            
+            el.appendChild(dot);
+            el.appendChild(txt);
+            list.appendChild(el);
+        });
+        
+        setTimeout(() => {
+            if (window.revealObserver) {
+                list.querySelectorAll('.reveal').forEach(el => window.revealObserver.observe(el));
+            }
+        }, 50);
+    }, (error) => {
+        console.error("Error cargando comunidad:", error);
+        list.innerHTML = '<p style="color: #ef4444; width: 100%;">Inicia Firestore para ver el registro.</p>';
+    });
+}
+document.addEventListener('DOMContentLoaded', loadCommunity);
+
+// ═══════════════════════════════════════════
+let currentLang = actLang; // Keep currentLang for applyLanguage, initialized from actLang
 
 function applyLanguage(lang) {
     currentLang = lang;
@@ -376,8 +450,25 @@ function drawBadge() {
         nameInput.addEventListener('input', drawBadge);
     }
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        const nameInput = document.getElementById('badge-name');
+        const emailInput = document.getElementById('badge-email');
+        
+        // Guardar a Firebase
+        if (db && firebaseConfig.projectId !== "YOUR_PROJECT_ID" && nameInput && emailInput) {
+            try {
+                await db.collection('miembros').add({
+                    name: nameInput.value,
+                    email: emailInput.value, // Sugerencia: En Firebase Rules, no permitas la lectura pública de este array; restringe la UI a solo leer nombres.
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            } catch (err) {
+                console.error("Error al registrar miembro:", err);
+            }
+        }
+
         drawBadge();
         // Auto-download badge when generating
         canvas.toBlob((blob) => {

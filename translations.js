@@ -5,6 +5,7 @@ const translations = {
         nav_marco: "Marco",
         nav_whitepaper: "Whitepaper",
         nav_acercate: "Acércate",
+        nav_comunidad: "Comunidad",
         nav_unete: "Únete",
 
         // Hero
@@ -16,7 +17,8 @@ const translations = {
 
         // Manifesto
         manifesto_label: "El Manifiesto",
-        manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debes construir con lo que entiendes.</span>",
+        manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
+        manifesto_desc: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
         manifesto_p1: "La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
         manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone una integración de ambos.",
         manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
@@ -109,9 +111,10 @@ const translations = {
         join_title: "Únete al Movimiento<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia y porta el símbolo ✨ como declaración.",
         join_badge_title: "Genera tu Gafete ✨",
-        join_badge_desc: "Sube tu foto y escribe tu nombre para crear tu gafete digital del movimiento. Compártelo directo a redes con <strong>#NeosysAeon #ThinkWithEvidence</strong>",
+        join_badge_desc: "Sube tu foto, escribe tu nombre y correo para crear tu gafete digital y unirte a la base de constructores. Compártelo con <strong>#NeosysAeon</strong>",
         join_placeholder: "Tu nombre",
-        join_btn_generate: "Generar y Descargar",
+        join_email: "Tu correo electrónico",
+        join_btn_generate: "Generar y Registrar",
         join_btn_save: "Guardar",
         join_btn_share: "Compartir",
         join_upload_text: "Toca para subir tu foto",
@@ -171,6 +174,11 @@ const translations = {
             }
         ],
 
+        // Comunidad
+        comm_label: "Directorio Abierto",
+        comm_title: "Comunidad Neosys Aeon",
+        comm_desc: "Las mentes que han decidido unirse al movimiento y adoptar los principios de validación y evidencia.",
+
         // Footer
         coll_title: "¿Te gustaría colaborar o mejorar esta iniciativa?",
         coll_desc: "Envíanos tus comentarios, ideas o escribe directo para unirte al esfuerzo de promover el pensamiento basado en evidencia.",
@@ -186,6 +194,7 @@ const translations = {
         nav_marco: "Framework",
         nav_whitepaper: "Whitepaper",
         nav_acercate: "Get Closer",
+        nav_comunidad: "Community",
         nav_unete: "Join",
 
         hero_tagline: "Without science there is no truth. Without validation there is no progress.",
@@ -195,7 +204,8 @@ const translations = {
         hero_explore: "Explore",
 
         manifesto_label: "The Manifesto",
-        manifesto_title: "Understanding is not enough.<br><span class='text-accent'>You must build with what you understand.</span>",
+        manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
+        manifesto_desc: "Comprehension without application generates no impact. Action without comprehension generates error. Neosys Aeon proposes to integrate and improve both.",
         manifesto_p1: "Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
         manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes an integration of both.",
         manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
@@ -282,9 +292,10 @@ const translations = {
         join_title: "Join the Movement<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "No affiliation or formal registration required. Adopt the principles, live coherence, and carry the ✨ symbol as your declaration.",
         join_badge_title: "Generate your Badge ✨",
-        join_badge_desc: "Upload your photo and enter your name to create your digital badge for the movement. Share it directly to social media with <strong>#NeosysAeon #ThinkWithEvidence</strong>",
+        join_badge_desc: "Upload your photo, enter your name and email to create your digital badge and join the builders base. Share it with <strong>#NeosysAeon</strong>",
         join_placeholder: "Your name",
-        join_btn_generate: "Generate & Download",
+        join_email: "Your email address",
+        join_btn_generate: "Generate & Register",
         join_btn_save: "Save",
         join_btn_share: "Share",
         join_upload_text: "Tap to upload your photo",
@@ -337,6 +348,10 @@ const translations = {
             }
         ],
 
+        comm_label: "Open Directory",
+        comm_title: "Neosys Aeon Community",
+        comm_desc: "The minds that have decided to join the movement and adopt the principles of validation and evidence.",
+
         coll_title: "Would you like to collaborate or improve this initiative?",
         coll_desc: "Send us your feedback, ideas, or write directly to join the effort to promote evidence-based thinking.",
         coll_whatsapp: "💬 WhatsApp",
@@ -351,6 +366,7 @@ const translations = {
         nav_marco: "框架",
         nav_whitepaper: "白皮書",
         nav_acercate: "深入了解",
+        nav_comunidad: "社區",
         nav_unete: "加入",
 
         hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
@@ -359,8 +375,10 @@ const translations = {
         hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
 
+        // Manifesto
         manifesto_label: "宣言",
-        manifesto_title: "理解是不夠的。<br><span class='text-accent'>你必須用你所理解的去建設。</span>",
+        manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來。</span>",
+        manifesto_desc: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提倡整合並改進兩者。",
         manifesto_p1: "科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
         manifesto_p2: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提出將兩者整合。",
         manifesto_p3: "這不是一個信仰體系。這是一個應用型理解系統——<strong>宇宙誡命</strong>——旨在優先考慮真理、通過證據驗證，並將知識轉化為切實的進步。",
@@ -447,9 +465,10 @@ const translations = {
         join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "不需要隸屬關係或正式註冊。採納原則，踐行連貫，佩戴 ✨ 符號作為你的宣言。",
         join_badge_title: "生成你的徽章 ✨",
-        join_badge_desc: "上傳你的照片並輸入你的名字，創建你的運動數字徽章。直接分享到社交媒體 <strong>#NeosysAeon #ThinkWithEvidence</strong>",
+        join_badge_desc: "上傳您的照片，輸入您的姓名和電子郵件，以創建您的數字徽章並加入建設者基地。 使用 <strong>#NeosysAeon</strong> 分享",
         join_placeholder: "你的名字",
-        join_btn_generate: "生成並下載",
+        join_email: "您的電子郵件地址",
+        join_btn_generate: "生成並註冊",
         join_btn_save: "保存",
         join_btn_share: "分享",
         join_upload_text: "點擊上傳你的照片",
@@ -500,6 +519,10 @@ const translations = {
                 ]
             }
         ],
+
+        comm_label: "開放目錄",
+        comm_title: "Neosys Aeon 社區",
+        comm_desc: "已經決定加入運動並採用驗證和證據原則的思想者。",
 
         coll_title: "您想合作或改進這個倡議嗎？",
         coll_desc: "發送您的反饋、想法或直接寫信加入我們，以推廣基於證據的思維。",
