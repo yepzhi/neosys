@@ -7,8 +7,8 @@ const translations = {
         nav_unete: "Únete",
 
         // Hero
-        hero_tagline: "Entender la realidad es la base. Construir el futuro es el objetivo.",
-        hero_subtitle: "Un marco abierto para la comprensión, aplicación y construcción de la realidad",
+        hero_tagline: "Sin ciencia no hay verdad. Sin validación no hay progreso.",
+        hero_subtitle: "Un marco abierto para transformar conocimiento científico en progreso tangible.",
         hero_btn_mandamientos: "Los 12 Mandamientos",
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explora",
@@ -136,8 +136,8 @@ const translations = {
         nav_whitepaper: "Whitepaper",
         nav_unete: "Join",
 
-        hero_tagline: "Understanding reality is the foundation. Engineering the future is the objective.",
-        hero_subtitle: "An open framework for understanding, applying, and building reality",
+        hero_tagline: "Without science there is no truth. Without validation there is no progress.",
+        hero_subtitle: "An open framework to transform scientific knowledge into tangible progress.",
         hero_btn_mandamientos: "The 12 Commandments",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
@@ -256,8 +256,8 @@ const translations = {
         nav_whitepaper: "白皮書",
         nav_unete: "加入",
 
-        hero_tagline: "理解現實是基礎。建設未來是目標。",
-        hero_subtitle: "一個用於理解、應用和建設現實的開放框架",
+        hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
+        hero_subtitle: "一個將科學知識轉化為切實進步的開放框架。",
         hero_btn_mandamientos: "宇宙十二誡命",
         hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
