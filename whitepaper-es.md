@@ -1,6 +1,6 @@
-# Neosys Aeon Whitepaper v3.0 (ES)
+# Neosys Aeon Whitepaper v3.2 (ES)
 
-📄 **NEOSYS AEON**
+NEOSYS AEON
 
 **Un marco abierto para entender la realidad mediante evidencia verificable**
 
@@ -178,12 +178,12 @@ El progreso depende de la capacidad de entender la realidad y actuar en función
 
 ### Declaración Final
 
-**Neosys Aeon es un marco abierto basado en ciencia para entender la realidad mediante evidencia verificable.**
+Neosys Aeon es un marco abierto para alinear el pensamiento con la realidad mediante evidencia.
 
 No es una autoridad.
 No es una doctrina cerrada.
 No es una estructura de poder.
 
-**Es un sistema.**
+Es un sistema.
 
-**Su valor depende de su capacidad para resistir la evidencia.**
+Su valor depende de su aplicación.
