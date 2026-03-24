@@ -102,7 +102,7 @@ const translations = {
 
         // Whitepaper
         wp_label: "Documento Fundacional",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon ✨</span>",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
         wp_desc: "El documento completo que detalla el marco conceptual, los 12 mandamientos, la integración STEM, las implicaciones civilizatorias y su naturaleza abierta.",
         wp_btn: "Descargar Whitepaper PDF",
 
@@ -284,7 +284,7 @@ const translations = {
         dist_quote: "\"Evidence does not only explain the world. It allows you to transform it.<br>Knowledge that does not build a future is incomplete.\"",
 
         wp_label: "Founding Document",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon ✨</span>",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
         wp_desc: "The complete document detailing the conceptual framework, the 12 commandments, STEM integration, civilizational implications, and its open nature.",
         wp_btn: "Download Whitepaper PDF",
 
@@ -457,7 +457,7 @@ const translations = {
         dist_quote: "\"證據不僅解釋世界。它讓你能夠改變世界。<br>不建設未來的知識是不完整的。\"",
 
         wp_label: "創始文件",
-        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon ✨</span>",
+        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
         wp_desc: "詳細說明概念框架、十二誡命、STEM整合、文明影響及其開放性質的完整文件。",
         wp_btn: "下載白皮書 PDF",
 
