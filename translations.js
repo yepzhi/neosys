@@ -99,7 +99,7 @@ const translations = {
 
         // Whitepaper
         wp_label: "Documento Fundacional",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon ✨</span>",
         wp_desc: "El documento completo que detalla el marco conceptual, los 12 mandamientos, la integración STEM, las implicaciones civilizatorias y su naturaleza abierta.",
         wp_btn: "Descargar Whitepaper PDF",
 
@@ -110,7 +110,7 @@ const translations = {
         join_badge_title: "Genera tu Gafete ✨",
         join_badge_desc: "Sube tu foto y escribe tu nombre para crear tu gafete digital del movimiento. Compártelo directo a redes con <strong>#NeosysAeon #ThinkWithEvidence</strong>",
         join_placeholder: "Tu nombre",
-        join_btn_generate: "Generar Gafete",
+        join_btn_generate: "Generar y Descargar",
         join_btn_save: "Guardar",
         join_btn_share: "Compartir",
         join_upload_text: "Toca para subir tu foto",
@@ -128,7 +128,7 @@ const translations = {
         con_node3: "Currículo STEM",
 
         // Footer
-        footer_quote: "Neosys Aeon es un marco abierto basado en ciencia para la comprensión, aplicación y transformación de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
+        footer_quote: "Neosys Aeon es un marco abierto para la comprensión de nuestra realidad en términos de la Ciencia y la evidencia verificable mediante el método científico.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -224,7 +224,7 @@ const translations = {
         dist_quote: "\"Evidence does not only explain the world. It allows you to transform it.<br>Knowledge that does not build a future is incomplete.\"",
 
         wp_label: "Founding Document",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon ✨</span>",
         wp_desc: "The complete document detailing the conceptual framework, the 12 commandments, STEM integration, civilizational implications, and its open nature.",
         wp_btn: "Download Whitepaper PDF",
 
@@ -234,7 +234,7 @@ const translations = {
         join_badge_title: "Generate your Badge ✨",
         join_badge_desc: "Upload your photo and enter your name to create your digital badge for the movement. Share it directly to social media with <strong>#NeosysAeon #ThinkWithEvidence</strong>",
         join_placeholder: "Your name",
-        join_btn_generate: "Generate Badge",
+        join_btn_generate: "Generate & Download",
         join_btn_save: "Save",
         join_btn_share: "Share",
         join_upload_text: "Tap to upload your photo",
@@ -250,7 +250,7 @@ const translations = {
         con_node2: "Applied program",
         con_node3: "STEM Curriculum",
 
-        footer_quote: "Neosys Aeon is an open science-based framework for understanding, applying, and transforming reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
+        footer_quote: "Neosys Aeon is an open framework for the understanding of our reality in terms of Science and verifiable evidence through the scientific method.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -346,7 +346,7 @@ const translations = {
         dist_quote: "\"證據不僅解釋世界。它讓你能夠改變世界。<br>不建設未來的知識是不完整的。\"",
 
         wp_label: "創始文件",
-        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon ✨</span>",
         wp_desc: "詳細說明概念框架、十二誡命、STEM整合、文明影響及其開放性質的完整文件。",
         wp_btn: "下載白皮書 PDF",
 
@@ -356,7 +356,7 @@ const translations = {
         join_badge_title: "生成你的徽章 ✨",
         join_badge_desc: "上傳你的照片並輸入你的名字，創建你的運動數字徽章。直接分享到社交媒體 <strong>#NeosysAeon #ThinkWithEvidence</strong>",
         join_placeholder: "你的名字",
-        join_btn_generate: "生成徽章",
+        join_btn_generate: "生成並下載",
         join_btn_save: "保存",
         join_btn_share: "分享",
         join_upload_text: "點擊上傳你的照片",
@@ -372,7 +372,7 @@ const translations = {
         con_node2: "應用計劃",
         con_node3: "STEM 課程",
 
-        footer_quote: "Neosys Aeon 是一個基於科學的開放框架，用於理解、應用和改變現實。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
+        footer_quote: "Neosys Aeon 是一個開放框架，旨在從科學和通過科學方法可驗證的證據的角度來理解我們的現實。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
 };

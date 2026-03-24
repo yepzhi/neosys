@@ -341,11 +341,7 @@ function drawBadge() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         drawBadge();
-    });
-
-    // ── Save/Download ──
-    document.getElementById('save-badge').addEventListener('click', () => {
-        // Use toBlob for better mobile compatibility
+        // Auto-download badge when generating
         canvas.toBlob((blob) => {
             if (!blob) return;
             const url = URL.createObjectURL(blob);
@@ -360,8 +356,30 @@ function drawBadge() {
     });
 
     // ── Share helpers ──
-    const shareText = '✨ Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso.';
+    const shareText = '✨ Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
     const shareUrl = 'https://yepzhi.com/neosys/';
+
+    // Copiar Texto
+    const copyBtn = document.getElementById('share-copy');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(shareText).then(() => {
+                const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
+                alert(isEs ? 'Texto copiado. ¡Listo para pegar!' : 'Text copied. Ready to paste!');
+            });
+        });
+    }
+
+    // Instagram
+    const igBtn = document.getElementById('share-instagram');
+    if (igBtn) {
+        igBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(shareText).then(() => {
+                const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
+                alert(isEs ? 'Texto copiado.\n\nAbre Instagram y pega el texto al compartir tu Gafete guardado.' : 'Text copied.\n\nOpen Instagram and paste the text when sharing your saved Badge.');
+            });
+        });
+    }
 
     // Twitter/X
     document.getElementById('share-twitter').addEventListener('click', () => {
