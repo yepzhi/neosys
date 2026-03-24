@@ -124,6 +124,7 @@ const translations = {
         con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
         con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.",
         con_btn: "🚀 Conoce JovenesSTEM",
+        con_btn_wa: "💬 WhatsApp",
         con_node1: "Marco filosófico",
         con_node2: "Programa aplicado",
         con_node3: "Currículo STEM",
@@ -141,7 +142,13 @@ const translations = {
                     { name: "El Robot de Platón", topic: "Ciencia General", link: "https://www.youtube.com/user/ElRobotdePlaton", icon: "🤖" },
                     { name: "QuantumFracture", topic: "Física", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
                     { name: "Fermilab", topic: "Física de Partículas", link: "https://www.youtube.com/user/fermilab", icon: "🔬" },
-                    { name: "Fazt", topic: "Programación", link: "https://www.youtube.com/c/FaztTech", icon: "💻" }
+                    { name: "Fazt Code", topic: "Programación", link: "https://www.youtube.com/c/FaztTech", icon: "💻" },
+                    { name: "midudev", topic: "Desarrollo Web", link: "https://www.youtube.com/c/midudev", icon: "👨‍💻" },
+                    { name: "MoureDev", topic: "Software iOS/Android", link: "https://www.youtube.com/c/mouredev", icon: "📱" },
+                    { name: "Soy Dalto", topic: "Cursos de Programación", link: "https://www.youtube.com/c/soydalto", icon: "🚀" },
+                    { name: "HolaMundo", topic: "Programación", link: "https://www.youtube.com/c/HolaMundo", icon: "🌎" },
+                    { name: "Píldoras Informáticas", topic: "Programación", link: "https://www.youtube.com/c/pildorasinformaticas", icon: "💊" },
+                    { name: "Código Facilito", topic: "Programación", link: "https://www.youtube.com/c/codigofacilito", icon: "🐊" }
                 ]
             },
             {
@@ -165,6 +172,11 @@ const translations = {
         ],
 
         // Footer
+        coll_title: "¿Te gustaría colaborar o mejorar esta iniciativa?",
+        coll_desc: "Envíanos tus comentarios, ideas o escribe directo para unirte al esfuerzo de promover el pensamiento basado en evidencia.",
+        coll_whatsapp: "💬 WhatsApp",
+        coll_yepzhi: "🌐 yepzhi.com",
+        footer_creator: "✨ Created by yepzhi",
         footer_quote: "Neosys Aeon es un marco abierto para la comprensión de nuestra realidad en términos de la Ciencia y la evidencia verificable mediante el método científico.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
@@ -284,6 +296,7 @@ const translations = {
         con_p1: "The principles of Neosys Aeon — structured curiosity, knowledge transmission, evidence as criterion — are exactly the philosophical foundation of the <strong>JovenesSTEM</strong> program and its applied curriculum, the <strong>BlueBook</strong>.",
         con_p2: "Where Neosys Aeon proposes the thinking framework, JovenesSTEM applies it to the education of the next generation in science and technology.",
         con_btn: "🚀 Discover JovenesSTEM",
+        con_btn_wa: "💬 WhatsApp",
         con_node1: "Philosophical framework",
         con_node2: "Applied program",
         con_node3: "STEM Curriculum",
@@ -297,9 +310,10 @@ const translations = {
                 title: "YouTube Channels",
                 items: [
                     { name: "Veritasium", topic: "General Science", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "El Robot de Platón", topic: "Science (ES)", link: "https://www.youtube.com/user/ElRobotdePlaton", icon: "🤖" },
-                    { name: "QuantumFracture", topic: "Physics (ES)", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
-                    { name: "Fermilab", topic: "Particle Physics", link: "https://www.youtube.com/user/fermilab", icon: "🔬" },
+                    { name: "Kurzgesagt", topic: "General Science", link: "https://www.youtube.com/c/inanutshell", icon: "🦆" },
+                    { name: "Mark Rober", topic: "Engineering", link: "https://www.youtube.com/c/MarkRober", icon: "🛠️" },
+                    { name: "MinutePhysics", topic: "Physics", link: "https://www.youtube.com/user/minutephysics", icon: "⏱️" },
+                    { name: "Dr. Eric Berg DC", topic: "Food Science", link: "https://www.youtube.com/c/DrEricBergDC", icon: "🥗" },
                     { name: "Fireship", topic: "Programming", link: "https://www.youtube.com/c/Fireship", icon: "💻" }
                 ]
             },
@@ -323,6 +337,11 @@ const translations = {
             }
         ],
 
+        coll_title: "Would you like to collaborate or improve this initiative?",
+        coll_desc: "Send us your feedback, ideas, or write directly to join the effort to promote evidence-based thinking.",
+        coll_whatsapp: "💬 WhatsApp",
+        coll_yepzhi: "🌐 yepzhi.com",
+        footer_creator: "✨ Created by yepzhi",
         footer_quote: "Neosys Aeon is an open framework for the understanding of our reality in terms of Science and verifiable evidence through the scientific method.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
@@ -439,9 +458,10 @@ const translations = {
 
         con_label: "從哲學到行動",
         con_title: "Neosys Aeon 提供了<em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 提供了<em>如何做</em>。</span>",
-        con_p1: "Neosys Aeon 的原則——結構化好奇心、知識傳播、以證據為準則——正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
-        con_p2: "Neosys Aeon 提出思維框架，JovenesSTEM 將其應用於下一代科學技術教育。",
-        con_btn: "🚀 了解 JovenesSTEM",
+        con_p1: "Neosys Aeon 的原則——結構化的好奇心、知識傳播、以證據為標準——正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
+        con_p2: "Neosys Aeon 提出了思維框架，而 JovenesSTEM 則將其應用於下一代在科學和技術領域的教育中。",
+        con_btn: "🚀 探索 JovenesSTEM",
+        con_btn_wa: "💬 WhatsApp",
         con_node1: "哲學框架",
         con_node2: "應用計劃",
         con_node3: "STEM 課程",
@@ -481,6 +501,11 @@ const translations = {
             }
         ],
 
+        coll_title: "您想合作或改進這個倡議嗎？",
+        coll_desc: "發送您的反饋、想法或直接寫信加入我們，以推廣基於證據的思維。",
+        coll_whatsapp: "💬 WhatsApp",
+        coll_yepzhi: "🌐 yepzhi.com",
+        footer_creator: "✨ Created by yepzhi",
         footer_quote: "Neosys Aeon 是一個開放框架，旨在從科學和通過科學方法可驗證的證據的角度來理解我們的現實。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
