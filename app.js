@@ -157,9 +157,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
 });
 
-// Inicializar idioma para cargar contenido dinámico (Outreach Grid, etc.)
-applyLanguage(currentLang);
-
 // ── Particle Canvas ───────────────────────
 (function initParticles() {
     const canvas = document.getElementById('particle-canvas');
@@ -579,3 +576,6 @@ function drawBadge() {
     }, { threshold: 0.05 });
     cards.forEach(card => observer.observe(card));
 })();
+
+// Inicializar idioma al final para evitar errores de inicialización de variables (Temporal Dead Zone)
+applyLanguage(currentLang);
