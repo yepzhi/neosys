@@ -19,9 +19,6 @@ const translations = {
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
         manifesto_desc: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
-        manifesto_p1: "La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
-        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone una integración de ambos.",
-        manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
 
         // 12 Mandamientos (INAMOVIBLES)
         mand_label: "Los Principios Fundamentales",
@@ -128,7 +125,6 @@ const translations = {
         con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
         con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.",
         con_btn: "🚀 Conoce JovenesSTEM",
-        con_btn_wa: "💬 WhatsApp",
         con_node1: "Marco filosófico",
         con_node2: "Programa aplicado",
         con_node3: "Currículo STEM",
@@ -207,9 +203,6 @@ const translations = {
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
         manifesto_desc: "Comprehension without application generates no impact. Action without comprehension generates error. Neosys Aeon proposes to integrate and improve both.",
-        manifesto_p1: "Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
-        manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes an integration of both.",
-        manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
         mand_title: "The 12 Commandments<br><span class='text-accent'>of the Cosmos</span>",
@@ -309,7 +302,6 @@ const translations = {
         con_p1: "The principles of Neosys Aeon — structured curiosity, knowledge transmission, evidence as criterion — are exactly the philosophical foundation of the <strong>JovenesSTEM</strong> program and its applied curriculum, the <strong>BlueBook</strong>.",
         con_p2: "Where Neosys Aeon proposes the thinking framework, JovenesSTEM applies it to the education of the next generation in science and technology.",
         con_btn: "🚀 Discover JovenesSTEM",
-        con_btn_wa: "💬 WhatsApp",
         con_node1: "Philosophical framework",
         con_node2: "Applied program",
         con_node3: "STEM Curriculum",
@@ -381,9 +373,6 @@ const translations = {
         manifesto_label: "宣言",
         manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來。</span>",
         manifesto_desc: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提倡整合並改進兩者。",
-        manifesto_p1: "科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
-        manifesto_p2: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提出將兩者整合。",
-        manifesto_p3: "這不是一個信仰體系。這是一個應用型理解系統——<strong>宇宙誡命</strong>——旨在優先考慮真理、通過證據驗證，並將知識轉化為切實的進步。",
 
         mand_label: "基本原則",
         mand_title: "宇宙<br><span class='text-accent'>十二誡命</span>",
@@ -483,7 +472,6 @@ const translations = {
         con_p1: "Neosys Aeon 的原則——結構化的好奇心、知識傳播、以證據為標準——正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
         con_p2: "Neosys Aeon 提出了思維框架，而 JovenesSTEM 則將其應用於下一代在科學和技術領域的教育中。",
         con_btn: "🚀 探索 JovenesSTEM",
-        con_btn_wa: "💬 WhatsApp",
         con_node1: "哲學框架",
         con_node2: "應用計劃",
         con_node3: "STEM 課程",
