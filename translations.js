@@ -176,7 +176,7 @@ const translations = {
         m10_body: "Your actions will not end with you; your legacy must expand possibilities.",
         m11_title: "You shall give no place to pseudoscience nor to deception disguised as truth.",
         m11_body: "You will question extraordinary claims and demand proportional evidence.",
-        m12_title: "You shall not merely observe the universe: you shall be a creator.",
+        m12_title: "You shall not merely observe the universe: you shall be a builder.",
         m12_body: "You will apply knowledge to improve life and transform reality.",
 
         prob_label: "Why does it exist?",
@@ -298,7 +298,7 @@ const translations = {
         m10_body: "你的行為不會止於你自身；你的遺產必須擴展可能性。",
         m11_title: "你不可給偽科學或偽裝成真理的欺騙留有餘地。",
         m11_body: "你將質疑非凡的主張，並要求成比例的證據。",
-        m12_title: "你不僅是宇宙的觀察者：你將成為創造者。",
+        m12_title: "你不僅是宇宙的觀察者：你將成為建設者。",
         m12_body: "你將運用知識改善生活，改變現實。",
 
         prob_label: "為什麼存在？",
