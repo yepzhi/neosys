@@ -7,20 +7,20 @@ const translations = {
         nav_unete: "Únete",
 
         // Hero
-        hero_tagline: "No exige creencia. Exige coherencia.",
-        hero_subtitle: "Un marco abierto para la comprensión de la realidad",
+        hero_tagline: "Entender la realidad es la base. Construir el futuro es el objetivo.",
+        hero_subtitle: "Un marco abierto para la comprensión, aplicación y construcción de la realidad",
         hero_btn_mandamientos: "Los 12 Mandamientos",
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explora",
 
         // Manifesto
         manifesto_label: "El Manifiesto",
-        manifesto_title: "La información es abundante.<br><span class='text-accent'>La comprensión es limitada.</span>",
-        manifesto_p1: "La humanidad enfrenta una creciente desconexión entre la evidencia empírica, la percepción individual y los sistemas de creencias contemporáneos.",
-        manifesto_p2: "Esta desconexión ha facilitado la proliferación de pseudociencia, sesgos cognitivos no cuestionados y modelos de pensamiento que limitan nuestra capacidad de interpretar el mundo.",
-        manifesto_p3: "Neosys Aeon propone un conjunto de principios operativos — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, estructurar la curiosidad, validar mediante evidencia y promover responsabilidad a largo plazo.",
+        manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debes construir con lo que entiendes.</span>",
+        manifesto_p1: "La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
+        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone una integración de ambos.",
+        manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
 
-        // 12 Mandamientos
+        // 12 Mandamientos (INAMOVIBLES)
         mand_label: "Los Principios Fundamentales",
         mand_title: "Los 12 Mandamientos<br><span class='text-accent'>del Cosmos</span>",
         mand_desc: "Principios inamovibles para evaluar, construir y aplicar conocimiento con coherencia.",
@@ -50,15 +50,34 @@ const translations = {
         m12_title: "No serás solo observador del universo: serás creador.",
         m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
 
-        // Problema
+        // Problema (4 faults)
         prob_label: "¿Por qué existe?",
-        prob_title: "Tres Fallas Estructurales<br><span class='text-accent'>del Pensamiento Contemporáneo</span>",
+        prob_title: "Cuatro Fallas Estructurales<br><span class='text-accent'>del Pensamiento Contemporáneo</span>",
         prob1_title: "Comodidad sobre verdad",
-        prob1_body: "Las personas tienden a aceptar explicaciones que reducen incertidumbre emocional, incluso si carecen de sustento empírico.",
-        prob2_title: "Confusión entre desconocimiento y explicación",
-        prob2_body: "La ausencia de conocimiento es frecuentemente reemplazada por narrativas no verificables en lugar de investigación.",
-        prob3_title: "Falta de criterios de validación",
-        prob3_body: "No existe una adopción generalizada de estándares claros para distinguir entre conocimiento, creencia y especulación.",
+        prob1_body: "Las decisiones se basan en creencias convenientes en lugar de evidencia.",
+        prob2_title: "Ruptura entre conocimiento y acción",
+        prob2_body: "El conocimiento no se traduce en aplicación práctica. La verdad sin aplicación no genera progreso.",
+        prob3_title: "Rechazo del método científico",
+        prob3_body: "Se ignoran procesos de validación rigurosos. Lo que no puede probarse, no puede escalarse.",
+        prob4_title: "Desconexión ciencia–economía",
+        prob4_body: "El conocimiento no se integra sistemáticamente en la generación de valor. Las sociedades que ignoran la evidencia se estancan.",
+
+        // STEM section
+        stem_label: "Ciencia, Ingeniería y Progreso",
+        stem_title: "De la curiosidad nace la ciencia.<br><span class='text-accent'>De la ciencia nace el progreso.</span>",
+        stem_desc: "El método científico es la herramienta más poderosa creada por la humanidad. Pero el conocimiento por sí solo no genera impacto.",
+        stem_s1_title: "Ciencia",
+        stem_s1_body: "Genera conocimiento",
+        stem_s2_title: "Ingeniería",
+        stem_s2_body: "Transforma conocimiento",
+        stem_s3_title: "Tecnología",
+        stem_s3_body: "Aplica conocimiento",
+        stem_s4_title: "Economía",
+        stem_s4_body: "Escala valor generado",
+        stem_p1: "Sin medición, no hay conocimiento.",
+        stem_p2: "Sin experimentación, no hay progreso.",
+        stem_p3: "Sin ingeniería, no hay aplicación.",
+        stem_p4: "Sin escalabilidad, no hay impacto.",
 
         // Distinción
         dist_label: "Distinción y Alcance",
@@ -69,19 +88,19 @@ const translations = {
         dist_is_3: "<strong>Basado en evidencia:</strong> prioriza validación empírica",
         dist_is_4: "<strong>Escalable:</strong> aplicable a nivel individual y colectivo",
         dist_is_5: "<strong>Voluntario:</strong> su adopción es libre",
-        dist_is_6: "<strong>Una herramienta:</strong> su valor depende de su aplicación",
+        dist_is_6: "<strong>Orientado a resultados:</strong> su valor depende de su aplicación",
         dist_not_header: "✕ Lo que NO es",
         dist_not_1: "No es una <strong>religión</strong> — no requiere fe ni propone entidades sobrenaturales",
         dist_not_2: "No es un <strong>sistema de creencias</strong> — no exige aceptación sin validación",
         dist_not_3: "No es una <strong>organización</strong> — no tiene jerarquías ni liderazgo central",
         dist_not_4: "No es un <strong>producto</strong> — no tiene fines comerciales ni barreras de acceso",
-        dist_not_5: "No <strong>reemplaza</strong> la ciencia — funciona como marco integrador",
-        dist_quote: "\"No ofrece respuestas finales. Ofrece un marco para acercarse a ellas.<br>No promete certeza. Propone claridad.\"",
+        dist_not_5: "No <strong>reemplaza</strong> la ciencia — funciona como marco integrador para interpretarla y aplicarla",
+        dist_quote: "\"La evidencia no solo explica el mundo. Permite transformarlo.<br>El conocimiento que no construye futuro es incompleto.\"",
 
         // Whitepaper
         wp_label: "Documento Fundacional",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v1.0</span>",
-        wp_desc: "El documento completo que detalla el marco conceptual, los 12 mandamientos, el problema que aborda y su naturaleza abierta.",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_desc: "El documento completo que detalla el marco conceptual, los 12 mandamientos, la integración STEM, las implicaciones civilizatorias y su naturaleza abierta.",
         wp_btn: "Descargar Whitepaper PDF",
 
         // Únete
@@ -94,7 +113,7 @@ const translations = {
         join_btn_generate: "Generar Badge",
         join_btn_save: "Guardar Badge",
         join_badge_member: "MIEMBRO DEL MOVIMIENTO",
-        join_badge_tagline: "\"No exige creencia. Exige coherencia.\"",
+        join_badge_tagline: "\"Entender la realidad es la base. Construir el futuro es el objetivo.\"",
 
         // Conexión
         con_label: "De la Filosofía a la Acción",
@@ -107,7 +126,7 @@ const translations = {
         con_node3: "Currículo STEM",
 
         // Footer
-        footer_quote: "Neosys Aeon es un marco abierto para la comprensión de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es una herramienta.</strong><br>Su valor depende de su aplicación.",
+        footer_quote: "Neosys Aeon es un marco abierto para la comprensión, aplicación y transformación de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -117,17 +136,17 @@ const translations = {
         nav_whitepaper: "Whitepaper",
         nav_unete: "Join",
 
-        hero_tagline: "It doesn't demand belief. It demands coherence.",
-        hero_subtitle: "An open framework for understanding reality",
+        hero_tagline: "Understanding reality is the foundation. Engineering the future is the objective.",
+        hero_subtitle: "An open framework for understanding, applying, and building reality",
         hero_btn_mandamientos: "The 12 Commandments",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
 
         manifesto_label: "The Manifesto",
-        manifesto_title: "Information is abundant.<br><span class='text-accent'>Understanding is limited.</span>",
-        manifesto_p1: "Humanity faces a growing disconnect between empirical evidence, individual perception, and contemporary belief systems.",
-        manifesto_p2: "This disconnect has enabled the proliferation of pseudoscience, unquestioned cognitive biases, and thought patterns that limit our ability to interpret the world.",
-        manifesto_p3: "Neosys Aeon proposes a set of operating principles — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, structure curiosity, validate through evidence, and promote long-term responsibility.",
+        manifesto_title: "Understanding is not enough.<br><span class='text-accent'>You must build with what you understand.</span>",
+        manifesto_p1: "Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
+        manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes an integration of both.",
+        manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
         mand_title: "The 12 Commandments<br><span class='text-accent'>of the Cosmos</span>",
@@ -159,13 +178,31 @@ const translations = {
         m12_body: "You will apply knowledge to improve life and transform reality.",
 
         prob_label: "Why does it exist?",
-        prob_title: "Three Structural Failures<br><span class='text-accent'>of Contemporary Thinking</span>",
+        prob_title: "Four Structural Failures<br><span class='text-accent'>of Contemporary Thinking</span>",
         prob1_title: "Comfort over truth",
-        prob1_body: "People tend to accept explanations that reduce emotional uncertainty, even if they lack empirical support.",
-        prob2_title: "Confusion between ignorance and explanation",
-        prob2_body: "The absence of knowledge is frequently replaced by unverifiable narratives instead of research.",
-        prob3_title: "Lack of validation criteria",
-        prob3_body: "There is no widespread adoption of clear standards to distinguish between knowledge, belief, and speculation.",
+        prob1_body: "Decisions are based on convenient beliefs instead of evidence.",
+        prob2_title: "Break between knowledge and action",
+        prob2_body: "Knowledge does not translate into practical application. Truth without application generates no progress.",
+        prob3_title: "Rejection of the scientific method",
+        prob3_body: "Rigorous validation processes are ignored. What cannot be proven cannot be scaled.",
+        prob4_title: "Science–economy disconnect",
+        prob4_body: "Knowledge is not systematically integrated into value generation. Societies that ignore evidence stagnate.",
+
+        stem_label: "Science, Engineering, and Progress",
+        stem_title: "From curiosity comes science.<br><span class='text-accent'>From science comes progress.</span>",
+        stem_desc: "The scientific method is the most powerful tool ever created by humanity. But knowledge alone does not generate impact.",
+        stem_s1_title: "Science",
+        stem_s1_body: "Generates knowledge",
+        stem_s2_title: "Engineering",
+        stem_s2_body: "Transforms knowledge",
+        stem_s3_title: "Technology",
+        stem_s3_body: "Applies knowledge",
+        stem_s4_title: "Economy",
+        stem_s4_body: "Scales generated value",
+        stem_p1: "Without measurement, there is no knowledge.",
+        stem_p2: "Without experimentation, there is no progress.",
+        stem_p3: "Without engineering, there is no application.",
+        stem_p4: "Without scalability, there is no impact.",
 
         dist_label: "Distinction and Scope",
         dist_title: "What Neosys Aeon is.<br><span class='text-accent'>And what it is not.</span>",
@@ -175,18 +212,18 @@ const translations = {
         dist_is_3: "<strong>Evidence-based:</strong> it prioritizes empirical validation",
         dist_is_4: "<strong>Scalable:</strong> applicable at individual and collective levels",
         dist_is_5: "<strong>Voluntary:</strong> its adoption is free",
-        dist_is_6: "<strong>A tool:</strong> its value depends on its application",
+        dist_is_6: "<strong>Results-oriented:</strong> its value depends on its application",
         dist_not_header: "✕ What it is NOT",
         dist_not_1: "It is not a <strong>religion</strong> — it requires no faith nor proposes supernatural entities",
         dist_not_2: "It is not a <strong>belief system</strong> — it does not demand acceptance without validation",
         dist_not_3: "It is not an <strong>organization</strong> — it has no hierarchies or central leadership",
         dist_not_4: "It is not a <strong>product</strong> — it has no commercial purposes or access barriers",
-        dist_not_5: "It does not <strong>replace</strong> science — it works as an integrating framework",
-        dist_quote: "\"It does not offer final answers. It offers a framework to approach them.<br>It does not promise certainty. It proposes clarity.\"",
+        dist_not_5: "It does not <strong>replace</strong> science — it works as an integrating framework to interpret and apply it",
+        dist_quote: "\"Evidence does not only explain the world. It allows you to transform it.<br>Knowledge that does not build a future is incomplete.\"",
 
         wp_label: "Founding Document",
-        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v1.0</span>",
-        wp_desc: "The complete document detailing the conceptual framework, the 12 commandments, the problem it addresses, and its open nature.",
+        wp_title: "Whitepaper<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_desc: "The complete document detailing the conceptual framework, the 12 commandments, STEM integration, civilizational implications, and its open nature.",
         wp_btn: "Download Whitepaper PDF",
 
         join_label: "Be Part",
@@ -198,7 +235,7 @@ const translations = {
         join_btn_generate: "Generate Badge",
         join_btn_save: "Save Badge",
         join_badge_member: "MEMBER OF THE MOVEMENT",
-        join_badge_tagline: "\"It doesn't demand belief. It demands coherence.\"",
+        join_badge_tagline: "\"Understanding reality is the foundation. Engineering the future is the objective.\"",
 
         con_label: "From Philosophy to Action",
         con_title: "Neosys Aeon provides the <em>why</em>.<br><span class='text-accent'>JovenesSTEM provides the <em>how</em>.</span>",
@@ -209,7 +246,7 @@ const translations = {
         con_node2: "Applied program",
         con_node3: "STEM Curriculum",
 
-        footer_quote: "Neosys Aeon is an open framework for understanding reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a tool.</strong><br>Its value depends on its application.",
+        footer_quote: "Neosys Aeon is an open framework for understanding, applying, and transforming reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -219,17 +256,17 @@ const translations = {
         nav_whitepaper: "白皮書",
         nav_unete: "加入",
 
-        hero_tagline: "不要求信仰，要求連貫。",
-        hero_subtitle: "一個理解現實的開放框架",
+        hero_tagline: "理解現實是基礎。建設未來是目標。",
+        hero_subtitle: "一個用於理解、應用和建設現實的開放框架",
         hero_btn_mandamientos: "宇宙十二誡命",
         hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
 
         manifesto_label: "宣言",
-        manifesto_title: "資訊是豐富的。<br><span class='text-accent'>理解是有限的。</span>",
-        manifesto_p1: "人類面臨著經驗證據、個人感知與當代信仰體系之間日益加深的脫節。",
-        manifesto_p2: "這種脫節促進了偽科學的蔓延、未經質疑的認知偏見，以及限制我們解讀世界能力的思維模式。",
-        manifesto_p3: "Neosys Aeon 提出了一套運作原則——<strong>宇宙誡命</strong>——旨在優先考慮真理、結構化好奇心、通過證據驗證，並促進長期責任。",
+        manifesto_title: "理解是不夠的。<br><span class='text-accent'>你必須用你所理解的去建設。</span>",
+        manifesto_p1: "科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
+        manifesto_p2: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提出將兩者整合。",
+        manifesto_p3: "這不是一個信仰體系。這是一個應用型理解系統——<strong>宇宙誡命</strong>——旨在優先考慮真理、通過證據驗證，並將知識轉化為切實的進步。",
 
         mand_label: "基本原則",
         mand_title: "宇宙<br><span class='text-accent'>十二誡命</span>",
@@ -261,13 +298,31 @@ const translations = {
         m12_body: "你將運用知識改善生活，改變現實。",
 
         prob_label: "為什麼存在？",
-        prob_title: "當代思維的<br><span class='text-accent'>三大結構性缺陷</span>",
+        prob_title: "當代思維的<br><span class='text-accent'>四大結構性缺陷</span>",
         prob1_title: "舒適優先於真理",
-        prob1_body: "人們傾向於接受能減少情緒不確定性的解釋，即使缺乏經驗支持。",
-        prob2_title: "無知與解釋之間的混淆",
-        prob2_body: "知識的缺失經常被不可驗證的敘述所取代，而非研究。",
-        prob3_title: "缺乏驗證標準",
-        prob3_body: "沒有廣泛採用明確的標準來區分知識、信仰和推測。",
+        prob1_body: "決策建立在方便的信念上，而非證據。",
+        prob2_title: "知識與行動之間的斷裂",
+        prob2_body: "知識未能轉化為實際應用。沒有應用的真理不會產生進步。",
+        prob3_title: "拒絕科學方法",
+        prob3_body: "嚴格的驗證過程被忽視。無法被證明的事物無法被擴展。",
+        prob4_title: "科學與經濟的脫節",
+        prob4_body: "知識未被系統性地整合到價值創造中。忽視證據的社會會停滯不前。",
+
+        stem_label: "科學、工程與進步",
+        stem_title: "好奇心孕育科學。<br><span class='text-accent'>科學孕育進步。</span>",
+        stem_desc: "科學方法是人類創造的最強大工具。但僅有知識本身不會產生影響。",
+        stem_s1_title: "科學",
+        stem_s1_body: "產生知識",
+        stem_s2_title: "工程",
+        stem_s2_body: "轉化知識",
+        stem_s3_title: "技術",
+        stem_s3_body: "應用知識",
+        stem_s4_title: "經濟",
+        stem_s4_body: "擴展創造的價值",
+        stem_p1: "沒有測量，就沒有知識。",
+        stem_p2: "沒有實驗，就沒有進步。",
+        stem_p3: "沒有工程，就沒有應用。",
+        stem_p4: "沒有可擴展性，就沒有影響。",
 
         dist_label: "區別與範圍",
         dist_title: "Neosys Aeon 是什麼。<br><span class='text-accent'>以及它不是什麼。</span>",
@@ -277,18 +332,18 @@ const translations = {
         dist_is_3: "<strong>基於證據的：</strong>優先考慮經驗驗證",
         dist_is_4: "<strong>可擴展的：</strong>適用於個人和集體層面",
         dist_is_5: "<strong>自願的：</strong>其採用是自由的",
-        dist_is_6: "<strong>一個工具：</strong>其價值取決於其應用",
+        dist_is_6: "<strong>以結果為導向的：</strong>其價值取決於其應用",
         dist_not_header: "✕ 它不是什麼",
         dist_not_1: "它不是<strong>宗教</strong>——不需要信仰，也不提出超自然實體",
         dist_not_2: "它不是<strong>信仰體系</strong>——不要求未經驗證的接受",
         dist_not_3: "它不是<strong>組織</strong>——沒有等級制度或中央領導",
         dist_not_4: "它不是<strong>產品</strong>——沒有商業目的或準入障礙",
-        dist_not_5: "它不<strong>取代</strong>科學——它作為整合框架運作",
-        dist_quote: "\"它不提供最終答案。它提供接近答案的框架。<br>它不承諾確定性。它提出清晰。\"",
+        dist_not_5: "它不<strong>取代</strong>科學——它作為整合框架來解釋和應用科學",
+        dist_quote: "\"證據不僅解釋世界。它讓你能夠改變世界。<br>不建設未來的知識是不完整的。\"",
 
         wp_label: "創始文件",
-        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon v1.0</span>",
-        wp_desc: "詳細說明概念框架、十二誡命、所解決的問題及其開放性質的完整文件。",
+        wp_title: "白皮書<br><span class='text-accent'>Neosys Aeon v2.0</span>",
+        wp_desc: "詳細說明概念框架、十二誡命、STEM整合、文明影響及其開放性質的完整文件。",
         wp_btn: "下載白皮書 PDF",
 
         join_label: "成為一員",
@@ -300,7 +355,7 @@ const translations = {
         join_btn_generate: "生成徽章",
         join_btn_save: "保存徽章",
         join_badge_member: "運動成員",
-        join_badge_tagline: "\"不要求信仰，要求連貫。\"",
+        join_badge_tagline: "\"理解現實是基礎。建設未來是目標。\"",
 
         con_label: "從哲學到行動",
         con_title: "Neosys Aeon 提供了<em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 提供了<em>如何做</em>。</span>",
@@ -311,7 +366,7 @@ const translations = {
         con_node2: "應用計劃",
         con_node3: "STEM 課程",
 
-        footer_quote: "Neosys Aeon 是理解現實的開放框架。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個工具。</strong><br>其價值取決於其應用。",
+        footer_quote: "Neosys Aeon 是理解、應用和改變現實的開放框架。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
 };

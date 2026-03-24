@@ -455,6 +455,90 @@ img { max-width: 100%; display: block; }
     margin-top: 40px;
 }
 
+.problems-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* ═══════════════════════════════════════════
+   CIENCIA, INGENIERÍA Y PROGRESO
+   ═══════════════════════════════════════════ */
+.stem-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(52, 211, 153, 0.03) 50%, transparent 100%);
+}
+
+.stem-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.stem-step {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+    max-width: 200px;
+    transition: var(--transition);
+}
+
+.stem-step:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-green);
+    background: var(--glass-hover);
+}
+
+.stem-step-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.stem-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.stem-step p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.stem-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+.stem-principles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.stem-principle {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 18px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stem-principle:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
 .problem-card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
@@ -868,6 +952,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 900px) {
     .mandamientos-grid { grid-template-columns: repeat(2, 1fr); }
     .problems-grid { grid-template-columns: 1fr; }
+    .problems-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .distinction-grid { grid-template-columns: 1fr; }
     .whitepaper-block { grid-template-columns: 1fr; text-align: center; }
     .whitepaper-preview { margin-top: 30px; }
@@ -875,6 +960,9 @@ img { max-width: 100%; display: block; }
     .conexion-diagram { margin-top: 30px; }
     .manifesto-grid { grid-template-columns: 1fr; gap: 30px; }
     .join-card { grid-template-columns: 1fr; }
+    .stem-principles { grid-template-columns: repeat(2, 1fr); }
+    .stem-chain { gap: 8px; }
+    .stem-step { min-width: 100px; padding: 20px 14px; }
 }
 
 @media (max-width: 640px) {
@@ -907,4 +995,10 @@ img { max-width: 100%; display: block; }
     .conexion-diagram { flex-direction: column; }
     
     .distinction-quote blockquote { font-size: 1.05rem; padding: 20px; }
+    
+    .stem-chain { flex-direction: column; }
+    .stem-arrow { transform: rotate(90deg); }
+    .stem-step { max-width: 100%; }
+    .stem-principles { grid-template-columns: 1fr; }
+    .problems-grid-4 { grid-template-columns: 1fr; }
 }
