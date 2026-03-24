@@ -71,7 +71,12 @@ The system integrates critical thinking, the scientific method, and practical ap
 
 ### 1. Introduction
 
-The scientific method is the greatest discovery humanity has ever made. It is the only systematic and proven tool that allows us to distinguish objective reality from what we simply wish to believe. While ideologies demand blind faith and dogmas impose unmovable truths, science embraces doubt, demands rigorous evidence, and has the courage to correct itself in light of new data. It is the true engine behind all modern technological and civilizational progress, driving our ability to comprehend the objective environment and act accordingly.
+The scientific method is the only systematic process that allows for the reliable validation of claims about reality.
+
+It does not protect ideas: it puts them to the test.
+It does not depend on beliefs: it depends on evidence.
+
+Therefore, it is the foundation of all technological advancement and of knowledge that truly works.
 
 However, the massive availability of information has not resulted in a proportional improvement in understanding. We observe:
 - Increase in misinformation.

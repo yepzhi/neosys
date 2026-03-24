@@ -16,7 +16,7 @@ const translations = {
         hero_explore: "Explora",
 
         postulado_label: "El Postulado Fundamental",
-        postulado_desc: '"El método científico es el descubrimiento más grande que ha hecho la humanidad. Es la única herramienta sistemática y comprobada que nos permite distinguir la realidad objetiva de lo que deseamos creer. Mientras que las ideologías exigen fe ciega y los dogmas imponen verdades inamovibles, la ciencia abraza la duda, exige evidencia rigurosa, y tiene el coraje de corregirse a sí misma a la luz de nuevos datos. Es el verdadero motor detrás de todo el progreso tecnológico y civilizatorio moderno."',
+        postulado_desc: "El método científico es el único proceso sistemático que permite validar afirmaciones sobre la realidad de forma confiable.<br><br>No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso, es la base de todo avance tecnológico y del conocimiento que realmente funciona.",
 
         // Manifesto
         manifesto_label: "El Manifiesto",
@@ -125,7 +125,7 @@ const translations = {
         join_share_text: "Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/",
         join_upload_text: "Toca para subir tu foto",
         join_badge_member: "MIEMBRO DEL MOVIMIENTO",
-        join_badge_tagline: "\"Sin ciencia no hay verdad. Sin validación no hay progreso.\"",
+        join_badge_tagline: "El método científico: No protege ideas, las somete a prueba. No depende de creencias, depende de evidencia.",
 
         // Conexión
         con_label: "De la Filosofía a la Acción",
@@ -216,7 +216,7 @@ const translations = {
         hero_explore: "Explore",
 
         postulado_label: "The Fundamental Postulate",
-        postulado_desc: '"The scientific method is the greatest discovery humanity has ever made. It is the only systematic and proven tool that allows us to distinguish objective reality from what we simply wish to believe. While ideologies demand blind faith and dogmas impose unmovable truths, science embraces doubt, demands rigorous evidence, and has the courage to correct itself in light of new data. It is the true engine behind all modern technological and civilizational progress."',
+        postulado_desc: "The scientific method is the only systematic process that allows for the reliable validation of claims about reality.<br><br>It does not protect ideas: it puts them to the test.<br>It does not depend on beliefs: it depends on evidence.<br><br>Therefore, it is the foundation of all technological advancement and of knowledge that truly works.",
 
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
@@ -318,7 +318,7 @@ const translations = {
         join_share_text: "I am part of the #NeosysAeon movement #ThinkWithEvidence — Without science there is no truth. Without validation there is no progress. https://yepzhi.com/neosys/",
         join_upload_text: "Tap to upload your photo",
         join_badge_member: "MEMBER OF THE MOVEMENT",
-        join_badge_tagline: "\"Without science there is no truth. Without validation there is no progress.\"",
+        join_badge_tagline: "The scientific method: It does not protect ideas, it puts them to the test. It does not depend on beliefs, it depends on evidence.",
 
         con_label: "From Philosophy to Action",
         con_title: "Neosys Aeon provides the <em>why</em>.<br><span class='text-accent'>JovenesSTEM provides the <em>how</em>.</span>",
@@ -400,7 +400,7 @@ const translations = {
         hero_explore: "探索",
 
         postulado_label: "基本假设",
-        postulado_desc: '"科学方法是人类有史以来最伟大的发现。它是唯一经过验证的系统性工具，使我们能够将客观现实与我们仅仅希望相信的事物区分开来。当意识形态要求盲目信仰、教条强加不可动摇的真理时，科学却拥抱怀疑、要求严格的证据，并有勇气根据新数据纠正自身。它是所有现代技术和文明进步背后的真正引擎。"',
+        postulado_desc: "科学方法是唯一能够可靠验证现实主张的系统化过程。<br><br>它不保护观点：它对观点进行测试。<br>它不依赖于信仰：它依赖于证据。<br><br>因此，它是所有技术进步和真正有效知识的基础。",
 
         // Manifesto
         manifesto_label: "宣言",
@@ -504,7 +504,7 @@ const translations = {
         join_share_text: "我是 #NeosysAeon 運動的一部分 #ThinkWithEvidence — 沒有科學就沒有真理。沒有驗證就沒有進步。 https://yepzhi.com/neosys/",
         join_upload_text: "點擊上傳你的照片",
         join_badge_member: "運動成員",
-        join_badge_tagline: "\"沒有科學就沒有真理。沒有驗證就沒有進步。\"",
+        join_badge_tagline: "科学方法：它不保护观点，它对观点进行测试。它不依赖于信仰，它依赖于证据。",
 
         con_label: "從哲學到行動",
         con_title: "Neosys Aeon 提供了<em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 提供了<em>如何做</em>。</span>",

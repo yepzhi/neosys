@@ -91,7 +91,7 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
             continue
             
         fontname = base_font
-        fontsize = 11
+        fontsize = 10.5
         color = (0.1, 0.1, 0.1)
         alignment = 3 if not is_cn else 0 # Justify for non-CN
         
@@ -99,17 +99,17 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         is_heading = False
         if para.startswith("### "):
             fontname = bold_font
-            fontsize = 13
+            fontsize = 12.5
             color = (0, 0, 0)
             para = para.replace("### ", "")
-            y_pos += 20
+            y_pos += 15
             alignment = 0
             is_heading = True
         elif para.startswith("## "):
             fontname = bold_font
-            fontsize = 15
+            fontsize = 14
             para = para.replace("## ", "")
-            y_pos += 25
+            y_pos += 20
             alignment = 0
             is_heading = True
             
@@ -117,8 +117,8 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         is_commandment = False
         if re.match(r"^\*\*?[IVX]+\.", para):
             fontname = bold_font
-            fontsize = 11
-            y_pos += 8
+            fontsize = 10.5
+            y_pos += 6
             alignment = 0
             is_commandment = True
 
@@ -142,13 +142,13 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         try:
             rc = page.insert_textbox(rect, para_render, fontsize=fontsize, fontname=fontname, color=color, align=alignment)
             if rc >= 0:
-                y_pos += (rect.height - rc) + (18 if is_heading else (14 if is_commandment else 12))
+                y_pos += (rect.height - rc) + (14 if is_heading else (11 if is_commandment else 9))
             else:
                 new_page()
                 rect = fitz.Rect(margin_left, y_pos, page_width - margin_right, page_height - margin_bottom)
                 rc = page.insert_textbox(rect, para_render, fontsize=fontsize, fontname=fontname, color=color, align=alignment)
                 if rc >= 0:
-                    y_pos += (rect.height - rc) + (18 if is_heading else 12)
+                    y_pos += (rect.height - rc) + (14 if is_heading else 9)
                 else:
                     y_pos += 200 
         except Exception as e:
