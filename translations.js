@@ -18,9 +18,8 @@ const translations = {
         // Manifesto
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
-        manifesto_desc: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
-        manifesto_p1: "La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
-        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone una integración de ambos.",
+        manifesto_p1: "✨ La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
+        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
         manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
 
         // 12 Mandamientos (INAMOVIBLES)
@@ -205,9 +204,8 @@ const translations = {
 
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
-        manifesto_desc: "Comprehension without application generates no impact. Action without comprehension generates error. Neosys Aeon proposes to integrate and improve both.",
-        manifesto_p1: "Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
-        manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes an integration of both.",
+        manifesto_p1: "✨ Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
+        manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes to integrate and improve both.",
         manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
