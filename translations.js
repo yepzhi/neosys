@@ -55,13 +55,13 @@ const translations = {
         // Problema (4 faults)
         prob_label: "¿Por qué existe?",
         prob_title: "Cuatro fallas en la generación, validación y aplicación del conocimiento",
-        prob1_title: "Sustitución de evidencia por creencias",
+        prob1_title: "⚡ Sustitución de evidencia por creencias",
         prob1_body: "Las conclusiones se forman con base en creencias convenientes en lugar de evidencia verificable.",
-        prob2_title: "Ruptura entre conocimiento y aplicación",
+        prob2_title: "🔗 Ruptura entre conocimiento y aplicación",
         prob2_body: "El conocimiento no se traduce en acción efectiva ni en resultados medibles.",
-        prob3_title: "Falta de validación rigurosa",
+        prob3_title: "🔬 Falta de validación rigurosa",
         prob3_body: "Las afirmaciones no se someten a procesos sistemáticos de comprobación.",
-        prob4_title: "Desconexión entre conocimiento y valor",
+        prob4_title: "📉 Desconexión entre conocimiento y valor",
         prob4_body: "El conocimiento validado no se integra en la toma de decisiones ni en la generación de valor.",
 
         // STEM section
@@ -240,13 +240,13 @@ const translations = {
 
         prob_label: "Why does it exist?",
         prob_title: "Four flaws in the generation, validation, and application of knowledge",
-        prob1_title: "Substitution of evidence with beliefs",
+        prob1_title: "⚡ Substitution of evidence with beliefs",
         prob1_body: "Conclusions are formed based on convenient beliefs rather than verifiable evidence.",
-        prob2_title: "Breakdown between knowledge and application",
+        prob2_title: "🔗 Breakdown between knowledge and application",
         prob2_body: "Knowledge does not translate into effective action or measurable results.",
-        prob3_title: "Lack of rigorous validation",
+        prob3_title: "🔬 Lack of rigorous validation",
         prob3_body: "Claims are not subjected to systematic verification processes.",
-        prob4_title: "Disconnection between knowledge and value",
+        prob4_title: "📉 Disconnection between knowledge and value",
         prob4_body: "Validated knowledge is not integrated into decision-making or value generation.",
 
         stem_label: "Science, Engineering, and Progress",
@@ -414,13 +414,13 @@ const translations = {
 
         prob_label: "為什麼存在？",
         prob_title: "知識生成、驗證和應用中的四個缺陷",
-        prob1_title: "用信仰取代證據",
+        prob1_title: "⚡ 用信仰取代證據",
         prob1_body: "結論是基於方便的信仰而非可驗證的證據形成的。",
-        prob2_title: "知識與應用之間的崩潰",
+        prob2_title: "🔗 知識與應用之間的崩潰",
         prob2_body: "知識無法轉化為有效的行動或可衡量的結果。",
-        prob3_title: "缺乏嚴格驗證",
+        prob3_title: "🔬 缺乏嚴格驗證",
         prob3_body: "主張未經過系統性的核實過程。",
-        prob4_title: "知識與價值之間的脫節",
+        prob4_title: "📉 知識與價值之間的脫節",
         prob4_body: "經過驗證的知識未整合到決策或價值生成中。",
 
         stem_label: "科學、工程與進步",
