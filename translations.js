@@ -15,6 +15,9 @@ const translations = {
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explora",
 
+        postulado_label: "El Postulado Fundamental",
+        postulado_desc: '"El método científico es el descubrimiento más grande que ha hecho la humanidad. Es la única herramienta sistemática y comprobada que nos permite distinguir la realidad objetiva de lo que deseamos creer. Mientras que las ideologías exigen fe ciega y los dogmas imponen verdades inamovibles, la ciencia abraza la duda, exige evidencia rigurosa, y tiene el coraje de corregirse a sí misma a la luz de nuevos datos. Es el verdadero motor detrás de todo el progreso tecnológico y civilizatorio moderno."',
+
         // Manifesto
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
@@ -212,6 +215,9 @@ const translations = {
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
 
+        postulado_label: "The Fundamental Postulate",
+        postulado_desc: '"The scientific method is the greatest discovery humanity has ever made. It is the only systematic and proven tool that allows us to distinguish objective reality from what we simply wish to believe. While ideologies demand blind faith and dogmas impose unmovable truths, science embraces doubt, demands rigorous evidence, and has the courage to correct itself in light of new data. It is the true engine behind all modern technological and civilizational progress."',
+
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
         manifesto_p1: "✨ Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
@@ -389,9 +395,12 @@ const translations = {
 
         hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
         hero_subtitle: "一個通過可驗證的證據來理解現實的開放框架。",
-        hero_btn_mandamientos: "宇宙十二誡命",
-        hero_btn_whitepaper: "閱讀白皮書",
+        hero_btn_mandamientos: "十二诫命",
+        hero_btn_whitepaper: "阅读白皮书",
         hero_explore: "探索",
+
+        postulado_label: "基本假设",
+        postulado_desc: '"科学方法是人类有史以来最伟大的发现。它是唯一经过验证的系统性工具，使我们能够将客观现实与我们仅仅希望相信的事物区分开来。当意识形态要求盲目信仰、教条强加不可动摇的真理时，科学却拥抱怀疑、要求严格的证据，并有勇气根据新数据纠正自身。它是所有现代技术和文明进步背后的真正引擎。"',
 
         // Manifesto
         manifesto_label: "宣言",
