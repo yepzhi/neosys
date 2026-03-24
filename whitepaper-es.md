@@ -25,7 +25,7 @@ No adorarás la certeza falsa; buscarás lo real, aunque incomode.
 Preguntarás antes de afirmar, y explorarás antes de juzgar.
 
 **III. Recordarás que eres polvo de estrellas.**
-Not por pequeñez, sino por pertenencia: eres universo con conciencia.
+No por pequeñez, sino por pertenencia: eres universo con conciencia.
 
 **IV. Defenderás la evidencia como brújula.**
 Creerás menos por tradición y más por prueba, observación y razón.
@@ -160,7 +160,7 @@ Neosys Aeon es un sistema abierto. No requiere afiliación, registro ni validaci
 
 ### 7. Distinción y Alcance
 
-**Neosys Aeon no es una religión.** No requiere faith ni propone entidades sobrenaturales.
+**Neosys Aeon no es una religión.** No requiere fe ni propone entidades sobrenaturales.
 **Neosys Aeon no es un sistema de creencias.** No exige aceptación sin validación.
 **Neosys Aeon no es una organización.** No tiene jerarquía ni liderazgo.
 **Neosys Aeon no reemplaza la ciencia.** Funciona como un marco para interpretarla y aplicarla correctamente.
