@@ -19,6 +19,9 @@ const translations = {
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
         manifesto_desc: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
+        manifesto_p1: "La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
+        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone una integración de ambos.",
+        manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
 
         // 12 Mandamientos (INAMOVIBLES)
         mand_label: "Los Principios Fundamentales",
@@ -182,7 +185,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon es un marco abierto para la comprensión de nuestra realidad en términos de la Ciencia y la evidencia verificable mediante el método científico.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
+        footer_quote: "Neosys Aeon es un marco abierto para la comprensión, aplicación y transformación de la realidad.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -203,6 +206,9 @@ const translations = {
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
         manifesto_desc: "Comprehension without application generates no impact. Action without comprehension generates error. Neosys Aeon proposes to integrate and improve both.",
+        manifesto_p1: "Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. Yet the abundance of information has not resulted in a proportional improvement in understanding or the ability to generate progress.",
+        manifesto_p2: "Understanding without application generates no impact. Action without understanding generates error. Neosys Aeon proposes an integration of both.",
+        manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
         mand_title: "The 12 Commandments<br><span class='text-accent'>of the Cosmos</span>",
@@ -351,7 +357,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon is an open framework for the understanding of our reality in terms of Science and verifiable evidence through the scientific method.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
+        footer_quote: "Neosys Aeon is an open framework for the understanding, application, and transformation of reality.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -373,6 +379,9 @@ const translations = {
         manifesto_label: "宣言",
         manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來。</span>",
         manifesto_desc: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提倡整合並改進兩者。",
+        manifesto_p1: "科學讓我們解釋了世界。工程讓我們改變了世界。技術讓我們擴展了這種改變。然而，資訊的豐富並未帶來理解或產生進步能力的同等提升。",
+        manifesto_p2: "沒有應用的理解不會產生影響。沒有理解的行動會產生錯誤。Neosys Aeon 提出將兩者整合。",
+        manifesto_p3: "這不是一個信仰體系。這是一個應用型理解系統——<strong>宇宙誡命</strong>——旨在優先考慮真理、通過證據驗證，並將知識轉化為切實的進步。",
 
         mand_label: "基本原則",
         mand_title: "宇宙<br><span class='text-accent'>十二誡命</span>",
@@ -520,7 +529,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon 是一個開放框架，旨在從科學和通過科學方法可驗證的證據的角度來理解我們的現實。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
+        footer_quote: "Neosys Aeon 是一個用於理解、應用和改變現實的開放框架。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
 };

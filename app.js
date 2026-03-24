@@ -83,6 +83,7 @@ let currentLang = actLang; // Keep currentLang for applyLanguage, initialized fr
 
 function applyLanguage(lang) {
     currentLang = lang;
+    localStorage.setItem('nsa_lang', lang);
     const t = translations[lang];
     if (!t) return;
 
@@ -155,6 +156,9 @@ function applyLanguage(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
 });
+
+// Inicializar idioma para cargar contenido dinámico (Outreach Grid, etc.)
+applyLanguage(currentLang);
 
 // ── Particle Canvas ───────────────────────
 (function initParticles() {
