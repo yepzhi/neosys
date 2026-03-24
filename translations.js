@@ -47,7 +47,7 @@ const translations = {
         m10_body: "Tus actos no terminarán en ti; tu legado debe ampliar posibilidades.",
         m11_title: "No darás lugar a la pseudociencia ni al engaño disfrazado de verdad.",
         m11_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
-        m12_title: "No serás solo observador del universo: serás creador.",
+        m12_title: "No serás solo observador del universo: serás constructor.",
         m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
 
         // Problema (4 faults)
