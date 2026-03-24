@@ -83,23 +83,29 @@ Neosys Aeon surge como un marco para corregir esta desviación: **alinear el pen
 
 ⸻
 
-### 2. El Problema
+### 2. ¿Por qué existe?
 
-Se identifican cuatro fallas principales:
+Cuatro fallas en la generación, validación y aplicación del conocimiento
 
-**2.1 Comodidad sobre verdad**
-Las personas priorizan creencias convenientes sobre evidencia verificable.
+⸻
 
-**2.2 Desconexión entre conocimiento y validación**
-Se aceptan ideas sin procesos rigurosos de comprobación.
+**Sustitución de evidencia por creencias**
+Las conclusiones se forman con base en creencias convenientes en lugar de evidencia verificable.
 
-**2.3 Rechazo o mal uso del método científico**
-Se ignoran principios básicos como la experimentación, repetibilidad y falsabilidad.
+⸻
 
-**2.4 Expansión de pseudociencia**
-Se difunden afirmaciones sin evidencia, presentadas como conocimiento válido.
+**Ruptura entre conocimiento y aplicación**
+El conocimiento no se traduce en acción efectiva ni en resultados medibles.
 
-Estas fallas afectan la toma de decisiones individuales y colectivas.
+⸻
+
+**Falta de validación rigurosa**
+Las afirmaciones no se someten a procesos sistemáticos de comprobación.
+
+⸻
+
+**Desconexión entre conocimiento y valor**
+El conocimiento validado no se integra en la toma de decisiones ni en la generación de valor.
 
 ⸻
 

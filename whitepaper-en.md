@@ -83,23 +83,29 @@ Neosys Aeon emerges as a framework to correct this deviation: **aligning thought
 
 ⸻
 
-### 2. The Problem
+### 2. Why does it exist?
 
-Four main flaws are identified:
+Four flaws in the generation, validation, and application of knowledge
 
-**2.1 Comfort over truth**
-People prioritize convenient beliefs over verifiable evidence.
+---
 
-**2.2 Disconnection between knowledge and validation**
-Ideas are accepted without rigorous verification processes.
+**Substitution of evidence with beliefs**
+Conclusions are formed based on convenient beliefs rather than verifiable evidence.
 
-**2.3 Rejection or misuse of the scientific method**
-Basic principles such as experimentation, repeatability, and falsifiability are ignored.
+---
 
-**2.4 Expansion of pseudoscience**
-Claims are spread without evidence, presented as valid knowledge.
+**Breakdown between knowledge and application**
+Knowledge does not translate into effective action or measurable results.
 
-These flaws affect individual and collective decision-making.
+---
+
+**Lack of rigorous validation**
+Claims are not subjected to systematic verification processes.
+
+---
+
+**Disconnection between knowledge and value**
+Validated knowledge is not integrated into decision-making or value generation.
 
 ⸻
 
