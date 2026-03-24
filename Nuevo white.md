@@ -10,7 +10,7 @@
   
 📄** NEOSYS AEON**  
   
-**Un Marco Abierto para la Comprensión, Aplicación y Construcción de la Realidad**  
+**Un Marco Abierto para Alinear el Pensamiento con la Realidad mediante Evidencia**  
   
 **Whitepaper Fundacional v2.0**  
   
@@ -242,7 +242,7 @@ Aplicarás el conocimiento para mejorar la vida y transformar la realidad.
   
 **Declaración Final**  
   
-**Neosys Aeon es un marco abierto para la comprensión, aplicación y construcción de la realidad.**  
+**Neosys Aeon es un marco abierto para alinear el pensamiento con la realidad mediante evidencia.**  
   
 **No es una autoridad.**  
 **No es una doctrina cerrada.**  
