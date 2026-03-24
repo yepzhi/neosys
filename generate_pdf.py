@@ -98,8 +98,21 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
         # Heading Detection
         is_heading = False
         if para.startswith("### "):
-            if y_pos > margin_top + 30: # Force new page for major sections
+            section_token = para.replace("### ", "").split(" ")[0].strip(".")
+            force_new = False
+            
+            # User specific grouping rules:
+            # Group 3-4 (Start on 3)
+            # Group 5-8 (Start on 5)
+            # Standalone Declaración Final
+            if section_token in ["3", "5"] or "Declaración" in para or "Declaration" in para or "声明" in para:
+                force_new = True
+            elif section_token in ["1", "2"]: # Intro and Resumen usually standalone or start new
+                 force_new = True
+                 
+            if force_new and y_pos > margin_top + 30:
                 new_page()
+
             fontname = bold_font
             fontsize = 12.5
             color = (0, 0, 0)
