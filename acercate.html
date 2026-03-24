@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acércate a la Ciencia ✨ — Neosys Aeon</title>
+    <meta name="description"
+        content="Recursos de divulgación científica recomendados por Neosys Aeon: Canales de YouTube, Libros y Series.">
+    <meta name="theme-color" content="#050510">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="resources-page">
+
+    <!-- PARTICLE CANVAS -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+        <a href="index.html#hero" class="nav-logo">✨ <span>Neosys Aeon</span></a>
+        <div class="nav-links">
+            <a href="index.html#mandamientos">Mandamientos</a>
+            <a href="index.html#que-es">Marco</a>
+            <a href="index.html#whitepaper">Whitepaper</a>
+            <a href="index.html#comunidad">Comunidad</a>
+            <a href="index.html#unete" class="nav-cta">Únete</a>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="es">🇲🇽 ES</button>
+            <button class="lang-btn" data-lang="en">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="cn">🇨🇳 CN</button>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         RESOURCES HERO (Minimal)
+         ═══════════════════════════════════════════ -->
+    <header class="section acercate-hero" style="padding-top: 150px; padding-bottom: 40px;">
+        <div class="container">
+            <span class="section-label reveal" data-i18n="out_label">Divulgación</span>
+            <h1 class="section-title reveal" data-i18n="out_title">Acércate a la <span class='text-accent'>Ciencia</span></h1>
+            <p class="section-desc reveal" data-i18n="out_desc">Haz clic para conocer Series, Libros y Canales de YouTube que promueven activamente la ciencia y el método científico.</p>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════
+         RESOURCES GRID
+         ═══════════════════════════════════════════ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="outreach-grid reveal" id="outreach-grid">
+                <!-- Injected via app.js -->
+            </div>
+            <div style="margin-top: 60px; text-align: center;" class="reveal">
+                <a href="index.html#acercate" class="btn btn-glass">← Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER (Shared)
+         ═══════════════════════════════════════════ -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-declaration reveal">
+                <span class="footer-sparkle">✨</span>
+                <p class="footer-quote" data-i18n="footer_quote">
+                    Neosys Aeon es un marco abierto para la comprensión, aplicación y construcción de la realidad.<br>
+                    No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br>
+                    <strong>Es un sistema.</strong><br>
+                    Su valor depende de su aplicación.
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-tag">#NeosysAeon</p>
+                <div style="margin: 20px 0;">
+                    <a href="https://yepzhi.com" target="_blank" class="btn btn-glass"
+                        style="font-size: 0.85rem; padding: 10px 20px; border-radius: 30px;"
+                        data-i18n="footer_creator">✨ Created by yepzhi</a>
+                </div>
+                <p class="footer-copy" data-i18n="footer_copy">Marco abierto. Sin propietarios. Sin barreras.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

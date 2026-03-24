@@ -448,6 +448,17 @@ img { max-width: 100%; display: block; }
 /* ═══════════════════════════════════════════
    EL PROBLEMA
    ═══════════════════════════════════════════ */
+.outreach-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.outreach-grid-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
 .problems-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1039,6 +1050,34 @@ img { max-width: 100%; display: block; }
     background: var(--accent);
     border-radius: 50%;
     box-shadow: 0 0 8px var(--accent);
+}
+
+/* ── Connect Section ──────────── */
+.connect-section .container {
+    text-align: center;
+}
+
+.connect-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.connect-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.connect-desc {
+    font-size: 1.05rem;
+    opacity: 0.8;
+}
+
+.connect-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* ═══════════════════════════════════════════

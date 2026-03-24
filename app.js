@@ -123,8 +123,9 @@ function applyLanguage(lang) {
             const header = document.createElement('h3');
             header.className = 'outreach-category-title reveal';
             header.textContent = cat.title;
-            outreachGrid.appendChild(header);
-
+            const grid = document.createElement('div');
+            grid.className = 'outreach-grid-items';
+            
             cat.items.forEach(c => {
                 const card = document.createElement('a');
                 card.className = 'outreach-card reveal';
@@ -136,8 +137,9 @@ function applyLanguage(lang) {
                     <div class="outreach-name">${c.name}</div>
                     <div class="outreach-topic">${c.topic}</div>
                 `;
-                outreachGrid.appendChild(card);
+                grid.appendChild(card);
             });
+            outreachGrid.appendChild(grid);
         });
         
         setTimeout(() => {
@@ -242,9 +244,14 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const href = a.getAttribute('href');
+            if (href.startsWith('#')) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         });
     });
 })();
