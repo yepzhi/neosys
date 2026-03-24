@@ -39,6 +39,41 @@ function applyLanguage(lang) {
         }
     }
 
+    // Update Outreach Content
+    const outreachGrid = document.getElementById('outreach-grid');
+    if (outreachGrid && t.outreach_categories) {
+        outreachGrid.innerHTML = '';
+        t.outreach_categories.forEach(cat => {
+            const header = document.createElement('h3');
+            header.className = 'outreach-category-title reveal';
+            header.textContent = cat.title;
+            outreachGrid.appendChild(header);
+
+            cat.items.forEach(c => {
+                const card = document.createElement('a');
+                card.className = 'outreach-card reveal';
+                card.href = c.link;
+                card.target = '_blank';
+                card.rel = 'noopener noreferrer';
+                card.innerHTML = `
+                    <div class="outreach-icon">${c.icon}</div>
+                    <div class="outreach-name">${c.name}</div>
+                    <div class="outreach-topic">${c.topic}</div>
+                `;
+                outreachGrid.appendChild(card);
+            });
+        });
+        
+        setTimeout(() => {
+            if (window.revealObserver) {
+                outreachGrid.querySelectorAll('.reveal').forEach(el => {
+                    el.classList.remove('visible');
+                    window.revealObserver.observe(el);
+                });
+            }
+        }, 50);
+    }
+
     drawBadge();
 }
 
@@ -101,11 +136,14 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
             if (entry.isIntersecting) {
                 const siblings = entry.target.parentElement.querySelectorAll('.reveal');
                 let index = Array.from(siblings).indexOf(entry.target);
+                // Simple cap on delay
+                index = index === -1 ? 0 : index % 8;
                 setTimeout(() => entry.target.classList.add('visible'), index * 100);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    window.revealObserver = observer;
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 

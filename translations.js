@@ -4,6 +4,7 @@ const translations = {
         nav_mandamientos: "Mandamientos",
         nav_marco: "Marco",
         nav_whitepaper: "Whitepaper",
+        nav_acercate: "Acércate",
         nav_unete: "Únete",
 
         // Hero
@@ -127,6 +128,42 @@ const translations = {
         con_node2: "Programa aplicado",
         con_node3: "Currículo STEM",
 
+        // Acércate (Outreach)
+        out_label: "Divulgación",
+        out_title: "Acércate a la <span class='text-accent'>Ciencia</span>",
+        out_desc: "Expande tu mente con estos canales y organizaciones que hacen la ciencia accesible.",
+        outreach_categories: [
+            {
+                id: "youtube",
+                title: "Canales de YouTube",
+                items: [
+                    { name: "Veritasium en español", topic: "Ciencia General", link: "https://www.youtube.com/c/veritasiumenespanol", icon: "🌌" },
+                    { name: "El Robot de Platón", topic: "Ciencia General", link: "https://www.youtube.com/user/ElRobotdePlaton", icon: "🤖" },
+                    { name: "QuantumFracture", topic: "Física", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Fermilab", topic: "Física de Partículas", link: "https://www.youtube.com/user/fermilab", icon: "🔬" },
+                    { name: "Fazt", topic: "Programación", link: "https://www.youtube.com/c/FaztTech", icon: "💻" }
+                ]
+            },
+            {
+                id: "series",
+                title: "Series y Documentales",
+                items: [
+                    { name: "Cosmos (Carl Sagan)", topic: "Astronomía Clásica", link: "https://es.wikipedia.org/wiki/Cosmos:_un_viaje_personal", icon: "📺" },
+                    { name: "Cosmos (Neil deGrasse Tyson)", topic: "Astronomía Moderna", link: "https://es.wikipedia.org/wiki/Cosmos:_A_Spacetime_Odyssey", icon: "📺" },
+                    { name: "Star Trek: Discovery", topic: "Ciencia", link: "https://intl.startrek.com/shows/star-trek-discovery", icon: "🚀" },
+                    { name: "Star Trek: Enterprise", topic: "Ciencia", link: "https://intl.startrek.com/shows/star-trek-enterprise", icon: "🖖" }
+                ]
+            },
+            {
+                id: "books",
+                title: "Libros",
+                items: [
+                    { name: "El BlueBook", topic: "Currículo JovenesSTEM", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrofísica para gente apurada", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            }
+        ],
+
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la comprensión de nuestra realidad en términos de la Ciencia y la evidencia verificable mediante el método científico.<br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><strong>Es un sistema.</strong><br>Su valor depende de su aplicación.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
@@ -136,6 +173,7 @@ const translations = {
         nav_mandamientos: "Commandments",
         nav_marco: "Framework",
         nav_whitepaper: "Whitepaper",
+        nav_acercate: "Get Closer",
         nav_unete: "Join",
 
         hero_tagline: "Without science there is no truth. Without validation there is no progress.",
@@ -250,6 +288,41 @@ const translations = {
         con_node2: "Applied program",
         con_node3: "STEM Curriculum",
 
+        out_label: "Outreach",
+        out_title: "Get closer to <span class='text-accent'>Science</span>",
+        out_desc: "Expand your mind with these channels and organizations that make science accessible.",
+        outreach_categories: [
+            {
+                id: "youtube",
+                title: "YouTube Channels",
+                items: [
+                    { name: "Veritasium", topic: "General Science", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
+                    { name: "El Robot de Platón", topic: "Science (ES)", link: "https://www.youtube.com/user/ElRobotdePlaton", icon: "🤖" },
+                    { name: "QuantumFracture", topic: "Physics (ES)", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Fermilab", topic: "Particle Physics", link: "https://www.youtube.com/user/fermilab", icon: "🔬" },
+                    { name: "Fireship", topic: "Programming", link: "https://www.youtube.com/c/Fireship", icon: "💻" }
+                ]
+            },
+            {
+                id: "series",
+                title: "Series & Shows",
+                items: [
+                    { name: "Cosmos (Carl Sagan)", topic: "Astronomy", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Personal_Voyage", icon: "📺" },
+                    { name: "Cosmos (Neil deGrasse Tyson)", topic: "Astronomy", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Spacetime_Odyssey", icon: "📺" },
+                    { name: "Star Trek: Discovery", topic: "Science Fiction", link: "https://intl.startrek.com/shows/star-trek-discovery", icon: "🚀" },
+                    { name: "Star Trek: Enterprise", topic: "Science Fiction", link: "https://intl.startrek.com/shows/star-trek-enterprise", icon: "🖖" }
+                ]
+            },
+            {
+                id: "books",
+                title: "Books",
+                items: [
+                    { name: "The BlueBook", topic: "JovenesSTEM Curriculum", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrophysics for People in a Hurry", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            }
+        ],
+
         footer_quote: "Neosys Aeon is an open framework for the understanding of our reality in terms of Science and verifiable evidence through the scientific method.<br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><strong>It is a system.</strong><br>Its value depends on its application.",
         footer_copy: "Open framework. No owners. No barriers."
     },
@@ -258,6 +331,7 @@ const translations = {
         nav_mandamientos: "十二誡命",
         nav_marco: "框架",
         nav_whitepaper: "白皮書",
+        nav_acercate: "深入了解",
         nav_unete: "加入",
 
         hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
@@ -371,6 +445,41 @@ const translations = {
         con_node1: "哲學框架",
         con_node2: "應用計劃",
         con_node3: "STEM 課程",
+
+        out_label: "科學普及",
+        out_title: "深入了解 <span class='text-accent'>科學</span>",
+        out_desc: "通過這些普及科學的頻道和組織擴展你的視野。",
+        outreach_categories: [
+            {
+                id: "youtube",
+                title: "YouTube 頻道",
+                items: [
+                    { name: "Veritasium", topic: "一般科學", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
+                    { name: "El Robot de Platón", topic: "科學 (西語)", link: "https://www.youtube.com/user/ElRobotdePlaton", icon: "🤖" },
+                    { name: "QuantumFracture", topic: "物理 (西語)", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Fermilab", topic: "粒子物理", link: "https://www.youtube.com/user/fermilab", icon: "🔬" },
+                    { name: "彭彭的課程", topic: "程式設計", link: "https://www.youtube.com/c/彭彭的課程", icon: "💻" }
+                ]
+            },
+            {
+                id: "series",
+                title: "影集與紀錄片",
+                items: [
+                    { name: "Cosmos (Carl Sagan)", topic: "天文學", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Personal_Voyage", icon: "📺" },
+                    { name: "Cosmos (Neil deGrasse Tyson)", topic: "天文學", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Spacetime_Odyssey", icon: "📺" },
+                    { name: "Star Trek: Discovery", topic: "科幻", link: "https://intl.startrek.com/shows/star-trek-discovery", icon: "🚀" },
+                    { name: "Star Trek: Enterprise", topic: "科幻", link: "https://intl.startrek.com/shows/star-trek-enterprise", icon: "🖖" }
+                ]
+            },
+            {
+                id: "books",
+                title: "書籍與閱讀",
+                items: [
+                    { name: "The BlueBook", topic: "JovenesSTEM 課程", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrophysics for People in a Hurry", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            }
+        ],
 
         footer_quote: "Neosys Aeon 是一個開放框架，旨在從科學和通過科學方法可驗證的證據的角度來理解我們的現實。<br>它不是權威。它不是封閉的教條。它不是權力結構。<br><strong>它是一個系統。</strong><br>其價值取決於其應用。",
         footer_copy: "開放框架。無所有者。無障礙。"
