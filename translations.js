@@ -16,7 +16,7 @@ const translations = {
         hero_explore: "Explora",
 
         postulado_label: "El Postulado Fundamental",
-        postulado_title_new: "El <span class='text-accent'>método científico</span> es el único proceso sistemático que permite <span class='text-accent'>validar afirmaciones</span> sobre la realidad de forma confiable.",
+        postulado_title_new: "El <span class=\"text-accent\">método científico</span> es el único proceso sistemático que permite <span class=\"text-accent\">validar afirmaciones</span> sobre la realidad de forma confiable.",
         postulado_desc_new: "No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso, es la base de todo avance tecnológico y del conocimiento que realmente funciona.",
 
         // Manifesto
@@ -217,7 +217,7 @@ const translations = {
         hero_explore: "Explore",
 
         postulado_label: "The Fundamental Postulate",
-        postulado_title_new: "The <span class='text-accent'>scientific method</span> is the only systematic process that allows for the reliable <span class='text-accent'>validation of claims</span> about reality.",
+        postulado_title_new: "The <span class=\"text-accent\">scientific method</span> is the only systematic process that allows for the reliable <span class=\"text-accent\">validation of claims</span> about reality.",
         postulado_desc_new: "It does not protect ideas: it puts them to the test.<br>It does not depend on beliefs: it depends on evidence.<br><br>Therefore, it is the foundation of all technological advancement and of knowledge that truly works.",
 
         manifesto_label: "The Manifesto",
@@ -402,7 +402,7 @@ const translations = {
         hero_explore: "探索",
 
         postulado_label: "基本假设",
-        postulado_title_new: "<span class='text-accent'>科学方法</span>是唯一能够可靠<span class='text-accent'>验证现实主张</span>的系统化过程。",
+        postulado_title_new: "<span class=\"text-accent\">科学方法</span>是唯一能够可靠<span class=\"text-accent\">验证现实主张</span>的系统化过程。",
         postulado_desc_new: "它不保护观点：它对观点进行测试。<br>它不依赖于信仰：它依赖于证据。<br><br>因此，它是所有技术进步和真正有效知识的基础。",
 
         // Manifesto
