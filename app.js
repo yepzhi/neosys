@@ -292,7 +292,7 @@ function drawBadge() {
     const hashY = h - 55;
     ctx.font = '700 18px monospace';
     ctx.fillStyle = '#a78bfa';
-    ctx.fillText('#NeosysAeon', w / 2, hashY);
+    ctx.fillText('#NeosysAeon  #ThinkWithEvidence', w / 2, hashY);
 
     // Bottom accent bar
     ctx.fillStyle = accent;
@@ -347,7 +347,7 @@ function drawBadge() {
     });
 
     // ── Share helpers ──
-    const shareText = '✨ Soy parte del movimiento #NeosysAeon — Sin ciencia no hay verdad. Sin validación no hay progreso.';
+    const shareText = '✨ Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso.';
     const shareUrl = 'https://yepzhi.com/neosys/';
 
     // Twitter/X
