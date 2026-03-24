@@ -1044,4 +1044,11 @@ img { max-width: 100%; display: block; }
     .stem-step { max-width: 100%; }
     .stem-principles { grid-template-columns: 1fr; }
     .problems-grid-4 { grid-template-columns: 1fr; }
+
+    /* Badge / Gafete mobile */
+    .join-badge-side { width: 100%; }
+    #badge-canvas { width: 100%; height: auto; }
+    .badge-actions { gap: 6px; }
+    .btn-save-badge { padding: 8px 14px; font-size: 0.8rem; }
+    .photo-upload-area { min-height: 70px; padding: 14px; }
 }

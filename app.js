@@ -125,7 +125,22 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 // ═══════════════════════════════════════════
 // BADGE / GAFETE GENERATOR (with photo + share)
 // ═══════════════════════════════════════════
-let userPhoto = null; // Will hold loaded Image object
+let userPhoto = null;
+
+// Polyfill for roundRect (Safari < 16, older mobile browsers)
+function roundRectPath(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
 
 // ── Photo Upload ──────────────────────────
 (function initPhotoUpload() {
@@ -174,11 +189,10 @@ function drawBadge() {
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, w, h);
 
-    // Outer border
+    // Outer border (using polyfill)
     ctx.strokeStyle = 'rgba(167, 139, 250, 0.35)';
     ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.roundRect(6, 6, w - 12, h - 12, 20);
+    roundRectPath(ctx, 6, 6, w - 12, h - 12, 20);
     ctx.stroke();
 
     // Top accent bar
@@ -191,6 +205,7 @@ function drawBadge() {
     // Header: ✨ NEOSYS AEON
     ctx.textAlign = 'center';
     ctx.font = '32px serif';
+    ctx.fillStyle = '#ffffff';
     ctx.fillText('✨', w / 2, 55);
     ctx.font = '700 20px Inter, sans-serif';
     ctx.fillStyle = '#a78bfa';
@@ -201,17 +216,15 @@ function drawBadge() {
     ctx.fillRect(w / 2 - 50, 100, 100, 1);
 
     // Photo circle area
-    const photoY = 150;
-    const photoRadius = 70;
+    const photoY = 180;
+    const photoRadius = 75;
     if (userPhoto) {
-        // Circular clip for photo
         ctx.save();
         ctx.beginPath();
         ctx.arc(w / 2, photoY, photoRadius, 0, Math.PI * 2);
         ctx.closePath();
         ctx.clip();
 
-        // Draw photo centered/cropped
         const imgAspect = userPhoto.width / userPhoto.height;
         let sx = 0, sy = 0, sw = userPhoto.width, sh = userPhoto.height;
         if (imgAspect > 1) {
@@ -227,9 +240,9 @@ function drawBadge() {
 
         // Photo ring
         ctx.beginPath();
-        ctx.arc(w / 2, photoY, photoRadius + 2, 0, Math.PI * 2);
+        ctx.arc(w / 2, photoY, photoRadius + 3, 0, Math.PI * 2);
         ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3;
         ctx.stroke();
     } else {
         // Placeholder circle
@@ -241,14 +254,13 @@ function drawBadge() {
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Camera icon placeholder
         ctx.font = '36px serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 0.25)';
         ctx.fillText('📷', w / 2, photoY + 12);
     }
 
     // Name (big)
-    const nameY = photoY + photoRadius + 50;
+    const nameY = photoY + photoRadius + 55;
     ctx.font = '800 32px Inter, sans-serif';
     ctx.fillStyle = '#f5f5f7';
     ctx.fillText(name.toUpperCase(), w / 2, nameY);
@@ -256,17 +268,16 @@ function drawBadge() {
     // Member label
     ctx.font = '600 12px monospace';
     ctx.fillStyle = 'rgba(245, 245, 247, 0.35)';
-    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 30);
+    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 32);
 
     // Divider
     ctx.fillStyle = 'rgba(167, 139, 250, 0.2)';
-    ctx.fillRect(w / 2 - 60, nameY + 48, 120, 1);
+    ctx.fillRect(w / 2 - 60, nameY + 50, 120, 1);
 
     // Tagline
-    const taglineY = nameY + 78;
+    const taglineY = nameY + 80;
     ctx.font = 'italic 500 14px Inter, sans-serif';
     ctx.fillStyle = 'rgba(245, 245, 247, 0.45)';
-    // Split tagline into two lines if needed
     const tagline = t.join_badge_tagline || '"Sin ciencia no hay verdad. Sin validación no hay progreso."';
     const cleanTagline = tagline.replace(/"/g, '');
     const tagParts = cleanTagline.split(/[.。]/);
@@ -278,7 +289,7 @@ function drawBadge() {
     }
 
     // Hashtag
-    const hashY = h - 70;
+    const hashY = h - 55;
     ctx.font = '700 18px monospace';
     ctx.fillStyle = '#a78bfa';
     ctx.fillText('#NeosysAeon', w / 2, hashY);
@@ -303,7 +314,10 @@ function drawBadge() {
     const canvas = document.getElementById('badge-canvas');
     if (!form || !canvas) return;
 
+    // Draw initial preview
     drawBadge();
+    // Show actions right away so users see share/download buttons
+    if (actions) actions.style.display = 'flex';
 
     // Live preview as user types
     const nameInput = document.getElementById('badge-name');
@@ -313,33 +327,33 @@ function drawBadge() {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('badge-name').value.trim();
-        if (name) {
-            drawBadge();
-            if (actions) actions.style.display = 'flex';
-        }
+        drawBadge();
     });
 
-    // Save/Download
+    // ── Save/Download ──
     document.getElementById('save-badge').addEventListener('click', () => {
-        const link = document.createElement('a');
-        link.download = 'neosysaeon-gafete.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        // Use toBlob for better mobile compatibility
+        canvas.toBlob((blob) => {
+            if (!blob) return;
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = 'neosysaeon-gafete.png';
+            link.href = url;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }, 'image/png');
     });
 
-    // Share helpers
+    // ── Share helpers ──
     const shareText = '✨ Soy parte del movimiento #NeosysAeon — Sin ciencia no hay verdad. Sin validación no hay progreso.';
     const shareUrl = 'https://yepzhi.com/neosys/';
 
     // Twitter/X
-    document.getElementById('share-twitter').addEventListener('click', async () => {
-        // Try to share with image via Web Share API first, fallback to text
-        const shared = await tryNativeShare();
-        if (!shared) {
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-            window.open(url, '_blank');
-        }
+    document.getElementById('share-twitter').addEventListener('click', () => {
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        window.open(url, '_blank');
     });
 
     // Facebook
@@ -355,35 +369,31 @@ function drawBadge() {
     });
 
     // Native Share (with image file if supported)
-    document.getElementById('share-native').addEventListener('click', () => tryNativeShare());
+    const shareNativeBtn = document.getElementById('share-native');
+    if (!navigator.share) {
+        // Hide native share button if Web Share API not available
+        shareNativeBtn.style.display = 'none';
+    } else {
+        shareNativeBtn.addEventListener('click', async () => {
+            try {
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                const file = new File([blob], 'neosysaeon-gafete.png', { type: 'image/png' });
 
-    async function tryNativeShare() {
-        if (!navigator.share) return false;
-
-        try {
-            // Convert canvas to blob for file sharing
-            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-            const file = new File([blob], 'neosysaeon-gafete.png', { type: 'image/png' });
-
-            if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                await navigator.share({
-                    title: 'Neosys Aeon ✨',
-                    text: shareText,
-                    url: shareUrl,
-                    files: [file]
-                });
-            } else {
-                await navigator.share({
+                const shareData = {
                     title: 'Neosys Aeon ✨',
                     text: shareText,
                     url: shareUrl
-                });
+                };
+
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    shareData.files = [file];
+                }
+
+                await navigator.share(shareData);
+            } catch (err) {
+                if (err.name !== 'AbortError') console.log('Share:', err);
             }
-            return true;
-        } catch (err) {
-            if (err.name !== 'AbortError') console.log('Share failed:', err);
-            return false;
-        }
+        });
     }
 })();
 
