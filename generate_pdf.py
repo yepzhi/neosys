@@ -1,85 +1,167 @@
 import fitz
 import os
+import re
 
-def render_markdown_to_pdf(md_filepath, output_pdf, is_cn=False):
+def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
     doc = fitz.open()
     page = None
-    y_pos = 50
-    margin_top = 50
-    margin_bottom = 50
-    margin_left = 50
-    margin_right = 50
-    page_width = 595.28
-    page_height = 841.89
+    y_pos = 0
+    margin_top = 70
+    margin_bottom = 70
+    margin_left = 60
+    margin_right = 60
+    page_width = 595.28  # A4 width
+    page_height = 841.89 # A4 height
     
+    # Fonts
+    base_font = "china-t" if is_cn else "helv"
+    bold_font = "china-t" if is_cn else "hebo"
+
     def new_page():
         nonlocal page, y_pos
         page = doc.new_page(width=page_width, height=page_height)
         y_pos = margin_top
 
-    new_page()
-    
     with open(md_filepath, "r", encoding="utf-8") as f:
         content = f.read()
-        
+
+    # Split into paragraphs
     paragraphs = [p.strip() for p in content.split('\n\n') if p.strip()]
+
+    # --- PAGE 1: TITLE PAGE ---
+    new_page()
     
-    base_font = "cjk" if is_cn else "helv"
-    bold_font = "cjk" if is_cn else "hebo"  # CJK handles bold natively sometimes but we can just use cjk
+    # Selection of title elements (everything before the first ###)
+    title_elements = []
+    body_elements = []
+    found_first_heading = False
     
-    for para in paragraphs:
+    for p in paragraphs:
+        if not found_first_heading and p.startswith("### "):
+            found_first_heading = True
+        
+        if not found_first_heading:
+            title_elements.append(p)
+        else:
+            body_elements.append(p)
+
+    # Render Title Page centered vertically
+    # Typical title elements: # Header, NEOSYS AEON, Subtitle, Whitepaper v3.0, Divider
+    title_y = page_height / 2 - 150
+    for tp in title_elements:
+        if tp in ["⸻", "***"]: continue # Skip dividers on title page for minimalist look
+        
+        tp_clean = tp.replace("# ", "").replace("**", "").replace("📄 ", "").replace("✨", "").strip()
+        if not tp_clean: continue
+        
+        if "NEOSYS AEON" in tp_clean.upper():
+            fs = 28
+            fn = bold_font
+            color = (0.0, 0.0, 0.0)
+            spacing = 45
+        elif "Whitepaper" in tp_clean or "白皮書" in tp_clean:
+            fs = 14
+            fn = base_font
+            color = (0.3, 0.3, 0.3)
+            spacing = 25
+        else:
+            fs = 12
+            fn = base_font
+            color = (0.5, 0.5, 0.5)
+            spacing = 20
+            
+        rect = fitz.Rect(margin_left, title_y, page_width - margin_right, title_y + 100)
+        page.insert_textbox(rect, tp_clean, fontsize=fs, fontname=fn, color=color, align=1)
+        title_y += spacing
+
+    # --- PAGE 2 & ONWARDS: BODY ---
+    new_page()
+    
+    # Flag to ensure the first content (usually Mandamientos) starts at the top of Page 2
+    for para in body_elements:
+        # Detect if we should force a page break before specific sections (like Summary or Intro)
+        # if "### Resumen" in para or "### 1. Introducción" in para:
+        #     if y_pos > margin_top + 100: # Only if we already have some content on the page
+        #         new_page()
+
         if para == "⸻" or para == "***":
-            y_pos += 10
-            page.draw_line(fitz.Point(margin_left, y_pos), fitz.Point(page_width - margin_right, y_pos), color=(0.8,0.8,0.8), width=1)
             y_pos += 20
+            page.draw_line(fitz.Point(margin_left + 150, y_pos), fitz.Point(page_width - margin_right - 150, y_pos), color=(0.9,0.9,0.9), width=0.5)
+            y_pos += 30
             continue
             
         fontname = base_font
         fontsize = 11
         color = (0.1, 0.1, 0.1)
+        alignment = 3 if not is_cn else 0 # Justify for non-CN
         
-        if para.startswith("# "):
-            fontname = bold_font
-            fontsize = 18
-            para = para.replace("# ", "")
-        elif para.startswith("### "):
+        # Heading Detection
+        is_heading = False
+        if para.startswith("### "):
             fontname = bold_font
             fontsize = 13
-            color = (0.655, 0.545, 0.98) # #A78BFA
+            color = (0, 0, 0)
             para = para.replace("### ", "")
-            y_pos += 10
+            y_pos += 20
+            alignment = 0
+            is_heading = True
+        elif para.startswith("## "):
+            fontname = bold_font
+            fontsize = 15
+            para = para.replace("## ", "")
+            y_pos += 25
+            alignment = 0
+            is_heading = True
             
-        para = para.replace("**", "").replace("*", "").replace("`", "")
+        # Bold Commandments Detection
+        is_commandment = False
+        if re.match(r"^\*\*?[IVX]+\.", para):
+            fontname = bold_font
+            fontsize = 11
+            y_pos += 8
+            alignment = 0
+            is_commandment = True
+
+        # Cleanup
+        para_render = para.replace("**", "").replace("*", "").replace("`", "")
         
-        lines = []
-        if para.startswith("- "):
-            for l in para.split('\n'):
+        # List Handling
+        if para_render.startswith("- "):
+            lines = []
+            for l in para_render.split('\n'):
                 lines.append(l.replace("- ", "•  "))
-            para = "\n".join(lines)
+            para_render = "\n".join(lines)
+            alignment = 0
         
-        if y_pos > page_height - margin_bottom - 40:
+        # Page break logic
+        if y_pos > page_height - margin_bottom - 60:
             new_page()
             
         rect = fitz.Rect(margin_left, y_pos, page_width - margin_right, page_height - margin_bottom)
         
         try:
-            rc = page.insert_textbox(rect, para, fontsize=fontsize, fontname=fontname, color=color, align=0)
+            rc = page.insert_textbox(rect, para_render, fontsize=fontsize, fontname=fontname, color=color, align=alignment)
             if rc >= 0:
-                y_pos += (rect.height - rc) + 15
+                y_pos += (rect.height - rc) + (18 if is_heading else (14 if is_commandment else 12))
             else:
                 new_page()
                 rect = fitz.Rect(margin_left, y_pos, page_width - margin_right, page_height - margin_bottom)
-                rc = page.insert_textbox(rect, para, fontsize=fontsize, fontname=fontname, color=color, align=0)
+                rc = page.insert_textbox(rect, para_render, fontsize=fontsize, fontname=fontname, color=color, align=alignment)
                 if rc >= 0:
-                    y_pos += (rect.height - rc) + 15
+                    y_pos += (rect.height - rc) + (18 if is_heading else 12)
                 else:
                     y_pos += 200 
         except Exception as e:
-            print("Error parsing", repr(para[:20]), e)
-            y_pos += 20
+            print(f"Error at {md_filepath}: {e}")
+            y_pos += 15
+
+    # Page Numbering (Skip Page 1)
+    for i in range(1, doc.page_count):
+        p = doc[i]
+        p.insert_text(fitz.Point(page_width/2 - 20, page_height - 40), f"NEOSYS AEON  |  {i}", fontsize=8, fontname="helv", color=(0.6, 0.6, 0.6))
 
     doc.save(output_pdf)
-    print(f"Generated {output_pdf}")
+    print(f"✅ Generated {output_pdf} (Academic Design)")
 
 files = [
     ("whitepaper-es.md", "neosysaeon-whitepaper.pdf", False),
@@ -89,4 +171,4 @@ files = [
 
 for md_file, pdf_file, is_cn in files:
     if os.path.exists(md_file):
-        render_markdown_to_pdf(md_file, pdf_file, is_cn)
+        render_academic_pdf(md_file, pdf_file, is_cn)
