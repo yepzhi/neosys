@@ -534,6 +534,31 @@ function drawBadge() {
         nameInput.addEventListener('input', drawBadge);
     }
 
+    // Photo Upload Logic
+    const photoInput = document.getElementById('badge-photo');
+    const photoPreview = document.getElementById('photo-preview');
+    const photoPlaceholder = document.getElementById('photo-placeholder');
+    if (photoInput && photoPreview && photoPlaceholder) {
+        photoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    photoPreview.src = event.target.result;
+                    photoPreview.style.display = 'block';
+                    photoPlaceholder.style.display = 'none';
+                    
+                    const img = new Image();
+                    img.onload = () => {
+                        userPhoto = img;
+                        drawBadge();
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -581,15 +606,29 @@ function drawBadge() {
 
     // ── Share helpers ──
     const shareUrl = 'https://yepzhi.com/neosys/';
+    const shareText = '✨ Soy parte del movimiento Neosys Aeon\n\n#NeosysAeon #ThinkWithEvidence #SinCienciaNoHayVerdad\n\n' + shareUrl;
+
+    function downloadBadge() {
+        canvas.toBlob((blob) => {
+            if (!blob) return;
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = 'neosysaeon-gafete.png';
+            link.href = url;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }, 'image/png');
+    }
 
     // Copiar Texto
     const copyBtn = document.getElementById('share-copy');
     if (copyBtn) {
         copyBtn.addEventListener('click', () => {
-            const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
-            navigator.clipboard.writeText(textToShare).then(() => {
-                const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
-                alert(isEs ? 'Texto copiado. ¡Listo para pegar!' : 'Text copied. Ready to paste!');
+            navigator.clipboard.writeText(shareText).then(() => {
+                downloadBadge();
+                alert('✅ Texto copiado y gafete descargado.\n\nPégalo en tu red social favorita junto con la imagen.');
             });
         });
     }
@@ -598,60 +637,66 @@ function drawBadge() {
     const igBtn = document.getElementById('share-instagram');
     if (igBtn) {
         igBtn.addEventListener('click', () => {
-            const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
-            navigator.clipboard.writeText(textToShare).then(() => {
-                const isEs = document.documentElement.lang === 'es' || !document.documentElement.lang;
-                alert(isEs ? 'Texto copiado.\n\nAbre Instagram y pega el texto al compartir tu Gafete descargado.' : 'Text copied.\n\nOpen Instagram and paste the text when sharing your saved Badge.');
+            navigator.clipboard.writeText(shareText).then(() => {
+                downloadBadge();
+                alert('✅ Texto copiado y gafete descargado.\n\nAbre Instagram → Nueva publicación → Selecciona la imagen del gafete → Pega el texto.');
             });
         });
     }
 
     // Twitter/X
-    document.getElementById('share-twitter').addEventListener('click', () => {
-        const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
-        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToShare)}`;
-        window.open(url, '_blank');
-    });
+    const twBtn = document.getElementById('share-twitter');
+    if (twBtn) {
+        twBtn.addEventListener('click', () => {
+            downloadBadge();
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+            window.open(url, '_blank');
+        });
+    }
 
     // Facebook
-    document.getElementById('share-facebook').addEventListener('click', () => {
-        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-        window.open(url, '_blank');
-    });
+    const fbBtn = document.getElementById('share-facebook');
+    if (fbBtn) {
+        fbBtn.addEventListener('click', () => {
+            downloadBadge();
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+            window.open(url, '_blank');
+        });
+    }
 
     // WhatsApp
-    document.getElementById('share-whatsapp').addEventListener('click', () => {
-        const textToShare = t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/';
-        const url = `https://wa.me/?text=${encodeURIComponent(textToShare)}`;
-        window.open(url, '_blank');
-    });
+    const waBtn = document.getElementById('share-whatsapp');
+    if (waBtn) {
+        waBtn.addEventListener('click', () => {
+            const url = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+            window.open(url, '_blank');
+        });
+    }
 
     // Native Share (with image file if supported)
     const shareNativeBtn = document.getElementById('share-native');
-    if (!navigator.share) {
-        // Hide native share button if Web Share API not available
-        shareNativeBtn.style.display = 'none';
-    } else {
-        shareNativeBtn.addEventListener('click', async () => {
-            try {
-                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-                const file = new File([blob], 'neosysaeon-gafete.png', { type: 'image/png' });
-
-                const shareData = {
-                    title: 'Neosys Aeon ✨',
-                    text: t.join_share_text || 'Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/',
-                    url: shareUrl
-                };
-
-                if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                    shareData.files = [file];
+    if (shareNativeBtn) {
+        if (!navigator.share) {
+            shareNativeBtn.style.display = 'none';
+        } else {
+            shareNativeBtn.addEventListener('click', async () => {
+                try {
+                    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                    const file = new File([blob], 'neosysaeon-gafete.png', { type: 'image/png' });
+                    const shareData = {
+                        title: 'Neosys Aeon ✨',
+                        text: shareText,
+                        url: shareUrl
+                    };
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        shareData.files = [file];
+                    }
+                    await navigator.share(shareData);
+                } catch (err) {
+                    if (err.name !== 'AbortError') console.log('Share:', err);
                 }
-
-                await navigator.share(shareData);
-            } catch (err) {
-                if (err.name !== 'AbortError') console.log('Share:', err);
-            }
-        });
+            });
+        }
     }
 })();
 
@@ -669,6 +714,157 @@ function drawBadge() {
     }, { threshold: 0.05 });
     cards.forEach(card => observer.observe(card));
 })();
+
+// ═══════════════════════════════════════════
+// COMMUNITY TABS (Directory / Map)
+// ═══════════════════════════════════════════
+(function initCommunityTabs() {
+    const tabDir = document.getElementById('tab-directory');
+    const tabMap = document.getElementById('tab-map');
+    const dirView = document.getElementById('directory-view');
+    const mapView = document.getElementById('map-view');
+    if (!tabDir || !tabMap || !dirView || !mapView) return;
+
+    let mapInitialized = false;
+
+    tabDir.addEventListener('click', () => {
+        tabDir.classList.add('active');
+        tabMap.classList.remove('active');
+        dirView.style.display = '';
+        mapView.style.display = 'none';
+    });
+
+    tabMap.addEventListener('click', () => {
+        tabMap.classList.add('active');
+        tabDir.classList.remove('active');
+        mapView.style.display = '';
+        dirView.style.display = 'none';
+        if (!mapInitialized) {
+            mapInitialized = true;
+            initCommunityMap();
+        }
+    });
+})();
+
+// ═══════════════════════════════════════════
+// COMMUNITY MAP (Leaflet)
+// ═══════════════════════════════════════════
+const stateCoords = {
+    // Mexico
+    'Aguascalientes': [21.88, -102.29], 'Baja California': [30.84, -115.28], 'Baja California Sur': [25.04, -111.67],
+    'Campeche': [18.93, -90.32], 'Chiapas': [16.75, -93.12], 'Chihuahua': [28.63, -106.09],
+    'Ciudad de México': [19.43, -99.13], 'Coahuila': [27.06, -101.71], 'Colima': [19.24, -103.72],
+    'Durango': [24.03, -104.65], 'Estado de México': [19.49, -99.68], 'Guanajuato': [21.02, -101.26],
+    'Guerrero': [17.44, -99.55], 'Hidalgo': [20.12, -98.73], 'Jalisco': [20.66, -103.35],
+    'Michoacán': [19.57, -101.71], 'Morelos': [18.68, -99.10], 'Nayarit': [21.75, -104.85],
+    'Nuevo León': [25.67, -100.32], 'Oaxaca': [17.07, -96.73], 'Puebla': [19.04, -98.20],
+    'Querétaro': [20.59, -100.39], 'Quintana Roo': [19.18, -88.48], 'San Luis Potosí': [22.15, -100.98],
+    'Sinaloa': [24.79, -107.39], 'Sonora': [29.07, -110.96], 'Tabasco': [17.99, -92.93],
+    'Tamaulipas': [24.27, -98.84], 'Tlaxcala': [19.32, -98.24], 'Veracruz': [19.17, -96.13],
+    'Yucatán': [20.97, -89.62], 'Zacatecas': [22.77, -102.58],
+    // USA
+    'Alabama': [32.32, -86.90], 'Alaska': [63.59, -154.49], 'Arizona': [34.05, -111.09],
+    'Arkansas': [34.97, -92.37], 'California': [36.78, -119.42], 'Colorado': [39.55, -105.78],
+    'Connecticut': [41.60, -72.76], 'Delaware': [38.91, -75.53], 'Florida': [27.66, -81.52],
+    'Georgia': [32.16, -82.90], 'Hawaii': [19.90, -155.58], 'Idaho': [44.07, -114.74],
+    'Illinois': [40.63, -89.40], 'Indiana': [40.27, -86.13], 'Iowa': [41.88, -93.10],
+    'Kansas': [39.01, -98.48], 'Kentucky': [37.84, -84.27], 'Louisiana': [30.98, -91.96],
+    'Maine': [45.25, -69.45], 'Maryland': [39.05, -76.64], 'Massachusetts': [42.41, -71.38],
+    'Michigan': [44.31, -85.60], 'Minnesota': [46.73, -94.69], 'Mississippi': [32.35, -89.40],
+    'Missouri': [37.96, -91.83], 'Montana': [46.88, -110.36], 'Nebraska': [41.49, -99.90],
+    'Nevada': [38.80, -116.42], 'New Hampshire': [43.19, -71.57], 'New Jersey': [40.06, -74.41],
+    'New Mexico': [34.52, -105.87], 'New York': [43.30, -74.22], 'North Carolina': [35.76, -79.02],
+    'North Dakota': [47.55, -101.00], 'Ohio': [40.42, -82.91], 'Oklahoma': [35.47, -97.52],
+    'Oregon': [43.80, -120.55], 'Pennsylvania': [41.20, -77.19], 'Rhode Island': [41.58, -71.48],
+    'South Carolina': [33.84, -81.16], 'South Dakota': [43.97, -99.90], 'Tennessee': [35.52, -86.58],
+    'Texas': [31.97, -99.90], 'Utah': [39.32, -111.09], 'Vermont': [44.56, -72.58],
+    'Virginia': [37.43, -78.66], 'Washington': [47.75, -120.74], 'West Virginia': [38.60, -80.45],
+    'Wisconsin': [43.78, -88.79], 'Wyoming': [43.08, -107.29]
+};
+
+// Country center coords for non-US/MX members
+const countryCoords = {
+    'AR': [-38.42, -63.62], 'BR': [-14.24, -51.93], 'CL': [-35.68, -71.54],
+    'CO': [4.57, -74.30], 'CR': [9.75, -83.75], 'CU': [21.52, -77.78],
+    'DO': [18.74, -70.16], 'EC': [-1.83, -78.18], 'SV': [13.79, -88.90],
+    'GT': [15.78, -90.23], 'HN': [15.20, -86.24], 'NI': [12.87, -85.21],
+    'PA': [8.54, -80.78], 'PY': [-23.44, -58.44], 'PE': [-9.19, -75.02],
+    'UY': [-32.52, -55.77], 'VE': [6.42, -66.59],
+    'ES': [40.46, -3.75], 'FR': [46.23, 2.21], 'DE': [51.17, 10.45],
+    'IT': [41.87, 12.57], 'GB': [55.38, -3.44], 'PT': [39.40, -8.22],
+    'CA': [56.13, -106.35], 'JP': [36.20, 138.25], 'CN': [35.86, 104.20],
+    'IN': [20.59, 78.96], 'AU': [-25.27, 133.77], 'KR': [35.91, 127.77]
+};
+
+function initCommunityMap() {
+    if (typeof L === 'undefined') return;
+
+    const map = L.map('community-map', {
+        zoomControl: true,
+        scrollWheelZoom: true
+    }).setView([23.63, -102.55], 4); // Center on Mexico
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap © CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    if (!db) return;
+
+    // Aggregate members by location
+    db.collection('miembros').orderBy('timestamp', 'desc').limit(500).get().then((snapshot) => {
+        const locationCounts = {};
+
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            let coords = null;
+            let label = '';
+
+            if (data.state && stateCoords[data.state]) {
+                coords = stateCoords[data.state];
+                label = data.state;
+            } else if (data.country && countryCoords[data.country]) {
+                coords = countryCoords[data.country];
+                label = data.country;
+            }
+
+            if (coords) {
+                const key = coords.join(',');
+                if (!locationCounts[key]) {
+                    locationCounts[key] = { coords, label, count: 0 };
+                }
+                locationCounts[key].count++;
+            }
+        });
+
+        Object.values(locationCounts).forEach(loc => {
+            const size = Math.min(16 + loc.count * 4, 40);
+            const icon = L.divIcon({
+                className: 'map-marker-custom',
+                html: `<div style="
+                    background: rgba(167, 139, 250, 0.8);
+                    border: 2px solid #a78bfa;
+                    border-radius: 50%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: ${Math.max(10, size / 2.5)}px;
+                    font-weight: 700;
+                    color: #fff;
+                    box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+                ">${loc.count}</div>`,
+                iconSize: [size, size],
+                iconAnchor: [size / 2, size / 2]
+            });
+
+            L.marker(loc.coords, { icon }).addTo(map)
+                .bindPopup(`<strong>${loc.label}</strong><br>${loc.count} miembro${loc.count > 1 ? 's' : ''}`);
+        });
+    });
+}
 
 // Inicializar idioma al final para evitar errores de inicialización de variables (Temporal Dead Zone)
 applyLanguage(currentLang);

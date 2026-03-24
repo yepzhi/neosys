@@ -184,7 +184,7 @@ El progreso depende de la capacidad de entender la realidad y actuar en función
 
 ### Declaración Final
 
-Neosys Aeon es un marco abierto para alinear el pensamiento con la realidad mediante evidencia.
+Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.
 
 No es una autoridad.
 No es una doctrina cerrada.
@@ -192,4 +192,4 @@ No es una estructura de poder.
 
 Es un sistema.
 
-Su valor depende de su aplicación.
+Su valor depende de su aplicación y de su validación empírica.

@@ -184,7 +184,7 @@ Progress depends on the ability to understand reality and act based on evidence.
 
 ### Final Declaration
 
-Neosys Aeon is an open framework to align thought with reality through evidence.
+Neosys Aeon is an open framework for the generation, validation, and application of knowledge through the scientific method.
 
 It is not an authority.
 It is not a closed doctrine.
@@ -192,4 +192,4 @@ It is not a power structure.
 
 It is a system.
 
-Its value depends on its application.
+Its value depends on its application and its empirical validation.

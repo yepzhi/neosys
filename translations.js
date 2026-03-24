@@ -181,6 +181,10 @@ const translations = {
         comm_label: "Directorio Abierto",
         comm_title: "Comunidad Neosys Aeon",
         comm_desc: "Las mentes que han decidido unirse al movimiento y adoptar los principios de validación y evidencia.",
+        comm_tab_directory: "Directorio",
+        comm_tab_map: "Mapa",
+        comm_join_btn: "✨ Únete al movimiento",
+        join_privacy_note: "Tu nombre, ubicación y red social aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
 
         // Footer
         coll_title: "¿Te gustaría colaborar o mejorar esta iniciativa?",
@@ -188,7 +192,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon es un marco abierto para alinear el pensamiento con la realidad mediante evidencia.<br><br>No es una autoridad.<br>No es una doctrina cerrada.<br>No es una estructura de poder.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación.",
+        footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br>No es una autoridad.<br>No es una doctrina cerrada.<br>No es una estructura de poder.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su validación empírica.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -357,13 +361,17 @@ const translations = {
         comm_label: "Open Directory",
         comm_title: "Neosys Aeon Community",
         comm_desc: "The minds that have decided to join the movement and adopt the principles of validation and evidence.",
+        comm_tab_directory: "Directory",
+        comm_tab_map: "Map",
+        comm_join_btn: "✨ Join the movement",
+        join_privacy_note: "Your name, location, and social media will appear publicly in the Community section. Your email and phone are private.",
 
         coll_title: "Would you like to collaborate or improve this initiative?",
         coll_desc: "Send us your feedback, ideas, or write directly to join the effort to promote evidence-based thinking.",
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon is an open framework to align thought with reality through evidence.<br><br>It is not an authority.<br>It is not a closed doctrine.<br>It is not a power structure.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application.",
+        footer_quote: "Neosys Aeon is an open framework for the generation, validation, and application of knowledge through the scientific method.<br><br>It is not an authority.<br>It is not a closed doctrine.<br>It is not a power structure.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and its empirical validation.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -533,13 +541,17 @@ const translations = {
         comm_label: "開放目錄",
         comm_title: "Neosys Aeon 社區",
         comm_desc: "已經決定加入運動並採用驗證和證據原則的思想者。",
+        comm_tab_directory: "目录",
+        comm_tab_map: "地圖",
+        comm_join_btn: "✨ 加入運動",
+        join_privacy_note: "您的姓名、位置和社交媒體將公開顯示在社區欄中。您的電子郵件和電話是私密的。",
 
         coll_title: "您想合作或改進這個倡議嗎？",
         coll_desc: "發送您的反饋、想法或直接寫信加入我們，以推廣基於證據的思維。",
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon 是一個透過證據使思想與現實保持一致的開放框架。<br><br>它不是權威。<br>它不是封閉的教條。<br>它不是權力結構。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用。",
+        footer_quote: "Neosys Aeon 是一個透過科學方法進行知識生成、驗證和應用的開放框架。<br><br>它不是權威。<br>它不是封閉的教條。<br>它不是權力結構。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和实证验证。",
         footer_copy: "開放框架。無所有者。無障礙。"
     }
 };

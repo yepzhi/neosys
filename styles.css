@@ -1096,6 +1096,58 @@ img { max-width: 100%; display: block; }
     font-family: var(--font-mono);
 }
 
+/* ── Community Tabs ──────────── */
+.community-tabs {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    width: fit-content;
+    margin: 30px auto 0;
+}
+
+.community-tab {
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.community-tab.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.community-tab:not(.active):hover {
+    background: var(--glass-hover);
+    color: var(--text-primary);
+}
+
+/* ── Map Markers ──────────── */
+.map-marker-custom {
+    background: transparent !important;
+    border: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+    background: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-xs) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+    background: var(--bg-elevated) !important;
+}
+
 /* ── Connect Section ──────────── */
 .connect-section .container {
     text-align: center;
