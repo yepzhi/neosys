@@ -26,6 +26,19 @@ function applyLanguage(lang) {
     });
 
     document.documentElement.lang = lang === 'cn' ? 'zh-Hant' : lang;
+
+    // Update Whitepaper Link
+    const pdfBtn = document.getElementById('download-pdf');
+    if (pdfBtn) {
+        if (lang === 'en') {
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf';
+        } else if (lang === 'cn') {
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf';
+        } else {
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf';
+        }
+    }
+
     drawBadge();
 }
 
