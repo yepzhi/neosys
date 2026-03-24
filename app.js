@@ -11,41 +11,26 @@ function applyLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
 
-    // Apply data-i18n text
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) {
-            el.innerHTML = t[key];
-        }
+        if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    // Apply data-i18n-placeholder
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key] !== undefined) {
-            el.placeholder = t[key];
-        }
+        if (t[key] !== undefined) el.placeholder = t[key];
     });
 
-    // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
-    // Redraw badge with current language
-    const nameInput = document.getElementById('badge-name');
-    if (nameInput) {
-        drawBadge(nameInput.value.trim() || (t.join_placeholder || 'Tu nombre'));
-    }
-
     document.documentElement.lang = lang === 'cn' ? 'zh-Hant' : lang;
+    drawBadge();
 }
 
-// Init language buttons
 document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        applyLanguage(btn.dataset.lang);
-    });
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
 });
 
 // ── Particle Canvas ───────────────────────
@@ -66,8 +51,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
         const count = Math.min(Math.floor((w * h) / 15000), 80);
         for (let i = 0; i < count; i++) {
             particles.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
+                x: Math.random() * w, y: Math.random() * h,
                 radius: Math.random() * 1.8 + 0.3,
                 alpha: Math.random() * 0.5 + 0.1,
                 dx: (Math.random() - 0.5) * 0.3,
@@ -81,15 +65,9 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     function draw() {
         ctx.clearRect(0, 0, w, h);
         particles.forEach(p => {
-            p.x += p.dx;
-            p.y += p.dy;
-            p.pulse += p.pulseSpeed;
-            
-            if (p.x < 0) p.x = w;
-            if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h;
-            if (p.y > h) p.y = 0;
-
+            p.x += p.dx; p.y += p.dy; p.pulse += p.pulseSpeed;
+            if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
             const a = p.alpha * (0.5 + 0.5 * Math.sin(p.pulse));
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -99,14 +77,8 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
         requestAnimationFrame(draw);
     }
 
-    resize();
-    createParticles();
-    draw();
-    
-    window.addEventListener('resize', () => {
-        resize();
-        createParticles();
-    });
+    resize(); createParticles(); draw();
+    window.addEventListener('resize', () => { resize(); createParticles(); });
 })();
 
 // ── Scroll Reveal ─────────────────────────
@@ -116,14 +88,11 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
             if (entry.isIntersecting) {
                 const siblings = entry.target.parentElement.querySelectorAll('.reveal');
                 let index = Array.from(siblings).indexOf(entry.target);
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 100);
+                setTimeout(() => entry.target.classList.add('visible'), index * 100);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
@@ -134,21 +103,13 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     const links = document.querySelector('.nav-links');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
+        nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     if (toggle && links) {
-        toggle.addEventListener('click', () => {
-            links.classList.toggle('open');
-        });
+        toggle.addEventListener('click', () => links.classList.toggle('open'));
         links.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                links.classList.remove('open');
-            });
+            a.addEventListener('click', () => links.classList.remove('open'));
         });
     }
 
@@ -156,110 +117,274 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
         a.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(a.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 })();
 
-// ── Badge Generator ───────────────────────
-function drawBadge(name) {
+// ═══════════════════════════════════════════
+// BADGE / GAFETE GENERATOR (with photo + share)
+// ═══════════════════════════════════════════
+let userPhoto = null; // Will hold loaded Image object
+
+// ── Photo Upload ──────────────────────────
+(function initPhotoUpload() {
+    const fileInput = document.getElementById('badge-photo');
+    const preview = document.getElementById('photo-preview');
+    const placeholder = document.getElementById('photo-placeholder');
+    if (!fileInput) return;
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            const img = new Image();
+            img.onload = () => {
+                userPhoto = img;
+                preview.src = ev.target.result;
+                preview.style.display = 'block';
+                placeholder.style.display = 'none';
+                drawBadge();
+            };
+            img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+})();
+
+// ── Draw Gafete Badge ─────────────────────
+function drawBadge() {
     const canvas = document.getElementById('badge-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const w = canvas.width;
     const h = canvas.height;
-
     const t = translations[currentLang] || translations.es;
-    
-    // Background
+
+    const nameInput = document.getElementById('badge-name');
+    const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
+
+    // Background gradient
     const bg = ctx.createLinearGradient(0, 0, w, h);
-    bg.addColorStop(0, '#0a0a1a');
-    bg.addColorStop(0.5, '#12122e');
-    bg.addColorStop(1, '#0a0a1a');
+    bg.addColorStop(0, '#07071a');
+    bg.addColorStop(0.4, '#10102e');
+    bg.addColorStop(1, '#07071a');
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, w, h);
 
-    // Border
-    ctx.strokeStyle = 'rgba(167, 139, 250, 0.4)';
+    // Outer border
+    ctx.strokeStyle = 'rgba(167, 139, 250, 0.35)';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.roundRect(4, 4, w - 8, h - 8, 16);
+    ctx.roundRect(6, 6, w - 12, h - 12, 20);
     ctx.stroke();
 
-    // Top accent line
+    // Top accent bar
     const accent = ctx.createLinearGradient(0, 0, w, 0);
     accent.addColorStop(0, '#a78bfa');
     accent.addColorStop(1, '#7dd3fc');
     ctx.fillStyle = accent;
-    ctx.fillRect(20, 4, w - 40, 2);
+    ctx.fillRect(30, 6, w - 60, 3);
 
-    // Sparkle
-    ctx.font = '40px serif';
+    // Header: ✨ NEOSYS AEON
     ctx.textAlign = 'center';
-    ctx.fillText('✨', w / 2, 65);
-
-    // Title
-    ctx.font = '600 18px Inter, sans-serif';
+    ctx.font = '32px serif';
+    ctx.fillText('✨', w / 2, 55);
+    ctx.font = '700 20px Inter, sans-serif';
     ctx.fillStyle = '#a78bfa';
-    ctx.fillText('NEOSYS AEON', w / 2, 100);
+    ctx.fillText('NEOSYS AEON', w / 2, 88);
 
-    // Divider
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
-    ctx.fillRect(w / 2 - 40, 115, 80, 1);
+    // Thin divider
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.25)';
+    ctx.fillRect(w / 2 - 50, 100, 100, 1);
 
-    // Name
-    ctx.font = '800 28px Inter, sans-serif';
+    // Photo circle area
+    const photoY = 150;
+    const photoRadius = 70;
+    if (userPhoto) {
+        // Circular clip for photo
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(w / 2, photoY, photoRadius, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+
+        // Draw photo centered/cropped
+        const imgAspect = userPhoto.width / userPhoto.height;
+        let sx = 0, sy = 0, sw = userPhoto.width, sh = userPhoto.height;
+        if (imgAspect > 1) {
+            sx = (userPhoto.width - userPhoto.height) / 2;
+            sw = userPhoto.height;
+        } else {
+            sy = (userPhoto.height - userPhoto.width) / 2;
+            sh = userPhoto.width;
+        }
+        ctx.drawImage(userPhoto, sx, sy, sw, sh,
+            w / 2 - photoRadius, photoY - photoRadius, photoRadius * 2, photoRadius * 2);
+        ctx.restore();
+
+        // Photo ring
+        ctx.beginPath();
+        ctx.arc(w / 2, photoY, photoRadius + 2, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    } else {
+        // Placeholder circle
+        ctx.beginPath();
+        ctx.arc(w / 2, photoY, photoRadius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.08)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.2)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Camera icon placeholder
+        ctx.font = '36px serif';
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.25)';
+        ctx.fillText('📷', w / 2, photoY + 12);
+    }
+
+    // Name (big)
+    const nameY = photoY + photoRadius + 50;
+    ctx.font = '800 32px Inter, sans-serif';
     ctx.fillStyle = '#f5f5f7';
-    ctx.fillText(name.toUpperCase(), w / 2, 160);
+    ctx.fillText(name.toUpperCase(), w / 2, nameY);
 
     // Member label
-    ctx.font = '500 12px monospace';
-    ctx.fillStyle = 'rgba(245, 245, 247, 0.4)';
-    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, 195);
+    ctx.font = '600 12px monospace';
+    ctx.fillStyle = 'rgba(245, 245, 247, 0.35)';
+    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 30);
+
+    // Divider
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.2)';
+    ctx.fillRect(w / 2 - 60, nameY + 48, 120, 1);
 
     // Tagline
+    const taglineY = nameY + 78;
     ctx.font = 'italic 500 14px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(245, 245, 247, 0.5)';
-    ctx.fillText(t.join_badge_tagline || '"No exige creencia. Exige coherencia."', w / 2, 240);
+    ctx.fillStyle = 'rgba(245, 245, 247, 0.45)';
+    // Split tagline into two lines if needed
+    const tagline = t.join_badge_tagline || '"Sin ciencia no hay verdad. Sin validación no hay progreso."';
+    const cleanTagline = tagline.replace(/"/g, '');
+    const tagParts = cleanTagline.split(/[.。]/);
+    if (tagParts.length >= 2 && tagParts[1].trim()) {
+        ctx.fillText('"' + tagParts[0].trim() + '.', w / 2, taglineY);
+        ctx.fillText(tagParts[1].trim() + '."', w / 2, taglineY + 22);
+    } else {
+        ctx.fillText(tagline, w / 2, taglineY);
+    }
 
     // Hashtag
-    ctx.font = '700 16px monospace';
+    const hashY = h - 70;
+    ctx.font = '700 18px monospace';
     ctx.fillStyle = '#a78bfa';
-    ctx.fillText('#NeosysAeon', w / 2, 280);
+    ctx.fillText('#NeosysAeon', w / 2, hashY);
+
+    // Bottom accent bar
+    ctx.fillStyle = accent;
+    ctx.fillRect(30, h - 9, w - 60, 3);
 
     // Corner sparkles
-    ctx.font = '16px serif';
-    ctx.fillText('✨', 30, 30);
-    ctx.fillText('✨', w - 30, 30);
-    ctx.fillText('✨', 30, h - 15);
-    ctx.fillText('✨', w - 30, h - 15);
+    ctx.font = '14px serif';
+    ctx.fillStyle = '#a78bfa';
+    ctx.fillText('✨', 25, 28);
+    ctx.fillText('✨', w - 25, 28);
+    ctx.fillText('✨', 25, h - 16);
+    ctx.fillText('✨', w - 25, h - 16);
 }
 
+// ── Badge Form + Actions ──────────────────
 (function initBadge() {
     const form = document.getElementById('badge-form');
-    const saveBtn = document.getElementById('save-badge');
+    const actions = document.getElementById('badge-actions');
     const canvas = document.getElementById('badge-canvas');
     if (!form || !canvas) return;
 
-    drawBadge('Tu Nombre');
+    drawBadge();
+
+    // Live preview as user types
+    const nameInput = document.getElementById('badge-name');
+    if (nameInput) {
+        nameInput.addEventListener('input', drawBadge);
+    }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('badge-name').value.trim();
         if (name) {
-            drawBadge(name);
-            saveBtn.style.display = 'inline-flex';
+            drawBadge();
+            if (actions) actions.style.display = 'flex';
         }
     });
 
-    saveBtn.addEventListener('click', () => {
+    // Save/Download
+    document.getElementById('save-badge').addEventListener('click', () => {
         const link = document.createElement('a');
-        link.download = 'neosysaeon-badge.png';
+        link.download = 'neosysaeon-gafete.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
     });
+
+    // Share helpers
+    const shareText = '✨ Soy parte del movimiento #NeosysAeon — Sin ciencia no hay verdad. Sin validación no hay progreso.';
+    const shareUrl = 'https://yepzhi.com/neosys/';
+
+    // Twitter/X
+    document.getElementById('share-twitter').addEventListener('click', async () => {
+        // Try to share with image via Web Share API first, fallback to text
+        const shared = await tryNativeShare();
+        if (!shared) {
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            window.open(url, '_blank');
+        }
+    });
+
+    // Facebook
+    document.getElementById('share-facebook').addEventListener('click', () => {
+        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+        window.open(url, '_blank');
+    });
+
+    // WhatsApp
+    document.getElementById('share-whatsapp').addEventListener('click', () => {
+        const url = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+        window.open(url, '_blank');
+    });
+
+    // Native Share (with image file if supported)
+    document.getElementById('share-native').addEventListener('click', () => tryNativeShare());
+
+    async function tryNativeShare() {
+        if (!navigator.share) return false;
+
+        try {
+            // Convert canvas to blob for file sharing
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            const file = new File([blob], 'neosysaeon-gafete.png', { type: 'image/png' });
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    title: 'Neosys Aeon ✨',
+                    text: shareText,
+                    url: shareUrl,
+                    files: [file]
+                });
+            } else {
+                await navigator.share({
+                    title: 'Neosys Aeon ✨',
+                    text: shareText,
+                    url: shareUrl
+                });
+            }
+            return true;
+        } catch (err) {
+            if (err.name !== 'AbortError') console.log('Share failed:', err);
+            return false;
+        }
+    }
 })();
 
 // ── Mandamiento Cards Stagger ─────────────
@@ -269,13 +394,10 @@ function drawBadge(name) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const idx = Array.from(cards).indexOf(entry.target);
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, idx * 80);
+                setTimeout(() => entry.target.classList.add('visible'), idx * 80);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.05 });
-
     cards.forEach(card => observer.observe(card));
 })();
