@@ -186,7 +186,7 @@ function applyLanguage(lang) {
         } else if (lang === 'cn') {
             pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.2.1';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4-es.pdf?v=3.2.1';
+            pdfBtn.href = 'neosysaeon-whitepaper-v4-es.pdf?v=3.3.0';
         }
     }
 
@@ -616,13 +616,13 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     });
 
     // ── Commandments Slider Logic ────────────
-    let currentSlide = 0;
     const slidesData = [
         { id: 1, title: 'm1_title', body: 'm1_body' }, { id: 2, title: 'm2_title', body: 'm2_body' },
         { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
         { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
         { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
-        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
+        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' },
+        { id: 11, title: 'm11_title', body: 'm11_body' }, { id: 12, title: 'm12_title', body: 'm12_body' }
     ];
 
     function initSlider() {

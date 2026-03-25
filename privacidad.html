@@ -3,43 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviso de Privacidad — Neosys Aeon ✨</title>
+    <title>Aviso de Privacidad - Neosys Aeon</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=3.2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        .privacy-page { padding-top: 120px; }
-        .privacy-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-secondary); }
-        .privacy-content h1 { color: #fff; margin-bottom: 40px; font-weight: 900; letter-spacing: -0.02em; }
-        .privacy-content h2 { color: var(--text-accent); margin-top: 40px; margin-bottom: 20px; font-size: 1.5rem; }
-        .privacy-content p { margin-bottom: 20px; }
-        .privacy-content ul { margin-bottom: 20px; padding-left: 20px; }
-        .privacy-content li { margin-bottom: 10px; }
-        .date { opacity: 0.5; font-size: 0.9rem; margin-top: -30px; margin-bottom: 40px; display: block; }
+        .privacy-content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .privacy-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .privacy-content h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .privacy-content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        .privacy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .privacy-content li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
     </style>
 </head>
-<body class="privacy-page">
-    <nav id="main-nav">
-        <a href="index.html" onclick="window.location.href='index.html'; window.location.reload(true); return false;" class="nav-logo">✨ <span>Neosys Aeon</span></a>
-        <div class="nav-links">
-            <a href="index.html#mandamientos" data-i18n="nav_mandamientos">Principios</a>
-            <a href="index.html#que-es" data-i18n="nav_marco">Marco</a>
-            <a href="acercate.html" data-i18n="nav_acercate">Acércate</a>
-            <a href="comunidad.html" data-i18n="nav_comunidad">Comunidad</a>
+<body>
+    <div id="particle-canvas-container">
+        <canvas id="particle-canvas"></canvas>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav" class="scrolled">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="nav-logo">✨ <span>Neosys Aeon</span></a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="comunidad.html">Comunidad</a>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="privacy-content">
+    <main class="container">
+        <section class="privacy-content">
+            <a href="index.html" class="back-link">← Volver al inicio</a>
+            
             <h1>AVISO DE PRIVACIDAD</h1>
-            <span class="date">Última actualización: 25 de marzo de 2026</span>
-
-            <p><strong>Neosys Aeon — Marco Filosófico Abierto</strong></p>
+            <p><strong>Neosys Aeon — Marco Filosófico Abierto</strong><br>
+            <em>Última actualización: 25 de Marzo, 2026</em></p>
 
             <h2>Responsable del tratamiento de datos</h2>
-            <p>El responsable de recabar y tratar sus datos personales es el administrador del sitio yepzhi.com, con domicilio en Hermosillo, Sonora, México. Contacto: a través del formulario en yepzhi.com o por WhatsApp al +52 662 205 6304.</p>
+            <p>El responsable de recabar y tratar sus datos personales es el administrador del sitio <a href="https://yepzhi.com" style="color:var(--accent);">yepzhi.com</a>, con domicilio en Hermosillo, Sonora, México. Contacto: a través del formulario en yepzhi.com o por WhatsApp al +52 662 205 6304.</p>
 
             <h2>Datos personales que recabamos</h2>
             <p>Al unirte a la comunidad Neosys Aeon mediante el formulario de gafete, recabamos:</p>
@@ -54,11 +88,11 @@
 
             <h2>Finalidades del tratamiento</h2>
             <p>Tus datos se utilizan para:</p>
-            <ol>
-                <li>Generar y registrar tu gafete digital de la comunidad Neosys Aeon</li>
-                <li>Mostrar tu nombre, país y red social en la sección pública de Comunidad</li>
-                <li>Contactarte sobre actualizaciones del marco o iniciativas relacionadas (solo si aceptas)</li>
-            </ol>
+            <ul>
+                <li>1. Generar y registrar tu gafete digital de la comunidad Neosys Aeon</li>
+                <li>2. Mostrar tu nombre, país y red social en la sección pública de Comunidad</li>
+                <li>3. Contactarte sobre actualizaciones del marco o iniciativas relacionadas (solo si aceptas)</li>
+            </ul>
 
             <h2>Datos que NO se hacen públicos</h2>
             <p>Tu correo electrónico y número de teléfono son estrictamente privados y no se comparten, venden ni ceden a terceros bajo ninguna circunstancia.</p>
@@ -75,36 +109,19 @@
 
             <h2>Cambios al aviso</h2>
             <p>Cualquier modificación a este aviso se publicará en esta misma página. Te recomendamos revisarla periódicamente.</p>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-declaration">
-                <span aria-hidden="true" class="footer-sparkle">✨</span>
-                <p class="footer-quote" data-i18n="footer_quote">No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve. Su valor depende de su aplicación y de su revisión continua.</p>
-            </div>
             <div class="footer-bottom">
                 <p class="footer-tag">#NeosysAeon</p>
-                <div style="margin: 20px 0;">
-                    <a href="https://yepzhi.com" target="_blank" class="btn btn-glass" style="font-size: 0.85rem; padding: 10px 20px; border-radius: 30px;">✨ Created by yepzhi</a>
-                </div>
-                <div class="footer-legal" style="margin-bottom: 20px; opacity: 0.6; font-size: 0.8rem;">
-                    <a href="privacidad.html" style="color: #fff; text-decoration: none;">Aviso de Privacidad</a>
-                </div>
-                <p class="footer-copy" data-i18n="footer_copy">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p class="footer-copy">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p style="margin-top: 20px; opacity: 0.6;"><a href="index.html" style="color: #fff; text-decoration: none;">Volver al Inicio</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="translations.js?v=3.2.0"></script>
-    <script src="app.js?v=3.2.0"></script>
-    <script>
-        // Simple manual translation for this page if needed, or use the global app.js if included
-        document.addEventListener('DOMContentLoaded', () => {
-            const lang = localStorage.getItem('neosys_lang') || 'es';
-            // In a real scenario, we'd include app.js or a subset here
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -9,32 +9,32 @@ const translations = {
         nav_unete: "Únete",
 
         // Hero
-        hero_tagline: "Framework basado en sistemas para la integración de ciencia, tecnología y toma de decisiones humana.",
-        hero_subtitle: "Construido sobre evidencia, modelos adaptativos y síntesis interdisciplinaria.",
-        hero_btn_mandamientos: "Principios Operativos",
+        hero_tagline: "Sin ciencia no hay claridad, sin validación no hay progreso.",
+        hero_subtitle: "Framework basado en sistemas para la integración de ciencia, tecnología y toma de decisiones humana.",
+        hero_btn_mandamientos: "Principios del Cosmos",
         hero_btn_whitepaper: "Ver Framework (v4.3)",
         hero_explore: "Explorar",
 
         postulado_label: "Base Epistémica (A)",
-        postulado_title_new: "El <span class=\"text-accent\">método científico</span> es una herramienta para construir <span class=\"text-accent\">modelos predictivos</span> y verificables de la realidad.",
-        postulado_desc_new: "No protege hipótesis: las somete a falsación constante.<br>No depende de intuiciones: depende de datos empíricos.<br><br>Es la arquitectura de la eficiencia tecnológica y social moderna.",
+        postulado_title_new: "El <span class=\"text-accent\">método científico</span> permite generar, probar y validar conocimiento.",
+        postulado_desc_new: "No protege ideas: las somete a prueba. No depende de creencias: depende de evidencia. Por eso es la base del conocimiento que realmente transforma.",
 
         // Marco Conceptual (Anteriormente Manifiesto)
         manifesto_label: "Filosofía Conceptual (B)",
         manifesto_title: "La información no es conocimiento.<br><span class='text-accent'>El conocimiento es aplicación sistémica.</span>",
         manifesto_p1: "✨ La ciencia permite el modelado del entorno. La ingeniería permite su optimización. La tecnología permite el escalamiento. NEOSYS propone una arquitectura de pensamiento para reducir la entropía en la toma de decisiones.",
         manifesto_p2: "La síntesis sin aplicación carece de impacto. La ejecución sin modelado genera error sistémico. El framework integra ambos vectores en un bucle de retroalimentación continuo.",
-        manifesto_p3: "NEOSYS no es una ideología. Es un modelo de análisis interdisciplinario — los 10 <strong>Principios Operativos</strong> — orientados a la optimización de procesos mediante evidencia y lógica bayesiana.",
+        manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
         // 10 Principios Operativos
         mand_label: "Heurísticas del Sistema (C)",
-        mand_title: "Los 10 Principios<br><span class='text-accent'>del Cosmos</span>",
-        mand_desc: "Guías fundamentales para la generación, validación y aplicación de conocimiento.",
+        mand_title: "Los 12 Principios<br><span class='text-accent'>del Cosmos</span>",
+        mand_desc: "Principios de partida para evaluar, construir y aplicar conocimiento con coherencia.",
         poster_download_btn: "Descargar Framework de Principios (HD) ✨",
 
         m1_title: "I. HONRARÁS LA VERDAD POR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
-        m2_title: "II. CULTIVARÁS LA CURIOSIDAD COMO PRÁCTICA ESENCIAL.",
+        m2_title: "II. CULTIVARÁS LA CURIOSIDAD COMO VIRTUD.",
         m2_body: "Preguntarás antes de afirmar, y explorarás antes de juzgar.",
         m3_title: "III. RECORDARÁS QUE ERES POLVO DE ESTRELLAS.",
         m3_body: "No por pequeñez, sino por pertenencia: eres universo con conciencia.",
@@ -43,15 +43,19 @@ const translations = {
         m5_title: "V. PRACTICARÁS LA HUMILDAD EPISTÉMICA.",
         m5_body: "Frente a la inmensidad, rechazarás el ego y abrazarás el asombro.",
         m6_title: "VI. CUIDARÁS LA TIERRA COMO TU ÚNICO HOGAR COMPROBADO.",
-        m6_body: "No hay otro cercano ni confirmado; protegerlo es un acto de razón y responsabilidad.",
+        m6_body: "No hay otro cercano; protegerlo es un acto de razón y de responsabilidad.",
         m7_title: "VII. AMARÁS LA VIDA DONDE EXISTA, Y LA RESPETARÁS DONDE SE ENCUENTRE.",
         m7_body: "Toda forma de vida merece dignidad, atención y cuidado.",
         m8_title: "VIII. NO CONVERTIRÁS EL MISTERIO EN IGNORANCIA.",
         m8_body: "Lo desconocido no es magia; es una invitación a comprender e investigar.",
-        m9_title: "IX. NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
-        m9_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
-        m10_title: "X. COMPARTIRÁS LO QUE SABES Y CONSTRUIRÁS CON ELLO.",
-        m10_body: "El conocimiento guardado se pierde; el conocimiento aplicado transforma.",
+        m9_title: "IX. TRANSMITIRÁS EL CONOCIMIENTO.",
+        m9_body: "Lo aprendido no se guarda como poder; se comparte como luz.",
+        m10_title: "X. CONSTRUIRÁS FUTURO PARA QUIENES AÚN NO NACEN.",
+        m10_body: "Tus actos no terminan en ti: tu legado debe ampliar posibilidades.",
+        m11_title: "XI. NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
+        m11_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
+        m12_title: "XII. NO SERÁS SOLO OBSERVADOR: SERÁS CONSTRUCTOR.",
+        m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
 
         // Capas de Análisis
         prob_label: "Capa de Aplicación",
@@ -107,7 +111,7 @@ const translations = {
 
         join_label: "Fase de Implementación",
         join_title: "Integración de la Red<br><span class='text-accent'>de Implementación</span>",
-        join_desc: "La adopción del framework es descentralizada. Implemente las heurísticas en su entorno y sincronice con la red de nodos.",
+        join_desc: "Adopta los principios, vive la coherencia. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
         join_badge_title: "Registrar Nodo (v4.3) ✨",
         join_badge_desc: "Incorpore su perfil al directorio de implementación técnica y verifique su compromiso con la metodología sistémica.",
         join_placeholder: "Nombre completo / Identificador",
@@ -179,8 +183,8 @@ const translations = {
         join_badge_desc2: "Propuesta técnica para la transición hacia una sociedad basada en evidencia y sistemas abiertos.",
 
         // Footer
-        footer_quote: "NEOSYS no garantiza certezas finales, sino un proceso de aproximación probabilística cada vez más preciso. Su eficacia depende de la rigurosidad en su aplicación.",
-        footer_copy: "Framework de Sistemas Abiertos. Sin jerarquías centrales. Sin barreras de acceso."
+        footer_quote: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve. Su valor depende de su aplicación y de su revisión continua.",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
     en: {
