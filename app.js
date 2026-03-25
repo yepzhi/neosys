@@ -741,7 +741,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
     // ── Share helpers ──
     const shareUrl = 'https://yepzhi.com/neosys/';
-    const shareText = '✨ Soy parte del movimiento Neosys Aeon\n\n#NeosysAeon #ThinkWithEvidence #SinCienciaNoHayVerdad\n\n' + shareUrl;
+    const shareText = 'Soy parte del movimiento Neosys Aeon #ThinkWithEvidence #NeosysAeon — Sigo la evidencia y busco la verdad sin sesgos. ¡Únete! ' + shareUrl;
 
     function downloadBadge() {
         canvas.toBlob((blob) => {
