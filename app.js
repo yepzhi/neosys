@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.0.8';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.0';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.0.8';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.0';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.0.8';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.0';
         }
     }
 
@@ -386,6 +386,7 @@ function drawBadge() {
     const w = canvas.width;
     const h = canvas.height;
     const t = translations[currentLang] || translations.es;
+    const hashY = h - 65;
 
     const nameInput = document.getElementById('badge-name');
     const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
@@ -595,10 +596,15 @@ function drawBadge() {
             }
         });
     }
+    // Registration Logic
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const nameInput = document.getElementById('badge-name');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + (currentLang === 'es' ? 'Registrando...' : 'Registering...');
+
         const emailInput = document.getElementById('badge-email');
         const phoneInput = document.getElementById('badge-phone');
         const socialInput = document.getElementById('badge-social');
@@ -606,20 +612,20 @@ function drawBadge() {
         const countryInput = document.getElementById('badge-country');
         const stateInput = document.getElementById('badge-state');
         
-        // Build member data
+        // Build member data with ALL fields
         const memberData = {
-            name: nameInput ? nameInput.value : '',
-            email: emailInput ? emailInput.value : '',
+            name: nameInput ? nameInput.value.trim() : '',
+            email: emailInput ? emailInput.value.trim() : '',
+            phone: phoneInput ? phoneInput.value.trim() : '',
+            social: socialInput ? socialInput.value.trim() : '',
+            city: cityInput ? cityInput.value.trim() : '',
+            country: countryInput ? countryInput.value : '',
+            state: stateInput ? stateInput.value : '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         };
-        if (phoneInput && phoneInput.value.trim()) memberData.phone = phoneInput.value.trim();
-        if (socialInput && socialInput.value.trim()) memberData.social = socialInput.value.trim();
-        if (cityInput && cityInput.value.trim()) memberData.city = cityInput.value.trim();
-        if (countryInput && countryInput.value) memberData.country = countryInput.value;
-        if (stateInput && stateInput.value) memberData.state = stateInput.value;
 
         // Guardar a Firebase
-        if (db && firebaseConfig.projectId !== "YOUR_PROJECT_ID" && nameInput && emailInput) {
+        if (db && firebaseConfig.projectId !== "YOUR_PROJECT_ID" && memberData.name && memberData.email) {
             try {
                 await db.collection('miembros').add(memberData);
             } catch (err) {
@@ -628,18 +634,30 @@ function drawBadge() {
         }
 
         drawBadge();
-        // Auto-download badge when generating
-        canvas.toBlob((blob) => {
-            if (!blob) return;
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.download = 'neosysaeon-gafete.png';
-            link.href = url;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
-        }, 'image/png');
+        
+        // Finalize Download
+        try {
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            if (blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = `neosysaeon-gafete-${memberData.name.replace(/\s+/g, '-').toLowerCase()}.png`;
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            }
+        } catch (downloadErr) {
+            console.error("Download error:", downloadErr);
+        }
+
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+
+        // Ensure actions are visible
+        if (actions) actions.style.display = 'flex';
     });
 
     // ── Share helpers ──
