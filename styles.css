@@ -1437,3 +1437,26 @@ img { max-width: 100%; display: block; }
     .btn-save-badge { padding: 8px 14px; font-size: 0.8rem; }
     .photo-upload-area { min-height: 70px; padding: 14px; }
 }
+
+/* Privacy Check */
+.privacy-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 25px 0;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    text-align: left;
+}
+
+.privacy-check input {
+    margin-top: 4px;
+    accent-color: var(--text-accent);
+}
+
+.privacy-check a {
+    color: var(--text-accent);
+    text-decoration: underline;
+}
+

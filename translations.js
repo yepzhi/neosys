@@ -9,52 +9,52 @@ const translations = {
         nav_unete: "Únete",
 
         // Hero
-        hero_tagline: "Sin ciencia no hay verdad. Sin validación no hay progreso.",
-        hero_subtitle: "Un marco abierto para entender la realidad a través de evidencia verificable.",
-        hero_btn_mandamientos: "Los 12 Mandamientos",
+        hero_tagline: "La evidencia es el terreno más sólido que tenemos.",
+        hero_subtitle: "El método científico es la herramienta más poderosa para distinguir lo que funciona de lo que creemos que funciona.",
+        hero_btn_mandamientos: "Los 12 Principios",
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explora",
 
         postulado_label: "El Postulado Fundamental",
         postulado_title_new: "El <span class=\"text-accent\">método científico</span> es el único proceso sistemático que permite <span class=\"text-accent\">validar afirmaciones</span> sobre la realidad de forma confiable.",
-        postulado_desc_new: "No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso, es la base de todo avance tecnológico y del conocimiento que realmente funciona.",
+        postulado_desc_new: "No protege ideas: las somete a prueba.<br>No depende de creencias: depende de evidencia.<br><br>Por eso es la base del conocimiento que realmente transforma.",
 
         // Manifesto
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
         manifesto_p1: "✨ La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
         manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
-        manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los <strong>Mandamientos del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
+        manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
-        // 12 Mandamientos (INAMOVIBLES)
+        // 12 Principios del Cosmos
         mand_label: "Los Principios Fundamentales",
-        mand_title: "Los 12 Mandamientos<br><span class='text-accent'>del Cosmos</span>",
-        mand_desc: "Principios inamovibles para evaluar, construir y aplicar conocimiento con coherencia.",
+        mand_title: "Los 12 Principios<br><span class='text-accent'>del Cosmos</span>",
+        mand_desc: "Principios de partida para evaluar, construir y aplicar conocimiento con coherencia.",
         poster_download_btn: "Descarga Póster Los 12 Mandamientos del Cosmos! ✨",
 
-        m1_title: "Honrarás la verdad por encima de la comodidad.",
+        m1_title: "HONRARÁS LA VERDAD POR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
-        m2_title: "Cultivarás la curiosidad como virtud sagrada.",
+        m2_title: "CULTIVARÁS LA CURIOSIDAD COMO VIRTUD.",
         m2_body: "Preguntarás antes de afirmar, y explorarás antes de juzgar.",
-        m3_title: "Recordarás que eres polvo de estrellas.",
+        m3_title: "RECORDARÁS QUE ERES POLVO DE ESTRELLAS.",
         m3_body: "No por pequeñez, sino por pertenencia: eres universo con conciencia.",
-        m4_title: "Defenderás la evidencia como brújula.",
-        m4_body: "Creerás menos por tradición y más por prueba, observación y razón.",
-        m5_title: "Practicarás la humildad cósmica.",
+        m4_title: "DEFENDERÁS LA EVIDENCIA COMO BRÚJULA.",
+        m4_body: "No por dogma, sino porque es el filtro más confiable que tenemos.",
+        m5_title: "PRACTICARÁS LA HUMILDAD EPISTÉMICA.",
         m5_body: "Frente a la inmensidad, rechazarás el ego y abrazarás el asombro.",
-        m6_title: "Cuidarás la Tierra como tu único templo.",
-        m6_body: "No hay otro hogar comprobado, ni cercano; protegerlo es un acto de fe racional.",
-        m7_title: "Amarás la vida donde exista, y la respetarás donde pueda surgir.",
+        m6_title: "CUIDARÁS LA TIERRA COMO TU ÚNICO HOGAR COMPROBADO.",
+        m6_body: "No hay otro cercano; protegerlo es un acto de razón y de responsabilidad.",
+        m7_title: "AMARÁS LA VIDA DONDE EXISTA, Y LA RESPETARÁS DONDE SE ENCUENTRE.",
         m7_body: "Toda forma de vida merece dignidad, atención y cuidado.",
-        m8_title: "No convertirás el misterio en ignorancia.",
+        m8_title: "NO CONVERTIRÁS EL MISTERIO EN IGNORANCIA.",
         m8_body: "Lo desconocido no es magia; es una invitación a comprender e investigar.",
-        m9_title: "Transmitirás el conocimiento.",
+        m9_title: "TRANSMITIRÁS EL CONOCIMIENTO.",
         m9_body: "Lo aprendido no se guarda como poder; se comparte como luz.",
-        m10_title: "Construirás futuro para quienes aún no nacen.",
-        m10_body: "Tus actos no terminarán en ti; tu legado debe ampliar posibilidades.",
-        m11_title: "No darás lugar a la pseudociencia ni al engaño disfrazado de verdad.",
+        m10_title: "CONSTRUIRÁS FUTURO PARA QUIENES AÚN NO NACEN.",
+        m10_body: "Tus actos no terminan en ti: tu legado debe ampliar posibilidades.",
+        m11_title: "NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
         m11_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
-        m12_title: "No serás solo observador del universo: serás constructor.",
+        m12_title: "NO SERÁS SOLO OBSERVADOR: SERÁS CONSTRUCTOR.",
         m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
 
         // Problema (4 Opportunities)
@@ -113,7 +113,7 @@ const translations = {
         // Únete
         join_label: "Sé Parte",
         join_title: "Únete al Movimiento<br><span class='text-accent'>#NeosysAeon</span>",
-        join_desc: "No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia y porta el símbolo ✨ como declaración.",
+        join_desc: "Adopta los principios, vive la coherencia. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
         join_badge_title: "Genera tu Gafete ✨",
         join_badge_desc: "Sube tu foto, escribe tu nombre y correo para crear tu gafete digital y unirte a la base de constructores. Compártelo con <strong>#NeosysAeon</strong>",
         join_placeholder: "Tu nombre",
@@ -194,12 +194,7 @@ const translations = {
         join_badge_desc2: "Una propuesta para vivir en ciencia, frente a la pseudociencia y la información no verificable mediante el método científico.",
 
         // Footer
-        coll_title: "¿Te gustaría colaborar o mejorar esta iniciativa?",
-        coll_desc: "Envíanos tus comentarios, ideas o escribe directo para unirte al esfuerzo de promover el pensamiento basado en evidencia.",
-        coll_whatsapp: "💬 WhatsApp",
-        coll_yepzhi: "🌐 yepzhi.com",
-        footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br>No es una autoridad.<br>No es una doctrina cerrada.<br>No es una estructura de poder.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su validación empírica.",
+        footer_quote: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve. Su valor depende de su aplicación y de su revisión continua.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
     },
 
@@ -211,9 +206,10 @@ const translations = {
         nav_comunidad: "Community",
         nav_unete: "Join",
 
-        hero_tagline: "Without science there is no truth. Without validation there is no progress.",
-        hero_subtitle: "An open framework to understand reality through verifiable evidence.",
-        hero_btn_mandamientos: "The 12 Commandments",
+        // Hero
+        hero_tagline: "Evidence is the solid ground we have.",
+        hero_subtitle: "The scientific method is the most powerful tool for distinguishing what works from what we believe works.",
+        hero_btn_mandamientos: "The 12 Principles",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
 
@@ -228,8 +224,8 @@ const translations = {
         manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
-        mand_title: "The 12 Commandments<br><span class='text-accent'>of the Cosmos</span>",
-        mand_desc: "Immutable principles for evaluating, building, and applying knowledge with coherence.",
+        mand_title: "The 12 Principles<br><span class='text-accent'>of the Cosmos</span>",
+        mand_desc: "Starting principles for evaluating, building, and applying knowledge with coherence.",
         poster_download_btn: "Download The 12 Commandments of the Cosmos Poster! ✨",
 
         m1_title: "You shall honor truth above comfort.",
@@ -385,7 +381,7 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
         footer_creator: "✨ Created by yepzhi",
-        footer_quote: "Neosys Aeon is an open framework for the generation, validation, and application of knowledge through the scientific method.<br><br>It is not an authority.<br>It is not a closed doctrine.<br>It is not a power structure.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and its empirical validation.",
+        footer_quote: "It does not pretend to have all the answers. It aims to ask better questions — and take seriously what the evidence returns. Its value depends on its application and its continuous review.",
         footer_copy: "Open framework. No owners. No barriers."
     },
 
@@ -399,8 +395,8 @@ const translations = {
 
         hero_tagline: "沒有科學就沒有真理。沒有驗證就沒有進步。",
         hero_subtitle: "一個通過可驗證的證據來理解現實的開放框架。",
-        hero_btn_mandamientos: "十二诫命",
-        hero_btn_whitepaper: "阅读白皮书",
+        hero_btn_mandamientos: "宇宙十二原則",
+        hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
 
         postulado_label: "基本假设",

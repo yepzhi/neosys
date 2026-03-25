@@ -25,7 +25,13 @@
 
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=3.1.7">
+    <link rel="stylesheet" href="styles.css?v=3.1.8">
+    
+    <!-- SEO Multi-idioma -->
+    <link rel="alternate" hreflang="es" href="https://yepzhi.com/neosys/" />
+    <link rel="alternate" hreflang="en" href="https://yepzhi.com/neosys/en/" />
+    <link rel="alternate" hreflang="zh" href="https://yepzhi.com/neosys/cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://yepzhi.com/neosys/" />
 </head>
 
 <body>
@@ -59,7 +65,7 @@
          ═══════════════════════════════════════════ -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <div class="hero-sparkle">✨</div>
+            <div class="hero-sparkle" aria-hidden="true">✨</div>
             <h1 class="hero-title reveal">
                 <span class="hero-title-main">NEOSYS AEON</span>
             </h1>
@@ -334,6 +340,10 @@
                             </optgroup>
                         </select>
                         <select id="badge-state" style="display: none;"></select>
+                        <label class="privacy-check">
+                            <input type="checkbox" id="privacy-consent" required>
+                            <span>He leído y acepto el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles públicamente.</span>
+                        </label>
                         <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate" style="margin-top: 10px;">Generar y Registrar</button>
                     </form>
                 </div>
@@ -371,10 +381,10 @@
     <section id="whitepaper" class="section">
         <div class="container" style="text-align: center;">
             <span class="section-label reveal" data-i18n="wp_label">Documento Fundacional</span>
-            <h2 class="section-title reveal" data-i18n="wp_title">Whitepaper<br><span class="text-accent">Neosys Aeon</span> <span style="display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;">✨</span></h2>
+            <h2 class="section-title reveal" data-i18n="wp_title">Whitepaper<br><span class="text-accent">Neosys Aeon</span> <span style="display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;" aria-hidden="true">✨</span></h2>
             <p class="section-desc reveal text-center mx-auto" style="max-width: 600px;" data-i18n="wp_desc">El documento completo que detalla el marco conceptual, los 12 mandamientos, la integración STEM, las implicaciones civilizatorias y su naturaleza abierta.</p>
             <div class="reveal" style="margin-top: 30px;">
-                <a href="neosysaeon-whitepaper.pdf?v=3.1.7" download class="btn btn-primary btn-download" id="download-pdf">
+                <a href="neosysaeon-whitepaper.pdf?v=3.1.8" download class="btn btn-primary btn-download" id="download-pdf">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                     </svg>
@@ -440,7 +450,7 @@
     <section id="connect" class="section connect-section">
         <div class="container">
             <div class="connect-content reveal">
-                <h2 class="connect-title" data-i18n="coll_title">¿Te gustaría colaborar o mejorar esta iniciativa?</h2>
+                <h2 class="connect-title" data-i18n="coll_title"><span aria-hidden="true" style="margin-right:10px;">👋</span> ¿Te gustaría colaborar o mejorar esta iniciativa?</h2>
                 <p class="connect-desc" data-i18n="coll_desc">Envíanos tus comentarios, ideas o escribe directo para unirte al esfuerzo de promover el pensamiento basado en evidencia.</p>
 
                 <div class="connect-links">
@@ -457,7 +467,7 @@
     <footer id="footer" class="footer">
         <div class="container">
             <div class="footer-declaration reveal">
-                <span class="footer-sparkle">✨</span>
+                <span class="footer-sparkle" aria-hidden="true">✨</span>
                 <p class="footer-quote" data-i18n="footer_quote">
                     Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br>
                     No es una autoridad.<br>
@@ -474,6 +484,9 @@
                         style="font-size: 0.85rem; padding: 10px 20px; border-radius: 30px;"
                         data-i18n="footer_creator">✨ Created by yepzhi</a>
                 </div>
+                <div class="footer-legal" style="margin-bottom: 20px; opacity: 0.6; font-size: 0.8rem;">
+                    <a href="privacidad.html" style="color: #fff; text-decoration: none;">Aviso de Privacidad</a>
+                </div>
                 <p class="footer-copy" data-i18n="footer_copy">Marco abierto. Sin propietarios. Sin barreras.</p>
             </div>
         </div>
@@ -483,8 +496,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    <script src="translations.js?v=3.1.7"></script>
-    <script src="app.js?v=3.1.7"></script>
+    <script src="translations.js?v=3.1.8"></script>
+    <script src="app.js?v=3.1.8"></script>
     <!-- Default Statcounter code for yepzhi.com -->
     <script type="text/javascript">
         var sc_project = 13182229;
@@ -495,8 +508,7 @@
     <noscript>
         <div class="statcounter" style="display:none;">
             <a title="web stats" href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">
-                <img class="statcounter" src="https://c.statcounter.com/13182229/0/0cd44f01/1/" alt="web stats"
-                    referrerPolicy="no-referrer-when-downgrade">
+                <img class="statcounter" src="https://c.statcounter.com/13182229/0/0cd44f01/1/" alt="" aria-hidden="true" style="display:none">
             </a>
         </div>
     </noscript>
