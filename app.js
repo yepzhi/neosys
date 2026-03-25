@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.3';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.4';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.3';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.4';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.3';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.4';
         }
     }
 
@@ -367,50 +367,66 @@ function drawBadge() {
     const h = targetH;
     const t = translations[currentLang] || translations.es;
 
-    // Background Gradient (Deep Space Premium)
+    // --- 1. Background (Deep Space Premium + Pulse Sparkles) ---
     const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, '#0a0a1a');
-    grad.addColorStop(1, '#020205');
+    grad.addColorStop(0, '#0a0a20');
+    grad.addColorStop(1, '#020208');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Subtle Grid Overlay
-    ctx.strokeStyle = 'rgba(167, 139, 250, 0.05)';
+    // Subtle Grid
+    ctx.strokeStyle = 'rgba(167, 139, 250, 0.08)';
     ctx.lineWidth = 1;
-    for (let x = 0; x < w; x += 100) {
+    for (let x = 0; x < w; x += 120) {
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
     }
-    for (let y = 0; y < h; y += 100) {
+    for (let y = 0; y < h; y += 120) {
         ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
     }
 
-    // --- Content Layout ---
-    
-    // 1. Large Sparkle (Top Center)
-    ctx.font = '200px serif';
+    // Light Sparkles effect
+    for (let i = 0; i < 30; i++) {
+        const sx = Math.random() * w;
+        const sy = Math.random() * h;
+        const size = Math.random() * 3 + 1;
+        const alpha = Math.random() * 0.5 + 0.1;
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, size, 0, Math.PI * 2);
+        ctx.fill();
+        if (i % 5 === 0) { // Glowy ones
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#a78bfa';
+            ctx.fillText('✨', sx, sy);
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    // --- 2. Title (Identical to Hero Style) ---
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.shadowColor = 'rgba(167, 139, 250, 0.8)';
-    ctx.shadowBlur = 40;
-    ctx.fillText('✨', w / 2, 220);
-    ctx.shadowBlur = 0;
-
-    // 2. Title "NEOSYS AEON" (Matching Hero Typography)
     ctx.fillStyle = '#fff';
-    ctx.font = '900 80px Inter, system-ui, sans-serif';
-    ctx.letterSpacing = '8px';
-    ctx.fillText('NEOSYS AEON', w / 2, 380);
+    ctx.font = '900 100px Inter, system-ui, sans-serif';
+    ctx.letterSpacing = '12px'; // Premium spreading
+    ctx.shadowColor = 'rgba(167, 139, 250, 0.6)';
+    ctx.shadowBlur = 30;
+    ctx.fillText('NEOSYS AEON', w / 2, 220);
+    ctx.shadowBlur = 0;
     ctx.letterSpacing = '0px';
 
-    // 3. User Photo (Circular & Large)
-    const photoY = 650;
-    const photoSize = 400;
+    // --- 3. User Photo (Lowered for spacing) ---
+    const photoY = 720; // Increased spacing
+    const photoSize = 420;
     
-    // Photo Stroke/Glow
+    // Glowing ring
     ctx.beginPath();
-    ctx.arc(w / 2, photoY, (photoSize / 2) + 10, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
-    ctx.lineWidth = 8;
+    ctx.arc(w / 2, photoY, (photoSize / 2) + 15, 0, Math.PI * 2);
+    const ringGrad = ctx.createSweepGradient(w/2, photoY, 0, Math.PI*2); // Note: Sweep not standard, using radial
+    const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 20);
+    radGrad.addColorStop(0, 'rgba(167, 139, 250, 0.8)');
+    radGrad.addColorStop(1, 'rgba(167, 139, 250, 0)');
+    ctx.strokeStyle = radGrad;
+    ctx.lineWidth = 20;
     ctx.stroke();
 
     if (userPhoto) {
@@ -418,8 +434,6 @@ function drawBadge() {
         ctx.beginPath();
         ctx.arc(w / 2, photoY, photoSize / 2, 0, Math.PI * 2);
         ctx.clip();
-        
-        // Cover logic
         const aspect = userPhoto.width / userPhoto.height;
         let drawW, drawH;
         if (aspect > 1) {
@@ -436,48 +450,47 @@ function drawBadge() {
         ctx.beginPath();
         ctx.arc(w / 2, photoY, photoSize / 2, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-        ctx.font = '100px serif';
+        ctx.font = '120px serif';
         ctx.fillText('👤', w / 2, photoY + 20);
     }
 
-    // 4. User Name
+    // --- 4. Content Below Photo (Better Spacing) ---
+    const nameY = 1050; // More space below photo
     const nameInput = document.getElementById('badge-name');
     const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
     ctx.fillStyle = '#fff';
-    ctx.font = '700 70px Inter, sans-serif';
-    ctx.fillText(name.toUpperCase(), w / 2, 920);
+    ctx.font = '800 85px Inter, sans-serif';
+    ctx.fillText(name.toUpperCase(), w / 2, nameY);
 
-    // 5. Role/Label
     ctx.fillStyle = 'rgba(167, 139, 250, 1)';
-    ctx.font = '600 35px Inter, sans-serif';
-    ctx.letterSpacing = '4px';
-    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, 985);
+    ctx.font = '600 38px Inter, sans-serif';
+    ctx.letterSpacing = '5px';
+    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 70);
     ctx.letterSpacing = '0px';
 
     // Divider
     ctx.beginPath();
-    ctx.moveTo(w / 2 - 150, 1050);
-    ctx.lineTo(w / 2 + 150, 1050);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-    ctx.lineWidth = 2;
+    ctx.moveTo(w / 2 - 200, nameY + 140);
+    ctx.lineTo(w / 2 + 200, nameY + 140);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 3;
     ctx.stroke();
 
-    // 6. Tagline
-    ctx.fillStyle = 'rgba(255,255,255,0.7)';
-    ctx.font = '400 32px Inter, sans-serif';
+    // 5. Larger Tagline
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.font = '500 40px Inter, sans-serif'; // Increased size
     const tagline = t.join_badge_tagline || 'El método científico: No protege ideas, las somete a prueba. No depende de creencias, depende de evidencia.';
-    wrapText(ctx, tagline, w / 2, 1150, 800, 45);
+    wrapText(ctx, tagline, w / 2, nameY + 220, 900, 55);
 
-    // 7. HashTags (Bottom)
+    // 6. HashTags (Bottom)
     ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-    ctx.font = '700 45px Inter, sans-serif';
-    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 120);
+    ctx.font = '700 48px Inter, sans-serif';
+    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 140);
 
-    // 8. Watermark Footer
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    // Footer
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.font = '300 24px Inter, sans-serif';
-    ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 50);
+    ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 60);
 }
 
 // Helper to wrap text on canvas
@@ -749,7 +762,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     if (copyBtn) { // Changed from shareCopy to copyBtn
         copyBtn.addEventListener('click', () => {
             const t = translations[currentLang] || translations.es; // Get translations for dynamic text
-            const fullText = t.join_share_text || "Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/";
+            const fullText = t.join_share_text || "Soy parte del movimiento Neosys Aeon #ThinkWithEvidence #NeosysAeon — Sigo la evidencia y busco la verdad sin sesgos. ¡Únete! https://yepzhi.com/neosys/";
             navigator.clipboard.writeText(fullText).then(() => {
                 const originalContent = copyBtn.innerHTML; // Changed from shareCopy to copyBtn
                 copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
