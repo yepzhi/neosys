@@ -129,6 +129,16 @@
     gap: 12px;
 }
 
+/* ── Hero Enhancements ──────────────────── */
+.hero-hashtags {
+    margin-top: -5px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
 /* ── Tokens ─────────────────────────────── */
 :root {
     --bg: #050510;
