@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.7';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.2.1';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.7';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.2.1';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.7';
+            pdfBtn.href = 'neosysaeon-whitepaper-v4-es.pdf?v=3.2.1';
         }
     }
 
@@ -681,7 +681,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     function generateCommandmentsPoster() {
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
-        canvas.height = 2800; // Final height refinement to ensure NO cutoff
+        canvas.height = 2400; // Adjusted for 10 Principles
         const ctx = canvas.getContext('2d');
         const t = translations[currentLang] || translations.es;
 
@@ -704,7 +704,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
         ctx.font = '700 36px Inter, sans-serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 1)';
-        const posterTitle = (t.mand_title || "Los 12 Mandamientos del Cosmos").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
+        const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
         ctx.fillText(posterTitle, canvas.width / 2, 240);
 
         // Grid of 10 Principles
@@ -765,7 +765,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
     // ── Share helpers ──
     const shareUrl = 'https://yepzhi.com/neosys/';
-    const shareText = 'Soy parte del movimiento Neosys Aeon #ThinkWithEvidence #NeosysAeon — Sigo la evidencia y busco la verdad sin sesgos. ¡Únete! ' + shareUrl;
+    const shareText = 'Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon ' + shareUrl;
 
     function downloadBadge() {
         canvas.toBlob((blob) => {
@@ -786,7 +786,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     if (copyBtn) { // Changed from shareCopy to copyBtn
         copyBtn.addEventListener('click', () => {
             const t = translations[currentLang] || translations.es; // Get translations for dynamic text
-            const fullText = t.join_share_text || "Soy parte del movimiento Neosys Aeon #ThinkWithEvidence #NeosysAeon — Sigo la evidencia y busco la verdad sin sesgos. ¡Únete! https://yepzhi.com/neosys/";
+            const fullText = t.join_share_text || "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon https://yepzhi.com/neosys/";
             navigator.clipboard.writeText(fullText).then(() => {
                 const originalContent = copyBtn.innerHTML; // Changed from shareCopy to copyBtn
                 copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=3.1.9">
+    <link rel="stylesheet" href="styles.css?v=3.2.0">
     <style>
         .privacy-page { padding-top: 120px; }
         .privacy-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-secondary); }
@@ -22,7 +22,7 @@
 </head>
 <body class="privacy-page">
     <nav id="main-nav">
-        <a href="https://yepzhi.com/neosys/" class="nav-logo">✨ <span>Neosys Aeon</span></a>
+        <a href="index.html" onclick="window.location.href='index.html'; window.location.reload(true); return false;" class="nav-logo">✨ <span>Neosys Aeon</span></a>
         <div class="nav-links">
             <a href="index.html#mandamientos" data-i18n="nav_mandamientos">Principios</a>
             <a href="index.html#que-es" data-i18n="nav_marco">Marco</a>
@@ -92,12 +92,13 @@
                 <div class="footer-legal" style="margin-bottom: 20px; opacity: 0.6; font-size: 0.8rem;">
                     <a href="privacidad.html" style="color: #fff; text-decoration: none;">Aviso de Privacidad</a>
                 </div>
-                <p class="footer-copy">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p class="footer-copy" data-i18n="footer_copy">Marco abierto. Sin propietarios. Sin barreras.</p>
             </div>
         </div>
     </footer>
 
-    <script src="translations.js?v=3.1.9"></script>
+    <script src="translations.js?v=3.2.0"></script>
+    <script src="app.js?v=3.2.0"></script>
     <script>
         // Simple manual translation for this page if needed, or use the global app.js if included
         document.addEventListener('DOMContentLoaded', () => {
