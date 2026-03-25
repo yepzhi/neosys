@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.0';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.2';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.0';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.2';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.0';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.2';
         }
     }
 
@@ -351,252 +351,194 @@ function roundRectPath(ctx, x, y, w, h, r) {
     ctx.closePath();
 }
 
-// ── Photo Upload ──────────────────────────
-(function initPhotoUpload() {
-    const fileInput = document.getElementById('badge-photo');
-    const preview = document.getElementById('photo-preview');
-    const placeholder = document.getElementById('photo-placeholder');
-    if (!fileInput) return;
-
-    fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            const img = new Image();
-            img.onload = () => {
-                userPhoto = img;
-                preview.src = ev.target.result;
-                preview.style.display = 'block';
-                placeholder.style.display = 'none';
-                drawBadge();
-            };
-            img.src = ev.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
-})();
-
 // ── Draw Gafete Badge ─────────────────────
 function drawBadge() {
     const canvas = document.getElementById('badge-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const w = canvas.width;
-    const h = canvas.height;
+    
+    // Set HD Resolution (1200x1600)
+    const targetW = 1200;
+    const targetH = 1600;
+    if (canvas.width !== targetW) canvas.width = targetW;
+    if (canvas.height !== targetH) canvas.height = targetH;
+
+    const w = targetW;
+    const h = targetH;
     const t = translations[currentLang] || translations.es;
-    const hashY = h - 65;
 
-    const nameInput = document.getElementById('badge-name');
-    const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
-
-    // Background gradient
-    const bg = ctx.createLinearGradient(0, 0, w, h);
-    bg.addColorStop(0, '#07071a');
-    bg.addColorStop(0.4, '#10102e');
-    bg.addColorStop(1, '#07071a');
-    ctx.fillStyle = bg;
+    // Background Gradient (Deep Space Premium)
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, '#0a0a1a');
+    grad.addColorStop(1, '#020205');
+    ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Outer border (using polyfill)
-    ctx.strokeStyle = 'rgba(167, 139, 250, 0.35)';
-    ctx.lineWidth = 2;
-    roundRectPath(ctx, 6, 6, w - 12, h - 12, 20);
+    // Subtle Grid Overlay
+    ctx.strokeStyle = 'rgba(167, 139, 250, 0.05)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < w; x += 100) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+    }
+    for (let y = 0; y < h; y += 100) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+    }
+
+    // --- Content Layout ---
+    
+    // 1. Large Sparkle (Top Center)
+    ctx.font = '200px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(167, 139, 250, 0.8)';
+    ctx.shadowBlur = 40;
+    ctx.fillText('✨', w / 2, 220);
+    ctx.shadowBlur = 0;
+
+    // 2. Title "NEOSYS AEON" (Matching Hero Typography)
+    ctx.fillStyle = '#fff';
+    ctx.font = '900 80px Inter, system-ui, sans-serif';
+    ctx.letterSpacing = '8px';
+    ctx.fillText('NEOSYS AEON', w / 2, 380);
+    ctx.letterSpacing = '0px';
+
+    // 3. User Photo (Circular & Large)
+    const photoY = 650;
+    const photoSize = 400;
+    
+    // Photo Stroke/Glow
+    ctx.beginPath();
+    ctx.arc(w / 2, photoY, (photoSize / 2) + 10, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
+    ctx.lineWidth = 8;
     ctx.stroke();
 
-    // Top accent bar
-    const accent = ctx.createLinearGradient(0, 0, w, 0);
-    accent.addColorStop(0, '#a78bfa');
-    accent.addColorStop(1, '#7dd3fc');
-    ctx.fillStyle = accent;
-    ctx.fillRect(30, 6, w - 60, 3);
-
-    // Header: ✨ NEOSYS AEON
-    ctx.textAlign = 'center';
-    ctx.font = '32px serif';
-    ctx.fillStyle = '#ffffff';
-    ctx.fillText('✨', w / 2, 55);
-    ctx.font = '700 20px Inter, sans-serif';
-    ctx.fillStyle = '#a78bfa';
-    ctx.fillText('NEOSYS AEON', w / 2, 88);
-
-    // Thin divider
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.25)';
-    ctx.fillRect(w / 2 - 50, 100, 100, 1);
-
-    // Photo circle area
-    const photoY = 180;
-    const photoRadius = 75;
     if (userPhoto) {
         ctx.save();
         ctx.beginPath();
-        ctx.arc(w / 2, photoY, photoRadius, 0, Math.PI * 2);
-        ctx.closePath();
+        ctx.arc(w / 2, photoY, photoSize / 2, 0, Math.PI * 2);
         ctx.clip();
-
-        const imgAspect = userPhoto.width / userPhoto.height;
-        let sx = 0, sy = 0, sw = userPhoto.width, sh = userPhoto.height;
-        if (imgAspect > 1) {
-            sx = (userPhoto.width - userPhoto.height) / 2;
-            sw = userPhoto.height;
+        
+        // Cover logic
+        const aspect = userPhoto.width / userPhoto.height;
+        let drawW, drawH;
+        if (aspect > 1) {
+            drawH = photoSize;
+            drawW = photoSize * aspect;
         } else {
-            sy = (userPhoto.height - userPhoto.width) / 2;
-            sh = userPhoto.width;
+            drawW = photoSize;
+            drawH = photoSize / aspect;
         }
-        ctx.drawImage(userPhoto, sx, sy, sw, sh,
-            w / 2 - photoRadius, photoY - photoRadius, photoRadius * 2, photoRadius * 2);
+        ctx.drawImage(userPhoto, w / 2 - drawW / 2, photoY - drawH / 2, drawW, drawH);
         ctx.restore();
-
-        // Photo ring
-        ctx.beginPath();
-        ctx.arc(w / 2, photoY, photoRadius + 3, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
-        ctx.lineWidth = 3;
-        ctx.stroke();
     } else {
-        // Placeholder circle
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
         ctx.beginPath();
-        ctx.arc(w / 2, photoY, photoRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(167, 139, 250, 0.08)';
+        ctx.arc(w / 2, photoY, photoSize / 2, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.2)';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        ctx.font = '36px serif';
-        ctx.fillStyle = 'rgba(167, 139, 250, 0.25)';
-        ctx.fillText('📷', w / 2, photoY + 12);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.font = '100px serif';
+        ctx.fillText('👤', w / 2, photoY + 20);
     }
 
-    // Name (big)
-    const nameY = photoY + photoRadius + 55;
-    ctx.font = '800 32px Inter, sans-serif';
-    ctx.fillStyle = '#f5f5f7';
-    ctx.fillText(name.toUpperCase(), w / 2, nameY);
+    // 4. User Name
+    const nameInput = document.getElementById('badge-name');
+    const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
+    ctx.fillStyle = '#fff';
+    ctx.font = '700 70px Inter, sans-serif';
+    ctx.fillText(name.toUpperCase(), w / 2, 920);
 
-    // Member label
-    ctx.font = '600 12px monospace';
-    ctx.fillStyle = 'rgba(245, 245, 247, 0.35)';
-    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 32);
+    // 5. Role/Label
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+    ctx.font = '600 35px Inter, sans-serif';
+    ctx.letterSpacing = '4px';
+    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, 985);
+    ctx.letterSpacing = '0px';
 
     // Divider
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.2)';
-    ctx.fillRect(w / 2 - 60, nameY + 50, 120, 1);
+    ctx.beginPath();
+    ctx.moveTo(w / 2 - 150, 1050);
+    ctx.lineTo(w / 2 + 150, 1050);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
 
-    // Tagline
-    const taglineY = nameY + 80;
-    ctx.font = 'italic 500 14px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(245, 245, 247, 0.45)';
-    const tagline = t.join_badge_tagline || '"Sin ciencia no hay verdad. Sin validación no hay progreso."';
-    const cleanTagline = tagline.replace(/"/g, '');
-    const tagParts = cleanTagline.split(/[.。]/);
-    if (tagParts.length >= 2 && tagParts[1].trim()) {
-        ctx.fillText('"' + tagParts[0].trim() + '.', w / 2, taglineY);
-        ctx.fillText(tagParts[1].trim() + '."', w / 2, taglineY + 22);
-    } else {
-        ctx.fillText(tagline, w / 2, taglineY);
-    }
+    // 6. Tagline
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.font = '400 32px Inter, sans-serif';
+    const tagline = t.join_badge_tagline || 'El método científico: No protege ideas, las somete a prueba. No depende de creencias, depende de evidencia.';
+    wrapText(ctx, tagline, w / 2, 1150, 800, 45);
 
-    // Secondary descriptive tagline
-    const descY = hashY - 45;
-    ctx.font = 'italic 400 12px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(245, 245, 247, 0.45)';
-    const desc = t.join_badge_desc2 || 'Una propuesta para vivir en ciencia, frente a la pseudociencia.';
-    
-    // Auto-wrap the description to max 2 lines
-    const maxWidth = w - 60;
-    const words = desc.split(' ');
+    // 7. HashTags (Bottom)
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+    ctx.font = '700 45px Inter, sans-serif';
+    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 120);
+
+    // 8. Watermark Footer
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.font = '300 24px Inter, sans-serif';
+    ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 50);
+}
+
+// Helper to wrap text on canvas
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(' ');
     let line = '';
-    let line1 = '';
-    let line2 = '';
-    for(let n = 0; n < words.length; n++) {
+    let testY = y;
+
+    for (let n = 0; n < words.length; n++) {
         let testLine = line + words[n] + ' ';
         let metrics = ctx.measureText(testLine);
-        if (metrics.width > maxWidth && n > 0) {
-            if (!line1) {
-                line1 = line;
-                line = words[n] + ' ';
-            } else {
-                line2 = line;
-                break;
-            }
+        let testWidth = metrics.width;
+        if (testWidth > maxWidth && n > 0) {
+            ctx.fillText(line, x, testY);
+            line = words[n] + ' ';
+            testY += lineHeight;
         } else {
             line = testLine;
         }
     }
-    if (!line1) line1 = line;
-    else if (!line2) line2 = line;
-    
-    if (line1 && line2) {
-        ctx.fillText(line1.trim(), w / 2, descY - 14);
-        ctx.fillText(line2.trim(), w / 2, descY);
-    } else {
-        ctx.fillText(line1.trim(), w / 2, descY);
-    }
-
-    // Hashtag
-    ctx.font = '700 18px monospace';
-    ctx.fillStyle = '#a78bfa';
-    ctx.fillText('#NeosysAeon  #ThinkWithEvidence', w / 2, hashY);
-
-    // Bottom accent bar
-    ctx.fillStyle = accent;
-    ctx.fillRect(30, h - 9, w - 60, 3);
-
-    // Corner sparkles
-    ctx.font = '14px serif';
-    ctx.fillStyle = '#a78bfa';
-    ctx.fillText('✨', 25, 28);
-    ctx.fillText('✨', w - 25, 28);
-    ctx.fillText('✨', 25, h - 16);
-    ctx.fillText('✨', w - 25, h - 16);
+    ctx.fillText(line, x, testY);
 }
 
-// ── Badge Form + Actions ──────────────────
-(function initBadge() {
+// ── Badge & Interactive Systems ──────────
+(function initSystems() {
     const form = document.getElementById('badge-form');
     const actions = document.getElementById('badge-actions');
     const canvas = document.getElementById('badge-canvas');
     if (!form || !canvas) return;
 
-    // Draw initial preview
-    drawBadge();
-    // Show actions right away so users see share/download buttons
-    if (actions) actions.style.display = 'flex';
-
-    // Live preview as user types
+    // --- 1. Badge Live Preview ---
     const nameInput = document.getElementById('badge-name');
-    if (nameInput) {
-        nameInput.addEventListener('input', drawBadge);
-    }
-
-    // Photo Upload Logic
+    if (nameInput) nameInput.addEventListener('input', drawBadge);
+    
+    // --- 2. Photo Upload ---
     const photoInput = document.getElementById('badge-photo');
     const photoPreview = document.getElementById('photo-preview');
     const photoPlaceholder = document.getElementById('photo-placeholder');
-    if (photoInput && photoPreview && photoPlaceholder) {
+    if (photoInput) {
         photoInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    photoPreview.src = event.target.result;
-                    photoPreview.style.display = 'block';
-                    photoPlaceholder.style.display = 'none';
-                    
-                    const img = new Image();
-                    img.onload = () => {
-                        userPhoto = img;
-                        drawBadge();
-                    };
-                    img.src = event.target.result;
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    userPhoto = img;
+                    if (photoPreview) {
+                        photoPreview.src = ev.target.result;
+                        photoPreview.style.display = 'block';
+                    }
+                    if (photoPlaceholder) photoPlaceholder.style.display = 'none';
+                    drawBadge();
                 };
-                reader.readAsDataURL(file);
-            }
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
         });
     }
-    // Registration Logic
+
+    // --- 3. Registration & Download ---
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -660,6 +602,130 @@ function drawBadge() {
         if (actions) actions.style.display = 'flex';
     });
 
+    // ── Commandments Slider Logic ────────────
+    let currentSlide = 0;
+    const slidesData = [
+        { id: 1, title: 'm1_title', body: 'm1_body' }, { id: 2, title: 'm2_title', body: 'm2_body' },
+        { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
+        { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
+        { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
+        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' },
+        { id: 11, title: 'm11_title', body: 'm11_body' }, { id: 12, title: 'm12_title', body: 'm12_body' }
+    ];
+
+    function initSlider() {
+        const track = document.getElementById('mandamientos-track');
+        const nav = document.getElementById('slider-nav');
+        if (!track || !nav) return;
+
+        track.innerHTML = '';
+        nav.innerHTML = '';
+
+        slidesData.forEach((slide, index) => {
+            const slideEl = document.createElement('div');
+            slideEl.className = `mandamiento-slide ${index === 0 ? 'active' : ''}`;
+            slideEl.innerHTML = `
+                <div class="slide-number">${slide.id}</div>
+                <div class="slide-content">
+                    <h3 data-i18n="${slide.title}">${translations[currentLang][slide.title]}</h3>
+                    <p data-i18n="${slide.body}">${translations[currentLang][slide.body]}</p>
+                </div>
+            `;
+            track.appendChild(slideEl);
+
+            const dot = document.createElement('div');
+            dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            nav.appendChild(dot);
+        });
+
+        document.getElementById('slider-prev')?.addEventListener('click', () => goToSlide(currentSlide - 1));
+        document.getElementById('slider-next')?.addEventListener('click', () => goToSlide(currentSlide + 1));
+    }
+
+    function goToSlide(n) {
+        const track = document.getElementById('mandamientos-track');
+        const dots = document.querySelectorAll('.slider-dot');
+        const slides = document.querySelectorAll('.mandamiento-slide');
+        if (!track || slides.length === 0) return;
+
+        currentSlide = (n + slidesData.length) % slidesData.length;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === currentSlide));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === currentSlide));
+    }
+
+    initSlider();
+
+    // ── Poster Generator Logic ───────────────
+    const posterBtn = document.getElementById('download-poster');
+    if (posterBtn) {
+        posterBtn.addEventListener('click', generateCommandmentsPoster);
+    }
+
+    function generateCommandmentsPoster() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1200;
+        canvas.height = 2000;
+        const ctx = canvas.getContext('2d');
+        const t = translations[currentLang] || translations.es;
+
+        // Background
+        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        grad.addColorStop(0, '#0a0a1a');
+        grad.addColorStop(1, '#020205');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Header
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.font = '900 80px Inter, sans-serif';
+        ctx.fillText('NEOSYS AEON', canvas.width / 2, 150);
+        ctx.font = '700 40px Inter, sans-serif';
+        ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+        ctx.fillText(t.mand_title.replace('<br>', ' ').toUpperCase(), canvas.width / 2, 220);
+
+        // Grid of 12 Commandments
+        ctx.textAlign = 'left';
+        let y = 350;
+        slidesData.forEach((s, i) => {
+            const title = t[s.title];
+            const body = t[s.body];
+
+            ctx.fillStyle = 'rgba(167, 139, 250, 0.2)';
+            ctx.font = '900 120px Inter, sans-serif';
+            ctx.fillText(s.id, 80, y + 60);
+
+            ctx.fillStyle = '#fff';
+            ctx.font = '700 32px Inter, sans-serif';
+            ctx.fillText(title, 200, y);
+            
+            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            ctx.font = '400 24px Inter, sans-serif';
+            wrapText(ctx, body, 200, y + 40, 850, 32); // Use the new wrapText function
+            y += 130;
+        });
+
+        // Footer
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+        ctx.font = '700 40px Inter, sans-serif';
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 100);
+
+        // Download
+        canvas.toBlob((blob) => {
+            if (!blob) return;
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = `neosysaeon-poster-${currentLang}.jpg`;
+            link.href = url;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }, 'image/jpeg', 0.9);
+    }
+
     // ── Share helpers ──
     const shareUrl = 'https://yepzhi.com/neosys/';
     const shareText = '✨ Soy parte del movimiento Neosys Aeon\n\n#NeosysAeon #ThinkWithEvidence #SinCienciaNoHayVerdad\n\n' + shareUrl;
@@ -680,11 +746,14 @@ function drawBadge() {
 
     // Copiar Texto
     const copyBtn = document.getElementById('share-copy');
-    if (copyBtn) {
+    if (copyBtn) { // Changed from shareCopy to copyBtn
         copyBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(shareText).then(() => {
-                downloadBadge();
-                alert('✅ Texto copiado y gafete descargado.\n\nPégalo en tu red social favorita junto con la imagen.');
+            const t = translations[currentLang] || translations.es; // Get translations for dynamic text
+            const fullText = t.join_share_text || "Soy parte del movimiento #NeosysAeon #ThinkWithEvidence — Sin ciencia no hay verdad. Sin validación no hay progreso. https://yepzhi.com/neosys/";
+            navigator.clipboard.writeText(fullText).then(() => {
+                const originalContent = copyBtn.innerHTML; // Changed from shareCopy to copyBtn
+                copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                setTimeout(() => copyBtn.innerHTML = originalContent, 2000); // Changed from shareCopy to copyBtn
             });
         });
     }

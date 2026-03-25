@@ -30,6 +30,7 @@ const translations = {
         mand_label: "Los Principios Fundamentales",
         mand_title: "Los 12 Mandamientos<br><span class='text-accent'>del Cosmos</span>",
         mand_desc: "Principios inamovibles para evaluar, construir y aplicar conocimiento con coherencia.",
+        poster_download_btn: "Descargar Póster de Mandamientos (HD)",
 
         m1_title: "Honrarás la verdad por encima de la comodidad.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
@@ -229,6 +230,7 @@ const translations = {
         mand_label: "The Fundamental Principles",
         mand_title: "The 12 Commandments<br><span class='text-accent'>of the Cosmos</span>",
         mand_desc: "Immutable principles for evaluating, building, and applying knowledge with coherence.",
+        poster_download_btn: "Download Commandments Poster (HD)",
 
         m1_title: "You shall honor truth above comfort.",
         m1_body: "You shall not worship false certainty; you will seek what is real, even when uncomfortable.",
