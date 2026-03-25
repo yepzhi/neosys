@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.6';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.7';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.6';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.7';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.6';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.7';
         }
     }
 
@@ -682,7 +682,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     function generateCommandmentsPoster() {
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
-        canvas.height = 2400; // Increased height to prevent cutoff
+        canvas.height = 2800; // Final height refinement to ensure NO cutoff
         const ctx = canvas.getContext('2d');
         const t = translations[currentLang] || translations.es;
 
@@ -710,8 +710,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
         // Grid of 12 Commandments
         ctx.textAlign = 'left';
-        let y = 400;
-        const spacing = 155; // Better distribution
+        let y = 420;
+        const spacing = 180; // More room for longer commandments (7, 11, 12)
 
         slidesData.forEach((s, i) => {
             const title = t[s.title];
@@ -726,12 +726,12 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             // Title
             ctx.fillStyle = '#fff';
             ctx.font = '700 34px Inter, sans-serif';
-            ctx.fillText(title.toUpperCase(), 180, y);
+            ctx.fillText(title.toUpperCase(), 185, y);
             
             // Body with safe wrap
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
             ctx.font = '400 24px Inter, sans-serif';
-            wrapText(ctx, body, 180, y + 45, 900, 34); 
+            wrapText(ctx, body, 185, y + 45, 920, 34); 
             
             y += spacing; 
         });
@@ -740,17 +740,17 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         ctx.textAlign = 'center';
         ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.font = 'italic 300 28px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 200);
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 220);
 
         // Footer
         ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
         ctx.font = '700 45px Inter, sans-serif';
-        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 120);
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 140);
 
         // Website
         ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
         ctx.font = '300 22px Inter, sans-serif';
-        ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 60);
+        ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 80);
 
         // Download
         canvas.toBlob((blob) => {
