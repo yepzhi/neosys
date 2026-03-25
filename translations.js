@@ -28,13 +28,13 @@ const translations = {
 
         // 12 Principios del Cosmos
         mand_label: "Los Principios Fundamentales",
-        mand_title: "Los 12 Principios<br><span class='text-accent'>del Cosmos</span>",
+        mand_title: "Los 10 Principios<br><span class='text-accent'>del Cosmos</span>",
         mand_desc: "Principios de partida para evaluar, construir y aplicar conocimiento con coherencia.",
-        poster_download_btn: "Descarga Póster Los 12 Mandamientos del Cosmos! ✨",
+        poster_download_btn: "Descarga Póster Los 10 Principios del Cosmos! ✨",
 
         m1_title: "HONRARÁS LA VERDAD POR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
-        m2_title: "CULTIVARÁS LA CURIOSIDAD COMO VIRTUD.",
+        m2_title: "CULTIVARÁS LA CURIOSIDAD COMO PRÁCTICA ESENCIAL.",
         m2_body: "Preguntarás antes de afirmar, y explorarás antes de juzgar.",
         m3_title: "RECORDARÁS QUE ERES POLVO DE ESTRELLAS.",
         m3_body: "No por pequeñez, sino por pertenencia: eres universo con conciencia.",
@@ -43,19 +43,15 @@ const translations = {
         m5_title: "PRACTICARÁS LA HUMILDAD EPISTÉMICA.",
         m5_body: "Frente a la inmensidad, rechazarás el ego y abrazarás el asombro.",
         m6_title: "CUIDARÁS LA TIERRA COMO TU ÚNICO HOGAR COMPROBADO.",
-        m6_body: "No hay otro cercano; protegerlo es un acto de razón y de responsabilidad.",
+        m6_body: "No hay otro cercano ni confirmado; protegerlo es un acto de razón y responsabilidad.",
         m7_title: "AMARÁS LA VIDA DONDE EXISTA, Y LA RESPETARÁS DONDE SE ENCUENTRE.",
         m7_body: "Toda forma de vida merece dignidad, atención y cuidado.",
         m8_title: "NO CONVERTIRÁS EL MISTERIO EN IGNORANCIA.",
         m8_body: "Lo desconocido no es magia; es una invitación a comprender e investigar.",
-        m9_title: "TRANSMITIRÁS EL CONOCIMIENTO.",
-        m9_body: "Lo aprendido no se guarda como poder; se comparte como luz.",
-        m10_title: "CONSTRUIRÁS FUTURO PARA QUIENES AÚN NO NACEN.",
-        m10_body: "Tus actos no terminan en ti: tu legado debe ampliar posibilidades.",
-        m11_title: "NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
-        m11_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
-        m12_title: "NO SERÁS SOLO OBSERVADOR: SERÁS CONSTRUCTOR.",
-        m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
+        m9_title: "NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
+        m9_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
+        m10_title: "COMPARTIRÁS LO QUE SABES Y CONSTRUIRÁS CON ELLO.",
+        m10_body: "El conocimiento guardado se pierde; el conocimiento aplicado transforma.",
 
         // Problema (4 Opportunities)
         prob_label: "Cuatro Oportunidades",
@@ -224,9 +220,9 @@ const translations = {
         manifesto_p3: "It is not a belief system. It is a system of applied understanding — the <strong>Commandments of the Cosmos</strong> — designed to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
 
         mand_label: "The Fundamental Principles",
-        mand_title: "The 12 Principles<br><span class='text-accent'>of the Cosmos</span>",
+        mand_title: "The 10 Principles<br><span class='text-accent'>of the Cosmos</span>",
         mand_desc: "Starting principles for evaluating, building, and applying knowledge with coherence.",
-        poster_download_btn: "Download The 12 Commandments of the Cosmos Poster! ✨",
+        poster_download_btn: "Download The 10 Principles of the Cosmos Poster! ✨",
 
         m1_title: "You shall honor truth above comfort.",
         m1_body: "You shall not worship false certainty; you will seek what is real, even when uncomfortable.",
