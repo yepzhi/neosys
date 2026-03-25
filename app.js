@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.4';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.1.5';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.4';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.1.5';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.4';
+            pdfBtn.href = 'neosysaeon-whitepaper.pdf?v=3.1.5';
         }
     }
 
@@ -634,11 +634,13 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         track.innerHTML = '';
         nav.innerHTML = '';
 
+        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+
         slidesData.forEach((slide, index) => {
             const slideEl = document.createElement('div');
             slideEl.className = `mandamiento-slide ${index === 0 ? 'active' : ''}`;
             slideEl.innerHTML = `
-                <div class="slide-number">${slide.id}</div>
+                <div class="slide-num-magical">${romanNumerals[index]}</div>
                 <div class="slide-content">
                     <h3 data-i18n="${slide.title}">${translations[currentLang][slide.title]}</h3>
                     <p data-i18n="${slide.body}">${translations[currentLang][slide.body]}</p>
@@ -680,52 +682,75 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     function generateCommandmentsPoster() {
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
-        canvas.height = 2000;
+        canvas.height = 2400; // Increased height to prevent cutoff
         const ctx = canvas.getContext('2d');
         const t = translations[currentLang] || translations.es;
 
         // Background
         const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        grad.addColorStop(0, '#0a0a1a');
-        grad.addColorStop(1, '#020205');
+        grad.addColorStop(0, '#0a0a20');
+        grad.addColorStop(1, '#020208');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Header
         ctx.fillStyle = '#fff';
         ctx.textAlign = 'center';
-        ctx.font = '900 80px Inter, sans-serif';
-        ctx.fillText('NEOSYS AEON', canvas.width / 2, 150);
-        ctx.font = '700 40px Inter, sans-serif';
+        ctx.textBaseline = 'middle';
+        ctx.font = '900 85px Inter, sans-serif';
+        ctx.shadowColor = 'rgba(167, 139, 250, 0.4)';
+        ctx.shadowBlur = 20;
+        ctx.fillText('NEOSYS AEON', canvas.width / 2, 160);
+        ctx.shadowBlur = 0;
+
+        ctx.font = '700 36px Inter, sans-serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 1)';
-        ctx.fillText(t.mand_title.replace('<br>', ' ').toUpperCase(), canvas.width / 2, 220);
+        const posterTitle = (t.mand_title || "Los 12 Mandamientos del Cosmos").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
+        ctx.fillText(posterTitle, canvas.width / 2, 240);
 
         // Grid of 12 Commandments
         ctx.textAlign = 'left';
-        let y = 350;
+        let y = 400;
+        const spacing = 155; // Better distribution
+
         slidesData.forEach((s, i) => {
             const title = t[s.title];
             const body = t[s.body];
 
-            ctx.fillStyle = 'rgba(167, 139, 250, 0.2)';
-            ctx.font = '900 120px Inter, sans-serif';
-            ctx.fillText(s.id, 80, y + 60);
+            // Number
+            ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
+            ctx.font = '900 130px Inter, sans-serif';
+            const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+            ctx.fillText(roman[i], 70, y + 60);
 
+            // Title
             ctx.fillStyle = '#fff';
-            ctx.font = '700 32px Inter, sans-serif';
-            ctx.fillText(title, 200, y);
+            ctx.font = '700 34px Inter, sans-serif';
+            ctx.fillText(title.toUpperCase(), 180, y);
             
+            // Body with safe wrap
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
             ctx.font = '400 24px Inter, sans-serif';
-            wrapText(ctx, body, 200, y + 40, 850, 32); // Use the new wrapText function
-            y += 130;
+            wrapText(ctx, body, 180, y + 45, 900, 34); 
+            
+            y += spacing; 
         });
 
-        // Footer
+        // Final Quote
         ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.font = 'italic 300 28px Inter, sans-serif';
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 200);
+
+        // Footer
         ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-        ctx.font = '700 40px Inter, sans-serif';
-        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 100);
+        ctx.font = '700 45px Inter, sans-serif';
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 120);
+
+        // Website
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.font = '300 22px Inter, sans-serif';
+        ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 60);
 
         // Download
         canvas.toBlob((blob) => {
