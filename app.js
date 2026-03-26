@@ -168,6 +168,9 @@ function applyLanguage(lang) {
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
+    // Sync Badge
+    if (typeof drawBadge === 'function') drawBadge();
+
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (t[key] !== undefined) el.placeholder = t[key];
@@ -811,10 +814,10 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     const sloganBtn = document.getElementById('copy-slogan-btn');
     if (sloganBtn) {
         sloganBtn.addEventListener('click', () => {
-            const slogan = "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon https://yepzhi.com/neosys/";
+            const slogan = "Soy parte del movimiento NEOSYS AEON ✨ — Hacia una toma de decisiones basada en evidencias con el método cientifico. #NeosysAeon #EvidenceBased https://yepzhi.com/neosys/";
             navigator.clipboard.writeText(slogan).then(() => {
                 const original = sloganBtn.innerHTML;
-                sloganBtn.innerHTML = '✅ ¡Copiado!';
+                sloganBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ¡Copiado!';
                 setTimeout(() => sloganBtn.innerHTML = original, 2000);
             });
         });
