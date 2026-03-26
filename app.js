@@ -182,11 +182,11 @@ function applyLanguage(lang) {
     const pdfBtn = document.getElementById('download-pdf');
     if (pdfBtn) {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-en.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.2.1';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-cn.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-cn.pdf?v=3.2.1';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-es.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-v4-es.pdf?v=3.3.0';
         }
     }
 
@@ -621,10 +621,11 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
         { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
         { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
-        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
+        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' },
+        { id: 11, title: 'm11_title', body: 'm11_body' }, { id: 12, title: 'm12_title', body: 'm12_body' }
     ];
 
-    function initSlider() {
+    function initSlider() { let currentSlide = 0;
         const track = document.getElementById('mandamientos-track');
         const nav = document.getElementById('slider-nav');
         if (!track || !nav) return;
@@ -632,7 +633,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         track.innerHTML = '';
         nav.innerHTML = '';
 
-        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 
         slidesData.forEach((slide, index) => {
             const slideEl = document.createElement('div');
@@ -680,7 +681,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     function generateCommandmentsPoster() {
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
-        canvas.height = 2000; // Adjusted for 10 Principles
+        canvas.height = 2400; // Adjusted for 10 Principles
         const ctx = canvas.getContext('2d');
         const t = translations[currentLang] || translations.es;
 
@@ -718,7 +719,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             // Number
             ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
             ctx.font = '900 130px Inter, sans-serif';
-            const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+            const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
             ctx.fillText(roman[i], 70, y + 60);
 
             // Title

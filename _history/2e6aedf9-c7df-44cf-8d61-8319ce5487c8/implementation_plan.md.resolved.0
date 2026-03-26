@@ -1,0 +1,36 @@
+# Implementation Plan - Neosys Aeon Deep Reform (v4.1)
+
+Update Neosys Aeon to version 4.1 based on the new foundational whitepaper. This includes content updates across the site and documentation, as well as a new visual poster.
+
+## Proposed Changes
+
+### Documentation
+#### [MODIFY] [whitepaper-es.md](file:///Users/yepz/neosysaeon/whitepaper-es.md)
+Update with the full v4.1 Spanish text, including tables and references.
+#### [MODIFY] [whitepaper-en.md](file:///Users/yepz/neosysaeon/whitepaper-en.md)
+Update with the full v4.1 English text from [neosysaeon-whitepaper-v4.1-EN.txt](file:///Users/yepz/neosysaeon/neosysaeon-whitepaper-v4.1-EN.txt).
+#### [MODIFY] [whitepaper-cn.md](file:///Users/yepz/neosysaeon/whitepaper-cn.md)
+Update with the full v4.1 Chinese text from [neosysaeon-whitepaper-v4.1-ZH.txt](file:///Users/yepz/neosysaeon/neosysaeon-whitepaper-v4.1-ZH.txt).
+
+---
+
+### Site Content
+#### [MODIFY] [translations.js](file:///Users/yepz/neosysaeon/translations.js)
+Update Spanish, English, and Chinese translations:
+- **Hero**: Update tagline and subtitle to the new v4.1 versions.
+- **Principles**: Update the 10 "Principios del Cosmos" (formerly 12 in some versions) to match v4.1 exact wording.
+- **Footer**: Update the final summary and hashtags as requested.
+
+---
+
+### Brand Assets
+#### [NEW] [principles_poster_v4.1.png](file:///Users/yepz/neosysaeon/principles_poster_v4.1.png)
+Generate a new high-quality poster featuring the 10 Principles of the Cosmos with the Neosys Aeon v4.1 branding.
+
+## Verification Plan
+
+### Manual Verification
+- **Multi-language Check**: Switch between ES, EN, and ZH on the site to ensure all text is correctly updated and follows the same structure.
+- **Visual Review**: Open [index.html](file:///Users/yepz/neosysaeon/index.html) in the browser to verify the Hero and Footer sections look as expected with the new phrases.
+- **Poster Check**: Verify the generated [principles_poster_v4.1.png](file:///Users/yepz/neosysaeon/principles_poster_v4.1.png) contains the correct 10 principles and matches the aesthetic of the site.
+- **Whitepaper Links**: Ensure the whitepaper links on the site lead to the correctly updated markdown or PDF versions (if applicable).

@@ -1,0 +1,16 @@
+# Task: Neosys Aeon Deep Reform (v4.1)
+
+- [x] Update Whitepaper documents to v4.1
+    - [x] Research v4.1 content (ES, EN, ZH)
+    - [x] Update `whitepaper-es.md`
+    - [x] Update `whitepaper-en.md`
+    - [x] Update `whitepaper-cn.md`
+- [x] Update Site Translations in `translations.js`
+    - [x] Update Spanish translations (Hero, Principles, Footer)
+    - [x] Update English translations
+    - [x] Update Chinese translations
+- [x] Generate New Principles Poster
+    - [x] Use `generate_image` to create a new poster with the 10 principles
+- [x] Verify Site Changes
+    - [x] Check `index.html` for consistency
+    - [x] Verify multi-language support remains intact

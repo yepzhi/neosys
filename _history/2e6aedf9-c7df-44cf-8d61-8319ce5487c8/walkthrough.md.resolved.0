@@ -1,0 +1,36 @@
+# Neosys Aeon v4.1 Reform Walkthrough
+
+The platform has been successfully updated to version 4.1, aligning the foundational documentation with the live site and introducing the new 10 Principles of the Cosmos.
+
+## 📄 Whitepaper Updates (v4.1)
+
+All three foundational whitepapers have been updated with the definitive 4.1 text, corrected bibliographic references, and the new 10-principle structure.
+
+- [whitepaper-es.md](file:///Users/yepz/neosysaeon/whitepaper-es.md) (Spanish)
+- [whitepaper-en.md](file:///Users/yepz/neosysaeon/whitepaper-en.md) (English)
+- [whitepaper-cn.md](file:///Users/yepz/neosysaeon/whitepaper-cn.md) (Chinese)
+
+> [!IMPORTANT]
+> The framework has transitioned from a 12-principle structure to a **10-principle structure** focused on "Heurísticas del Sistema".
+
+## 🌐 Site-wide Translations
+
+The [translations.js](file:///Users/yepz/neosysaeon/translations.js) file and the [index.html](file:///Users/yepz/neosysaeon/index.html) metadata have been synchronized to version 4.1 across all languages.
+
+- **Tagline updated**: *"Sin ciencia no hay claridad, sin validación no hay progreso."*
+- **Principles updated**: The 10 Principles of the Cosmos are now verbatim as per the v4.1 whitepaper.
+- **Footer updated**: Now includes the new summary and hashtags: `#ThinkWithEvidence · #NeosysAeon`.
+
+## 🎨 Visual Assets
+
+A new premium principles poster has been generated to reflect the v4.1 philosophy.
+
+![Principles Poster v4.1](file:///Users/yepz/.gemini/antigravity/brain/2e6aedf9-c7df-44cf-8d61-8319ce5487c8/principles_poster_v4_1_1774502387140.png)
+
+## ✅ Verification Checklist
+
+- [x] Triple-language whitepapers updated to v4.1.
+- [x] [translations.js](file:///Users/yepz/neosysaeon/translations.js) synchronized with new 10-principle text.
+- [x] [index.html](file:///Users/yepz/neosysaeon/index.html) meta tags and fallback text updated.
+- [x] [app.js](file:///Users/yepz/neosysaeon/app.js) confirmed to support 10-principle slider structure.
+- [x] New Principles Poster generated.
