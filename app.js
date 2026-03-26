@@ -424,7 +424,6 @@ function drawBadge() {
     // Glowing ring
     ctx.beginPath();
     ctx.arc(w / 2, photoY, (photoSize / 2) + 15, 0, Math.PI * 2);
-    const ringGrad = ctx.createSweepGradient(w/2, photoY, 0, Math.PI*2); // Note: Sweep not standard, using radial
     const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 20);
     radGrad.addColorStop(0, 'rgba(167, 139, 250, 0.8)');
     radGrad.addColorStop(1, 'rgba(167, 139, 250, 0)');
