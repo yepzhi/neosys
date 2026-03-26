@@ -180,9 +180,9 @@ def render_academic_pdf(md_filepath, output_pdf, is_cn=False):
     print(f"✅ Generated {output_pdf} (Academic Design)")
 
 files = [
-    ("whitepaper-es.md", "neosysaeon-whitepaper.pdf", False),
-    ("whitepaper-en.md", "neosysaeon-whitepaper-en.pdf", False),
-    ("whitepaper-cn.md", "neosysaeon-whitepaper-cn.pdf", True)
+    ("whitepaper-es.md", "neosysaeon-whitepaper-v4.1-es.pdf", False),
+    ("whitepaper-en.md", "neosysaeon-whitepaper-v4.1-en.pdf", False),
+    ("whitepaper-cn.md", "neosysaeon-whitepaper-v4.1-cn.pdf", True)
 ]
 
 for md_file, pdf_file, is_cn in files:

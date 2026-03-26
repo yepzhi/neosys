@@ -6,13 +6,11 @@ const translations = {
         nav_whitepaper: "Framework",
         nav_acercate: "Acércate",
         nav_comunidad: "Comunidad",
-        nav_unete: "Únete",
-
-        // Hero
+        nav_unete: "Únete",        // Hero
         hero_tagline: "Sin ciencia no hay claridad, sin validación no hay progreso.",
-        hero_subtitle: "Framework basado en sistemas para la integración de ciencia, tecnología y toma de decisiones humana.",
+        hero_subtitle: "El método científico permite generar, probar y validar conocimiento.",
         hero_btn_mandamientos: "Principios del Cosmos",
-        hero_btn_whitepaper: "Ver Framework (v4.3)",
+        hero_btn_whitepaper: "Ver Framework (v4.1)",
         hero_explore: "Explorar",
 
         postulado_label: "Base Epistémica (A)",
@@ -22,15 +20,15 @@ const translations = {
         // Marco Conceptual (Anteriormente Manifiesto)
         manifesto_label: "Filosofía Conceptual (B)",
         manifesto_title: "La información no es conocimiento.<br><span class='text-accent'>El conocimiento es aplicación sistémica.</span>",
-        manifesto_p1: "✨ La ciencia permite el modelado del entorno. La ingeniería permite su optimización. La tecnología permite el escalamiento. NEOSYS propone una arquitectura de pensamiento para reducir la entropía en la toma de decisiones.",
+        manifesto_p1: "✨ Neosys Aeon es un marco conceptual abierto diseñado para mejorar la forma en que los individuos entienden la realidad y toman decisiones basadas en evidencia. Propone integrar epistemología aplicada, método científico y acción responsable.",
         manifesto_p2: "La síntesis sin aplicación carece de impacto. La ejecución sin modelado genera error sistémico. El framework integra ambos vectores en un bucle de retroalimentación continuo.",
         manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
         // 10 Principios Operativos
         mand_label: "Heurísticas del Sistema (C)",
-        mand_title: "Los 12 Principios<br><span class='text-accent'>del Cosmos</span>",
-        mand_desc: "Principios de partida para evaluar, construir y aplicar conocimiento con coherencia.",
-        poster_download_btn: "Descargar Framework de Principios (HD) ✨",
+        mand_title: "Los 10 Principios<br><span class='text-accent'>del Cosmos</span>",
+        mand_desc: "Principios de partida para evaluar, construir y aplicar conocimiento con coherencia. Revisables, no dogmáticos, ordenados del individuo hacia lo colectivo.",
+        poster_download_btn: "Descargar Framework de Principios (v4.1) ✨",
 
         m1_title: "I. HONRARÁS LA VERDAD POR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
@@ -40,7 +38,7 @@ const translations = {
         m3_body: "No por pequeñez, sino por pertenencia: eres universo con conciencia.",
         m4_title: "IV. DEFENDERÁS LA EVIDENCIA COMO BRÚJULA.",
         m4_body: "No por dogma, sino porque es el filtro más confiable que tenemos.",
-        m5_title: "V. PRACTICARÁS LA HUMILDAD EPISTÉMICA.",
+        m5_title: "V. PRACTICARÁS LA HUMILDAD CÓSMICA.",
         m5_body: "Frente a la inmensidad, rechazarás el ego y abrazarás el asombro.",
         m6_title: "VI. CUIDARÁS LA TIERRA COMO TU ÚNICO HOGAR COMPROBADO.",
         m6_body: "No hay otro cercano; protegerlo es un acto de razón y de responsabilidad.",
@@ -50,141 +48,12 @@ const translations = {
         m8_body: "Lo desconocido no es magia; es una invitación a comprender e investigar.",
         m9_title: "IX. TRANSMITIRÁS EL CONOCIMIENTO.",
         m9_body: "Lo aprendido no se guarda como poder; se comparte como luz.",
-        m10_title: "X. CONSTRUIRÁS FUTURO PARA QUIENES AÚN NO NACEN.",
-        m10_body: "Tus actos no terminan en ti: tu legado debe ampliar posibilidades.",
-        m11_title: "XI. NO DARÁS LUGAR A LA PSEUDOCIENCIA NI AL ENGAÑO DISFRAZADO.",
-        m11_body: "Cuestionarás afirmaciones extraordinarias y exigirás evidencia proporcional.",
-        m12_title: "XII. NO SERÁS SOLO OBSERVADOR: SERÁS CONSTRUCTOR.",
-        m12_body: "Aplicarás el conocimiento para mejorar la vida y transformar la realidad.",
-
-        // Capas de Análisis
-        prob_label: "Capa de Aplicación",
-        prob_title: "Optimización de la relación<br><span class='text-accent'>Ciencia-Tecnología-Sociedad</span>",
-        prob1_title: "✨ Fase 1: Análisis Científico",
-        prob1_body: "Priorización de modelos predictivos sobre sesgos cognitivos y narrativa ideológica.",
-        prob2_title: "🔗 Fase 2: Sostenibilidad Sistémica",
-        prob2_body: "Integración de una ética de la responsabilidad basada en el reconocimiento del entorno operativo viable.",
-        prob3_title: "🔬 Fase 3: Ejecución Industrial",
-        prob3_body: "Sincronización de la validación académica con la implementación técnica para reducir latencias innovadoras.",
-        prob4_title: "📉 Fase 4: Optimización de Valor",
-        prob4_body: "Toma de decisiones bajo incertidumbre mediante el uso de lógica bayesiana y modelado probabilístico.",
-
-        // STEM section
-        stem_label: "Arquitectura de Progreso",
-        stem_title: "El bucle de generación de valor.<br><span class='text-accent'>Modelado, Aplicación y Escalamiento.</span>",
-        stem_desc: "El método científico es el protocolo más eficiente para la validación de información. Su impacto se maximiza mediante el bucle STEM.",
-        stem_s1_title: "Ciencia",
-        stem_s1_body: "Genera modelos",
-        stem_s2_title: "Ingeniería",
-        stem_s2_body: "Optimiza modelos",
-        stem_s3_title: "Tecnología",
-        stem_s3_body: "Materializa modelos",
-        stem_s4_title: "Economía",
-        stem_s4_body: "Escala el impacto",
-        stem_p1: "La medición es la base del conocimiento.",
-        stem_p2: "La experimentación valida el progreso.",
-        stem_p3: "La ingeniería permite la transferencia.",
-        stem_p4: "La escalabilidad garantiza el impacto social.",
-
-        // Distinción
-        dist_label: "Definición y Alcance",
-        dist_title: "Taxonomía de NEOSYS.<br><span class='text-accent'>Propuesta y límites.</span>",
-        dist_is_header: "✨ NEOSYS ES:",
-        dist_is_1: "<strong>Framework Interdisciplinario:</strong> integración de múltiples áreas del saber tecnológico.",
-        dist_is_2: "<strong>Heurístico:</strong> proporciona guías de acción adaptativas basadas en el entorno.",
-        dist_is_3: "<strong>Data-Driven:</strong> prioriza la evidencia empírica sobre la narrativa.",
-        dist_is_4: "<strong>Agnóstico:</strong> independiente de estructuras políticas o dogmáticas.",
-        dist_is_5: "<strong>Infraestructura Abierta:</strong> disponible para su implementación descentralizada.",
-        dist_is_6: "<strong>Analítico:</strong> enfocado en la optimización de procesos complejos.",
-        dist_not_header: "✕ NEOSYS NO ES:",
-        dist_not_1: "No es una <strong>religión</strong> o propuesta de metafísica.",
-        dist_not_2: "No es una <strong>ideología cerrada</strong> o movimiento social.",
-        dist_not_3: "No es una <strong>organización jerárquica</strong> o centralizada.",
-        dist_not_4: "No es un <strong>sistema de creencias</strong> absoluto o inamovible.",
-        dist_not_5: "No <strong>sustituye</strong> a la ciencia; actúa como su capa de integración.",
-        dist_quote: "\"La evidencia es el terreno más sólido para la toma de decisiones.<br>Un modelo que no genera predicciones útiles es irrelevante.\"",
-
-        wp_label: "Documentación Técnica",
-        wp_title: "Framework Whitepaper<br><span class='text-accent'>v4.3 (Technical Draft)</span> <span style='display:inline-block; animation: sparkle-pulse 3s ease-in-out infinite;'>✨</span>",
-        wp_desc: "Marco de referencia conceptual para la integración de sistemas de conocimiento técnico.",
-        wp_btn: "Descargar Framework PDF",
-
-        join_label: "Fase de Implementación",
-        join_title: "Integración de la Red<br><span class='text-accent'>de Implementación</span>",
-        join_desc: "Adopta los principios, vive la coherencia. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
-        join_badge_title: "Registrar Nodo (v4.3) ✨",
-        join_badge_desc: "Incorpore su perfil al directorio de implementación técnica y verifique su compromiso con la metodología sistémica.",
-        join_placeholder: "Nombre completo / Identificador",
-        join_email: "Correo institucional/referencia",
-        join_phone: "Enlace de contacto (opcional)",
-        join_social: "ID de Red Profesional (opcional)",
-        join_country_default: "Región Operativa",
-        join_btn_generate: "Generar y Validar Nodo",
-        join_btn_save: "Sincronizar",
-        join_btn_share: "Difundir",
-        join_share_text: "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. https://yepzhi.com/neosys/",
-        join_upload_text: "Cargar Identificación Visual",
-        join_badge_member: "NODO DE IMPLEMENTACIÓN",
-        join_badge_tagline: "NEOSYS: Optimización de sistemas mediante el método científico y lógica probabilística.",
-
-        con_label: "Transferencia de Conocimiento",
-        con_title: "NEOSYS define el marco sistémico.<br><span class='text-accent'>JovenesSTEM ejecuta la formación.</span>",
-        con_p1: "Los principios operativos de NEOSYS —indagación metódica y transferencia técnica— constituyen el núcleo del programa <strong>JovenesSTEM</strong> y su arquitectura pedagógica, el <strong>BlueBook</strong>.",
-        con_p2: "Mientras NEOSYS proporciona el framework de análisis, JovenesSTEM materializa la formación de la nueva generación de especialistas en ciencia y tecnología.",
-        con_btn: "🚀 Explorar JovenesSTEM",
-        con_node1: "Framework Sistémico",
-        con_node2: "Programa de Formación",
-        con_node3: "Arquitectura BlueBook",
-
-        out_label: "Recursos de Verificación",
-        out_title: "Fuentes de <span class='text-accent'>Validación</span>",
-        out_desc: "Acceso a bibliotecas y canales de referencia para la profundización en el método científico y la ingeniería.",
-        out_btn_explore: "Ver Recursos →",
-        outreach_categories: [
-            {
-                id: "youtube",
-                title: "Canales de Referencia",
-                items: [
-                    { name: "Veritasium", topic: "Ciencia General", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "Kurzgesagt", topic: "Ciencia General", link: "https://www.youtube.com/c/inanutshell", icon: "🦆" },
-                    { name: "Mark Rober", topic: "Ingeniería", link: "https://www.youtube.com/c/MarkRober", icon: "🛠️" },
-                    { name: "MinutePhysics", topic: "Física", link: "https://www.youtube.com/user/minutephysics", icon: "⏱️" },
-                    { name: "Fireship", topic: "Sistemas/Programación", link: "https://www.youtube.com/c/Fireship", icon: "💻" }
-                ]
-            },
-            {
-                id: "series",
-                title: "Series Documentales",
-                items: [
-                    { name: "Cosmos (Carl Sagan)", topic: "Astronomía/Epistemología", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Personal_Voyage", icon: "📺" },
-                    { name: "Cosmos (Neil deGrasse Tyson)", topic: "Astronomía/Epistemología", link: "https://en.wikipedia.org/wiki/Cosmos:_A_Spacetime_Odyssey", icon: "📺" },
-                    { name: "Star Trek: Discovery", topic: "Ficción Científica", link: "https://intl.startrek.com/shows/star-trek-discovery", icon: "🚀" }
-                ]
-            },
-            {
-                id: "books",
-                title: "Bibliografía Técnica",
-                items: [
-                    { name: "The BlueBook", topic: "Currículo STEM", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
-                    { name: "Astrophysics for People in a Hurry", topic: "Astrofísica", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
-                ]
-            }
-        ],
-
-        // Comunidad
-        comm_label: "Nodos Activos",
-        comm_title: "Red de Implementación",
-        comm_desc: "Directorio de perfiles que han adoptado el framework NEOSYS para la optimización de sus procesos de decisión.",
-        comm_tab_directory: "Lista de Nodos",
-        comm_tab_map: "Mapa de Impacto",
-        comm_join_btn: "✨ Registrarse como Nodo",
-        join_privacy_note: "La información de perfil y ubicación se integra al mapa global del framework. Datos sensibles permanecen encriptados.",
-        join_city: "Ubicación",
-        join_badge_desc2: "Propuesta técnica para la transición hacia una sociedad basada en evidencia y sistemas abiertos.",
+        m10_title: "X. NO SERÁS SOLO OBSERVADOR: SERÁS CONSTRUCTOR.",
+        m10_body: "Aplicarás el conocimiento para generar impacto real, mejorar condiciones y expandir posibilidades futuras.",
 
         // Footer
-        footer_quote: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve. Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras."
+        footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br>No es una autoridad · No es una doctrina cerrada · No es una estructura de poder.<br><br>Es un sistema. Su valor depende de su aplicación y de su revisión continua.",
+        footer_copy: "Explora el marco completo en yepzhi.com/neosys · #ThinkWithEvidence · #NeosysAeon"
     },
 
     en: {
@@ -197,49 +66,53 @@ const translations = {
         nav_unete: "Join",
 
         // Hero
-        hero_tagline: "Systems-based framework for integrating science, technology, and human decision-making.",
-        hero_subtitle: "Built on evidence, adaptive models, and interdisciplinary synthesis.",
-        hero_btn_mandamientos: "Operational Principles",
-        hero_btn_whitepaper: "View Framework (v4.3)",
+        hero_tagline: "Without science there is no clarity, without validation there is no progress.",
+        hero_subtitle: "The scientific method allows for the generation, testing, and validation of knowledge.",
+        hero_btn_mandamientos: "Cosmos Principles",
+        hero_btn_whitepaper: "View Framework (v4.1)",
         hero_explore: "Explore",
 
         postulado_label: "Epistemic Basis (A)",
-        postulado_title_new: "The <span class=\"text-accent\">scientific method</span> is a tool for building <span class=\"text-accent\">predictive models</span> and verifiable interpretations of reality.",
-        postulado_desc_new: "It does not protect hypotheses: it subjects them to constant falsification.<br>It does not depend on intuition: it depends on empirical data.<br><br>It is the base architecture of modern technological and social efficiency.",
+        postulado_title_new: "The <span class=\"text-accent\">scientific method</span> allows for generating, testing, and validating knowledge.",
+        postulado_desc_new: "It does not protect ideas: it tests them. It does not depend on beliefs: it depends on evidence. That is why it is the foundation of knowledge that truly transforms.",
 
         // Conceptual Framework (Formerly Manifesto)
         manifesto_label: "Conceptual Philosophy (B)",
         manifesto_title: "Information is not knowledge.<br><span class='text-accent'>Knowledge is systemic application.</span>",
-        manifesto_p1: "✨ Science allows for environmental modeling. Engineering allows for its optimization. Technology allows for scaling. NEOSYS proposes a thought architecture to reduce entropy in decision-making.",
+        manifesto_p1: "✨ Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and make decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
         manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
-        manifesto_p3: "NEOSYS is not an ideology. It is an interdisciplinary analysis framework — the 10 <strong>Operational Principles</strong> — aimed at optimizing processes through evidence and Bayesian logic.",
+        manifesto_p3: "It is not a belief system. It is an applied understanding framework — the <strong>Cosmos Principles</strong> — aimed at prioritizing truth, validating through evidence, and translating knowledge into real action.",
 
         // 10 Operational Principles
         mand_label: "System Heuristics (C)",
         mand_title: "The 10 Principles<br><span class='text-accent'>of the Cosmos</span>",
-        mand_desc: "Fundamental guidelines for the generation, validation, and application of knowledge.",
-        poster_download_btn: "Download Principles Framework (HD) ✨",
+        mand_desc: "Starting principles to evaluate, build, and apply knowledge with coherence. Revisable, non-dogmatic, ordered from individual to collective.",
+        poster_download_btn: "Download Principles Framework (v4.1) ✨",
 
         m1_title: "I. HONOR TRUTH ABOVE CONVENIENCE.",
         m1_body: "Do not worship false certainty; seek the real, even if it is uncomfortable.",
-        m2_title: "II. CULTIVATE CURIOSITY AS AN ESSENTIAL PRACTICE.",
+        m2_title: "II. CULTIVATE CURIOSITY AS A VIRTUE.",
         m2_body: "Inquire before affirming, and explore before judging.",
         m3_title: "III. REMEMBER THAT YOU ARE STARDUST.",
         m3_body: "Not for smallness, but for belonging: you are a conscious universe.",
         m4_title: "IV. DEFEND EVIDENCE AS YOUR COMPASS.",
-        m4_body: "Not out of dogma, but because it is the most reliable filter we have.",
-        m5_title: "V. PRACTICE EPISTEMIC HUMILITY.",
+        m4_body: "Not for dogma, but because it is the most reliable filter we have.",
+        m5_title: "V. PRACTICE COSMIC HUMILITY.",
         m5_body: "Facing the vastness, reject the ego and embrace wonder.",
         m6_title: "VI. CARE FOR THE EARTH AS YOUR ONLY PROVEN HOME.",
-        m6_body: "There is no other confirmed nearby; protecting it is an act of reason.",
+        m6_body: "There is no other nearby; protecting it is an act of reason and responsibility.",
         m7_title: "VII. LOVE LIFE WHERE IT EXISTS, AND RESPECT IT WHERE FOUND.",
         m7_body: "Every life form deserves dignity, attention, and care.",
-        m8_title: "VIII. DO NOT TURN MYSTERY INTO IGNORANCE.",
+        m8_title: "VIII. DO NOT TURN MYSTERY INTO IGNORANCIA.",
         m8_body: "The unknown is not magic; it's an invitation to understand and investigate.",
-        m9_title: "IX. GIVE NO ROOM TO PSEUDOSCIENCE OR DISGUISED DECEPTION.",
-        m9_body: "Question extraordinary claims and demand proportional evidence.",
-        m10_title: "X. SHARE WHAT YOU KNOW AND BUILD WITH IT.",
-        m10_body: "Hoarded knowledge is lost; applied knowledge transforms.",
+        m9_title: "IX. TRANSMIT KNOWLEDGE.",
+        m9_body: "What is learned is not kept as power; it is shared as light.",
+        m10_title: "X. DO NOT BE JUST AN OBSERVER: BE A BUILDER.",
+        m10_body: "Apply knowledge to generate real impact, improve conditions, and expand future possibilities.",
+
+        // Footer
+        footer_quote: "Neosys Aeon is an open framework for the generation, validation, and application of knowledge through the scientific method.<br><br>It is not an authority · It is not a closed doctrine · It is not a power structure.<br><br>It is a system. Its value depends on its application and continuous revision.",
+        footer_copy: "Explore the full framework at yepzhi.com/neosys · #ThinkWithEvidence · #NeosysAeon",
 
         // Application Layers
         prob_label: "Application Layer",
@@ -374,39 +247,39 @@ const translations = {
     cn: {
         // Nav
         nav_mandamientos: "原则",
-        nav_marco: "框架",
-        nav_whitepaper: "白皮书",
+        nav_marco: "概念框架",
+        nav_whitepaper: "框架",
         nav_acercate: "深入了解",
         nav_comunidad: "社区",
         nav_unete: "加入",
 
         // Hero
-        hero_tagline: "基于系统的科学、技术与决策集成框架。",
-        hero_subtitle: "构建于可验证的证据、自适应模型和跨学科综合之上。",
-        hero_btn_mandamientos: "操作原则",
-        hero_btn_whitepaper: "查看框架 (v4.3)",
+        hero_tagline: "没有科学就没有清晰，没有验证就没有进步。",
+        hero_subtitle: "科学方法允许生成、测试和验证知识。",
+        hero_btn_mandamientos: "宇宙原则",
+        hero_btn_whitepaper: "查看框架 (v4.1)",
         hero_explore: "探索",
 
         postulado_label: "认识论基础 (A)",
-        postulado_title_new: "<span class=\"text-accent\">科学方法</span> 是构建 <span class=\"text-accent\">预测模型</span> 和可验证解释的工具。",
-        postulado_desc_new: "它不保护假设：它对假设进行持续的证伪测试。<br>它不依赖直觉：它依赖经验数据。<br><br>它是现代技术和社会效率的基础架构。",
+        postulado_title_new: "<span class=\"text-accent\">科学方法</span> 允许生成、测试和验证知识。",
+        postulado_desc_new: "它不保护想法：它测试它们。它不依赖于信念：它依赖于证据。这就是真正改变知识的基础。",
 
         // 概念框架 (原宣言)
         manifesto_label: "概念哲学 (B)",
         manifesto_title: "资讯不等于知识。<br><span class='text-accent'>知识是系统化的应用。</span>",
-        manifesto_p1: "✨ 科学实现了环境建模。工程实现了环境优化。技术实现了规模化。NEOSYS 提议一种旨在减少决策熵的思维架构。",
+        manifesto_p1: "✨ Neosys Aeon 是一个开放的概念框架，旨在改善个人理解现实和基于证据做出决策的方式。它建议整合应用认识论、科学方法和负责任的行动。",
         manifesto_p2: "没有应用的综合缺乏影响力。没有建模的执行会产生系统误差。框架将这两个向量集成在持续的反馈循环中。",
-        manifesto_p3: "NEOSYS 不是一种意识形态。它是一个跨学科分析模型——10 <strong>操作原则</strong>——旨在通过证据和贝叶斯逻辑优化流程。",
+        manifesto_p3: "它不是一个信仰体系。它是一个应用的理解框架 —— <strong>宇宙原则</strong> —— 旨在优先考虑真理，通过证据进行验证，并将知识转化为实际行动。",
 
         // 10 操作原则
         mand_label: "系统启发式 (C)",
         mand_title: "宇宙 10 原则<br><span class='text-accent'>框架核心</span>",
-        mand_desc: "知识生成、验证和应用的基本指南。",
-        poster_download_btn: "下载原则框架 (HD) ✨",
+        mand_desc: "评估、构建和一致应用知识的出发原则。可修订、非教条，从个人到集体排序。",
+        poster_download_btn: "下载原则框架 (v4.1) ✨",
 
         m1_title: "I. 尊崇真理高于舒适。",
         m1_body: "不崇拜虚假的确定性；追求真实，即使它令人不安。",
-        m2_title: "II. 培养好奇心作为核心实践。",
+        m2_title: "II. 培养好奇心作为美德。",
         m2_body: "在肯定之前询问，在判断之前探索。",
         m3_title: "III. 记住你是星尘。",
         m3_body: "并非因为渺小，而是因为归属：你是拥有意识的宇宙。",
