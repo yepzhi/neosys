@@ -109,7 +109,7 @@ const translations = {
 
         // Whitepaper
         wp_label: "DOCUMENTO FUNDACIONAL",
-        wp_title: "Whitepaper **<br><span class=\"text-accent\">Neosys Aeon ✨</span>",
+        wp_title: "Whitepaper<br><span class=\"text-accent\">Neosys Aeon ✨</span>",
         wp_desc: "Detalla el marco conceptual, los 10 principios del cosmos, el enfoque STEM de validación y la naturaleza abierta del sistema.",
         wp_btn: "Descargar Whitepaper PDF",
 

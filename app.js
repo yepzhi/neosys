@@ -721,7 +721,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const startY = 320;
         const col1X = 60;
         const col2X = 640;
-        const spacingY = 175;
+        const spacingY = 185; // Increased from 175
 
         slidesData.forEach((s, i) => {
             const isSecondCol = i >= 5;
@@ -740,13 +740,13 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
             // Title
             ctx.fillStyle = '#fff';
-            ctx.font = '700 24px Inter, sans-serif'; // Reduced from 28px
+            ctx.font = '700 20px Inter, sans-serif'; // Reduced from 24px
             ctx.fillText((title || '').toUpperCase(), x + 90, y);
             
             // Body
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 14px Inter, sans-serif'; // Reduced from 16px
-            wrapText(ctx, body, x + 90, y + 40, 430, 20); // Reduced lineHeight to 20
+            ctx.font = '400 13px Inter, sans-serif'; // Reduced from 14px
+            wrapText(ctx, body, x + 90, y + 40, 430, 18); // Reduced lineHeight to 18
         });
 
         // Final Quote
