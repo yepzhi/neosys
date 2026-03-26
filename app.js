@@ -706,7 +706,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         ctx.font = '900 80px Inter, sans-serif';
         ctx.shadowColor = 'rgba(167, 139, 250, 0.4)';
         ctx.shadowBlur = 20;
-        ctx.fillText('NEOSYS AEON', canvas.width / 2, 120);
+        ctx.fillText('NEOSYS AEON ✨', canvas.width / 2, 120);
         ctx.shadowBlur = 0;
 
         ctx.font = '700 32px Inter, sans-serif';
@@ -743,8 +743,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             
             // Body
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 18px Inter, sans-serif';
-            wrapText(ctx, body, x + 90, y + 40, 430, 26); 
+            ctx.font = '400 16px Inter, sans-serif'; // Reduced from 18px
+            wrapText(ctx, body, x + 90, y + 40, 430, 24); // Reduced lineHeight 24
         });
 
         // Final Quote
@@ -803,6 +803,19 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
                 const originalContent = copyBtn.innerHTML; // Changed from shareCopy to copyBtn
                 copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
                 setTimeout(() => copyBtn.innerHTML = originalContent, 2000); // Changed from shareCopy to copyBtn
+            });
+        });
+    }
+
+    // Copiar Slogan Especial
+    const sloganBtn = document.getElementById('copy-slogan-btn');
+    if (sloganBtn) {
+        sloganBtn.addEventListener('click', () => {
+            const slogan = "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon https://yepzhi.com/neosys/";
+            navigator.clipboard.writeText(slogan).then(() => {
+                const original = sloganBtn.innerHTML;
+                sloganBtn.innerHTML = '✅ ¡Copiado!';
+                setTimeout(() => sloganBtn.innerHTML = original, 2000);
             });
         });
     }
