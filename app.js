@@ -682,7 +682,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     function generateCommandmentsPoster() {
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
-        canvas.height = 2400; // Adjusted for 10 Principles
+        canvas.height = 1400; // More compact card format
         const ctx = canvas.getContext('2d');
         const t = translations[currentLang] || translations.es;
 
@@ -697,60 +697,65 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         ctx.fillStyle = '#fff';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.font = '900 85px Inter, sans-serif';
+        ctx.font = '900 80px Inter, sans-serif';
         ctx.shadowColor = 'rgba(167, 139, 250, 0.4)';
         ctx.shadowBlur = 20;
-        ctx.fillText('NEOSYS AEON', canvas.width / 2, 160);
+        ctx.fillText('NEOSYS AEON', canvas.width / 2, 120);
         ctx.shadowBlur = 0;
 
-        ctx.font = '700 36px Inter, sans-serif';
+        ctx.font = '700 32px Inter, sans-serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 1)';
         const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
-        ctx.fillText(posterTitle, canvas.width / 2, 240);
+        ctx.fillText(posterTitle, canvas.width / 2, 190);
 
-        // Grid of 10 Principles
+        // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
-        let y = 440;
-        const spacing = 220; // Better distribution for 10 items
+        const startY = 320;
+        const col1X = 60;
+        const col2X = 640;
+        const spacingY = 175;
 
         slidesData.forEach((s, i) => {
+            const isSecondCol = i >= 5;
+            const x = isSecondCol ? col2X : col1X;
+            const row = isSecondCol ? i - 5 : i;
+            const y = startY + (row * spacingY);
+
             const title = t[s.title] || '';
             const body = t[s.body] || '';
 
-            // Number
-            ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
-            ctx.font = '900 130px Inter, sans-serif';
-            const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
-            ctx.fillText(roman[i], 70, y + 60);
+            // Roman Number (Watermark style)
+            ctx.fillStyle = 'rgba(167, 139, 250, 0.12)';
+            ctx.font = '900 110px Inter, sans-serif';
+            const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+            ctx.fillText(roman[i], x - 10, y + 45);
 
             // Title
             ctx.fillStyle = '#fff';
-            ctx.font = '700 34px Inter, sans-serif';
-            ctx.fillText((title || '').toUpperCase(), 185, y);
+            ctx.font = '700 28px Inter, sans-serif';
+            ctx.fillText((title || '').toUpperCase(), x + 90, y);
             
-            // Body with safe wrap
+            // Body
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 24px Inter, sans-serif';
-            wrapText(ctx, body, 185, y + 45, 920, 34); 
-            
-            y += spacing; 
+            ctx.font = '400 18px Inter, sans-serif';
+            wrapText(ctx, body, x + 90, y + 40, 430, 26); 
         });
 
         // Final Quote
         ctx.textAlign = 'center';
         ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.font = 'italic 300 28px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 220);
+        ctx.font = 'italic 300 24px Inter, sans-serif';
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 180);
 
         // Footer
         ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-        ctx.font = '700 45px Inter, sans-serif';
-        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 140);
+        ctx.font = '700 40px Inter, sans-serif';
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 110);
 
         // Website
         ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-        ctx.font = '300 22px Inter, sans-serif';
-        ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 80);
+        ctx.font = '300 20px Inter, sans-serif';
+        ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 60);
 
         // Download
         canvas.toBlob((blob) => {
