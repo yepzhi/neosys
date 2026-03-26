@@ -24,7 +24,7 @@ const translations = {
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class=\"text-accent\">Debemos construir nuestro futuro.</span>",
         manifesto_p1: "✨ La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
-        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone integrar y mejorar ambos.",
+        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone mejorar e integrar ambos.",
         manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — los Principios Fundamentales del Cosmos — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
 
         // 10 Principios Operativos
