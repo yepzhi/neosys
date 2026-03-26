@@ -738,13 +738,13 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
             // Title
             ctx.fillStyle = '#fff';
-            ctx.font = '700 28px Inter, sans-serif';
+            ctx.font = '700 24px Inter, sans-serif'; // Reduced from 28px
             ctx.fillText((title || '').toUpperCase(), x + 90, y);
             
             // Body
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 16px Inter, sans-serif'; // Reduced from 18px
-            wrapText(ctx, body, x + 90, y + 40, 430, 24); // Reduced lineHeight 24
+            ctx.font = '400 14px Inter, sans-serif'; // Reduced from 16px
+            wrapText(ctx, body, x + 90, y + 40, 430, 20); // Reduced lineHeight to 20
         });
 
         // Final Quote
