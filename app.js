@@ -190,7 +190,7 @@ function applyLanguage(lang) {
         } else if (lang === 'cn') {
             pdfBtn.href = 'neosysaeon-whitepaper-v4.1-ZH.pdf';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-es.pdf';
+            pdfBtn.href = 'neosysaeon-whitepaper-v4.1.pdf';
         }
     }
 
