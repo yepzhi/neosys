@@ -113,6 +113,41 @@ const translations = {
         wp_desc: "Un marco abierto para entender la realidad a través de evidencia verificable.",
         wp_btn: "Descargar Whitepaper PDF",
 
+        // Divulgación
+        out_label: "Divulgación",
+        out_title: "Acércate a la <span class='text-accent'>Ciencia</span>",
+        out_desc: "Haz clic para conocer Series, Libros y Canales de YouTube que promueven activamente la ciencia y el método científico.",
+        out_btn_explore: "Explorar Recursos →",
+        outreach_categories: [
+            {
+                id: "youtube",
+                title: "Canales de YouTube",
+                items: [
+                    { name: "Veritasium", topic: "Ciencia General", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
+                    { name: "QuantumFracture", topic: "Física", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Kurzgesagt", topic: "Explicaciones Visuales", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
+                    { name: "C de Ciencia", topic: "Divulgación y Noticias", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
+                    { name: "Dot CSV", topic: "IA y Datos", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                ]
+            },
+            {
+                id: "series",
+                title: "Series y Documentales",
+                items: [
+                    { name: "Cosmos", topic: "Un Viaje Personal / Spacetime", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "Connections", topic: "James Burke / Historia Técnica", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                ]
+            },
+            {
+                id: "books",
+                title: "Libros y Lectura",
+                items: [
+                    { name: "The BlueBook", topic: "Currículo JovenesSTEM", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrofísica para gente con prisas", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            }
+        ],
+
         // JovenesSTEM Link
         con_label: "DE LA FILOSOFÍA A LA ACCIÓN",
         con_title: "Neosys Aeon da el <em>por qué</em>.<br><span class='text-accent'>JovenesSTEM da el cómo.</span>",
