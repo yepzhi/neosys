@@ -192,29 +192,3 @@ const translations = {
         footer_copy: "開放框架。無主人。無障礙。"
     }
 };
-
-function applyLanguage(lang) {
-    const t = translations[lang] || translations.es;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = t[key];
-            } else {
-                el.innerHTML = t[key];
-            }
-        }
-    });
-    const wpDownload = document.getElementById('whitepaper-download');
-    if (wpDownload) wpDownload.href = t.wp_link;
-    localStorage.setItem('neosys_lang', lang);
-}
-
-function setLanguage(lang) {
-    location.reload();
-    localStorage.setItem('neosys_lang', lang);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    applyLanguage(currentLang);
-});

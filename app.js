@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════ */
 
 // ── Language System ───────────────────────
-let actLang = localStorage.getItem('nsa_lang') || 'es';
+let actLang = localStorage.getItem('neosys_lang') || 'es';
 
 // ═══════════════════════════════════════════
 // FIREBASE CONFIGURATION
@@ -158,7 +158,7 @@ let currentLang = actLang; // Keep currentLang for applyLanguage, initialized fr
 
 function applyLanguage(lang) {
     currentLang = lang;
-    localStorage.setItem('nsa_lang', lang);
+    localStorage.setItem('neosys_lang', lang);
     const t = translations[lang];
     if (!t) return;
 
@@ -179,7 +179,7 @@ function applyLanguage(lang) {
     document.documentElement.lang = lang === 'cn' ? 'zh-Hant' : lang;
 
     // Update Whitepaper Link
-    const pdfBtn = document.getElementById('download-pdf');
+    const pdfBtn = document.getElementById('whitepaper-download');
     if (pdfBtn) {
         if (lang === 'en') {
             pdfBtn.href = 'neosysaeon-whitepaper-en.pdf?v=3.2.1';
@@ -287,17 +287,16 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-                let index = Array.from(siblings).indexOf(entry.target);
-                // Simple cap on delay
-                index = index === -1 ? 0 : index % 8;
-                setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05 });
     window.revealObserver = observer;
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Initial check for elements already in view
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
 })();
 
 // ── Nav Scroll Effect ─────────────────────
@@ -621,8 +620,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
         { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
         { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
-        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' },
-        { id: 11, title: 'm11_title', body: 'm11_body' }, { id: 12, title: 'm12_title', body: 'm12_body' }
+        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
     ];
 
     function initSlider() { let currentSlide = 0;
