@@ -478,11 +478,19 @@ function drawBadge() {
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // 5. Larger Tagline
+    // 5. User Provided Phrases (v4.4.0)
     ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.font = '500 40px Inter, sans-serif'; 
-    const tagline = t.join_badge_tagline || 'El método científico: No protege ideas, las somete a prueba. No depende de creencias, depende de evidencia.';
-    wrapText(ctx, tagline, w / 2, nameY + 220, 900, 55);
+    ctx.font = '500 36px Inter, sans-serif'; 
+    const p1 = t.join_badge_phrase1 || 'Sin ciencia no hay claridad. Sin validación no hay progreso.';
+    const p2 = t.join_badge_phrase2 || 'Un marco abierto para entender la realidad a través de evidencia verificable.';
+    const p3 = t.join_badge_phrase3 || 'Conoce los 10 principios del Cosmos hoy!';
+    
+    wrapText(ctx, p1, w / 2, nameY + 180, 950, 45);
+    ctx.font = '400 30px Inter, sans-serif';
+    wrapText(ctx, p2, w / 2, nameY + 280, 950, 40);
+    ctx.font = '700 34px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+    wrapText(ctx, p3, w / 2, nameY + 380, 950, 45);
 
     // 6. HashTags (Bottom)
     ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
@@ -738,15 +746,19 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
             ctx.fillText(roman[i], x - 10, y + 45);
 
-            // Title
+            // Title (Multiline support v4.4.0)
             ctx.fillStyle = '#fff';
-            ctx.font = '700 20px Inter, sans-serif'; // Reduced from 24px
-            ctx.fillText((title || '').toUpperCase(), x + 90, y);
+            ctx.font = '700 20px Inter, sans-serif'; 
+            const titleParts = (title || '').toUpperCase().split('\n');
+            titleParts.forEach((part, index) => {
+                ctx.fillText(part, x + 90, y + (index * 25));
+            });
             
-            // Body
+            // Body (Adjusted for title height)
+            const bodyOffset = titleParts.length > 1 ? 55 : 40;
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 13px Inter, sans-serif'; // Reduced from 14px
-            wrapText(ctx, body, x + 90, y + 40, 430, 18); // Reduced lineHeight to 18
+            ctx.font = '400 13px Inter, sans-serif'; 
+            wrapText(ctx, body, x + 90, y + bodyOffset, 430, 18); 
         });
 
         // Final Quote
