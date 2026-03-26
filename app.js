@@ -5,6 +5,7 @@
 
 // ── Language System ───────────────────────
 let actLang = localStorage.getItem('neosys_lang') || 'es';
+if (!['es', 'en', 'cn'].includes(actLang)) actLang = 'es';
 
 // ═══════════════════════════════════════════
 // FIREBASE CONFIGURATION
@@ -636,11 +637,12 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         slidesData.forEach((slide, index) => {
             const slideEl = document.createElement('div');
             slideEl.className = `mandamiento-slide ${index === 0 ? 'active' : ''}`;
+            const t = translations[currentLang] || translations.es;
             slideEl.innerHTML = `
                 <div class="slide-num-magical">${romanNumerals[index]}</div>
                 <div class="slide-content">
-                    <h3 data-i18n="${slide.title}">${translations[currentLang][slide.title]}</h3>
-                    <p data-i18n="${slide.body}">${translations[currentLang][slide.body]}</p>
+                    <h3 data-i18n="${slide.title}">${t[slide.title] || ''}</h3>
+                    <p data-i18n="${slide.body}">${t[slide.body] || ''}</p>
                 </div>
             `;
             track.appendChild(slideEl);
@@ -711,8 +713,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const spacing = 220; // Better distribution for 10 items
 
         slidesData.forEach((s, i) => {
-            const title = t[s.title];
-            const body = t[s.body];
+            const title = t[s.title] || '';
+            const body = t[s.body] || '';
 
             // Number
             ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
@@ -723,7 +725,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             // Title
             ctx.fillStyle = '#fff';
             ctx.font = '700 34px Inter, sans-serif';
-            ctx.fillText(title.toUpperCase(), 185, y);
+            ctx.fillText((title || '').toUpperCase(), 185, y);
             
             // Body with safe wrap
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
