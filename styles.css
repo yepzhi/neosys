@@ -596,16 +596,18 @@ img { max-width: 100%; display: block; }
 /* ═══════════════════════════════════════════
    EL PROBLEMA
    ═══════════════════════════════════════════ */
+/* ── Outreach Layout ───────────── */
 .outreach-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
+    margin-top: 40px;
 }
 
 .outreach-grid-items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
 }
 .problems-grid {
     display: grid;
@@ -1126,12 +1128,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── Outreach Grid ───────────── */
-.outreach-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
+/* Duplicate removed, consolidated above */
 
 .outreach-category-title {
     grid-column: 1 / -1;
@@ -1147,17 +1144,20 @@ img { max-width: 100%; display: block; }
     background: var(--glass);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);
-    padding: 30px 24px;
+    padding: 40px 28px;
     text-align: center;
     transition: var(--transition);
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Center content vertically for equal balance */
     height: 100%;
-    justify-content: flex-start;
+    min-height: 220px; /* Ensure a minimum presence */
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .outreach-card:hover {

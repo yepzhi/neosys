@@ -123,22 +123,63 @@ const translations = {
         out_btn_explore: "Explorar Recursos →",
         outreach_categories: [
             {
-                id: "youtube",
-                title: "Canales de YouTube",
+                id: "sagan",
+                title: "Carl Sagan — El Legado",
                 items: [
-                    { name: "Veritasium", topic: "Ciencia General", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "QuantumFracture", topic: "Física", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
-                    { name: "Kurzgesagt", topic: "Explicaciones Visuales", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
-                    { name: "C de Ciencia", topic: "Divulgación y Noticias", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
-                    { name: "Dot CSV", topic: "IA y Datos", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                    { name: "Cosmos: A Personal Voyage", topic: "Serie (1980) / Clásico", link: "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan", icon: "📺" },
+                    { name: "El mundo y sus demonios", topic: "Libro / Pensamiento Crítico", link: "https://www.amazon.com.mx/mundo-sus-demonios-ciencia-oscuridad/dp/8466336332", icon: "📖" },
+                    { name: "Cosmos (Libro)", topic: "Libro / Astronomía", link: "https://www.amazon.com.mx/Cosmos-Carl-Sagan/dp/8408053073", icon: "🌌" },
+                    { name: "Contacto", topic: "Novela de Ciencia Ficción", link: "https://www.buscalibre.com.mx/libro-contacto/9788497592963/p/1031356", icon: "📡" },
+                    { name: "Los dragones del Edén", topic: "Libro / Evolución", link: "https://www.casadellibro.com/libro-los-dragones-del-eden-especulaciones-sobre-la-evolucion-de-la-inteligencia-humana/9788484323631/850125", icon: "🐉" }
                 ]
             },
             {
-                id: "series",
-                title: "Series y Documentales",
+                id: "ndt",
+                title: "Neil deGrasse Tyson",
                 items: [
-                    { name: "Cosmos", topic: "Un Viaje Personal / Spacetime", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
-                    { name: "Connections", topic: "James Burke / Historia Técnica", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                    { name: "Cosmos: A Spacetime Odyssey", topic: "Serie (2014) / Disney+", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "Cosmos: Possible Worlds", topic: "Serie (2020) / NatGeo", link: "https://www.natgeotv.com/int/cosmos-possible-worlds", icon: "🪐" },
+                    { name: "StarTalk", topic: "Podcast / YouTube", link: "https://www.youtube.com/@StarTalk", icon: "🎙️" },
+                    { name: "Astrofísica para gente con prisas", topic: "Libro / NDT", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            },
+            {
+                id: "youtube_es",
+                title: "YouTube — Ciencia en Español",
+                items: [
+                    { name: "QuantumFracture", topic: "Física y Cuántica", link: "https://www.youtube.com/@QuantumFracture", icon: "⚛️" },
+                    { name: "El Robot de Platón", topic: "Ciencia y Astronomía", link: "https://www.youtube.com/@ElRobotdePlaton", icon: "🤖" },
+                    { name: "CdeCiencia", topic: "Filosofía y Ciencia", link: "https://www.youtube.com/@CdeCiencia", icon: "🔭" },
+                    { name: "Date un Voltio", topic: "Física y Cosmos", link: "https://www.youtube.com/@DateUnVoltio", icon: "⚡" },
+                    { name: "La Hiperactina", topic: "Biomedicina y Salud", link: "https://www.youtube.com/@LaHiperactina", icon: "🧬" },
+                    { name: "La Gata de Schrödinger", topic: "Ciencia Escéptica", link: "https://www.youtube.com/@LaGatadeSchrodinger", icon: "🐈" },
+                    { name: "Antroporama", topic: "Neurología y Biología", link: "https://www.youtube.com/@Antroporama", icon: "🧠" },
+                    { name: "Derivando", topic: "Matemáticas", link: "https://www.youtube.com/@Derivando", icon: "📐" }
+                ]
+            },
+            {
+                id: "youtube_en",
+                title: "YouTube — Science in English",
+                items: [
+                    { name: "Veritasium", topic: "Physics and Engineering", link: "https://www.youtube.com/@veritasium", icon: "🌌" },
+                    { name: "Kurzgesagt", topic: "Animated Science / Philosophy", link: "https://www.youtube.com/@kurzgesagt", icon: "🐣" },
+                    { name: "Vsauce", topic: "Inquiry and Philosophy", link: "https://www.youtube.com/@Vsauce", icon: "❓" },
+                    { name: "SciShow", topic: "General Science", link: "https://www.youtube.com/@SciShow", icon: "🧪" },
+                    { name: "PBS Space Time", topic: "Advanced Physics", link: "https://www.youtube.com/@pbsspacetime", icon: "⏰" },
+                    { name: "Mark Rober", topic: "Engineering / Experiments", link: "https://www.youtube.com/@MarkRober", icon: "🏗️" },
+                    { name: "3Blue1Brown", topic: "Visual Mathematics", link: "https://www.youtube.com/@3blue1brown", icon: "📉" },
+                    { name: "SmarterEveryDay", topic: "Learning and Exploration", link: "https://www.youtube.com/@smartereveryday", icon: "👷" }
+                ]
+            },
+            {
+                id: "media",
+                title: "Cine y Series Científicas",
+                items: [
+                    { name: "Interstellar (2014)", topic: "Ficción Rigurosa", link: "https://www.warnerbros.com/movies/interstellar", icon: "🪐" },
+                    { name: "Contact (1997)", topic: "Primer Contacto", link: "https://www.warnerbros.com/movies/contact", icon: "🎥" },
+                    { name: "A Brief History of Time", topic: "Documental Stephen Hawking", link: "https://www.youtube.com/watch?v=kYv_8E4E_Xo", icon: "⏱️" },
+                    { name: "The Elegant Universe", topic: "Documental / David Greene", link: "https://www.pbs.org/wgbh/nova/elegant/", icon: "🎻" },
+                    { name: "Connections", topic: "Historia Técnica / James Burke", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
                 ]
             },
             {
@@ -146,7 +187,7 @@ const translations = {
                 title: "Libros y Lectura",
                 items: [
                     { name: "The BlueBook", topic: "Currículo JovenesSTEM", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
-                    { name: "Astrofísica para gente con prisas", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                    { name: "El cerebro de Broca", topic: "Ensayos Científicos", link: "https://www.amazon.com.mx/cerebro-Broca-reflexiones-sobre-ciencia/dp/8408053189", icon: "🧠" }
                 ]
             }
         ],
@@ -273,30 +314,71 @@ const translations = {
         out_btn_explore: "Explore Resources →",
         outreach_categories: [
             {
-                id: "youtube",
-                title: "YouTube Channels",
+                id: "sagan",
+                title: "Carl Sagan — The Legacy",
                 items: [
-                    { name: "Veritasium", topic: "General Science", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "QuantumFracture", topic: "Physics", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
-                    { name: "Kurzgesagt", topic: "Visual Explanations", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
-                    { name: "C de Ciencia", topic: "Outreach and News", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
-                    { name: "Dot CSV", topic: "AI and Data", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                    { name: "Cosmos: A Personal Voyage", topic: "Series (1980) / Classic", link: "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan", icon: "📺" },
+                    { name: "The Demon-Haunted World", topic: "Book / Critical Thinking", link: "https://www.amazon.com/Demon-Haunted-World-Science-Candle-Dark/dp/0345409469", icon: "📖" },
+                    { name: "Cosmos (Book)", topic: "Book / Astronomy", link: "https://www.amazon.com/Cosmos-Carl-Sagan/dp/0345539435", icon: "🌌" },
+                    { name: "Contact", topic: "Science Fiction Novel", link: "https://www.amazon.com/Contact-Carl-Sagan/dp/1501197984", icon: "📡" },
+                    { name: "The Dragons of Eden", topic: "Book / Evolution", link: "https://www.amazon.com/Dragons-Eden-Speculations-Evolution-Intelligence/dp/0345346297", icon: "🐉" }
                 ]
             },
             {
-                id: "series",
-                title: "Series and Documentaries",
+                id: "ndt",
+                title: "Neil deGrasse Tyson",
                 items: [
-                    { name: "Cosmos", topic: "A Personal Voyage / Spacetime", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
-                    { name: "Connections", topic: "James Burke / Technical History", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                    { name: "Cosmos: A Spacetime Odyssey", topic: "Series (2014) / Disney+", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "Cosmos: Possible Worlds", topic: "Series (2020) / NatGeo", link: "https://www.natgeotv.com/int/cosmos-possible-worlds", icon: "🪐" },
+                    { name: "StarTalk", topic: "Podcast / YouTube", link: "https://www.youtube.com/@StarTalk", icon: "🎙️" },
+                    { name: "Astrophysics for People in a Hurry", topic: "Book / NDT", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            },
+            {
+                id: "youtube_es",
+                title: "YouTube — Science in Spanish",
+                items: [
+                    { name: "QuantumFracture", topic: "Physics and Quantum", link: "https://www.youtube.com/@QuantumFracture", icon: "⚛️" },
+                    { name: "El Robot de Platón", topic: "General Science", link: "https://www.youtube.com/@ElRobotdePlaton", icon: "🤖" },
+                    { name: "CdeCiencia", topic: "Philosophy and Science", link: "https://www.youtube.com/@CdeCiencia", icon: "🔭" },
+                    { name: "Date un Voltio", topic: "Physics and Cosmos", link: "https://www.youtube.com/@DateUnVoltio", icon: "⚡" },
+                    { name: "La Hiperactina", topic: "Biomedicine and Health", link: "https://www.youtube.com/@LaHiperactina", icon: "🧬" },
+                    { name: "La Gata de Schrödinger", topic: "Skeptical Science", link: "https://www.youtube.com/@LaGatadeSchrodinger", icon: "🐈" }
+                ]
+            },
+            {
+                id: "youtube_en",
+                title: "YouTube — Science in English",
+                items: [
+                    { name: "Veritasium", topic: "Physics and Engineering", link: "https://www.youtube.com/@veritasium", icon: "🌌" },
+                    { name: "Kurzgesagt", topic: "Animated Science / Philosophy", link: "https://www.youtube.com/@kurzgesagt", icon: "🐣" },
+                    { name: "Vsauce", topic: "Inquiry and Philosophy", link: "https://www.youtube.com/@Vsauce", icon: "❓" },
+                    { name: "SciShow", topic: "General Science", link: "https://www.youtube.com/@SciShow", icon: "🧪" },
+                    { name: "SciShow Space", topic: "Space & Astronomy", link: "https://www.youtube.com/@scishowspace", icon: "🛸" },
+                    { name: "PBS Space Time", topic: "Advanced Physics", link: "https://www.youtube.com/@pbsspacetime", icon: "⏰" },
+                    { name: "MinutePhysics", topic: "Physics in Minutes", link: "https://www.youtube.com/@minutephysics", icon: "⏲️" },
+                    { name: "Mark Rober", topic: "Engineering / Experiments", link: "https://www.youtube.com/@MarkRober", icon: "🏗️" },
+                    { name: "3Blue1Brown", topic: "Visual Mathematics", link: "https://www.youtube.com/@3blue1brown", icon: "📉" },
+                    { name: "SmarterEveryDay", topic: "Learning and Exploration", link: "https://www.youtube.com/@smartereveryday", icon: "👷" }
+                ]
+            },
+            {
+                id: "media",
+                title: "Science Series & Movies",
+                items: [
+                    { name: "Interstellar (2014)", topic: "Rigorous Fiction", link: "https://www.warnerbros.com/movies/interstellar", icon: "🪐" },
+                    { name: "Contact (1997)", topic: "First Contact", link: "https://www.warnerbros.com/movies/contact", icon: "🎥" },
+                    { name: "A Brief History of Time", topic: "Stephen Hawking Doc", link: "https://www.youtube.com/watch?v=kYv_8E4E_Xo", icon: "⏱️" },
+                    { name: "The Elegant Universe", topic: "Documentary / String Theory", link: "https://www.pbs.org/wgbh/nova/elegant/", icon: "🎻" },
+                    { name: "Connections", topic: "Technical History / James Burke", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
                 ]
             },
             {
                 id: "books",
-                title: "Books and Reading",
+                title: "Books & Reading",
                 items: [
                     { name: "The BlueBook", topic: "JovenesSTEM Curriculum", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
-                    { name: "Astrophysics for People in a Hurry", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                    { name: "Broca's Brain", topic: "Scientific Essays", link: "https://www.amazon.com/Brocas-Brain-Reflections-Romance-Science/dp/0345336895", icon: "🧠" }
                 ]
             }
         ],
@@ -410,22 +492,63 @@ const translations = {
         out_btn_explore: "探索資源 →",
         outreach_categories: [
             {
-                id: "youtube",
-                title: "YouTube 頻道",
+                id: "sagan",
+                title: "卡爾·薩根 — 遺產",
                 items: [
-                    { name: "Veritasium", topic: "普通科學", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "QuantumFracture", topic: "物理", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
-                    { name: "Kurzgesagt", topic: "視覺解釋", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
-                    { name: "C de Ciencia", topic: "推廣與新聞", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
-                    { name: "Dot CSV", topic: "AI 與數據", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                    { name: "Cosmos: A Personal Voyage", topic: "系列 (1980) / 經典", link: "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan", icon: "📺" },
+                    { name: "魔鬼出沒的世界", topic: "書籍 / 批判性思維", link: "https://www.amazon.com/Demon-Haunted-World-Science-Candle-Dark/dp/0345409469", icon: "📖" },
+                    { name: "宇宙 (書籍)", topic: "書籍 / 天文學", link: "https://www.amazon.com/Cosmos-Carl-Sagan/dp/0345539435", icon: "🌌" },
+                    { name: "接觸 (Contact)", topic: "科幻小說", link: "https://www.amazon.com/Contact-Carl-Sagan/dp/1501197984", icon: "📡" },
+                    { name: "伊甸園的飛龍", topic: "書籍 / 進化", link: "https://www.amazon.com/Dragons-Eden-Speculations-Evolution-Intelligence/dp/0345346297", icon: "🐉" }
                 ]
             },
             {
-                id: "series",
-                title: "劇集與紀錄片",
+                id: "ndt",
+                title: "尼爾·德格拉斯·泰森",
                 items: [
-                    { name: "Cosmos", topic: "個人時空之旅", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
-                    { name: "Connections", topic: "James Burke / 技術史", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                    { name: "浩瀚宇宙：時空之旅", topic: "系列 (2014) / Disney+", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "浩瀚宇宙：未知世界", topic: "系列 (2020) / NatGeo", link: "https://www.natgeotv.com/int/cosmos-possible-worlds", icon: "🪐" },
+                    { name: "StarTalk", topic: "播客 / YouTube", link: "https://www.youtube.com/@StarTalk", icon: "🎙️" },
+                    { name: "給忙碌者的天體物理學", topic: "書籍 / NDT", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            },
+            {
+                id: "youtube_es",
+                title: "YouTube — 西班牙語科學",
+                items: [
+                    { name: "QuantumFracture", topic: "物理與量子", link: "https://www.youtube.com/@QuantumFracture", icon: "⚛️" },
+                    { name: "El Robot de Platón", topic: "普通科學", link: "https://www.youtube.com/@ElRobotdePlaton", icon: "🤖" },
+                    { name: "CdeCiencia", topic: "哲學與科學", link: "https://www.youtube.com/@CdeCiencia", icon: "🔭" },
+                    { name: "Date un Voltio", topic: "物理與宇宙", link: "https://www.youtube.com/@DateUnVoltio", icon: "⚡" },
+                    { name: "La Hiperactina", topic: "生物醫學與健康", link: "https://www.youtube.com/@LaHiperactina", icon: "🧬" },
+                    { name: "La Gata de Schrödinger", topic: "懷疑論科學", link: "https://www.youtube.com/@LaGatadeSchrodinger", icon: "🐈" }
+                ]
+            },
+            {
+                id: "youtube_en",
+                title: "YouTube — 英語科學",
+                items: [
+                    { name: "Veritasium", topic: "物理與工程", link: "https://www.youtube.com/@veritasium", icon: "🌌" },
+                    { name: "Kurzgesagt", topic: "動畫科學 / 哲學", link: "https://www.youtube.com/@kurzgesagt", icon: "🐣" },
+                    { name: "Vsauce", topic: "探究與哲學", link: "https://www.youtube.com/@Vsauce", icon: "❓" },
+                    { name: "SciShow", topic: "普通科學", link: "https://www.youtube.com/@SciShow", icon: "🧪" },
+                    { name: "SciShow Space", topic: "太空與天文學", link: "https://www.youtube.com/@scishowspace", icon: "🛸" },
+                    { name: "PBS Space Time", topic: "高級物理", link: "https://www.youtube.com/@pbsspacetime", icon: "⏰" },
+                    { name: "MinutePhysics", topic: "幾分鐘學物理", link: "https://www.youtube.com/@minutephysics", icon: "⏲️" },
+                    { name: "Mark Rober", topic: "工程 / 實驗", link: "https://www.youtube.com/@MarkRober", icon: "🏗️" },
+                    { name: "3Blue1Brown", topic: "視覺數學", link: "https://www.youtube.com/@3blue1brown", icon: "📉" },
+                    { name: "SmarterEveryDay", topic: "學習與探索", link: "https://www.youtube.com/@smartereveryday", icon: "👷" }
+                ]
+            },
+            {
+                id: "media",
+                title: "科學系列與電影",
+                items: [
+                    { name: "星際穿越 (Interstellar)", topic: "嚴謹小說", link: "https://www.warnerbros.com/movies/interstellar", icon: "🪐" },
+                    { name: "接觸未來 (Contact)", topic: "第一次接觸", link: "https://www.warnerbros.com/movies/contact", icon: "🎥" },
+                    { name: "時間簡史", topic: "斯蒂芬·霍金紀錄片", link: "https://www.youtube.com/watch?v=kYv_8E4E_Xo", icon: "⏱️" },
+                    { name: "優雅的宇宙", topic: "紀錄片 / 弦理論", link: "https://www.pbs.org/wgbh/nova/elegant/", icon: "🎻" },
+                    { name: "連接 (Connections)", topic: "技術史 / James Burke", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
                 ]
             },
             {
@@ -433,7 +556,7 @@ const translations = {
                 title: "書籍與閱讀",
                 items: [
                     { name: "The BlueBook", topic: "JovenesSTEM 課程", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
-                    { name: "Astrofísica para gente con prisas", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                    { name: "布若卡的腦", topic: "科學散文", link: "https://www.amazon.com/Brocas-Brain-Reflections-Romance-Science/dp/0345336895", icon: "🧠" }
                 ]
             }
         ],

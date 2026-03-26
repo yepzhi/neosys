@@ -218,6 +218,7 @@ function applyLanguage(lang) {
                 `;
                 grid.appendChild(card);
             });
+            outreachGrid.appendChild(header);
             outreachGrid.appendChild(grid);
         });
         
