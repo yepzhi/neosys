@@ -491,6 +491,12 @@ function drawBadge() {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.font = '300 24px Inter, sans-serif';
     ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 60);
+
+    // Update Preview Image
+    const preview = document.getElementById('badge-preview');
+    if (preview) {
+        preview.src = canvas.toDataURL('image/png');
+    }
 }
 
 // Helper to wrap text on canvas
