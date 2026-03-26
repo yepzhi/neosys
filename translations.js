@@ -158,7 +158,7 @@ const translations = {
 
         // Footer
         footer_quote: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco Abierto. Sin Dueños. Sin Barreras.",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras.",
         footer_creator: "✨ Created by yepzhi"
     },
     en: {
