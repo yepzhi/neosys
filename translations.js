@@ -157,7 +157,7 @@ const translations = {
         con_btn: "🚀 Conoce JovenesSTEM",
 
         // Footer
-        footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento.<br><br>No es una autoridad. No es una doctrina cerrada. No es una estructura de poder.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
+        footer_quote: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
         footer_copy: "Marco Abierto. Sin Dueños. Sin Barreras.",
         footer_creator: "✨ Created by yepzhi"
     },
@@ -210,7 +210,7 @@ const translations = {
         join_desc: "No formal membership required. Adopt the principles, live the coherence. If the framework is useful to you, use it. If you find its flaws, improve it.",
         join_badge_title: "Generate your Badge ✨",
         join_badge_desc: "Upload your photo and enter your name to create your digital badge and join the builder community. Share it with #NeosysAeon",
-        footer_quote: "Neosys Aeon is an open framework for the generation, validation, and application of knowledge.<br><br>It is not an authority. It is not a closed doctrine. It is not a power structure.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
+        footer_quote: "It does not claim to have all the answers. It aims to ask better questions — and take seriously what the evidence returns.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
         prob_label: "WHY IT EXISTS?",
         prob_title: "Why do we need <br><span class=\"text-accent\">Neosys Aeon?</span>",
         prob1_title: "⚡ 1. Substitution of evidence with beliefs",
