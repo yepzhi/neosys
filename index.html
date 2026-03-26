@@ -335,16 +335,13 @@
                             </optgroup>
                         </select>
                         <select id="badge-state" style="display: none;"></select>
-                        <label class="privacy-check">
-                          <input type="checkbox" id="privacy-consent" required>
-                          He leído y acepto el
-                          <a href="privacidad.html" target="_blank">
-                            Aviso de Privacidad
-                          </a>.
-                          Entiendo que mi nombre, país y red social serán visibles
-                          públicamente.
-                        </label>
-                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate" style="margin-top: 10px;">Generar y Registrar</button>
+                        <div class="privacy-notice-row" style="margin: 25px 0; width: 100%;">
+                            <label class="privacy-check" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 0.9rem; color: var(--text-tertiary); text-align: left; line-height: 1.5;">
+                                <input type="checkbox" id="privacy-consent" required style="width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0;">
+                                <span>He leído y acepto el <a href="privacidad.html" target="_blank" style="color: var(--text-accent); text-decoration: underline;">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles públicamente.</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate" style="margin-top: 5px; width: 100%;">Generar y Registrar</button>
                     </form>
                 </div>
                 <div class="join-badge-side">
@@ -353,8 +350,8 @@
                     
                     <!-- New Instructions and Copy Block -->
                     <div class="badge-info-block reveal" style="margin-top: 20px; text-align: center;">
-                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">
-                           ✨ Genera tu gafete, regístrate y comparte.
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;" data-i18n="join_badge_desc">
+                           Genera tu gafete, regístrate y comparte.
                         </p>
                         <button class="btn btn-glass" id="copy-slogan-btn" style="width: 100%; border-color: rgba(167, 139, 250, 0.4); font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -394,7 +391,7 @@
     <section id="whitepaper" class="section">
         <div class="container" style="text-align: center;">
             <span class="section-label reveal" data-i18n="wp_label">Documento Fundacional</span>
-            <h2 class="section-title reveal" data-i18n="wp_title">Whitepaper<br><span class="text-accent">Neosys Aeon ✨</span></h2>
+            <h2 class="section-title reveal" data-i18n="wp_title">Whitepaper<br><span class="text-accent">Neosys Aeon</span></h2>
             <p class="section-desc reveal text-center mx-auto" style="max-width: 600px;" data-i18n="wp_desc">El documento completo que detalla el marco conceptual, los 10 principios del cosmos, la integración STEM y su naturaleza abierta.</p>
             <div class="whitepaper-card reveal">
                 <a href="neosysaeon-whitepaper-v4.1-es.pdf" target="_blank" id="whitepaper-download"
@@ -485,14 +482,16 @@
                     No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.
                 </p>
             </div>
-            <div class="footer-bottom" style="padding-top: 25px;">
-                <p style="font-size: 0.85rem; margin-bottom: 8px;">
-                    <a href="https://yepzhi.com" target="_blank" style="color: inherit; text-decoration: none;" data-i18n="footer_creator">✨ Created by yepzhi</a>
-                    <span style="opacity: 0.4; margin: 0 10px;">|</span>
-                    <a href="privacidad.html" style="color: inherit; text-decoration: none;">Aviso de Privacidad</a>
-                </p>
-                <p class="footer-copy" data-i18n="footer_copy" style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 8px;">Marco abierto. Sin propietarios. Sin barreras.</p>
-                <p class="text-accent" style="font-weight: 700; font-size: 0.9rem;">#NeosysAeon</p>
+            <div class="footer-bottom" style="padding-top: 30px;">
+                <div style="margin-bottom: 25px;">
+                    <a href="https://yepzhi.com" target="_blank" class="btn btn-glass"
+                        style="font-size: 0.85rem; padding: 10px 25px; border-radius: 30px;"
+                        data-i18n="footer_creator">✨ Created by yepzhi</a>
+                    <span style="opacity: 0.3; margin: 0 15px;">|</span>
+                    <a href="privacidad.html" style="color: inherit; text-shadow: 0 0 10px rgba(167,139,250,0.3); text-decoration: none; font-size: 0.85rem;">Aviso de Privacidad</a>
+                </div>
+                <p class="footer-copy" data-i18n="footer_copy" style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 15px;">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p class="text-accent" style="font-weight: 700; font-size: 1rem; letter-spacing: 1px;">#NeosysAeon</p>
             </div>
         </div>
     </footer>
