@@ -1,5 +1,3 @@
-const currentLang = localStorage.getItem('neosys_lang') || 'es';
-
 const translations = {
     es: {
         // Navegación
