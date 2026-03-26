@@ -214,54 +214,252 @@ const translations = {
         footer_copy: "Open Framework. No Owners. No Barriers.",
         footer_creator: "✨ Created by yepzhi",
 
-        prob_label: "WHY?",
-        prob_title: "Why Neosys Aeon?",
+        prob_label: "WHY DOES IT EXIST?",
+        prob_title: "Why is <br><span class=\"text-accent\">Neosys Aeon</span> necessary?",
+        prob1_title: "⚡ 1. Substitution of evidence for beliefs",
+        prob1_body: "Ideas and judgments are formed based on beliefs, without resorting to verifiable evidence from their origin.",
+        prob2_title: "🔬 2. Absence of systematic validation",
+        prob2_body: "Statements are not subjected to structured processes of verification, even after being formulated.",
+        prob3_title: "🔗 3. Breakdown between knowledge and application",
+        prob3_body: "Knowledge is not translated into effective action or measurable results.",
+        prob4_title: "📉 4. Disconnection between knowledge and value",
+        prob4_body: "Validated knowledge is not integrated into decision-making or value generation.",
 
+        // STEM Section
+        stem_label: "SCIENCE, ENGINEERING AND PROGRESS",
+        stem_title: "From curiosity science is born.<br><span class='text-accent'>From science progress is born.</span>",
+        stem_desc: "The scientific method is the most powerful tool created by humanity. But knowledge alone does not generate impact.",
+        stem_s1_title: "Science",
+        stem_s1_body: "Generates knowledge",
+        stem_s2_title: "Engineering",
+        stem_s2_body: "Transforms knowledge",
+        stem_s3_title: "Technology",
+        stem_s3_body: "Applies knowledge",
+        stem_s4_title: "Economy",
+        stem_s4_body: "Scales value generated",
+        stem_p1: "Without measurement, there is no knowledge.",
+        stem_p2: "Without experimentation, there is no progress.",
+        stem_p3: "Without engineering, there is no application.",
+        stem_p4: "Without scalability, there is no impact.",
+
+        // Distinction and Scope
+        dist_label: "DISTINCTION AND SCOPE",
+        dist_title: "What Neosys Aeon is.<br><span class='text-accent'>And what it is not.</span>",
+        dist_is_header: "✨ What it IS",
+        dist_is_1: "<strong>Open:</strong> does not belong to any entity",
+        dist_is_2: "<strong>Non-dogmatic:</strong> its principles can be questioned",
+        dist_is_3: "<strong>Evidence-based:</strong> prioritizes empirical validation",
+        dist_is_4: "<strong>Scalable:</strong> applicable at individual and collective levels",
+        dist_is_5: "<strong>Voluntary:</strong> its adoption is free",
+        dist_is_6: "<strong>Result-oriented:</strong> its value depends on its application",
+        dist_not_header: "✕ What it is NOT",
+        dist_not_1: "It is not a <strong>religion</strong> — it does not require faith or propose supernatural entities",
+        dist_not_2: "It is not a <strong>belief system</strong> — it does not demand acceptance without validation",
+        dist_not_3: "It is not an <strong>organization</strong> — it has no hierarchies or central leadership",
+        dist_not_4: "It is not a <strong>product</strong> — it has no commercial purposes or access barriers",
+        dist_not_5: "It does not <strong>replace</strong> science — it works as an integrating framework to interpret and apply it",
+        dist_quote: "Evidence doesn't just explain the world. It allows transforming it. Knowledge that doesn't build the future is incomplete.",
+
+        // Whitepaper
+        wp_label: "FOUNDATIONAL DOCUMENT",
+        wp_title: "Whitepaper<br><span class=\"text-accent\">Neosys Aeon</span>",
+        wp_desc: "Details the conceptual framework, the 10 principles of the cosmos, the STEM validation focus, and the open nature of the system.",
+        wp_btn: "Download Whitepaper PDF",
+
+        // Outreach
+        out_label: "Outreach",
+        out_title: "Get closer to <span class='text-accent'>Science</span>",
+        out_desc: "Click to learn about Series, Books, and YouTube Channels that actively promote science and the scientific method.",
+        out_btn_explore: "Explore Resources →",
         outreach_categories: [
             {
-                id: "youtube", title: "YouTube Channels",
+                id: "youtube",
+                title: "YouTube Channels",
                 items: [
                     { name: "Veritasium", topic: "General Science", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
-                    { name: "Kurzgesagt", topic: "Visual Explanations", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" }
+                    { name: "QuantumFracture", topic: "Physics", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Kurzgesagt", topic: "Visual Explanations", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
+                    { name: "C de Ciencia", topic: "Outreach and News", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
+                    { name: "Dot CSV", topic: "AI and Data", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                ]
+            },
+            {
+                id: "series",
+                title: "Series and Documentaries",
+                items: [
+                    { name: "Cosmos", topic: "A Personal Voyage / Spacetime", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "Connections", topic: "James Burke / Technical History", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                ]
+            },
+            {
+                id: "books",
+                title: "Books and Reading",
+                items: [
+                    { name: "The BlueBook", topic: "JovenesSTEM Curriculum", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrophysics for People in a Hurry", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
                 ]
             }
-        ]
+        ],
+
+        // Connection
+        con_label: "FROM PHILOSOPHY TO ACTION",
+        con_title: "Neosys Aeon gives the <em>why</em>.<br><span class='text-accent'>JovenesSTEM gives the <em>how</em>.</span>",
+        con_node1: "Philosophical framework",
+        con_node2: "Applied program",
+        con_node3: "STEM curriculum",
+        con_btn: "🚀 Meet JovenesSTEM",
+        con_p1: "The principles of Neosys Aeon — structured curiosity, transmission of knowledge, evidence as a criterion — are exactly the philosophical basis of the <strong>JovenesSTEM</strong> program and its applied curriculum, the <strong>BlueBook</strong>.",
+        con_p2: "Where Neosys Aeon proposes the framework of thought, JovenesSTEM applies it to the education of the next generation in science and technology.",
+
+        // Forms & Placeholders
+        join_country_default: "Select your country",
+        join_privacy_note: "Your name, location, and social network will appear publicly in the Community section. Your email and phone are private.",
+        join_placeholder: "Your Name",
+        join_email: "Email Address",
+        join_phone: "Phone Number",
+        join_social: "Social Network / Website",
+        join_city: "City / State",
+        join_btn_share: "Share",
+        join_upload_text: "Upload Photo (Optional)",
+
+        // Footer
+        footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
+        footer_copy: "Open framework. No owners. No barriers.",
+        footer_creator: "✨ Created by yepzhi"
     },
     cn: {
         nav_mandamientos: "原則",
         nav_marco: "框架",
         nav_whitepaper: "白皮書",
+        nav_acercate: "推廣",
+        nav_comunidad: "社區",
+        nav_unete: "加入",
         wp_link: "neosysaeon-whitepaper-v4.1-ZH.pdf",
+
+        // Hero
         hero_tagline: "沒有科學就沒有清晰。沒有驗證就沒有進步。",
         hero_subtitle: "一個透過可驗證證據理解現實的開放框架。",
-        hero_btn_whitepaper: "閱讀白皮書",
         hero_btn_mandamientos: "宇宙原則",
+        hero_btn_whitepaper: "閱讀白皮書",
+        hero_explore: "探索",
+        postulado_label: "從哲學到科學",
+        postulado_title_new: "科學方法是區分「有效」與「我們相信有效」的最強大工具。",
+        postulado_desc_new: "它不保護思想：它測試思想。它不依賴信念：它依賴證據。",
+        manifesto_label: "宣言",
         manifesto_title: "理解是不夠的。<br><span class=\"text-accent\">我們必須建設我們的未來。</span>",
-        mand_label: "原則",
-        mand_title: "宇宙十項基本原則。",
-        mand_desc: "我們的立場是行為的基礎。",
-        poster_download_btn: "下載原則海報 (v4.1)",
+        manifesto_p1: "✨ 科學讓我們解釋世界。工程讓我們改變世界。技術讓我們擴大這種改變。",
+        manifesto_p2: "沒有應用的理解就沒有影響。沒有理解的行動會產生錯誤。",
+        manifesto_p3: "它不是一個信仰體系。它是一個應用理解系統 —— 宇宙的基本原則。",
 
-        m1_title: "I. 尊重真理\n優於舒適。", m1_body: "尋求現實而非虛假的確定性。",
-        m2_title: "II. 培養好奇心\n作為美德。", m2_body: "在斷言之前先詢問。",
-        m3_title: "III. 記住你\n是星塵。", m3_body: "你是宇宙的意識。",
-        m4_title: "IV. 捍衛證據\n作為指南。", m4_body: "最可靠的過濾器。",
-        m5_title: "V. 實踐宇宙\n謙遜。", m5_body: "拒絕自我，擁抱奇蹟。",
-        m6_title: "VI. 愛護地球作為\n唯一的家。", m6_body: "保護它是理性的展現。",
-        m7_title: "VII. 熱愛生命\n凡存在處。", m7_body: "每種生命都應有尊嚴。",
-        m8_title: "VIII. 不要將神秘\n變為無知。", m8_body: "邀請理解。",
-        m9_title: "IX. 傳遞\n知識。", m9_body: "分享所學。",
-        m10_title: "X. 不做觀察者：\n做建設者。", m10_body: "應用知識產生影響。",
+        prob_label: "為什麼存在？",
+        prob_title: "為什麼需要 <br><span class=\"text-accent\">Neosys Aeon？</span>",
+        prob1_title: "⚡ 1. 用信念取代證據",
+        prob1_body: "思想和判斷是基於信念形成的，沒有求助於源頭的可驗證證據。",
+        prob2_title: "🔬 2. 缺乏系統驗證",
+        prob2_body: "表述在制定後也沒有經過結構化的驗證過程。",
+        prob3_title: "🔗 3. 知識與應用之間的斷裂",
+        prob3_body: "知識沒有轉化為有效的行動或可衡量的結果。",
+        prob4_title: "📉 4. 知識與價值之間的脫節",
+        prob4_body: "經過驗證的知識沒有整合到決策或價值產生中。",
 
-        join_label: "參與",
-        join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
-        join_desc: "採用原則，實踐一致性。使用框架，改進缺陷。",
-        join_badge_title: "生成你的徽章。",
-        join_badge_desc: "生成、註冊並分享。",
-        join_badge_phrase1: "沒有科學就沒有清晰。沒有驗證就沒有進步。",
-        join_badge_phrase2: "透過可驗證證據理解現實的開放框架。",
-        join_badge_phrase3: "今天就了解宇宙的十項原則！",
+        // STEM Section
+        stem_label: "科學、工程與進步",
+        stem_title: "科學源於好奇。<br><span class='text-accent'>進步源於科學。</span>",
+        stem_desc: "科學方法是人類創造的最強大工具。但單靠知識並不能產生影響。",
+        stem_s1_title: "科學",
+        stem_s1_body: "產生知識",
+        stem_s2_title: "工程",
+        stem_s2_body: "轉化知識",
+        stem_s3_title: "技術",
+        stem_s3_body: "應用知識",
+        stem_s4_title: "經濟",
+        stem_s4_body: "擴大產生的價值",
+        stem_p1: "沒有測量，就沒有知識。",
+        stem_p2: "沒有實驗，就沒有進步。",
+        stem_p3: "沒有工程，就沒有應用。",
+        stem_p4: "沒有擴展性，就沒有影響。",
 
+        // Distinction and Scope
+        dist_label: "區分與範圍",
+        dist_title: "什麼是 Neosys Aeon。<br><span class='text-accent'>什麼不是。</span>",
+        dist_is_header: "✨ 它是什麽",
+        dist_is_1: "<strong>開放：</strong>不屬於任何實體",
+        dist_is_2: "<strong>非教條：</strong>其原則可以被質疑",
+        dist_is_3: "<strong>基於證據：</strong>優先考慮經驗驗證",
+        dist_is_4: "<strong>可擴展：</strong>適用於個人和集體層面",
+        dist_is_5: "<strong>自願：</strong>其採用是自由的",
+        dist_is_6: "<strong>以結果為導向：</strong>其價值取決於其應用",
+        dist_not_header: "✕ 它不是什麼",
+        dist_not_1: "它不是 <strong>宗教</strong> —— 它不需要信仰，也不提出超自然實體",
+        dist_not_2: "它不是 <strong>信仰體系</strong> —— 它不要求未經驗證的接受",
+        dist_not_3: "它不是 <strong>組織</strong> —— 它沒有等級制度或中央領導",
+        dist_not_4: "它不是 <strong>產品</strong> —— 它沒有商業目的或准入障礙",
+        dist_not_5: "它不 <strong>取代</strong> 科學 —— 它作為解釋和應用科學的整合框架",
+        dist_quote: "證據不僅解釋世界。它允許改變世界。不建設未來的知識是不完整的。",
+
+        // Whitepaper
+        wp_label: "基礎文件",
+        wp_title: "白皮書<br><span class=\"text-accent\">Neosys Aeon</span>",
+        wp_desc: "詳細介紹了概念框架、宇宙的 10 個原則、STEM 驗證重點以及系統的開放性。",
+        wp_btn: "下載白皮書 PDF",
+
+        // Outreach
+        out_label: "推廣",
+        out_title: "走近 <span class='text-accent'>科學</span>",
+        out_desc: "單擊以了解積極推廣科學和科學方法的劇集、書籍和 YouTube 頻道。",
+        out_btn_explore: "探索資源 →",
+        outreach_categories: [
+            {
+                id: "youtube",
+                title: "YouTube 頻道",
+                items: [
+                    { name: "Veritasium", topic: "普通科學", link: "https://www.youtube.com/c/veritasium", icon: "🌌" },
+                    { name: "QuantumFracture", topic: "物理", link: "https://www.youtube.com/user/QuantumFracture", icon: "⚛️" },
+                    { name: "Kurzgesagt", topic: "視覺解釋", link: "https://www.youtube.com/c/inanutshell", icon: "🐣" },
+                    { name: "C de Ciencia", topic: "推廣與新聞", link: "https://www.youtube.com/user/CdeCiencia", icon: "🔭" },
+                    { name: "Dot CSV", topic: "AI 與數據", link: "https://www.youtube.com/c/DotCSV", icon: "🤖" }
+                ]
+            },
+            {
+                id: "series",
+                title: "劇集與紀錄片",
+                items: [
+                    { name: "Cosmos", topic: "個人時空之旅", link: "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ", icon: "🚀" },
+                    { name: "Connections", topic: "James Burke / 技術史", link: "https://www.youtube.com/playlist?list=PLf02u8i5M6N7P0uG7S5H8C8-S-h7K9OQ-", icon: "🔗" }
+                ]
+            },
+            {
+                id: "books",
+                title: "書籍與閱讀",
+                items: [
+                    { name: "The BlueBook", topic: "JovenesSTEM 課程", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
+                    { name: "Astrofísica para gente con prisas", topic: "Neil deGrasse Tyson", link: "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391", icon: "📖" }
+                ]
+            }
+        ],
+
+        // Connection
+        con_label: "從哲學到行動",
+        con_title: "Neosys Aeon 給出 <em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 給出 <em>如何做</em>。</span>",
+        con_node1: "哲學框架",
+        con_node2: "應用程序",
+        con_node3: "STEM 課程",
+        con_btn: "🚀 了解 JovenesSTEM",
+        con_p1: "Neosys Aeon 的原則 —— 結構化的好奇心、知識的傳遞、證據作為標準 —— 正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
+        con_p2: "Neosys Aeon 提出了思想框架，JovenesSTEM 將其應用於下一代科學技術教育。",
+
+        // Forms & Placeholders
+        join_country_default: "選擇你的國家",
+        join_privacy_note: "您的姓名、位置和社交網絡將公開顯示在社區部分。您的電子郵件和電話是私密的。",
+        join_placeholder: "您的姓名",
+        join_email: "電子郵件地址",
+        join_phone: "電話號碼",
+        join_social: "社交網絡 / 網站",
+        join_city: "城市 / 省份",
+        join_btn_share: "分享",
+        join_upload_text: "上傳照片（可選）",
+
+        // Footer
         footer_quote: "Neosys Aeon 是一個透過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>其價值取決於其應用和持續修訂。",
         footer_copy: "開放框架。無主人。無障礙。",
         footer_creator: "✨ Created by yepzhi"
