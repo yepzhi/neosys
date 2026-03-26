@@ -29,8 +29,8 @@ const translations = {
 
         // 10 Principios Operativos
         mand_label: "Principios Operativos",
-        mand_title: "<span class=\"text-magical-purple\">LOS 10 PRINCIPIOS FUNDAMENTALES DEL COSMOS.</span>",
-        mand_desc: "Nuestra posición frente al universo es la base de nuestro comportamiento.",
+        mand_title: "<span class=\"text-magical-purple\">Los 10 PRINCIPIOS FUNDAMENTALES DEL COSMOS.</span>",
+        mand_desc: "Lineamientos para evaluar, construir y aplicar conocimiento de forma coherente con la realidad.",
         poster_download_btn: "Descargar Poster de Principios (v4.1) ✨",
 
         m1_title: "I. HONRARÁS LA VERDAD POR ENCIMA DE LA COMODIDAD.",
