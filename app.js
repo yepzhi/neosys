@@ -413,12 +413,12 @@ function drawBadge() {
     ctx.letterSpacing = '12px'; // Premium spreading
     ctx.shadowColor = 'rgba(167, 139, 250, 0.6)';
     ctx.shadowBlur = 30;
-    ctx.fillText('NEOSYS AEON', w / 2, 220);
+    ctx.fillText('NEOSYS AEON ✨', w / 2, 200);
     ctx.shadowBlur = 0;
     ctx.letterSpacing = '0px';
 
-    // --- 3. User Photo (Lowered for spacing) ---
-    const photoY = 720; // Increased spacing
+    // --- 3. User Photo (Shifted Up) ---
+    const photoY = 580; // Significantly reduced from 720
     const photoSize = 420;
     
     // Glowing ring
@@ -456,8 +456,8 @@ function drawBadge() {
         ctx.fillText('👤', w / 2, photoY + 20);
     }
 
-    // --- 4. Content Below Photo (Better Spacing) ---
-    const nameY = 1050; // More space below photo
+    // --- 4. Content Below Photo (Shifted Up) ---
+    const nameY = 900; // Adjusted from 1050
     const nameInput = document.getElementById('badge-name');
     const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
     ctx.fillStyle = '#fff';
@@ -480,7 +480,7 @@ function drawBadge() {
 
     // 5. Larger Tagline
     ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.font = '500 40px Inter, sans-serif'; // Increased size
+    ctx.font = '500 40px Inter, sans-serif'; 
     const tagline = t.join_badge_tagline || 'El método científico: No protege ideas, las somete a prueba. No depende de creencias, depende de evidencia.';
     wrapText(ctx, tagline, w / 2, nameY + 220, 900, 55);
 
