@@ -623,8 +623,9 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
         { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
     ];
+    let currentSlide = 0;
 
-    function initSlider() { let currentSlide = 0;
+    function initSlider() {
         const track = document.getElementById('mandamientos-track');
         const nav = document.getElementById('slider-nav');
         if (!track || !nav) return;

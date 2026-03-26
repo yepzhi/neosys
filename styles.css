@@ -6,10 +6,10 @@
 /* ── Commandments Slider ────────────────── */
 .mandamientos-slider-container {
     position: relative;
-    max-width: 1000px;
+    max-width: 850px;
     margin: 60px auto;
     overflow: hidden;
-    padding: 60px 40px;
+    padding: 60px 20px;
     background: rgba(255, 255, 255, 0.04);
     border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 80px;
+    padding: 20px 40px;
     box-sizing: border-box;
     opacity: 0.4;
     scale: 0.9;
@@ -44,7 +44,7 @@
 }
 
 .slide-num-magical {
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: 900;
     font-family: 'Inter', sans-serif;
     color: rgba(167, 139, 250, 0.2);
@@ -393,8 +393,9 @@ img { max-width: 100%; display: block; }
 .section-desc {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 850px;
     margin-bottom: 50px;
+    text-wrap: balance;
 }
 
 /* ── Utility Classes ────────────────────── */
