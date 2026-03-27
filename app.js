@@ -962,7 +962,7 @@ async function fetchEvidencias(filterValue = 'all') {
             const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
             ctx.fillText(roman[i], x - 10, y + 45);
 
-            // Title (Multiline support v4.4.0)
+            // Title (Multiline support v4.8.7)
             ctx.fillStyle = '#fff';
             ctx.font = '700 22px Inter, sans-serif'; 
             const titleParts = (title || '').toUpperCase().split('\n');
