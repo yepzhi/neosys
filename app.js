@@ -182,17 +182,16 @@ function applyLanguage(lang) {
 
     document.documentElement.lang = lang === 'cn' ? 'zh-Hant' : lang;
 
-    // Update Whitepaper Link
-    const pdfBtn = document.getElementById('whitepaper-download');
-    if (pdfBtn) {
+    // Update Whitepaper Links (Dynamic)
+    document.querySelectorAll('.wp-link-dynamic').forEach(link => {
         if (lang === 'en') {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-EN.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.1-EN.pdf';
         } else if (lang === 'cn') {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1-ZH.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.1-ZH.pdf';
         } else {
-            pdfBtn.href = 'neosysaeon-whitepaper-v4.1.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.1.pdf';
         }
-    }
+    });
 
     // Update Outreach Content
     const outreachGrid = document.getElementById('outreach-grid');
@@ -1068,5 +1067,7 @@ function initCommunityMap() {
     });
 }
 
-// Inicializar idioma al final para evitar errores de inicialización de variables (Temporal Dead Zone)
-applyLanguage(currentLang);
+document.addEventListener('DOMContentLoaded', () => {
+    loadCommunity();
+    applyLanguage(actLang); 
+});
