@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.7.7"; 
+const version = "4.7.8"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -23,7 +23,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.7.7"; 
+const APP_VERSION = "4.7.8"; 
 
 let db = null;
 try {
@@ -69,7 +69,9 @@ const statesUS = [
 
     countrySelect.addEventListener('change', () => {
         const country = countrySelect.value;
+        const stateContainer = document.getElementById('state-container');
         stateSelect.innerHTML = '';
+        
         if (country === 'MX' || country === 'US') {
             const states = country === 'MX' ? statesMX : statesUS;
             const defaultOpt = document.createElement('option');
@@ -82,10 +84,10 @@ const statesUS = [
                 opt.textContent = s;
                 stateSelect.appendChild(opt);
             });
-            stateSelect.style.display = 'block';
+            if (stateContainer) stateContainer.style.display = 'block';
             stateSelect.required = true;
         } else {
-            stateSelect.style.display = 'none';
+            if (stateContainer) stateContainer.style.display = 'none';
             stateSelect.required = false;
         }
     });
