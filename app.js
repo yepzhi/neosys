@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.1.2"; 
+const version = "4.8.1.5"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -207,6 +207,7 @@ function applyLanguage(lang) {
     });
 
     if (typeof drawBadge === 'function') drawBadge();
+    if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -462,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.4.2.2
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.5.2.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -514,6 +515,67 @@ function fetchEvidencias(filterValue = 'all') {
         console.error("[Neosys] DB Error:", err);
         list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); padding: 60px;">Error de conexión con la base de datos.</div>`;
     });
+}
+
+// ── Community Map Logic (v4.8.1.5) ──────────────────
+let communityMap = null;
+let mapMarkers = [];
+
+function initCommunityMap() {
+    const mapContainer = document.getElementById('community-map');
+    if (!mapContainer || communityMap) return;
+
+    // Default center (World view)
+    communityMap = L.map('community-map').setView([20, 0], 2);
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(communityMap);
+
+    // Load members for markers
+    if (db) {
+        db.collection('miembros').limit(200).get().then((snapshot) => {
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                // Simple geocoding simulation or using city/country strings if available
+                // For now, we use a placeholder logic or real coords if data has them
+                if (data.lat && data.lng) {
+                    const marker = L.marker([data.lat, data.lng]).addTo(communityMap);
+                    marker.bindPopup(`<b>${data.name}</b><br>${data.city || ''}, ${data.country || ''}`);
+                    mapMarkers.push(marker);
+                }
+            });
+        });
+    }
+}
+
+function switchCommunityTab(tabId) {
+    const dirView = document.getElementById('directory-view');
+    const mapView = document.getElementById('map-view');
+    const btnDir = document.getElementById('tab-directory');
+    const btnMap = document.getElementById('tab-map');
+
+    if (!dirView || !mapView || !btnDir || !btnMap) return;
+
+    if (tabId === 'map') {
+        dirView.style.display = 'none';
+        mapView.style.display = 'block';
+        btnDir.classList.remove('active');
+        btnMap.classList.add('active');
+        
+        // Init map on first show
+        setTimeout(() => {
+            initCommunityMap();
+            if (communityMap) communityMap.invalidateSize();
+        }, 100);
+    } else {
+        dirView.style.display = 'block';
+        mapView.style.display = 'none';
+        btnDir.classList.add('active');
+        btnMap.classList.remove('active');
+    }
 }
 
 const slidesData = [
@@ -682,7 +744,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCommunity();
     applyLanguage(currentLang);
     populateSourceSelects();
-    populateOutreachCategories();
+    
+    // Community Tabs
+    const btnDir = document.getElementById('tab-directory');
+    const btnMap = document.getElementById('tab-map');
+    if (btnDir) btnDir.addEventListener('click', () => switchCommunityTab('directory'));
+    if (btnMap) btnMap.addEventListener('click', () => switchCommunityTab('map'));
     
     const filterSelect = document.getElementById('filter-source-type');
     if (filterSelect) {
@@ -690,7 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.1.4) ───────────────────
+    // ── Poster Download Handler (v4.8.1.5) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
