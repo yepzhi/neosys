@@ -1563,11 +1563,21 @@ img { max-width: 100%; display: block; }
     text-wrap: balance;
 }
 
+.mech-label-centered {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+    display: block;
+}
+
 .mech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-top: 50px;
 }
 
 .mech-card {
