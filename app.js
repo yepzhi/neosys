@@ -1172,7 +1172,7 @@ function initCommunityMap() {
 
 document.addEventListener('DOMContentLoaded', () => {
     loadCommunity();
-    applyLanguage(actLang); 
+    applyLanguage(currentLang); 
     
     // v2.0 Initializations
     if (typeof populateSourceSelects === 'function') populateSourceSelects();

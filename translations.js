@@ -18,6 +18,11 @@ const translations = {
         hero_btn_mandamientos: "Principios del Cosmos",
         hero_btn_whitepaper: "Leer Whitepaper",
         hero_explore: "Explorar",
+        manifesto_label: "El Manifiesto",
+        manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
+        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon es un marco conceptual abierto diseñado para mejorar la forma en que los individuos entienden la realidad y toman decisiones basadas en evidencia. Propone integrar epistemología aplicada, método científico y acción responsable.",
+        manifesto_p2: "La síntesis sin aplicación carece de impacto. La ejecución sin modelado genera error sistémico. El marco integra ambos vectores en un bucle de retroalimentación continuo.",
+        manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
         postulado_label: "De la Filosofía a la Ciencia",
         postulado_title_new: "El método científico es la herramienta más poderosa para distinguir lo que funciona de lo que creemos que funciona.",
@@ -252,7 +257,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.1",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.2",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -271,6 +276,11 @@ const translations = {
         hero_btn_mandamientos: "Cosmos Principles",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
+        manifesto_label: "The Manifesto",
+        manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
+        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
+        manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
+        manifesto_p3: "It is not a belief system. It is an applied framework of understanding — the <strong>Principles of the Cosmos</strong> — oriented towards prioritizing truth, validating through evidence, and translating knowledge into real action.",
 
         // 10 Principles Operativos
         mand_label: "Principles",
@@ -487,7 +497,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v4.7.1",
+        footer_copy: "Open framework. No owners. No barriers. v4.7.2",
         footer_creator: "Created by yepzhi"
     },
     cn: {
@@ -508,6 +518,11 @@ const translations = {
         hero_btn_mandamientos: "宇宙原則",
         hero_btn_whitepaper: "閱讀白皮書",
         hero_explore: "探索",
+        manifesto_label: "宣言",
+        manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來決。</span>",
+        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon 是一個開放的概念框架，旨在改善個人理解現實以及基於證據做出決策的方式。它提議將應用認識論、科學方法和負責任的行動結合起來。",
+        manifesto_p2: "沒有應用的綜合缺乏影響。沒有建模的執行會產生系統誤差。該框架將這兩個向量整合到一個持續的反饋路徑中。",
+        manifesto_p3: "它不是一個信仰體系。它是一個應用的理解框架 —— <strong>宇宙原則</strong> —— 旨在優先考慮真理，通過證據進行驗證，並將知識轉化為實際行動。",
 
         mand_label: "操作原則",
         mand_title: "<span class=\"text-magical-purple\">宇宙 10 個基本原則。</span>",
@@ -737,7 +752,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v4.7.1",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.2",
         footer_creator: "Created by yepzhi"
     }
 };
