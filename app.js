@@ -726,7 +726,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const startY = 320;
         const col1X = 60;
         const col2X = 640;
-        const spacingY = 185; // Increased from 175
+        const spacingY = 205; // Increased for more breathing room
 
         slidesData.forEach((s, i) => {
             const isSecondCol = i >= 5;
@@ -745,17 +745,17 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
             // Title (Multiline support v4.4.0)
             ctx.fillStyle = '#fff';
-            ctx.font = '700 20px Inter, sans-serif'; 
+            ctx.font = '700 22px Inter, sans-serif'; 
             const titleParts = (title || '').toUpperCase().split('\n');
             titleParts.forEach((part, index) => {
-                ctx.fillText(part, x + 90, y + (index * 25));
+                ctx.fillText(part, x + 90, y + (index * 28));
             });
             
             // Body (Adjusted for title height)
-            const bodyOffset = titleParts.length > 1 ? 55 : 40;
+            const bodyOffset = titleParts.length > 1 ? 65 : 45;
             ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '400 13px Inter, sans-serif'; 
-            wrapText(ctx, body, x + 90, y + bodyOffset, 430, 18); 
+            ctx.font = '400 14px Inter, sans-serif'; 
+            wrapText(ctx, body, x + 90, y + bodyOffset, 430, 20); 
         });
 
         // Final Quote
