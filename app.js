@@ -479,19 +479,19 @@ function drawBadge() {
     ctx.stroke();
 
     // 5. User Provided Phrases (v4.4.0)
-    ctx.fillStyle = 'rgba(255,255,255,0.55)'; // Subtle gray
-    ctx.font = '500 32px Inter, sans-serif'; // Slightly smaller and lighter weight
+    ctx.fillStyle = 'rgba(255,255,255,0.35)'; // Darker gray for subtlety
+    ctx.font = '400 24px Inter, sans-serif'; // Smaller and lighter
     const p1 = t.join_badge_phrase1 || 'Sin ciencia no hay claridad. Sin validación no hay progreso.';
     const p2 = t.join_badge_phrase2 || 'Un marco abierto para entender la realidad a través de evidencia verificable.';
     const p3 = t.join_badge_phrase3 || '¡Conoce los 10 principios del Cosmos hoy!';
     
-    const phraseW = 800; // Narrower to avoid widows/orphans
-    wrapText(ctx, p1, w / 2, nameY + 180, phraseW, 42);
-    wrapText(ctx, p2, w / 2, nameY + 280, phraseW, 40);
+    const phraseW = 750; // Narrower to prevent hanging words
+    wrapText(ctx, p1, w / 2, nameY + 180, phraseW, 35);
+    wrapText(ctx, p2, w / 2, nameY + 270, phraseW, 35);
     
-    ctx.font = '700 32px Inter, sans-serif'; // Keep p3 bold but smaller
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
-    wrapText(ctx, p3, w / 2, nameY + 380, phraseW, 42);
+    ctx.font = '700 30px Inter, sans-serif'; // p3 stands out
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)'; // Purple accent
+    wrapText(ctx, p3, w / 2, nameY + 370, phraseW, 38);
 
     // 6. HashTags (Bottom)
     ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
