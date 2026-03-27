@@ -167,7 +167,7 @@ const translations = {
         // Divulgación
         out_label: "Divulgación",
         out_title: "Acércate a la <span class='text-accent'>Ciencia</span>",
-        out_desc: "Haz clic para conocer Series, Libros y Canales de YouTube que promueven activamente la ciencia y el método científico.",
+        out_desc: "Recursos recomendados de Series, Libros y Canales de YouTube que promueven activamente la ciencia y el método científico.",
         out_btn_explore: "Explorar Recursos →",
         outreach_categories: [
             {
@@ -415,7 +415,7 @@ const translations = {
         // Outreach
         out_label: "Outreach",
         out_title: "Get closer to <span class='text-accent'>Science</span>",
-        out_desc: "Click to learn about Series, Books, and YouTube Channels that actively promote science and the scientific method.",
+        out_desc: "Recommended Series, Books, and YouTube Channels that actively promote science and the scientific method.",
         out_btn_explore: "Explore Resources →",
         outreach_categories: [
             {
@@ -652,7 +652,7 @@ const translations = {
         // Outreach
         out_label: "推廣",
         out_title: "走近 <span class='text-accent'>科學</span>",
-        out_desc: "單擊以了解積極推廣科學 and 科學方法的劇集、書籍與 YouTube 頻道。",
+        out_desc: "推薦積極推廣科學及科學方法的系列剧集、書籍與 YouTube 頻道。",
         out_btn_explore: "探索資源 →",
         outreach_categories: [
             {

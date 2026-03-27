@@ -832,13 +832,13 @@ async function fetchEvidencias(filterValue = 'all') {
         // Tagline (Top - now even closer to the title/subtitle)
         ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
         ctx.font = 'italic 300 22px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 225);
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 270);
 
         // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
         const startY = 340; // Shifted up slightly to fill space
-        const col1X = 155; // Centered columns more effectively
-        const col2X = 615; // Centered columns more effectively
+        const col1X = 180; // Centered columns more effectively
+        const col2X = 590; // Centered columns more effectively
         const spacingY = 190;
 
         slidesData.forEach((s, i) => {
