@@ -10,12 +10,27 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-// Simple Password Prompt for Privacy
+// Simple Password Prompt for Privacy (Run immediately)
 const adminKey = prompt("Please enter the Admin Access Key:");
 if (adminKey !== "neosys2026") {
     alert("Unauthorized access.");
     window.location.href = "index.html";
 }
+
+// ── Initialize Animations ───────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '20px',
+            duration: 1000,
+            delay: 200,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            mobile: true
+        });
+        sr.reveal('.reveal', { interval: 100 });
+    }
+});
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
