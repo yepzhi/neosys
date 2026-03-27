@@ -405,30 +405,33 @@ function drawBadge() {
         }
     }
 
-    // --- 2. Title (Identical to Hero Style) ---
+    // --- 2. Logo & Title (Top) ---
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
+    
+    // Sparkle (Matches Hero)
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+    ctx.font = '600 50px Inter, sans-serif';
+    ctx.fillText('✨', w / 2, 80);
+
     ctx.fillStyle = '#fff';
-    ctx.font = '900 100px Inter, system-ui, sans-serif';
-    ctx.letterSpacing = '12px'; // Premium spreading
-    ctx.shadowColor = 'rgba(167, 139, 250, 0.6)';
-    ctx.shadowBlur = 30;
-    ctx.fillText('NEOSYS AEON ✨', w / 2, 200);
-    ctx.shadowBlur = 0;
+    ctx.font = '900 70px Inter, sans-serif';
+    ctx.letterSpacing = '8px';
+    ctx.fillText('NEOSYS AEON', w / 2, 160);
     ctx.letterSpacing = '0px';
 
-    // --- 3. User Photo (Shifted Up) ---
-    const photoY = 580; // Significantly reduced from 720
-    const photoSize = 420;
+    // --- 3. User Photo ---
+    const photoY = 480; 
+    const photoSize = 380;
     
     // Glowing ring
     ctx.beginPath();
-    ctx.arc(w / 2, photoY, (photoSize / 2) + 15, 0, Math.PI * 2);
-    const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 20);
+    ctx.arc(w / 2, photoY, (photoSize / 2) + 12, 0, Math.PI * 2);
+    const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 15);
     radGrad.addColorStop(0, 'rgba(167, 139, 250, 0.8)');
     radGrad.addColorStop(1, 'rgba(167, 139, 250, 0)');
     ctx.strokeStyle = radGrad;
-    ctx.lineWidth = 20;
+    ctx.lineWidth = 15;
     ctx.stroke();
 
     if (userPhoto) {
@@ -452,38 +455,58 @@ function drawBadge() {
         ctx.beginPath();
         ctx.arc(w / 2, photoY, photoSize / 2, 0, Math.PI * 2);
         ctx.fill();
-        ctx.font = '120px serif';
-        ctx.fillText('👤', w / 2, photoY + 20);
+        ctx.font = '100px serif';
+        ctx.fillText('👤', w / 2, photoY + 15);
     }
 
+    // --- 4. Identification (Centered) ---
+    const nameY = 750;
+    const nameInput = document.getElementById('badge-name');
+    const nameStr = nameInput ? (nameInput.value.trim() || 'Tu Nombre') : 'Tu Nombre';
+    
+    ctx.fillStyle = '#fff';
+    ctx.font = '900 80px Inter, sans-serif';
+    ctx.fillText(nameStr.toUpperCase(), w / 2, nameY);
+
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+    ctx.font = '600 32px Inter, sans-serif';
+    ctx.fillText('MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 80);
+
+    // Divider
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(w / 2 - 350, nameY + 35);
+    ctx.lineTo(w / 2 + 350, nameY + 35);
     ctx.stroke();
 
-    // 5. User Provided Phrases (v4.4.0)
-    ctx.fillStyle = 'rgba(255,255,255,0.35)'; // Darker gray for subtlety
-    ctx.font = '400 24px Inter, sans-serif'; // Smaller and lighter
-    const p1 = t.join_badge_phrase1 || 'Sin ciencia no hay claridad. Sin validación no hay progreso.';
-    const p2 = t.join_badge_phrase2 || 'Un marco abierto para entender la realidad a través de evidencia verificable.';
-    const p3 = t.join_badge_phrase3 || '¡Conoce los 10 principios del Cosmos hoy!';
-    
-    const phraseW = 750; // Narrower to prevent hanging words
-    wrapText(ctx, p1, w / 2, nameY + 180, phraseW, 35);
-    wrapText(ctx, p2, w / 2, nameY + 270, phraseW, 35);
-    
-    ctx.font = '700 30px Inter, sans-serif'; // p3 stands out
-    ctx.fillStyle = 'rgba(167, 139, 250, 1)'; // Purple accent
-    wrapText(ctx, p3, w / 2, nameY + 370, phraseW, 38);
+    // --- 5. Centered Phrases (v4.6.0) ---
+    const phraseStartY = nameY + 160;
+    ctx.fillStyle = 'rgba(255,255,255,0.35)'; // More gray
+    ctx.font = '500 24px Inter, sans-serif'; 
 
-    // 6. HashTags (Bottom)
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-    ctx.font = '700 48px Inter, sans-serif';
-    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 140);
+    // Phrase 1 (Specific lines)
+    ctx.fillText('Sin ciencia no hay claridad.', w / 2, phraseStartY);
+    ctx.fillText('Sin validación no hay progreso.', w / 2, phraseStartY + 35);
 
-    // Footer
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.font = '300 24px Inter, sans-serif';
+    // Phrase 2 (Specific lines)
+    ctx.fillText('Un marco abierto para entender la realidad', w / 2, phraseStartY + 85);
+    ctx.fillText('a través de evidencia verificable.', w / 2, phraseStartY + 120);
+
+    // Call to Action (Purple & Focused)
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)'; // Signature Purple
+    ctx.font = '700 32px Inter, sans-serif'; 
+    ctx.fillText('¡Conoce los 10 principios del Cosmos hoy!', w / 2, phraseStartY + 195);
+
+    // --- 6. Footer & Tags ---
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.8)';
+    ctx.font = '700 42px Inter, sans-serif';
+    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 130);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.font = '300 22px Inter, sans-serif';
     ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 60);
 
-    // Update Preview Image
     const preview = document.getElementById('badge-preview');
     if (preview) {
         preview.src = canvas.toDataURL('image/png');
