@@ -373,7 +373,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras.",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.0",
         footer_creator: "Created by yepzhi",
         con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
         con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología."
@@ -452,7 +452,7 @@ const translations = {
         coll_yepzhi: "🌐 yepzhi.com",
 
         footer_quote: "Neosys Aeon is an open framework for the generation, validation and application of knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous review.",
-        footer_copy: "Open Framework. No Owners. No Barriers.",
+        footer_copy: "Open Framework. No Owners. No Barriers. v4.7.0",
         footer_creator: "Created by yepzhi",
 
         prob_label: "WHY DOES IT EXIST?",
@@ -726,7 +726,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers.",
+        footer_copy: "Open framework. No owners. No barriers. v4.7.0",
         footer_creator: "✨ Created by yepzhi"
     },
         cn: {
@@ -806,7 +806,7 @@ const translations = {
         badge_phrase3: "今天就了解宇宙的 10 個原則！",
         footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
         footer_creator: "Created by yepzhi",
-        footer_copy: "開放框架。無所有者。無障礙。",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.0",
         prob_label: "為什麼存在？",
         prob_title: "為什麼需要 <br><span class=\"text-accent\">Neosys Aeon？</span>",
         prob1_title: "⚡ 1. 用信念取代證據",
