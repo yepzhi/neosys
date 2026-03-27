@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.0"; 
+const version = "4.8.1"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -23,7 +23,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.0"; 
+const APP_VERSION = "4.8.1"; 
 
 let db = null;
 try {
@@ -60,6 +60,27 @@ const statesUS = [
     'Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
     'Virginia','Washington','West Virginia','Wisconsin','Wyoming'
 ];
+
+function showRegistrationSuccess() {
+    const t = translations[currentLang] || translations.es;
+    const toast = document.createElement('div');
+    toast.className = 'neo-success-toast';
+    toast.innerHTML = `
+        <div class="neo-success-title">${t.join_success_title || 'Welcome!'}</div>
+        <div class="neo-success-msg">${t.join_success_msg || 'Registration successful.'}</div>
+    `;
+    document.body.appendChild(toast);
+    
+    // Animate in
+    setTimeout(() => toast.classList.add('visible'), 100);
+    
+    // Auto-remove after 6 seconds
+    setTimeout(() => {
+        toast.classList.remove('visible');
+        setTimeout(() => toast.remove(), 600);
+    }, 6000);
+}
+
 
 // ── Country/State Selector Logic ──────────
 (function initLocationSelector() {
@@ -728,6 +749,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         await Promise.race([firebasePromise, timeoutPromise]);
 
         drawBadge();
+        showRegistrationSuccess();
         
         // Finalize Download
         try {
