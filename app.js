@@ -176,6 +176,11 @@ function applyLanguage(lang) {
         if (t[key] !== undefined) el.placeholder = t[key];
     });
 
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (t[key] !== undefined) el.alt = t[key];
+    });
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
