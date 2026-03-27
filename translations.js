@@ -371,6 +371,11 @@ const translations = {
         con_node3: "Currículo STEM",
         con_btn: "🚀 Conoce JovenesSTEM",
 
+        // Sección 8 - Revisión
+        rev_label: "Autocrítica y Evolución (v4.2)",
+        rev_title: "Un Marco que se Cuestiona a Sí Mismo",
+        rev_desc: "Neosys Aeon no es un dogma. Se basa en su capacidad de ser corregido por la evidencia. Si el marco no mejora el juicio real de quienes lo usan, debe ser descartado o reemplazado. Su valor es plenamente funcional, no simbólico.",
+
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.0",
@@ -450,6 +455,11 @@ const translations = {
         coll_desc: "Send us your comments, ideas, or write directly to join the effort to promote evidence-based thinking.",
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
+
+        // Section 8 - Review
+        rev_label: "Self-Correction & Evolution (v4.2)",
+        rev_title: "A Self-Questioning Framework",
+        rev_desc: "Neosys Aeon is not dogma. It is based on its capacity to be corrected by evidence. If the framework does not improve the real judgment of those who use it, it must be discarded or replaced. Its value is fully functional, not symbolic.",
 
         footer_quote: "Neosys Aeon is an open framework for the generation, validation and application of knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous review.",
         footer_copy: "Open Framework. No Owners. No Barriers. v4.7.0",
@@ -804,6 +814,11 @@ const translations = {
         badge_phrase2_l1: "一個透過可驗證證據",
         badge_phrase2_l2: "理解現實的開放框架。",
         badge_phrase3: "今天就了解宇宙的 10 個原則！",
+
+        // Section 8 - Review
+        rev_label: "自我修正與演進 (v4.2)",
+        rev_title: "一個自我質疑的框架",
+        rev_desc: "新系永恆並非教條。它建立在被證據修正的能力之上。如果此框架無法改善使用者的實際判斷，則必須將其捨棄或替換。其價值在於功能性，而非象徵或身份認同。",
         footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
         footer_creator: "Created by yepzhi",
         footer_copy: "開放框架。無所有者。無障礙。v4.7.0",

@@ -1530,3 +1530,70 @@ img { max-width: 100%; display: block; }
     text-decoration: underline;
 }
 
+/* ── Section 8 - Revision ───────────────── */
+.revision-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at top right, rgba(167, 139, 250, 0.05), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.05), transparent 40%);
+}
+
+.revision-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.revision-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
+}
+
+.revision-card .section-label {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.revision-card .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.revision-card .section-desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .revision-card {
+        padding: 40px 24px;
+        margin: 0 16px;
+    }
+    .revision-card .section-title {
+        font-size: 1.6rem;
+    }
+    .revision-card .section-desc {
+        font-size: 1rem;
+    }
+}
+
