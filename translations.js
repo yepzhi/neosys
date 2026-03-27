@@ -267,7 +267,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.3",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.4",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -517,8 +517,21 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v4.7.3",
-        footer_creator: "Created by yepzhi"
+        footer_copy: "Open framework. No owners. No barriers. v4.7.4",
+        footer_creator: "Created by yepzhi",
+
+        // Revision
+        rev_label: "Self-Correction and Evolution",
+        rev_title: "A system that <span class='text-accent'>validates itself</span>",
+        rev_desc: "Neosys Aeon is a framework designed to be continuously tested, questioned, and improved. Its validity depends on its ability to enhance judgment and decision-making in real-world contexts. Should it fail to do so, it must either evolve or be replaced. Its value is functional, not symbolic.",
+        rev_mech_label: "System Self-Evaluation Mechanisms",
+        rev_mech1_title: "Integrity Failure",
+        rev_mech1_desc: "If the framework is used to justify decisions rather than evaluate them, it has not been applied—it has been co-opted. The criterion is behavioral: if no decisions changed through its use, no real application occurred.",
+        rev_mech2_title: "Consistency Failure",
+        rev_mech2_desc: "If two users with the same evidence cannot resolve their disagreement in a structured manner, the principles are too broad to effectively filter claims. This is not consensus; it is vacuity.",
+        rev_mech3_title: "Obsolescence Failure",
+        rev_mech3_desc: "If it cannot be demonstrated that its users make more coherent decisions than those who do not, or if a future version cannot contradict a previous one, the framework must be replaced. Its value is functional, not symbolic.",
+        rev_governance: "As the community grows, the governance of this system will migrate toward a <strong>scientific evaluation committee</strong> responsible for auditing and updating the principles based on the latest evidence.",
     },
     cn: {
         nav_mandamientos: "原則",
@@ -782,7 +795,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v4.7.3",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.4",
         footer_creator: "Created by yepzhi"
     }
 };
