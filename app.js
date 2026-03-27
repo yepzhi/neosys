@@ -456,26 +456,6 @@ function drawBadge() {
         ctx.fillText('👤', w / 2, photoY + 20);
     }
 
-    // --- 4. Content Below Photo (Shifted Up) ---
-    const nameY = 900; // Adjusted from 1050
-    const nameInput = document.getElementById('badge-name');
-    const name = nameInput ? (nameInput.value.trim() || (t.join_placeholder || 'Tu nombre')) : 'Tu nombre';
-    ctx.fillStyle = '#fff';
-    ctx.font = '800 85px Inter, sans-serif';
-    ctx.fillText(name.toUpperCase(), w / 2, nameY);
-
-    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
-    ctx.font = '600 38px Inter, sans-serif';
-    ctx.letterSpacing = '5px';
-    ctx.fillText(t.join_badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 70);
-    ctx.letterSpacing = '0px';
-
-    // Divider
-    ctx.beginPath();
-    ctx.moveTo(w / 2 - 200, nameY + 140);
-    ctx.lineTo(w / 2 + 200, nameY + 140);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.lineWidth = 3;
     ctx.stroke();
 
     // 5. User Provided Phrases (v4.4.0)
