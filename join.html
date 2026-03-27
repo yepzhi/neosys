@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Únete ✨ — Neosys Aeon</title>
+    <meta name="description"
+        content="Únete al movimiento Neosys Aeon. Genera tu gafete basado en evidencia y forma parte de la comunidad.">
+    <meta name="theme-color" content="#050510">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="stylesheet" href="styles.css?v=4.7.0">
+</head>
+
+<body class="join-page">
+
+    <!-- PARTICLE CANVAS -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+        <a href="/neosys/" onclick="window.location.href='/neosys/'; return false;" class="nav-logo">✨ <span>Neosys Aeon</span></a>
+        <div class="nav-links">
+            <a href="index.html#mandamientos" data-i18n="nav_mandamientos">Principles</a>
+            <a href="index.html#manifesto" data-i18n="nav_marco">Framework</a>
+            <a href="index.html#whitepaper" data-i18n="nav_whitepaper">Whitepaper</a>
+            <a href="get-closer.html" data-i18n="nav_acercate">Get Closer</a>
+            <a href="community.html" data-i18n="nav_comunidad">Community</a>
+            <a href="https://yepzhi.com/neosys/evidence.html" data-i18n="nav_evidencias">Evidence</a>
+            <a href="join.html" class="active nav-cta" data-i18n="nav_unete">Join</a>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">🇺🇸 EN</button>
+            <button class="lang-btn" data-lang="es">🇲🇽 ES</button>
+            <button class="lang-btn" data-lang="cn">🇨🇳 CN</button>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         ÚNETE AL MOVIMIENTO (Badge Generator)
+         ═══════════════════════════════════════════ -->
+    <section id="unete" class="section unete-section" style="padding-top: 150px;">
+        <div class="container">
+            <span class="section-label reveal" data-i18n="join_label">Sé Parte</span>
+            <h2 class="section-title reveal" data-i18n="join_title">Únete al Movimiento<br><span
+                    class="text-accent">#NeosysAeon</span></h2>
+            <p class="section-desc reveal" data-i18n="join_desc">No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia, porta el símbolo ✨. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.</p>
+            <p class="section-desc reveal" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;" data-i18n="form_evidence_desc">El gafete no se otorga por creer en el marco — se otorga por aplicarlo. Para generarlo, deberás describir una decisión real que tomaste o cambiaste con base en evidencia científica verificable.</p>
+            <p class="section-desc reveal" style="font-size: 0.85rem; color: var(--text-tertiary); margin-top: -10px;" data-i18n="join_privacy_note">Tu nombre, país y red social aparecerán públicamente en la sección de Comunidad. Tu decisión documentada y fuente aparecerán en la sección de Evidencias. Tu correo y teléfono son privados.</p>
+
+            <div class="join-card reveal">
+                <div class="join-form-side">
+                    <h3 data-i18n="join_badge_title">Genera tu Gafete.</h3>
+                    
+                    <div class="evidence-intro-block reveal" style="margin-bottom: 25px; padding: 20px; background: rgba(167, 139, 250, 0.05); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 12px; text-align: left;">
+                        <h4 style="color: var(--text-accent); margin-bottom: 12px; font-size: 1rem; font-weight: 700;" data-i18n="form_evidence_label">Gana tu gafete. No se otorga por creer — se otorga por aplicar.</h4>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-secondary); margin: 0;" data-i18n="form_evidence_desc">Neosys Aeon no es un sistema de creencias. Es un marco de acción. Describe una decisión real que tomaste con base en evidencia.</p>
+                    </div>
+
+                    <form id="badge-form">
+                        <label class="photo-upload-area" id="photo-upload-area">
+                            <input type="file" id="badge-photo" accept="image/*" hidden>
+                            <div class="photo-upload-placeholder" id="photo-placeholder">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.4">
+                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                </svg>
+                                <span data-i18n="join_upload_text">Toca para subir tu foto</span>
+                            </div>
+                            <img id="photo-preview" class="photo-preview" style="display:none;" alt="preview">
+                        </label>
+                        <input type="text" id="badge-name" data-i18n-placeholder="join_placeholder" placeholder="Tu nombre" required maxlength="30">
+                        <input type="email" id="badge-email" data-i18n-placeholder="join_email" placeholder="Tu correo electrónico" required>
+                        <input type="text" id="badge-social" data-i18n-placeholder="join_social" placeholder="@ Red social pública (opcional)" maxlength="50">
+                        <input type="text" id="badge-city" data-i18n-placeholder="join_city" placeholder="Ciudad (ej. Monterrey)" required maxlength="50">
+                        <select id="badge-country" required>
+                            <option value="" data-i18n="join_country_default">Selecciona tu país</option>
+                            <option value="MX"><span aria-hidden="true">🇲🇽</span> México</option>
+                            <option value="US"><span aria-hidden="true">🇺🇸</span> Estados Unidos</option>
+                            <!-- Rest of countries will be populated or handled by select if needed -->
+                        </select>
+
+                        <div class="form-group reveal" style="margin-top: 20px; text-align: left;">
+                            <label for="decision_evidencia" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary); font-size: 0.9rem;" data-i18n="form_decision_title">¿Qué decisión tomaste o cambiaste basándote en evidencia?</label>
+                            <textarea id="decision_evidencia" data-i18n-placeholder="form_decision_placeholder" placeholder="..." required minlength="30" style="width: 100%; min-height: 100px; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                            <div id="decision-char-count" style="text-align: right; font-size: 0.7rem; color: var(--text-tertiary); margin-top: 5px;">0 / 30 min</div>
+                        </div>
+
+                        <div class="form-group reveal" style="margin-top: 15px; text-align: left;">
+                            <label for="tipo_fuente" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary); font-size: 0.9rem;" data-i18n="form_source_type_title">¿Qué tipo de evidencia utilizaste?</label>
+                            <select id="tipo_fuente" required style="width: 100%; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+                                <option value="" data-i18n="source_types.placeholder">Selecciona una fuente...</option>
+                                <option value="paper" data-i18n="source_types.paper">Artículo científico</option>
+                                <option value="journal" data-i18n="source_types.journal">Revista científica</option>
+                                <option value="database" data-i18n="source_types.database">Base de datos</option>
+                                <option value="channel" data-i18n="source_types.channel">Canal divulgación</option>
+                                <option value="institution" data-i18n="source_types.institution">Institución oficial</option>
+                                <option value="book" data-i18n="source_types.book">Libro técnico</option>
+                                <option value="own" data-i18n="source_types.own">Estudio propio</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group reveal" style="margin-top: 15px; text-align: left;">
+                            <label for="fuente_referencia" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary); font-size: 0.9rem;" data-i18n="form_source_ref_title">Referencia o enlace de tu fuente</label>
+                            <input type="text" id="fuente_referencia" data-i18n-placeholder="form_source_ref_placeholder" placeholder="..." style="width: 100%; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+                        </div>
+
+                        <div class="privacy-notice-row" style="margin: 20px 0; width: 100%;">
+                            <label class="privacy-check" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 0.8rem; color: var(--text-tertiary); text-align: left; line-height: 1.4;">
+                                <input type="checkbox" id="privacy-consent" required style="width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0;">
+                                <span data-i18n="join_privacy_check">Tu nombre, país y red social aparecerán públicamente en la sección de Comunidad. Tu decisión documentada y fuente aparecerán en la sección de Evidencias. Tu correo y teléfono son privados.</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="join_btn_generate" style="margin-top: 5px; width: 100%;">Generar y Registrar</button>
+                    </form>
+                </div>
+                <div class="join-badge-side">
+                    <canvas id="badge-canvas" width="600" height="700" style="display:none;"></canvas>
+                    <img alt="Vista previa de tu gafete Neosys Aeon" src="" id="badge-preview" data-i18n-alt="badge_preview_alt">
+                    
+                    <div class="badge-info-block reveal" style="margin-top: 20px; text-align: center;">
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;" data-i18n="join_badge_desc">
+                           Genera tu gafete, regístrate y comparte.
+                        </p>
+                        <button class="btn btn-glass" id="copy-slogan-btn" style="width: 100%; border-color: rgba(167, 139, 250, 0.4); font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px;" data-i18n="join_btn_copy">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                           Copiar Slogan y Hashtags
+                        </button>
+                    </div>
+
+                    <div class="badge-actions" id="badge-actions" style="display:none; margin-top: 15px;">
+                        <button class="btn btn-glass btn-save-badge" id="share-copy" title="Copiar Texto">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                        </button>
+                        <button class="btn btn-glass btn-save-badge" id="share-instagram" title="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </button>
+                        <button class="btn btn-glass btn-save-badge" id="share-twitter" title="Twitter / X">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                        </button>
+                        <button class="btn btn-glass btn-save-badge" id="share-whatsapp" title="WhatsApp">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </button>
+                        <button class="btn btn-glass btn-save-badge" id="share-native" title="Compartir" data-i18n="join_btn_share">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" /></svg>
+                            <span>Compartir</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════ -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-declaration reveal">
+                <span class="footer-sparkle" aria-hidden="true">✨</span>
+                <p class="footer-quote" data-i18n="footer_quote">
+                    No pretende tener todas las respuestas. Pretende hacer mejores preguntas — y tomarse en serio lo que la evidencia devuelve.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.
+                </p>
+            </div>
+            <div class="footer-bottom" style="padding-top: 30px;">
+                <div style="margin-bottom: 25px;">
+                    <a href="https://yepzhi.com" target="_blank" class="footer-creator-btn"
+                        data-i18n="footer_creator">Created by yepzhi</a>
+                    <span style="opacity: 0.3; margin: 0 15px;">|</span>
+                    <a href="privacy.html" style="color: inherit; text-shadow: 0 0 10px rgba(167,139,250,0.3); text-decoration: none; font-size: 0.85rem;" data-i18n="nav_privacy">Privacy Policy</a>
+                </div>
+                <p class="footer-copy" data-i18n="footer_copy" style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 15px;">Marco abierto. Sin propietarios. Sin barreras.</p>
+                <p class="text-accent" style="font-weight: 700; font-size: 1rem; letter-spacing: 1px;">#NeosysAeon</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="translations.js?v=4.7.0"></script>
+    <script src="app.js?v=4.7.0"></script>
+</body>
+
+</html>

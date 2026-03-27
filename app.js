@@ -3,9 +3,11 @@
    Particles / Reveal / Badge / Nav / i18n
    ═══════════════════════════════════════════ */
 
-// ── Language System ───────────────────────
-let actLang = localStorage.getItem('neosys_lang') || 'es';
-if (!['es', 'en', 'cn'].includes(actLang)) actLang = 'es';
+// ── Global Localization Setup ─────────────────────
+let currentLang = localStorage.getItem('neosys_lang') || 'en';
+if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
+const version = "4.7.0"; // Refined Versioning for V2.0
+console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
 // FIREBASE CONFIGURATION
@@ -20,6 +22,8 @@ const firebaseConfig = {
     appId: "1:1009059504450:web:d26dd042f2139dcaa6e8db",
     measurementId: "G-V2FD2WR82B"
 };
+
+const APP_VERSION = "4.7.0"; // Unifying versioning
 
 let db = null;
 try {
@@ -155,7 +159,6 @@ function loadCommunity() {
 document.addEventListener('DOMContentLoaded', loadCommunity);
 
 // ═══════════════════════════════════════════
-let currentLang = actLang; // Keep currentLang for applyLanguage, initialized from actLang
 
 function applyLanguage(lang) {
     currentLang = lang;
@@ -197,6 +200,9 @@ function applyLanguage(lang) {
             link.href = 'neosysaeon-whitepaper-v4.1.pdf';
         }
     });
+
+    if (typeof populateSourceSelects === 'function') populateSourceSelects();
+    if (typeof fetchEvidencias === 'function') fetchEvidencias();
 
     // Update Outreach Content
     const outreachGrid = document.getElementById('outreach-grid');
@@ -579,33 +585,68 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         });
     }
 
-    // --- 3. Registration & Download ---
+    // --- 3. Decision Character Count ---
+    const decisionInput = document.getElementById('decision_evidencia');
+    const charCountDisplay = document.getElementById('decision-char-count');
+    if (decisionInput && charCountDisplay) {
+        decisionInput.addEventListener('input', () => {
+            const count = decisionInput.value.length;
+            charCountDisplay.textContent = `${count} / 30 min`;
+            if (count >= 30) {
+                charCountDisplay.classList.add('valid');
+            } else {
+                charCountDisplay.classList.remove('valid');
+            }
+        });
+    }
+
+    // --- 4. Registration & Download ---
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
         const t = translations[currentLang] || translations.es;
+
+        // Validation
+        const decisionVal = decisionInput ? decisionInput.value.trim() : '';
+        const sourceVal = sourceInput ? sourceInput.value : '';
+        
+        if (!userPhoto) {
+            alert(currentLang === 'es' ? 'Sube tu foto para generar el gafete.' : 'Upload your photo to generate the badge.');
+            return;
+        }
+        if (decisionVal.length < 30) {
+            alert(currentLang === 'es' ? 'Describe tu decisión. Mínimo 30 caracteres.' : 'Describe your decision. Minimum 30 characters.');
+            return;
+        }
+        if (!sourceVal) {
+            alert(currentLang === 'es' ? 'Selecciona el tipo de evidencia que utilizaste.' : 'Select the type of evidence you used.');
+            return;
+        }
+
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + (t.comm_loading_register || (currentLang === 'es' ? 'Registrando...' : 'Registering...'));
 
         const emailInput = document.getElementById('badge-email');
-        const phoneInput = document.getElementById('badge-phone');
         const socialInput = document.getElementById('badge-social');
         const cityInput = document.getElementById('badge-city');
         const countryInput = document.getElementById('badge-country');
-        const stateInput = document.getElementById('badge-state');
+        const sourceInput = document.getElementById('tipo_fuente');
+        const refInput = document.getElementById('fuente_referencia');
         
         // Build member data with ALL fields
         const memberData = {
             name: nameInput ? nameInput.value.trim() : '',
             email: emailInput ? emailInput.value.trim() : '',
-            phone: phoneInput ? phoneInput.value.trim() : '',
             social: socialInput ? socialInput.value.trim() : '',
             city: cityInput ? cityInput.value.trim() : '',
             country: countryInput ? countryInput.value : '',
-            state: stateInput ? stateInput.value : '',
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            decision_evidencia: decisionVal,
+            tipo_fuente: sourceInput ? sourceInput.value : '',
+            fuente_referencia: refInput ? refInput.value.trim() : '',
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            decision_fecha: firebase.firestore.FieldValue.serverTimestamp()
         };
 
         // Guardar a Firebase
@@ -621,16 +662,19 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         
         // Finalize Download
         try {
-            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-            if (blob) {
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.download = `neosysaeon-gafete-${memberData.name.replace(/\s+/g, '-').toLowerCase()}.png`;
-                link.href = url;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            const canvas = document.getElementById('badge-canvas');
+            if (canvas) {
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                if (blob) {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = `neosysaeon-gafete-${memberData.name.replace(/\s+/g, '-').toLowerCase()}.png`;
+                    link.href = url;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    setTimeout(() => URL.revokeObjectURL(url), 1000);
+                }
             }
         } catch (downloadErr) {
             console.error("Download error:", downloadErr);
@@ -643,6 +687,101 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         // Ensure actions are visible
         if (actions) actions.style.display = 'flex';
     });
+})();
+
+// --- 5. Populate Source Selects ---
+function populateSourceSelects() {
+    const selects = [document.getElementById('tipo_fuente'), document.getElementById('filter-source-type')];
+    if (typeof translations === 'undefined') return;
+    const t = translations[currentLang];
+    if (!t || !t.source_types) return;
+
+    selects.forEach(select => {
+        if (!select) return;
+        const isFilter = select.id === 'filter-source-type';
+        select.innerHTML = '';
+        
+        // Add placeholder/default
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = isFilter ? 'all' : '';
+        defaultOpt.textContent = isFilter ? (t.filter_all || 'Todas') : (t.source_types.placeholder || 'Selecciona...');
+        select.appendChild(defaultOpt);
+
+        // Add other options
+        Object.entries(t.source_types).forEach(([key, label]) => {
+            if (key === 'placeholder') return;
+            const opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = label;
+            select.appendChild(opt);
+        });
+    });
+}
+
+// --- 6. Evidencias Page Logic ---
+async function fetchEvidencias(filterValue = 'all') {
+    const evidenciasList = document.getElementById('evidencias-list');
+    if (!evidenciasList || !db) return;
+    
+    evidenciasList.innerHTML = `<p style="text-align: center; color: var(--text-tertiary); width: 100%;" data-i18n="comm_loading">${translations[currentLang].comm_loading || 'Cargando...'}</p>`;
+
+    try {
+        let query = db.collection('miembros').orderBy('decision_fecha', 'desc');
+        const snapshot = await query.get();
+        
+        evidenciasList.innerHTML = '';
+        const t = translations[currentLang];
+        
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            if (!data.decision_evidencia) return;
+
+            // Filter logic (client side)
+            if (filterValue !== 'all' && data.tipo_fuente !== filterValue) return;
+
+            const card = document.createElement('div');
+            card.className = 'evidence-card reveal';
+            
+            const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente;
+            const date = data.decision_fecha ? data.decision_fecha.toDate().toLocaleDateString() : '';
+
+            card.innerHTML = `
+                <div class="evidence-card-header">
+                    <div class="evidence-card-name">${data.name}</div>
+                    <div class="evidence-card-meta">
+                        <span>${data.city}, ${data.country}</span>
+                        ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
+                        <span>${date}</span>
+                    </div>
+                </div>
+                <div class="evidence-card-body">
+                    <div class="evidence-card-label">${t.card_decision_label || 'Decisión:'}</div>
+                    <div class="evidence-card-decision">${data.decision_evidencia}</div>
+                </div>
+                <div class="evidence-card-footer">
+                    <div class="evidence-card-source">
+                        <span class="evidence-card-source-icon">🔬</span>
+                        <span>${t.card_source_label || 'Fuente:'} ${sourceText}</span>
+                    </div>
+                    ${data.fuente_referencia ? `
+                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref">
+                            ${t.card_ref_label || 'Referencia:'} ${data.fuente_referencia}
+                        </a>
+                    ` : ''}
+                </div>
+            `;
+            evidenciasList.appendChild(card);
+        });
+
+        if (evidenciasList.innerHTML === '') {
+            evidenciasList.innerHTML = `<p style="text-align: center; color: var(--text-tertiary); width: 100%;">No hay evidencias registradas en esta categoría.</p>`;
+        }
+
+    } catch (err) {
+        console.error("Error fetching evidencias:", err);
+        evidenciasList.innerHTML = `<p style="text-align: center; color: var(--text-tertiary); width: 100%;">Error al cargar los datos.</p>`;
+    }
+}
 
     // ── Principles Section Logic (Grid is static) ────────────
 
@@ -684,22 +823,23 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         ctx.fillText('NEOSYS AEON ✨', canvas.width / 2, 120);
         ctx.shadowBlur = 0;
 
+        // Subtitle (Commonly used as the smaller title)
         ctx.font = '700 32px Inter, sans-serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 1)';
         const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
         ctx.fillText(posterTitle, canvas.width / 2, 190);
 
-        // Tagline (Top - below title)
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.font = 'italic 300 24px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 280);
+        // Tagline (Top - now even closer to the title/subtitle)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.font = 'italic 300 22px Inter, sans-serif';
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 225);
 
         // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
-        const startY = 400; // Shifted down for tagline
-        const col1X = 140; // Closer to center
-        const col2X = 640; // Closer to center
-        const spacingY = 190; // Slightly more compact
+        const startY = 340; // Shifted up slightly to fill space
+        const col1X = 155; // Centered columns more effectively
+        const col2X = 615; // Centered columns more effectively
+        const spacingY = 190;
 
         slidesData.forEach((s, i) => {
             const isSecondCol = i >= 5;
@@ -863,7 +1003,6 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             });
         }
     }
-})();
 
 // ── Mandamiento Cards Stagger ─────────────
 (function initMandamientoStagger() {
@@ -1034,4 +1173,13 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     loadCommunity();
     applyLanguage(actLang); 
+    
+    // v2.0 Initializations
+    if (typeof populateSourceSelects === 'function') populateSourceSelects();
+    
+    const filterSelect = document.getElementById('filter-source-type');
+    if (filterSelect) {
+        filterSelect.addEventListener('change', (e) => fetchEvidencias(e.target.value));
+    }
+    if (typeof fetchEvidencias === 'function') fetchEvidencias();
 });

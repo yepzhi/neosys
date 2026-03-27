@@ -5,6 +5,7 @@ const translations = {
         nav_marco: "Manifesto",
         nav_whitepaper: "Whitepaper",
         nav_acercate: "Divulgación",
+        nav_evidencias: "Evidencias",
         nav_comunidad: "Comunidad",
         nav_unete: "Únete",
         nav_privacy: "Aviso de Privacidad",
@@ -22,25 +23,18 @@ const translations = {
         postulado_title_new: "El método científico es la herramienta más poderosa para distinguir lo que funciona de lo que creemos que funciona.",
         postulado_desc_new: "No protege ideas: las somete a prueba. No depende de creencias: depende de evidencia. Por eso es la base del conocimiento que realmente transforma.",
 
-        // Whitepaper Conceptual (El Manifiesto)
-        manifesto_label: "El Manifiesto",
-        manifesto_title: "Entender no es suficiente.<br><span class=\"text-accent\">Debemos construir nuestro futuro.</span>",
-        manifesto_p1: "✨ La ciencia permitió explicar el mundo. La ingeniería permitió transformarlo. La tecnología permitió escalar ese cambio. Sin embargo, la abundancia de información no ha resultado en una mejora proporcional en la comprensión ni en la capacidad de generar progreso.",
-        manifesto_p2: "La comprensión sin aplicación no genera impacto. La acción sin comprensión genera error. Neosys Aeon propone mejorar e integrar ambos.",
-        manifesto_p3: "No es un sistema de creencias. Es un sistema de entendimiento aplicado — <strong>los Principios Fundamentales del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y transformar conocimiento en progreso tangible.",
-
         // 10 Principios Operativos
         mand_label: "Principios Operativos",
         mand_title: "<span class=\"text-magical-purple\">LOS 10 PRINCIPIOS FUNDAMENTALES DEL COSMOS.</span>",
         mand_desc: "Lineamientos para evaluar, construir y aplicar conocimiento de forma coherente con la realidad.",
         poster_download_btn: "Descargar Whitepaper de Principios (HD)",
 
-        m1_title: "I. HONRARÁS LA VERDAD\nPOR ENCIMA DE LA COMODIDAD.",
+        m1_title: "I. HONRARARÁS LA VERDAD\nPOR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
         m2_title: "II. CULTIVARÁS LA\nCURIOSIDAD COMO VIRTUD.",
         m2_body: "Preguntarás antes de afirmar, y explorarás antes de juzgar.",
         m3_title: "III. RECORDARÁS QUE ERES\nPOLVO DE ESTRELLAS.",
-        m3_body: "No por pequeñez, sino por pertenencia: eres universo con conciencia.",
+        m3_body: "Not out of smallness, but of belonging: you are universe with consciousness.",
         m4_title: "IV. DEFENDERÁS LA\nEVIDENCIA COMO BRÚJULA.",
         m4_body: "No por dogma, sino porque es el filtro más confiable que tenemos.",
         m5_title: "V. PRACTICARÁS LA\nHUMILDAD CÓSMICA.",
@@ -59,8 +53,8 @@ const translations = {
         // Únete al Movimiento
         join_label: "Sé Parte",
         join_title: "Únete al Movimiento<br><span class='text-accent'>#NeosysAeon</span>",
-        join_desc: "Sin jerarquías. Sin propiedad. Sin barreras. Si el marco te sirve, úsalo. Si encuentras sus fallas, mejóralo.",
-        join_privacy_note: "Tu nombre, ubicación y red social aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
+        join_desc: "No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia, porta el símbolo ✨. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
+        join_privacy_note: "Tu nombre, ciudad, red social y testimonio aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
         join_badge_title: "Genera tu Gafete.",
         join_badge_desc: "Genera tu gafete, regístrate y comparte.",
         join_badge_phrase1: "Sin ciencia no hay claridad. Sin validación no hay progreso.",
@@ -74,13 +68,50 @@ const translations = {
         badge_phrase2_l1: "Un marco abierto para entender la realidad",
         badge_phrase2_l2: "a través de evidencia verificable.",
         badge_phrase3: "¡Conoce los 10 principios del Cosmos hoy!",
-        join_privacy_check: "He leído y acepto el <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles públicamente.",
+        join_country_default: "Selecciona tu país",
+        join_privacy_check: "He leído y acepto el <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles en Comunidad, y mi decisión en Evidencias.",
         badge_preview_alt: "Vista previa de tu gafete Neosys Aeon",
         back_to_home: "← Volver al Inicio",
         coll_title: "👋 ¿Te gustaría colaborar o mejorar esta iniciativa?",
         coll_desc: "Envíanos tus comentarios, ideas o escribe directo para unirte al esfuerzo de promover el pensamiento basado en evidencia.",
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
+
+        // Form v2.0
+        form_evidence_label: "Gana tu gafete. No se otorga por creer — se otorga por aplicar.",
+        form_evidence_desc: "Neosys Aeon no es un sistema de creencias. Es un marco de acción. Para obtener tu gafete, describe una decisión real que tomaste o cambiaste con base en evidencia — no por intuición ni por lo que ya creías.<br><br>La evidencia válida proviene de fuentes con método científico verificable: papers revisados por pares, revistas científicas, instituciones reconocidas o divulgadores con respaldo metodológico. Una opinión no es evidencia. Un testimonio no es evidencia. Evidencia es información obtenida mediante un proceso sistemático, reproducible y sujeto a revisión.<br><br>Este es el único requisito. Tu respuesta no se evalúa — se documenta.",
+        form_decision_title: "¿Qué decisión tomaste o cambiaste basándote en evidencia?",
+        form_decision_placeholder: "Ejemplo: Cambié mi dieta después de revisar estudios sobre inflamación en PubMed, no por moda. O: Decidí no invertir en X porque los datos de retorno publicados no lo respaldaban.",
+        form_source_type_title: "¿Qué tipo de evidencia utilizaste?",
+        form_source_ref_title: "Referencia o enlace de tu fuente (opcional pero recomendado)",
+        form_source_ref_placeholder: "Nombre del paper, revista, canal o URL",
+        
+        source_types: {
+            placeholder: "Selecciona una fuente...",
+            paper: "Artículo científico / paper revisado por pares",
+            journal: "Revista científica (Nature, Science, Lancet, etc.)",
+            database: "Base de datos científica (PubMed, Scopus, Google Scholar)",
+            channel: "Canal de divulgación con método científico (Kurzgesagt, Veritasium, DW, etc.)",
+            institution: "Institución científica oficial (OMS, NASA, CONACYT, etc.)",
+            book: "Libro académico o técnico con referencias verificables",
+            own: "Estudio propio con datos medibles"
+        },
+
+        // Evidencias Page
+        evidencias_title: "Evidencias",
+        evidencias_subtitle: "Decisiones reales documentadas por la comunidad Neosys Aeon. No testimonios de fe — registros de aplicación.",
+        filter_source_label: "Filtrar por tipo de fuente:",
+        filter_all: "Todas",
+        footer_evidencias_note: "Las respuestas no son evaluadas por Neosys Aeon. Son registros autodeclarados sujetos al criterio del lector. La comunidad es responsable de su propia coherencia.",
+        card_decision_label: "Decisión:",
+        card_source_label: "Fuente utilizada:",
+        card_ref_label: "Referencia:",
+
+        // Comunidad Link
+        comm_view_evidencias_text: "¿Quieres ver las decisiones documentadas por la comunidad?",
+        comm_view_evidencias_btn: "Ver Evidencias →",
+
+        // Problems
         prob_label: "¿POR QUÉ EXISTE?",
         prob_title: "¿Por qué es necesario <br><span class=\"text-accent\">Neosys Aeon?</span>",
         prob1_title: "⚡ 1. Sustitución de evidencia por creencias",
@@ -111,7 +142,7 @@ const translations = {
 
         // Distinción y Alcance
         dist_label: "DISTINCIÓN Y ALCANCE",
-        dist_title: "Qué es Neosys Aeon.<br><span class='text-accent'>Y qué no es.</span>",
+        dist_title: "Qué es Neosys Aeon。<br><span class='text-accent'>Y qué no es.</span>",
         dist_is_header: "✨ Lo que ES",
         dist_is_1: "<strong>Abierto:</strong> no pertenece a ninguna entidad",
         dist_is_2: "<strong>No dogmático:</strong> sus principios pueden ser cuestionados",
@@ -140,205 +171,59 @@ const translations = {
         out_btn_explore: "Explorar Recursos →",
         outreach_categories: [
             {
-                        "id": "sagan",
-                        "title": "🔭 Carl Sagan — El Legado",
-                        "items": [
-                                    {
-                                                "name": "Cosmos: A Personal Voyage",
-                                                "topic": "Serie (1980) / Clásico",
-                                                "icon": "📺"
-                                    },
-                                    {
-                                                "name": "El mundo y sus demonios",
-                                                "topic": "Libro / Pensamiento Crítico",
-                                                "icon": "📖"
-                                    },
-                                    {
-                                                "name": "Cosmos (Libro)",
-                                                "topic": "Libro / Astronomía",
-                                                "icon": "🌌"
-                                    },
-                                    {
-                                                "name": "Contacto",
-                                                "topic": "Novela de Ciencia Ficción",
-                                                "icon": "📡"
-                                    },
-                                    {
-                                                "name": "Los dragones del Edén",
-                                                "topic": "Libro / Evolución",
-                                                "icon": "🐉"
-                                    },
-                                    {
-                                                "name": "El cerebro de Broca",
-                                                "topic": "Ensayos Científicos",
-                                                "icon": "🧠"
-                                    }
-                        ]
+                "id": "sagan",
+                "title": "🔭 Carl Sagan — El Legado",
+                "items": [
+                    { "name": "Cosmos: A Personal Voyage", "topic": "Serie (1980) / Clásico", "icon": "📺" },
+                    { "name": "El mundo y sus demonios", "topic": "Libro / Pensamiento Crítico", "icon": "📖" },
+                    { "name": "Cosmos (Libro)", "topic": "Libro / Astronomía", "icon": "🌌" },
+                    { "name": "Contacto", "topic": "Novela de Ciencia Ficción", "icon": "📡" },
+                    { "name": "Los dragones del Edén", "topic": "Libro / Evolución", "icon": "🐉" },
+                    { "name": "El cerebro de Broca", "topic": "Ensayos Científicos", "icon": "🧠" }
+                ]
             },
             {
-                        "id": "ndt",
-                        "title": "🚀 Neil deGrasse Tyson (NDT)",
-                        "items": [
-                                    {
-                                                "name": "Cosmos: A Spacetime Odyssey",
-                                                "topic": "Serie (2014) / Disney+",
-                                                "icon": "🚀"
-                                    },
-                                    {
-                                                "name": "Cosmos: Possible Worlds",
-                                                "topic": "Serie (2020) / Disney+",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "StarTalk",
-                                                "topic": "Canal de YouTube / NDT",
-                                                "icon": "🎙️"
-                                    }
-                        ]
+                "id": "ndt",
+                "title": "🚀 Neil deGrasse Tyson (NDT)",
+                "items": [
+                    { "name": "Cosmos: A Spacetime Odyssey", "topic": "Serie (2014) / Disney+", "icon": "🚀" },
+                    { "name": "Cosmos: Possible Worlds", "topic": "Serie (2020) / Disney+", "icon": "🪐" },
+                    { "name": "StarTalk", "topic": "Canal de YouTube / NDT", "icon": "🎙️" }
+                ]
             },
             {
-                        "id": "youtube_es",
-                        "title": "📺 YouTube — En Español",
-                        "items": [
-                                    {
-                                                "name": "QuantumFracture",
-                                                "topic": "Física, universo, cuántica",
-                                                "icon": "⚛️"
-                                    },
-                                    {
-                                                "name": "El Robot de Platón",
-                                                "topic": "Ciencia general, astronomía",
-                                                "icon": "🤖"
-                                    },
-                                    {
-                                                "name": "CdeCiencia",
-                                                "topic": "Astronomía, filosofía y ciencia",
-                                                "icon": "🔭"
-                                    },
-                                    {
-                                                "name": "Date un Voltio",
-                                                "topic": "Física, cosmos",
-                                                "icon": "⚡"
-                                    },
-                                    {
-                                                "name": "La Hiperactina",
-                                                "topic": "Biomedicina, salud",
-                                                "icon": "🧬"
-                                    },
-                                    {
-                                                "name": "La Gata de Schrödinger",
-                                                "topic": "Ciencia escéptica",
-                                                "icon": "🐈"
-                                    },
-                                    {
-                                                "name": "Antroporama",
-                                                "topic": "Neurología y Biología",
-                                                "icon": "🧠"
-                                    },
-                                    {
-                                                "name": "Derivando",
-                                                "topic": "Matemáticas",
-                                                "icon": "📐"
-                                    }
-                        ]
+                "id": "youtube_en",
+                "title": "🎬 YouTube — En Inglés",
+                "items": [
+                    { "name": "Veritasium", "topic": "Physics, engineering, experiments", "icon": "🎥" },
+                    { "name": "Kurzgesagt", "topic": "Animated Science / Philosophy", "icon": "🐣" },
+                    { "name": "Vsauce", "topic": "Inquiry and Philosophy", "icon": "❓" },
+                    { "name": "SciShow Space", "topic": "Space & Astronomy", "icon": "🛸" },
+                    { "name": "PBS Space Time", "topic": "Advanced Physics", "icon": "⏰" },
+                    { "name": "SmarterEveryDay", "topic": "Learning & Exploration", "icon": "👷" },
+                    { "name": "Mark Rober", "topic": "Engineering / Experiments", "icon": "🏗️" },
+                    { "name": "3Blue1Brown", "topic": "Visual Mathematics", "icon": "📉" },
+                    { "name": "CrashCourse", "topic": "Complete Science Courses", "icon": "🎓" }
+                ]
             },
             {
-                        "id": "youtube_en",
-                        "title": "🎬 YouTube — En Inglés",
-                        "items": [
-                                    {
-                                                "name": "Veritasium",
-                                                "topic": "Physics, engineering, experiments",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "Kurzgesagt",
-                                                "topic": "Animated Science / Philosophy",
-                                                "icon": "🐣"
-                                    },
-                                    {
-                                                "name": "Vsauce",
-                                                "topic": "Inquiry and Philosophy",
-                                                "icon": "❓"
-                                    },
-                                    {
-                                                "name": "SciShow Space",
-                                                "topic": "Space & Astronomy",
-                                                "icon": "🛸"
-                                    },
-                                    {
-                                                "name": "PBS Space Time",
-                                                "topic": "Advanced Physics",
-                                                "icon": "⏰"
-                                    },
-                                    {
-                                                "name": "SmarterEveryDay",
-                                                "topic": "Learning & Exploration",
-                                                "icon": "👷"
-                                    },
-                                    {
-                                                "name": "Mark Rober",
-                                                "topic": "Engineering / Experiments",
-                                                "icon": "🏗️"
-                                    },
-                                    {
-                                                "name": "3Blue1Brown",
-                                                "topic": "Visual Mathematics",
-                                                "icon": "📉"
-                                    },
-                                    {
-                                                "name": "CrashCourse",
-                                                "topic": "Complete Science Courses",
-                                                "icon": "🎓"
-                                    }
-                        ]
+                "id": "media",
+                "title": "🎞️ Series y Películas",
+                "items": [
+                    { "name": "Cosmos (1980)", "topic": "Carl Sagan", "icon": "🎬" },
+                    { "name": "Cosmos (2014 & 2020)", "topic": "NDT (Disney+)", "icon": "📽️" },
+                    { "name": "Interstellar (2014)", "topic": "Ficción Rigurosa", "icon": "🪐" },
+                    { "name": "Contact (1997)", "topic": "Novela Sagan", "icon": "🎥" },
+                    { "name": "The Elegant Universe", "topic": "Documental / Física", "icon": "🎻" },
+                    { "name": "A Brief History of Time", "topic": "Documental Stephen Hawking", "icon": "⏱️" }
+                ]
             },
             {
-                        "id": "media",
-                        "title": "🎞️ Series y Películas",
-                        "items": [
-                                    {
-                                                "name": "Cosmos (1980)",
-                                                "topic": "Carl Sagan",
-                                                "icon": "🎬"
-                                    },
-                                    {
-                                                "name": "Cosmos (2014 & 2020)",
-                                                "topic": "NDT (Disney+)",
-                                                "icon": "📽️"
-                                    },
-                                    {
-                                                "name": "Interstellar (2014)",
-                                                "topic": "Ficción Rigurosa",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "Contact (1997)",
-                                                "topic": "Novela Sagan",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "The Elegant Universe",
-                                                "topic": "Documental / Física",
-                                                "icon": "🎻"
-                                    },
-                                    {
-                                                "name": "A Brief History of Time",
-                                                "topic": "Documental Stephen Hawking",
-                                                "icon": "⏱️"
-                                    }
-                        ]
-            },
-            {
-                        "id": "books",
-                        "title": "📚 Libros y Lectura Técnica",
-                        "items": [
-                                    {
-                                                "name": "The Bluebook",
-                                                "topic": "Investigación Técnica / STEM",
-                                                "icon": "📘"
-                                    }
-                        ]
+                "id": "books",
+                "title": "📚 Libros y Lectura Técnica",
+                "items": [
+                    { "name": "The Bluebook", "topic": "Investigación Técnica / STEM", "icon": "📘" }
+                ]
             }
         ],
 
@@ -349,6 +234,8 @@ const translations = {
         con_node2: "Programa aplicado",
         con_node3: "Currículo STEM",
         con_btn: "🚀 Conoce JovenesSTEM",
+        con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
+        con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.",
 
         // Sección 8 - Revisión
         rev_label: "Autocrítica y Evolución",
@@ -367,14 +254,13 @@ const translations = {
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.0",
         footer_creator: "Created by yepzhi",
-        con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
-        con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología."
     },
     en: {
         nav_mandamientos: "Principles",
         nav_marco: "Framework",
         nav_whitepaper: "Whitepaper",
         nav_acercate: "Outreach",
+        nav_evidencias: "Testimonials",
         nav_comunidad: "Community",
         nav_unete: "Join",
         nav_privacy: "Privacy Policy",
@@ -385,14 +271,8 @@ const translations = {
         hero_btn_mandamientos: "Cosmos Principles",
         hero_btn_whitepaper: "Read Whitepaper",
         hero_explore: "Explore",
-        postulado_label: "From Philosophy to Science",
-        postulado_title_new: "The scientific method is the most powerful tool for distinguishing what works from what we believe works.",
-        postulado_desc_new: "It doesn't protect ideas: it tests them. It doesn't depend on belief: it depends on evidence.",
-        manifesto_label: "The Manifesto",
-        manifesto_title: "Understanding is not enough.<br><span class=\"text-accent\">We must build our future.</span>",
-        manifesto_p1: "✨ Science allowed us to explain the world. Engineering allowed us to transform it. Technology allowed us to scale that change. However, an abundance of information has not resulted in a proportional improvement in understanding or the capacity to generate progress.",
-        manifesto_p2: "Understanding without application has no impact. Action without understanding generates error. Neosys Aeon proposes improving and integrating both.",
-        manifesto_p3: "It's not a belief system. It's an applied understanding system — <strong>the Fundamental Principles of the Cosmos</strong> — oriented to prioritize truth, validate through evidence, and transform knowledge into tangible progress.",
+
+        // 10 Principles Operativos
         mand_label: "Principles",
         mand_title: "<span class=\"text-magical-purple\">THE 10 FUNDAMENTAL PRINCIPLES OF THE COSMOS.</span>",
         mand_desc: "Guidelines for evaluating, building, and applying knowledge coherently with reality.",
@@ -419,13 +299,15 @@ const translations = {
         m10_title: "X. BE A BUILDER,\nNOT JUST AN OBSERVER.",
         m10_body: "Apply knowledge to generate real impact, improve conditions, and expand future possibilities.",
 
+        // Únete al Movimiento
         join_label: "Be Part",
         join_title: "Join the Movement<br><span class='text-accent'>#NeosysAeon</span>",
-        join_desc: "Adopt the principles, live the coherence. Use the framework, improve it if you find flaws.",
+        join_desc: "No formal affiliation or registration required. Adopt the principles, live the coherence, wear the symbol ✨. If the framework is useful to you, use it. If you find its flaws, improve it.",
+        join_privacy_note: "Your name, city, social network, and testimonial will appear publicly in the Community section. Your email and phone are private.",
         join_badge_title: "Generate your Badge.",
         join_badge_desc: "Generate your badge, register, and share.",
         join_badge_phrase1: "Without science there is no clarity. Without validation there is no progress.",
-        join_badge_phrase2: "An open framework for understanding reality through verifiable evidence.",
+        join_badge_phrase2: "An open framework to understand reality through verifiable evidence.",
         join_btn_copy: "Copy Slogan and Hashtags",
         join_badge_phrase3: "Learn the 10 Principles of the Cosmos today!",
         badge_member: "MEMBER OF THE MOVEMENT",
@@ -435,7 +317,8 @@ const translations = {
         badge_phrase2_l1: "An open framework for understanding reality",
         badge_phrase2_l2: "through verifiable evidence.",
         badge_phrase3: "Learn the 10 Principles of the Cosmos today!",
-        join_privacy_check: "I have read and accept the <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Privacy Policy</a>. I understand that my name, country, and social network will be publicly visible.",
+        join_country_default: "Select your country",
+        join_privacy_check: "I have read and accept the <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Privacy Policy</a>. I understand that my name, country, and social network will be visible in Community, and my decision in Testimonials.",
         badge_preview_alt: "Preview of your Neosys Aeon badge",
         back_to_home: "← Back to Home",
         coll_title: "👋 Would you like to collaborate or improve this initiative?",
@@ -443,22 +326,39 @@ const translations = {
         coll_whatsapp: "💬 WhatsApp",
         coll_yepzhi: "🌐 yepzhi.com",
 
-        // Section 8 - Review
-        rev_label: "Self-Correction & Evolution",
-        rev_title: "A system that <span class='text-accent'>validates itself</span>",
-        rev_desc: "Neosys Aeon is a system designed to be tested, questioned, and continuously improved. Its validity depends on its ability to improve judgment and decision-making in real contexts. If it fails, it must evolve or be replaced. Its value is functional, not symbolic.",
-        rev_mech_label: "System Self-Evaluation Mechanisms",
-        rev_mech1_title: "Integrity Failure",
-        rev_mech1_desc: "If the framework is used to justify decisions rather than evaluate them, it was not applied —it was disguised. The criteria is behavioral: if no decision changed by using it, there was no real application.",
-        rev_mech2_title: "Consistency Failure",
-        rev_mech2_desc: "If two users with the same evidence cannot reduce their disagreement in a structured way, the principles are too general to discard any claim. That is not consensus —it is emptiness.",
-        rev_mech3_title: "Obsolescence Failure",
-        rev_mech3_desc: "If it cannot be demonstrated that its users decide with greater coherence than those who do not use it, or if a future version cannot contradict a previous one, the framework must be replaced. Its value is functional, not symbolic.",
-        rev_governance: "As the community grows, the governance of this system will migrate toward a <strong>scientific evaluation committee</strong> responsible for auditing and updating the principles based on the latest evidence.",
+        // Form v2.0
+        form_evidence_label: "Earn your badge. It is not granted for believing — it is granted for applying.",
+        form_evidence_desc: "Neosys Aeon is not a belief system. It is an action framework. To get your badge, describe a real decision you made or changed based on evidence — not on intuition or what you already believed.<br><br>Valid evidence comes from sources with a verifiable scientific method: peer-reviewed papers, scientific journals, recognized institutions, or science communicators with methodological backing. An opinion is not evidence. A testimonial is not evidence. Evidence is information obtained through a systematic, reproducible, and reviewable process.<br><br>This is the only requirement. Your response is not evaluated — it is documented.",
+        form_decision_title: "What decision did you take or change based on evidence?",
+        form_decision_placeholder: "Example: I changed my diet after reviewing inflammation studies on PubMed, not because of a trend. Or: I decided not to invest in X because the published return data didn't support it.",
+        form_source_type_title: "What kind of evidence did you use?",
+        form_source_ref_title: "Reference or link to your source (optional but recommended)",
+        form_source_ref_placeholder: "Name of paper, journal, channel, or URL",
+        
+        source_types: {
+            placeholder: "Select a source...",
+            paper: "Scientific article / peer-reviewed paper",
+            journal: "Scientific journal (Nature, Science, Lancet, etc.)",
+            database: "Scientific database (PubMed, Scopus, Google Scholar)",
+            channel: "Scientific communication channel (Kurzgesagt, Veritasium, DW, etc.)",
+            institution: "Official scientific institution (WHO, NASA, etc.)",
+            book: "Academic or technical book with verifiable references",
+            own: "Own study with measurable data"
+        },
 
-        footer_quote: "Neosys Aeon is an open framework for the generation, validation and application of knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous review.",
-        footer_copy: "Open Framework. No Owners. No Barriers. v4.7.0",
-        footer_creator: "Created by yepzhi",
+        // Testimonials Page
+        evidencias_title: "Testimonials",
+        evidencias_subtitle: "Real decisions documented by the Neosys Aeon community. Not testimonials of faith — records of application.",
+        filter_source_label: "Filter by source type:",
+        filter_all: "All",
+        footer_evidencias_note: "Responses are not evaluated by Neosys Aeon. They are self-declared records subject to the reader's judgment. The community is responsible for its own coherence.",
+        card_decision_label: "Decision:",
+        card_source_label: "Source used:",
+        card_ref_label: "Reference:",
+
+        // Community Link
+        comm_view_evidencias_text: "Do you want to see the decisions documented by the community?",
+        comm_view_evidencias_btn: "View Testimonials →",
 
         prob_label: "WHY DOES IT EXIST?",
         prob_title: "Why is <br><span class=\"text-accent\">Neosys Aeon</span> necessary?",
@@ -519,169 +419,59 @@ const translations = {
         out_btn_explore: "Explore Resources →",
         outreach_categories: [
             {
-                        "id": "sagan",
-                        "title": "🔭 Carl Sagan — The Legacy",
-                        "items": [
-                                    {
-                                                "name": "Cosmos: A Personal Voyage",
-                                                "topic": "Series (1980) / Classic",
-                                                "icon": "📺"
-                                    },
-                                    {
-                                                "name": "The Demon-Haunted World",
-                                                "topic": "Book / Critical Thinking",
-                                                "icon": "📖"
-                                    },
-                                    {
-                                                "name": "Cosmos (Book)",
-                                                "topic": "Book / Astronomy",
-                                                "icon": "🌌"
-                                    },
-                                    {
-                                                "name": "Contact",
-                                                "topic": "Science Fiction Novel",
-                                                "icon": "📡"
-                                    },
-                                    {
-                                                "name": "The Dragons of Eden",
-                                                "topic": "Book / Evolution",
-                                                "icon": "🐉"
-                                    },
-                                    {
-                                                "name": "Broca's Brain",
-                                                "topic": "Scientific Essays",
-                                                "icon": "🧠"
-                                    }
-                        ]
+                "id": "sagan",
+                "title": "🔭 Carl Sagan — The Legacy",
+                "items": [
+                    { "name": "Cosmos: A Personal Voyage", "topic": "Series (1980) / Classic", "icon": "📺" },
+                    { "name": "The Demon-Haunted World", "topic": "Book / Critical Thinking", "icon": "📖" },
+                    { "name": "Cosmos (Book)", "topic": "Book / Astronomy", "icon": "🌌" },
+                    { "name": "Contact", "topic": "Science Fiction Novel", "icon": "📡" },
+                    { "name": "The Dragons of Eden", "topic": "Book / Evolution", "icon": "🐉" },
+                    { "name": "Broca's Brain", "topic": "Scientific Essays", "icon": "🧠" }
+                ]
             },
             {
-                        "id": "ndt",
-                        "title": "🚀 Neil deGrasse Tyson",
-                        "items": [
-                                    {
-                                                "name": "Cosmos: A Spacetime Odyssey",
-                                                "topic": "Series (2014) / Disney+",
-                                                "icon": "🚀"
-                                    },
-                                    {
-                                                "name": "Cosmos: Possible Worlds",
-                                                "topic": "Series (2020) / Disney+",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "StarTalk",
-                                                "topic": "Podcast / YouTube",
-                                                "icon": "🎙️"
-                                    }
-                        ]
+                "id": "ndt",
+                "title": "🚀 Neil deGrasse Tyson",
+                "items": [
+                    { "name": "Cosmos: A Spacetime Odyssey", "topic": "Series (2014) / Disney+", "icon": "🚀" },
+                    { "name": "Cosmos: Possible Worlds", "topic": "Series (2020) / Disney+", "icon": "🪐" },
+                    { "name": "StarTalk", "topic": "Podcast / YouTube", "icon": "🎙️" }
+                ]
             },
             {
-                        "id": "youtube_en",
-                        "title": "📺 YouTube — Science in English",
-                        "items": [
-                                    {
-                                                "name": "Veritasium",
-                                                "topic": "Physics and Engineering",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "Kurzgesagt",
-                                                "topic": "Animated Science / Philosophy",
-                                                "icon": "🐣"
-                                    },
-                                    {
-                                                "name": "Vsauce",
-                                                "topic": "Inquiry and Philosophy",
-                                                "icon": "❓"
-                                    },
-                                    {
-                                                "name": "SciShow",
-                                                "topic": "General Science",
-                                                "icon": "🧪"
-                                    },
-                                    {
-                                                "name": "SciShow Space",
-                                                "topic": "Space & Astronomy",
-                                                "icon": "🛸"
-                                    },
-                                    {
-                                                "name": "PBS Space Time",
-                                                "topic": "Advanced Physics",
-                                                "icon": "⏰"
-                                    },
-                                    {
-                                                "name": "SmarterEveryDay",
-                                                "topic": "Learning and Exploration",
-                                                "icon": "👷"
-                                    },
-                                    {
-                                                "name": "MinutePhysics",
-                                                "topic": "Physics in Minutes",
-                                                "icon": "⏲️"
-                                    },
-                                    {
-                                                "name": "Mark Rober",
-                                                "topic": "Engineering / Experiments",
-                                                "icon": "🏗️"
-                                    },
-                                    {
-                                                "name": "3Blue1Brown",
-                                                "topic": "Visual Mathematics",
-                                                "icon": "📉"
-                                    },
-                                    {
-                                                "name": "CrashCourse",
-                                                "topic": "Science Courses",
-                                                "icon": "🎓"
-                                    }
-                        ]
+                "id": "youtube_en",
+                "title": "📺 YouTube — Science in English",
+                "items": [
+                    { "name": "Veritasium", "topic": "Physics and Engineering", "icon": "🎥" },
+                    { "name": "Kurzgesagt", "topic": "Animated Science / Philosophy", "icon": "🐣" },
+                    { "name": "Vsauce", "topic": "Inquiry and Philosophy", "icon": "❓" },
+                    { "name": "SciShow Space", "topic": "Space & Astronomy", "icon": "🛸" },
+                    { "name": "PBS Space Time", "topic": "Advanced Physics", "icon": "⏰" },
+                    { "name": "SmarterEveryDay", "topic": "Learning and Exploration", "icon": "👷" },
+                    { "name": "Mark Rober", "topic": "Engineering / Experiments", "icon": "🏗️" },
+                    { "name": "3Blue1Brown", "topic": "Visual Mathematics", "icon": "📉" },
+                    { "name": "CrashCourse", "topic": "Science Courses", "icon": "🎓" }
+                ]
             },
             {
-                        "id": "media",
-                        "title": "🎞️ Science Series & Movies",
-                        "items": [
-                                    {
-                                                "name": "Cosmos (1980)",
-                                                "topic": "Carl Sagan",
-                                                "icon": "🎬"
-                                    },
-                                    {
-                                                "name": "Cosmos (2014 & 2020)",
-                                                "topic": "NDT (Disney+)",
-                                                "icon": "📽️"
-                                    },
-                                    {
-                                                "name": "Interstellar (2014)",
-                                                "topic": "Rigorous Fiction",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "Contact (1997)",
-                                                "topic": "Sagan's Novel",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "The Elegant Universe",
-                                                "topic": "String Theory Doc",
-                                                "icon": "🎻"
-                                    },
-                                    {
-                                                "name": "A Brief History of Time",
-                                                "topic": "Stephen Hawking Doc",
-                                                "icon": "⏱️"
-                                    }
-                        ]
+                "id": "media",
+                "title": "🎞️ Science Series & Movies",
+                "items": [
+                    { "name": "Cosmos (1980)", "topic": "Carl Sagan", "icon": "🎬" },
+                    { "name": "Cosmos (2014 & 2020)", "topic": "NDT (Disney+)", "icon": "📽️" },
+                    { "name": "Interstellar (2014)", "topic": "Rigorous Fiction", "icon": "🪐" },
+                    { "name": "Contact (1997)", "topic": "Sagan's Novel", "icon": "🎥" },
+                    { "name": "The Elegant Universe", "topic": "String Theory Doc", "icon": "🎻" },
+                    { "name": "A Brief History of Time", "topic": "Stephen Hawking Doc", "icon": "⏱️" }
+                ]
             },
             {
-                        "id": "books",
-                        "title": "📚 Books & Reading",
-                        "items": [
-                                    {
-                                                "name": "The Bluebook",
-                                                "topic": "Technical Research / STEM",
-                                                "icon": "📘"
-                                    }
-                        ]
+                "id": "books",
+                "title": "📚 Books & Reading",
+                "items": [
+                    { "name": "The Bluebook", "topic": "Technical Research / STEM", "icon": "📘" }
+                ]
             }
         ],
 
@@ -695,62 +485,133 @@ const translations = {
         con_p1: "The principles of Neosys Aeon — structured curiosity, transmission of knowledge, evidence as a criterion — are exactly the philosophical basis of the <strong>JovenesSTEM</strong> program and its applied curriculum, the <strong>BlueBook</strong>.",
         con_p2: "Where Neosys Aeon proposes the framework of thought, JovenesSTEM applies it to the education of the next generation in science and technology.",
 
-        // Forms & Placeholders
-        join_country_default: "Select your country",
-        join_privacy_note: "Your name, location, and social network will appear publicly in the Community section. Your email and phone are private.",
-        join_placeholder: "Your Name",
-        join_email: "Email Address",
-        join_phone: "Phone Number",
-        join_social: "Social Network / Website",
-        join_city: "City / State",
-        join_btn_share: "Share",
-        join_upload_text: "Upload Photo (Optional)",
-
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
         footer_copy: "Open framework. No owners. No barriers. v4.7.0",
-        footer_creator: "✨ Created by yepzhi"
+        footer_creator: "Created by yepzhi"
     },
     cn: {
-        nav_principles: "原則",
-        nav_entry_test: "入學測試",
-        nav_outreach: "走近科學",
-        nav_community: "社群",
-        hero_label: "NEOSYS AEON · v4.7.0",
-        hero_title: "現代世界的一種 <br><span class='text-accent'>結構化好奇心。</span>",
-        hero_subtitle: "Neosys Aeon 是一個用於知識生成、驗證和應用的開放框架。它致力於通過科學方法提高人類的判斷力。",
-        hero_btn_explore: "探索原則 →",
-        hero_btn_whitepaper: "下載白皮書 (PDF)",
-        pri_label: "基本支柱",
-        pri_title: "宇宙的 <br><span class='text-accent'>12 個原則。</span>",
-        pri_desc: "這不是教條，而是一套用於導航複雜性並根據證據做出決策的工具。",
-        rev_label: "自我修正案例研究",
-        rev_title: "一個 <span class='text-accent'>驗證自身</span> 的系統",
-        rev_desc: "Neosys Aeon 是一個旨在不斷被測試、質疑 and 改進的系統。其有效性取決於其在現實環境中提高判斷力。如果失敗了，它必須進化或被替換。其價值在於功能性，而非象徵性。",
-        rev_mech_label: "系統自評估機制",
-        rev_mech1_title: "誠信失效",
-        rev_mech1_desc: "如果框架被用來為決策辯護而非評估，那它就沒有被應用——它只是被偽裝了。標準在於行為：如果使用後沒有任何決策改變，則沒有真正的應用。",
-        rev_mech2_title: "一致性失效",
-        rev_mech2_desc: "如果兩個擁有相同證據的使用者無法以結構化的方式減少分歧，則這些原則過於籠統，無法排除任何主張。這不是共識——這是空虛。",
-        rev_mech3_title: "過時失效",
-        rev_mech3_desc: "如果無法證明其使用者的決策比不使用者更具一致性，或者如果未來版本無法反駁前一版本，則框架必須被替換。其價值在於功能性，而非象徵性。",
-        rev_governance: "隨著社群的成長，該系統的治理將轉向一個<strong>科學評估委員會</strong>，負責根據最新證據審計 and 更新這些原則。",
-        footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_creator: "Created by yepzhi",
-        footer_copy: "開放框架。無所有者。無障礙。v4.7.0",
+        nav_mandamientos: "原則",
+        nav_marco: "宣言",
+        nav_whitepaper: "白皮書",
+        nav_acercate: "走近科學",
+        nav_evidencias: "證據",
+        nav_comunidad: "社群",
+        nav_unete: "加入",
+        nav_privacy: "隱私政策",
+        comm_loading: "正在加載資料庫...",
+        wp_link: "neosysaeon-whitepaper-v4.1-ZH.pdf",
+
+        // Hero
+        hero_tagline: "無科學，無明晰。無驗證，無進步。",
+        hero_subtitle: "一個通過可驗證證據理解現實的開放框架。",
+        hero_btn_mandamientos: "宇宙原則",
+        hero_btn_whitepaper: "閱讀白皮書",
+        hero_explore: "探索",
+
+        mand_label: "操作原則",
+        mand_title: "<span class=\"text-magical-purple\">宇宙 10 個基本原則。</span>",
+        mand_desc: "評估、構建和應用與現實一致的知識的指南。",
+        poster_download_btn: "下載原則白皮書 (HD)",
+
+        m1_title: "I. 優先考慮真理\n優於舒適。",
+        m1_body: "不要依賴虛假的確定性；尋求真實，即使它令人不適。",
+        m2_title: "II. 培養\n好奇心作為美德。",
+        m2_body: "在斷言之前提問，在判斷之前探索。",
+        m3_title: "III. 記住你就是\n星塵。",
+        m3_body: "不是因為微小，而是因為歸屬：你是宇宙的有意識部分。",
+        m4_title: "IV. 捍衛\n證據作為指南針。",
+        m4_body: "不是作為教條，而是因為它是我們擁有的最可靠的過濾器。",
+        m5_title: "V. 實踐\n宇宙謙遜。",
+        m5_body: "在浩瀚面前，拒絕自負，擁抱驚奇。",
+        m6_title: "VI. 愛護地球作為你\n唯一被證實的家園。",
+        m6_body: "沒有其他鄰近的家園；保護它是理性與責任的行為。",
+        m7_title: "VII. 愛護生命存在之處,\n並尊重它所到之處。",
+        m7_body: "生命的所有形式都值得尊嚴、關注與關懷。",
+        m8_title: "VIII. 不要將\n神秘變成無知。",
+        m8_body: "未知不是魔法；它是理解與研究的邀請。",
+        m9_title: "IX. 傳播\n知識。",
+        m9_body: "學到的內容不應作為權力保留；應作為光亮分享。",
+        m10_title: "X. 不要只做觀察者：\n要做建設者。",
+        m10_body: "應用知識以產生真實影響，改善條件並擴大未來可能性。",
+
+        // Join
+        join_label: "參與其中",
+        join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
+        join_desc: "無須正式隸屬或註冊。採用原則，活出連貫，佩戴標誌 ✨。如果框架對你有用，請使用它。如果發現缺點，請改進它。",
+        join_privacy_note: "您的姓名、城市、社交網絡和證言將公開顯示在社群部分。您的電子郵件和電話是私有的。",
+        join_badge_title: "生成您的徽章。",
+        join_badge_desc: "生成您的徽章，註冊並分享。",
+        join_badge_phrase1: "無科學，無明晰。無驗證，無進步。",
+        join_badge_phrase2: "一個通過可驗證證據理解現實的開放框架。",
+        join_btn_copy: "複製口號和標籤",
+        join_badge_phrase3: "今天就了解宇宙的 10 個原則！",
+        badge_member: "運動成員",
+        badge_name_placeholder: "您的姓名",
+        badge_phrase1_l1: "無科學，無明晰。",
+        badge_phrase1_l2: "無驗證，無進步。",
+        badge_phrase2_l1: "一個用於理解現實的開放框架",
+        badge_phrase2_l2: "通過可驗證的證據。",
+        badge_phrase3: "今天就了解宇宙的 10 個原則！",
+        join_country_default: "選擇您的國家",
+        join_privacy_check: "我已閱讀並接受<a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">隱私政策</a>。我了解我的姓名、國家和社交網絡將公開在社群，而我的決策將在證據頁面可見。",
+        badge_preview_alt: "您的 Neosys Aeon 徽章預覽",
+        back_to_home: "← 返回首頁",
+        coll_title: "👋 您想合作或改進此倡議嗎？",
+        coll_desc: "向我們發送您的評論、想法，或直接寫信加入推廣基於證據思維的努力。",
+        coll_whatsapp: "💬 WhatsApp",
+        coll_yepzhi: "🌐 yepzhi.com",
+
+        // Form v2.0
+        form_evidence_label: "贏取徽章。不因信仰授予 —— 因應用授予。",
+        form_evidence_desc: "Neosys Aeon 不是信仰體系。它是行動框架。要獲得徽章，請描述一個您基於證據而非直覺或既有信念做出或改變的真實決策。<br><br>有效的證據來自具備可驗證科學方法的來源：同行評審論文、科學期刊、公認機構或具備方法論支持的科學傳播者。觀點不代表證據。證言不代表證據。證據是通過系統化、可重複且受審查的過程獲取的資訊。<br><br>這是唯一的要求。您的回答不會被評估 —— 而是被記錄。",
+        form_decision_title: "您根據證據做出或改變了什麼決策？",
+        form_decision_placeholder: "例如：在查閱 PubMed 上關於炎症的研究後，我改變了飲食，而非盲從流行。或者：我決定不投資 X，因為公開的回報數據並不支持它。",
+        form_source_type_title: "您使用了哪種證據？",
+        form_source_ref_title: "來源參考或連結（選填但建議填寫）",
+        form_source_ref_placeholder: "論文名稱、期刊、頻道或 URL",
+        
+        source_types: {
+            placeholder: "選擇來源...",
+            paper: "科學文章 / 同行評審論文",
+            journal: "科學期刊 (Nature, Science, Lancet 等)",
+            database: "科學資料庫 (PubMed, Scopus, Google Scholar)",
+            channel: "具備科學方法的傳播頻道 (Kurzgesagt, Veritasium, DW 等)",
+            institution: "官方科學機構 (WHO, NASA 等)",
+            book: "具備可驗證參考資料的學術或技術書籍",
+            own: "具備可測量數據的個人研究"
+        },
+
+        // Testimonials Page (CN)
+        evidencias_title: "證據",
+        evidencias_subtitle: "Neosys Aeon 社群記錄的真實決策。不是信仰的見證 —— 是應用的記錄。",
+        filter_source_label: "按來源類型篩選：",
+        filter_all: "全部",
+        footer_evidencias_note: "回答未經 Neosys Aeon 評估。均為由讀者自行判斷的自述記錄。社群對其自身連貫性負責。",
+        card_decision_label: "決策：",
+        card_source_label: "使用來源：",
+        card_ref_label: "參考：",
+
+        // Community Link (CN)
+        comm_view_evidencias_text: "您想查看社群記錄的決策嗎？",
+        comm_view_evidencias_btn: "查看證據 →",
+
+        // Problems
         prob_label: "為什麼存在？",
         prob_title: "為什麼需要 <br><span class=\"text-accent\">Neosys Aeon？</span>",
-        prob1_title: "⚡ 1. 用信念取代證據",
-        prob1_body: "思想和判斷是基於信念形成的，沒有求助於源頭的可驗證證據。",
+        prob1_title: "⚡ 1. 以信念取代證據",
+        prob1_body: "思想與判斷是基於信念形成的，未求助於源頭的可驗證證據。",
         prob2_title: "🔬 2. 缺乏系統驗證",
-        prob2_body: "表述在制定後也沒有經過結構化的驗證過程。",
+        prob2_body: "陳述在制定後未經過結構化的驗證過程。",
         prob3_title: "🔗 3. 知識與應用之間的斷裂",
-        prob3_body: "知識沒有轉化為有效的行動或可衡量的結果。",
+        prob3_body: "知識未轉化為有效的行動或可衡量的結果。",
         prob4_title: "📉 4. 知識與價值之間的脫節",
-        prob4_body: "經過驗證的知識沒有整合到決策或價值產生中。",
+        prob4_body: "經過驗證的知識未整合到決策或價值產生中。",
+
+        // STEM Section
         stem_label: "科學、工程與進步",
         stem_title: "科學源於好奇。<br><span class='text-accent'>進步源於科學。</span>",
-        stem_desc: "科學方法是人類創造的最強大工具。單靠知識並不能產生影響。",
+        stem_desc: "科學方法是人類創造的最強大工具。但知識本身不產生影響。",
         stem_s1_title: "科學",
         stem_s1_body: "產生知識",
         stem_s2_title: "工程",
@@ -760,12 +621,14 @@ const translations = {
         stem_s4_title: "經濟",
         stem_s4_body: "擴大產生的價值",
         stem_p1: "沒有測量，就沒有知識。",
-        stem_p2: "沒有實踐，就沒有進步。",
+        stem_p2: "沒有實驗，就沒有進步。",
         stem_p3: "沒有工程，就沒有應用。",
-        stem_p4: "沒有擴展性，就沒有影響。",
-        dist_label: "區分與範圍",
+        stem_p4: "沒有擴充性，就沒有影響。",
+
+        // Distinction
+        dist_label: "區別與範圍",
         dist_title: "什麼是 Neosys Aeon。<br><span class='text-accent'>什麼不是。</span>",
-        dist_is_header: "✨ 它是什麽",
+        dist_is_header: "✨ 它是什麼",
         dist_is_1: "<strong>開放：</strong>不屬於任何實體",
         dist_is_2: "<strong>非教條：</strong>其原則可以被質疑",
         dist_is_3: "<strong>基於證據：</strong>優先考慮經驗驗證",
@@ -777,226 +640,104 @@ const translations = {
         dist_not_2: "它不是 <strong>信仰體系</strong> —— 它不要求未經驗證的接受",
         dist_not_3: "它不是 <strong>組織</strong> —— 它沒有等級制度或中央領導",
         dist_not_4: "它不是 <strong>產品</strong> —— 它沒有商業目的或准入障礙",
-        dist_not_5: "它不 <strong>取代</strong> 科學 —— 它作為解釋 and 應用科學的整合框架",
+        dist_not_5: "它不 <strong>取代</strong> 科學 —— 它作為解釋與應用科學的整合框架",
         dist_quote: "證據不僅解釋世界。它允許改變世界。不建設未來的知識是不完整的。",
+
+        // Whitepaper
         wp_label: "基礎文件",
         wp_title: "白皮書<br><span class=\"text-accent\">Neosys Aeon ✨</span>",
-        wp_desc: "詳細介紹了概念框架、宇宙的 10 個原則、STEM 驗證重點以及系統的開放性。",
+        wp_desc: "詳細介紹了概念框架、宇宙 10 個原則、STEM 驗證重點以及系統的開放性。",
         wp_btn: "下載白皮書 PDF",
+
+        // Outreach
         out_label: "推廣",
         out_title: "走近 <span class='text-accent'>科學</span>",
-        out_desc: "單擊以了解積極推廣科學和科學方法的劇集、書籍 and YouTube 頻道。",
+        out_desc: "單擊以了解積極推廣科學 and 科學方法的劇集、書籍與 YouTube 頻道。",
         out_btn_explore: "探索資源 →",
+        outreach_categories: [
+            {
+                "id": "sagan",
+                "title": "🔭 卡爾·薩根 — 遺產",
+                "items": [
+                    { "name": "Cosmos: A Personal Voyage", "topic": "系列 (1980) / 經典", "icon": "📺" },
+                    { "name": "魔鬼出沒的世界", "topic": "書籍 / 批判性思維", "icon": "📖" },
+                    { "name": "宇宙 (書籍)", "topic": "書籍 / 天文學", "icon": "🌌" },
+                    { "name": "接觸 (Contact)", "topic": "科幻小說", "icon": "📡" },
+                    { "name": "伊甸園的飛龍", "topic": "書籍 / 進化論", "icon": "🐉" },
+                    { "name": "布羅卡的腦", "topic": "科學散文", "icon": "🧠" }
+                ]
+            },
+            {
+                "id": "ndt",
+                "title": "🚀 尼爾·德格拉斯·泰森",
+                "items": [
+                    { "name": "浩瀚宇宙：時空之旅", "topic": "系列 (2014) / Disney+", "icon": "🚀" },
+                    { "name": "浩瀚宇宙：未來世界", "topic": "系列 (2020) / Disney+", "icon": "🪐" },
+                    { "name": "StarTalk", "topic": "播客 / YouTube", "icon": "🎙️" }
+                ]
+            },
+            {
+                "id": "youtube_en",
+                "title": "🎬 YouTube — 英語科學頻道",
+                "items": [
+                    { "name": "Veritasium", "topic": "物理、工程、實驗", "icon": "🎥" },
+                    { "name": "Kurzgesagt", "topic": "科普動畫 / 哲學", "icon": "🐣" },
+                    { "name": "Vsauce", "topic": "探究與哲學", "icon": "❓" },
+                    { "name": "SciShow Space", "topic": "太空與天文學", "icon": "🛸" },
+                    { "name": "PBS Space Time", "topic": "高級物理", "icon": "⏰" },
+                    { "name": "SmarterEveryDay", "topic": "學習與探索", "icon": "👷" },
+                    { "name": "Mark Rober", "topic": "工程 / 實驗", "icon": "🏗️" },
+                    { "name": "3Blue1Brown", "topic": "視覺數學", "icon": "📉" },
+                    { "name": "CrashCourse", "topic": "完整科學課程", "icon": "🎓" }
+                ]
+            },
+            {
+                "id": "media",
+                "title": "🎞️ 系列劇集與電影",
+                "items": [
+                    { "name": "Cosmos (1980)", "topic": "卡爾·薩根", "icon": "🎬" },
+                    { "name": "Cosmos (2014 & 2020)", "topic": "尼爾·德格拉斯·泰森", "icon": "📽️" },
+                    { "name": "星際效應 (2014)", "topic": "嚴謹科幻", "icon": "🪐" },
+                    { "name": "接觸未來 (1997)", "topic": "薩根小說改編", "icon": "🎥" },
+                    { "name": "優雅的宇宙", "topic": "紀錄片 / 物理", "icon": "🎻" },
+                    { "name": "時間簡史", "topic": "斯蒂芬·霍金紀錄片", "icon": "⏱️" }
+                ]
+            },
+            {
+                "id": "books",
+                "title": "📚 書籍與技術閱讀",
+                "items": [
+                    { "name": "The Bluebook", "topic": "技術研究 / STEM", "icon": "📘" }
+                ]
+            }
+        ],
+
+        // Connection
         con_label: "從哲學到行動",
         con_title: "Neosys Aeon 給出 <em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 給出 <em>如何做</em>。</span>",
-        con_p1: "Neosys Aeon 的原則 —— 結構化的好奇心、知識的傳遞、證據作為標準 —— 正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
-        con_p2: "Neosys Aeon 提出了思想框架，JovenesSTEM 將其應用於下一代科學技術教育。",
         con_btn: "🚀 了解 JovenesSTEM",
         con_node1: "哲學框架",
         con_node2: "應用程序",
         con_node3: "STEM 課程",
-        outreach_categories: [
-            {
-                        "id": "sagan",
-                        "title": "🔭 卡爾·薩根 — 遺產",
-                        "items": [
-                                    {
-                                                "name": "Cosmos: A Personal Voyage",
-                                                "topic": "系列 (1980) / 經典",
-                                                "icon": "📺"
-                                    },
-                                    {
-                                                "name": "魔鬼出沒的世界",
-                                                "topic": "書籍 / 批判性思維",
-                                                "icon": "📖"
-                                    },
-                                    {
-                                                "name": "宇宙 (書籍)",
-                                                "topic": "書籍 / 天文學",
-                                                "icon": "🌌"
-                                    },
-                                    {
-                                                "name": "接觸 (Contact)",
-                                                "topic": "科幻小說",
-                                                "icon": "📡"
-                                    },
-                                    {
-                                                "name": "伊甸園的飛龍",
-                                                "topic": "書籍 / 進化論",
-                                                "icon": "🐉"
-                                    },
-                                    {
-                                                "name": "布羅卡的腦",
-                                                "topic": "科學散文",
-                                                "icon": "🧠"
-                                    }
-                        ]
-            },
-            {
-                        "id": "ndt",
-                        "title": "🚀 尼爾·德格拉斯·泰森",
-                        "items": [
-                                    {
-                                                "name": "浩瀚宇宙：時空之旅",
-                                                "topic": "系列 (2014) / Disney+",
-                                                "icon": "🚀"
-                                    },
-                                    {
-                                                "name": "浩瀚宇宙：未來世界",
-                                                "topic": "系列 (2020) / Disney+",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "StarTalk",
-                                                "topic": "播客 / YouTube",
-                                                "icon": "🎙️"
-                                    }
-                        ]
-            },
-            {
-                        "id": "youtube_es",
-                        "title": "📺 YouTube — 西班牙語科學頻道",
-                        "items": [
-                                    {
-                                                "name": "QuantumFracture",
-                                                "topic": "物理、宇宙、量子",
-                                                "icon": "⚛️"
-                                    },
-                                    {
-                                                "name": "El Robot de Platón",
-                                                "topic": "普通科學、天文學",
-                                                "icon": "🤖"
-                                    },
-                                    {
-                                                "name": "CdeCiencia",
-                                                "topic": "天文學、哲學與科學",
-                                                "icon": "🔭"
-                                    },
-                                    {
-                                                "name": "Date un Voltio",
-                                                "topic": "物理、宇宙",
-                                                "icon": "⚡"
-                                    },
-                                    {
-                                                "name": "La Hiperactina",
-                                                "topic": "生物醫學、健康",
-                                                "icon": "🧬"
-                                    },
-                                    {
-                                                "name": "La Gata de Schrödinger",
-                                                "topic": "懷疑論科學",
-                                                "icon": "🐈"
-                                    },
-                                    {
-                                                "name": "Antroporama",
-                                                "topic": "神經科學與生物學",
-                                                "icon": "🧠"
-                                    },
-                                    {
-                                                "name": "Derivando",
-                                                "topic": "數學",
-                                                "icon": "📐"
-                                    }
-                        ]
-            },
-            {
-                        "id": "youtube_en",
-                        "title": "🎬 YouTube — 英語科學頻道",
-                        "items": [
-                                    {
-                                                "name": "Veritasium",
-                                                "topic": "物理、工程、實驗",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "Kurzgesagt",
-                                                "topic": "科普動畫 / 哲學",
-                                                "icon": "🐣"
-                                    },
-                                    {
-                                                "name": "Vsauce",
-                                                "topic": "探究與哲學",
-                                                "icon": "❓"
-                                    },
-                                    {
-                                                "name": "SciShow Space",
-                                                "topic": "太空與天文學",
-                                                "icon": "🛸"
-                                    },
-                                    {
-                                                "name": "PBS Space Time",
-                                                "topic": "高級物理",
-                                                "icon": "⏰"
-                                    },
-                                    {
-                                                "name": "SmarterEveryDay",
-                                                "topic": "學習與探索",
-                                                "icon": "👷"
-                                    },
-                                    {
-                                                "name": "Mark Rober",
-                                                "topic": "工程 / 實驗",
-                                                "icon": "🏗️"
-                                    },
-                                    {
-                                                "name": "3Blue1Brown",
-                                                "topic": "視覺數學",
-                                                "icon": "📉"
-                                    },
-                                    {
-                                                "name": "CrashCourse",
-                                                "topic": "完整科學課程",
-                                                "icon": "🎓"
-                                    }
-                        ]
-            },
-            {
-                        "id": "media",
-                        "title": "🎞️ 系列劇集與電影",
-                        "items": [
-                                    {
-                                                "name": "Cosmos (1980)",
-                                                "topic": "卡爾·薩根",
-                                                "icon": "🎬"
-                                    },
-                                    {
-                                                "name": "Cosmos (2014 & 2020)",
-                                                "topic": "尼爾·德格拉斯·泰森",
-                                                "icon": "📽️"
-                                    },
-                                    {
-                                                "name": "星際效應 (2014)",
-                                                "topic": "嚴謹科幻",
-                                                "icon": "🪐"
-                                    },
-                                    {
-                                                "name": "接觸未來 (1997)",
-                                                "topic": "薩根小說改編",
-                                                "icon": "🎥"
-                                    },
-                                    {
-                                                "name": "優雅的宇宙",
-                                                "topic": "紀錄片 / 物理",
-                                                "icon": "🎻"
-                                    },
-                                    {
-                                                "name": "時間簡史",
-                                                "topic": "斯蒂芬·霍金紀錄片",
-                                                "icon": "⏱️"
-                                    }
-                        ]
-            },
-            {
-                        "id": "books",
-                        "title": "📚 書籍與技術閱讀",
-                        "items": [
-                                    {
-                                                "name": "The Bluebook",
-                                                "topic": "技術研究 / STEM",
-                                                "icon": "📘"
-                                    }
-                        ]
-            }
-        ]
+        con_p1: "Neosys Aeon 的原則 —— 結構化的好奇心、知識的傳遞、證據作為標準 —— 正是 <strong>JovenesSTEM</strong> 計劃及其應用課程 <strong>BlueBook</strong> 的哲學基礎。",
+        con_p2: "Neosys Aeon 提出了思想框架，JovenesSTEM 將其應用於下一代科學技術教育。",
+
+        // Revision
+        rev_label: "自省與進化",
+        rev_title: "一個 <span class='text-accent'>驗證自身</span> 的系統",
+        rev_desc: "Neosys Aeon 是一個旨在不斷被測試、質疑與改進的系統。其有效性取決於它在現實環境中提高判斷力的能力。如果失敗了，它必須進化或被替換。其價值在於功能性，而非象徵性。",
+        rev_mech_label: "系統自評估機制",
+        rev_mech1_title: "誠信失效",
+        rev_mech1_desc: "如果框架被用來為決策辯護而非評估，那它就沒有被應用 —— 它只是被偽裝了。標準在於行為：如果使用後沒有任何決策改變，則沒有真正的應用。",
+        rev_mech2_title: "一致性失效",
+        rev_mech2_desc: "如果兩個擁有相同證據的使用者無法以結構化的方式減少分歧，則這些原則過於籠統。這不是共識 —— 這是空虛。",
+        rev_mech3_title: "過時失效",
+        rev_mech3_desc: "如果無法證明其使用者決策比不使用者更具一致性，或者如果未來版本無法反駁前一版本，則框架必須被替換。其價值在於功能性，而非象徵性。",
+        rev_governance: "隨著社群成長，該系統的治理將轉向一個<strong>科學評估委員會</strong>，負責根據最新證據審計與更新原則。",
+
+        // Footer
+        footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.0",
+        footer_creator: "Created by yepzhi"
     }
 };
