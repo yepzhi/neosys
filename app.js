@@ -827,18 +827,18 @@ async function fetchEvidencias(filterValue = 'all') {
         ctx.font = '700 32px Inter, sans-serif';
         ctx.fillStyle = 'rgba(167, 139, 250, 1)';
         const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
-        ctx.fillText(posterTitle, canvas.width / 2, 190);
+        ctx.fillText(posterTitle, canvas.width / 2, 210);
 
         // Tagline (Top - now even closer to the title/subtitle)
         ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
         ctx.font = 'italic 300 22px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 270);
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 160);
 
         // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
         const startY = 340; // Shifted up slightly to fill space
-        const col1X = 180; // Centered columns more effectively
-        const col2X = 590; // Centered columns more effectively
+        const col1X = 205; // Centered columns more effectively
+        const col2X = 565; // Centered columns more effectively
         const spacingY = 190;
 
         slidesData.forEach((s, i) => {
