@@ -462,7 +462,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.3.2.2
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.4.2.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -575,7 +575,7 @@ function generateCommandmentsPoster() {
     ctx.textAlign = 'left';
     const startY = 380;
     const col1X = 80;
-    const col2X = 660;
+    const col2X = 680;
     const spacingY = 220;
 
     slidesData.forEach((s, i) => {
@@ -606,7 +606,7 @@ function generateCommandmentsPoster() {
         const bodyOffset = titleParts.length > 1 ? 70 : 50;
         ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
         ctx.font = '400 15px Inter, sans-serif';
-        wrapText(ctx, body, x + 100, y + bodyOffset, 420, 22);
+        wrapText(ctx, body, x + 100, y + bodyOffset, 380, 22);
     });
 
     // Footer Tagline
@@ -690,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.1.3) ───────────────────
+    // ── Poster Download Handler (v4.8.1.4) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
