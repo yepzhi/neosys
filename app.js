@@ -819,15 +819,17 @@ async function fetchEvidencias(filterValue = 'all') {
     evidenciasList.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 40px;" data-i18n="comm_loading">Cargando evidencias científicas...</div>`;
 
     try {
-        // Obtenemos miembros que tienen una decisión registrada
-        // Nota: No usamos orderBy directamente aquí para evitar errores de índice faltantes en un despliegue nuevo
-        let query = db.collection('miembros').where('decision_evidencia', '!=', '');
+        // Obtenemos todos los miembros y filtramos en JS para evitar problemas de índices complejos en Firestore
+        let query = db.collection('miembros');
         const snapshot = await query.get();
         
         const t = translations[currentLang] || translations.es;
         const docs = [];
         snapshot.forEach(doc => {
             const data = doc.data();
+            // Solo incluimos los que tienen evidencia registrada
+            if (!data.decision_evidencia || data.decision_evidencia.trim() === '') return;
+            
             // Filtrado adicional por tipo de fuente si no es 'all'
             if (filterValue !== 'all' && data.tipo_fuente !== filterValue) return;
             docs.push({ id: doc.id, ...data });
