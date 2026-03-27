@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.7.5"; 
+const version = "4.8.7.6"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.7.5"; 
+const APP_VERSION = "4.8.7.6"; 
 
 let db = null;
 try {
@@ -415,11 +415,11 @@ function populateSourceSelects() {
 }
 
 function safeToDate(val) {
-    if (!val) return 0;
+    if (!val) return null;
     if (typeof val.toDate === 'function') return val.toDate();
     if (val instanceof Date) return val;
     const d = new Date(val);
-    return isNaN(d.getTime()) ? 0 : d;
+    return isNaN(d.getTime()) ? null : d;
 }
 
 function fetchEvidencias(filterValue = 'all') {
@@ -429,83 +429,87 @@ function fetchEvidencias(filterValue = 'all') {
     console.log(`[Neosys] Fetching evidence (filter: ${filterValue})...`);
     list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">🚀 Analizando base de datos científica...</div>`;
 
-    // Usar onSnapshot para máxima fiabilidad (como en el directorio)
     db.collection('miembros').onSnapshot((snapshot) => {
         const t = translations[currentLang] || translations.es;
         const docs = [];
         
+        console.log(`[Neosys] Snapshot received: ${snapshot.size} total docs.`);
+
         snapshot.forEach(doc => {
             const data = doc.data();
-            // Filtrar solo los que tienen testimonio
             if (!data.decision_evidencia || String(data.decision_evidencia).trim() === '') return;
-            // Filtrar por fuente si no es 'all'
-            if (filterValue !== 'all' && String(data.tipo_fuente).toLowerCase() !== filterValue.toLowerCase()) return;
-            
+            if (filterValue !== 'all' && data.tipo_fuente !== filterValue) return;
             docs.push({ id: doc.id, ...data });
         });
 
-        // Ordenar con seguridad
+        console.log(`[Neosys] Found ${docs.length} valid records.`);
+
         docs.sort((a, b) => {
             const dateA = safeToDate(a.decision_fecha || a.timestamp);
             const dateB = safeToDate(b.decision_fecha || b.timestamp);
-            return (dateB?.getTime ? dateB.getTime() : 0) - (dateA?.getTime ? dateA.getTime() : 0);
+            const timeA = dateA ? dateA.getTime() : 0;
+            const timeB = dateB ? dateB.getTime() : 0;
+            return timeB - timeA;
         });
 
         list.innerHTML = '';
+        
+        // Diagnostic Tag
+        const diag = document.createElement('div');
+        diag.style = "width: 100%; text-align: center; font-size: 0.75rem; color: var(--accent); margin-bottom: 25px; opacity: 0.6; font-family: var(--font-mono);";
+        diag.innerHTML = `[ANALYZED_RECORDS: ${docs.length}]`;
+        list.appendChild(diag);
+
         if (docs.length === 0) {
-            list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">No se encontraron registros científicos para esta categoría.</div>`;
+            list.innerHTML += `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">No se encontraron registros de aplicación para esta categoría.</div>`;
             return;
         }
 
         docs.forEach(data => {
-            const card = document.createElement('div');
-            card.className = 'evidence-card reveal';
-            
-            const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente;
-            const jsDate = safeToDate(data.decision_fecha || data.timestamp);
-            const dateStr = (jsDate && jsDate.toLocaleDateString) ? jsDate.toLocaleDateString() : '';
+            try {
+                const card = document.createElement('div');
+                card.className = 'evidence-card reveal';
+                
+                const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
+                const jsDate = safeToDate(data.decision_fecha || data.timestamp);
+                const dateStr = jsDate ? jsDate.toLocaleDateString() : '';
 
-            card.innerHTML = `
-                <div class="evidence-card-header">
-                    <div class="evidence-card-name">${data.name}</div>
-                    <div class="evidence-card-meta">
-                        <span>${data.city || ''}${data.country ? `, ${data.country}` : ''}</span>
-                        ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
-                        ${dateStr ? `<span>${dateStr}</span>` : ''}
+                card.innerHTML = `
+                    <div class="evidence-card-header">
+                        <div class="evidence-card-name">${data.name || 'Anonymous Researcher'}</div>
+                        <div class="evidence-card-meta">
+                            <span>${data.city || ''}${data.country ? `, ${data.country}` : ''}</span>
+                            ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
+                            ${dateStr ? `<span>${dateStr}</span>` : ''}
+                        </div>
                     </div>
-                </div>
-                <div class="evidence-card-body">
-                    <div class="evidence-card-label">${t.card_decision_label || 'DECI SIÓN:'}</div>
-                    <div class="evidence-card-decision">"${data.decision_evidencia}"</div>
-                </div>
-                <div class="evidence-card-footer">
-                    <div class="evidence-card-source">
-                        <span class="evidence-card-source-icon">🔬</span>
-                        <span>${t.card_source_label || 'FUENTE:'} ${sourceText}</span>
+                    <div class="evidence-card-body">
+                        <div class="evidence-card-label">${t.card_decision_label || 'DECISIÓN:'}</div>
+                        <div class="evidence-card-decision">"${data.decision_evidencia}"</div>
                     </div>
-                    ${data.fuente_referencia ? `
-                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref">
-                            🔗 ${data.fuente_referencia}
-                        </a>
-                    ` : ''}
-                </div>
-            `;
-            list.appendChild(card);
+                    <div class="evidence-card-footer">
+                        <div class="evidence-card-source">
+                            <span class="evidence-card-source-icon">🔬</span>
+                            <span>${t.card_source_label || 'FUENTE:'} ${sourceText}</span>
+                        </div>
+                        ${data.fuente_referencia ? `
+                            <a href="${String(data.fuente_referencia).startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref">
+                                🔗 Ref: ${data.fuente_referencia}
+                            </a>
+                        ` : ''}
+                    </div>
+                `;
+                list.appendChild(card);
+            } catch (err) {
+                console.error("[Neosys] Render error:", err);
+            }
         });
 
-        // REVEAL ANIMATION (Crucial for newly injected DOM)
         if (typeof ScrollReveal !== 'undefined') {
-            console.log("[Neosys] Triggering ScrollReveal on new elements (v4.8.7.5).");
             ScrollReveal().reveal('.reveal', { 
-                origin: 'bottom',
-                distance: '20px',
-                duration: 1000,
-                delay: 200,
-                easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                interval: 100 
+                origin: 'bottom', distance: '20px', duration: 1000, delay: 200, interval: 100 
             });
         } else {
-            console.warn("[Neosys] ScrollReveal not found! Forcing evidence visibility (v4.8.7.5).");
             document.querySelectorAll('.reveal').forEach(el => {
                 el.style.opacity = '1';
                 el.style.visibility = 'visible';
@@ -513,8 +517,8 @@ function fetchEvidencias(filterValue = 'all') {
             });
         }
     }, (err) => {
-        console.error("[Neosys] Access Error (v4.8.7.5):", err);
-        list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">Error al conectar con la base de datos científica. Revisa tu conexión.</div>`;
+        console.error("[Neosys] DB Error:", err);
+        list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); padding: 60px;">Error de conexión con la base de datos.</div>`;
     });
 }
 
