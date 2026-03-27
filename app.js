@@ -594,8 +594,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     if (decisionInput && charCountDisplay) {
         decisionInput.addEventListener('input', () => {
             const count = decisionInput.value.length;
-            charCountDisplay.textContent = `${count} / 30 min`;
-            if (count >= 30) {
+            charCountDisplay.textContent = `${count} / 350 max`;
+            if (count >= 10 && count <= 350) {
                 charCountDisplay.classList.add('valid');
             } else {
                 charCountDisplay.classList.remove('valid');
@@ -624,8 +624,12 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             alert(currentLang === 'es' ? 'Sube tu foto para generar el gafete.' : 'Upload your photo to generate the badge.');
             return;
         }
-        if (decisionVal.length < 30) {
-            alert(currentLang === 'es' ? 'Describe tu decisión. Mínimo 30 caracteres.' : 'Describe your decision. Minimum 30 characters.');
+        if (decisionVal.length < 10) {
+            alert(currentLang === 'es' ? 'Describe tu decisión. Mínimo 10 caracteres.' : 'Describe your decision. Minimum 10 characters.');
+            return;
+        }
+        if (decisionVal.length > 350) {
+            alert(currentLang === 'es' ? 'Tu decisión es muy larga. Máximo 350 caracteres.' : 'Your decision is too long. Maximum 350 characters.');
             return;
         }
         if (!sourceVal) {
