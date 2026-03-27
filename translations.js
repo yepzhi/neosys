@@ -373,15 +373,16 @@ const translations = {
 
         // Sección 8 - Revisión
         rev_label: "Autocrítica y Evolución",
-        rev_title: "Un sistema que se valida a sí mismo",
-        rev_desc: "Neosys Aeon es un sistema diseñado para ser probado, cuestionado y mejorado continuamente.<br><br>Su validez depende de su capacidad para mejorar el juicio y la toma de decisiones en contextos reales.<br><br>Si no lo logra, debe evolucionar o ser reemplazado. Su valor es funcional, no simbólico.",
-        rev_mech_label: "Mecanismos de Autoevaluación",
+        rev_title: "Un sistema que se <span class='text-accent'>valida a sí mismo</span>",
+        rev_desc: "Neosys Aeon es un sistema diseñado para ser probado, cuestionado y mejorado continuamente. Su validez depende de su capacidad para mejorar el juicio y la toma de decisiones en contextos reales. Si no lo logra, debe evolucionar o ser reemplazado. Su valor es funcional, no simbólico.",
+        rev_mech_label: "Posibles Fallos y Mecanismos de Autoevaluación",
         rev_mech1_title: "Fallo de Integridad",
         rev_mech1_desc: "El sistema se utiliza para justificar decisiones ya tomadas en lugar de evaluarlas. Se prioriza la coherencia interna sobre la evidencia externa.",
         rev_mech2_title: "Fallo de Consistencia",
         rev_mech2_desc: "Ante la misma evidencia, distintos usuarios llegan a conclusiones incompatibles. El sistema no está generando criterios claros ni reproducibles.",
         rev_mech3_title: "Fallo de Aplicación",
         rev_mech3_desc: "El conocimiento generado no se traduce en decisiones accionables ni en resultados medibles. Existe desconexión entre análisis y ejecución.",
+        rev_governance: "A medida que la comunidad crezca, la gobernanza de este sistema migrará hacia un <strong>comité evaluador científico</strong> encargado de auditar y actualizar los principios basados en la evidencia más reciente.",
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
@@ -465,15 +466,16 @@ const translations = {
 
         // Section 8 - Review
         rev_label: "Self-Correction & Evolution",
-        rev_title: "A Self-Validating System",
-        rev_desc: "Neosys Aeon is a system designed to be tested, questioned, and continuously improved.<br><br>Its validity depends on its ability to improve judgment and decision-making in real contexts.<br><br>If it fails, it must evolve or be replaced. Its value is functional, not symbolic.",
-        rev_mech_label: "Self-Evaluation Mechanisms",
+        rev_title: "A system that <span class='text-accent'>validates itself</span>",
+        rev_desc: "Neosys Aeon is a system designed to be tested, questioned, and continuously improved. Its validity depends on its ability to improve judgment and decision-making in real contexts. If it fails, it must evolve or be replaced. Its value is functional, not symbolic.",
+        rev_mech_label: "Potential Failures and Self-Evaluation Mechanisms",
         rev_mech1_title: "Integrity Failure",
         rev_mech1_desc: "The system is used to justify decisions already made instead of evaluating them. Internal coherence is prioritized over external evidence.",
         rev_mech2_title: "Consistency Failure",
         rev_mech2_desc: "Faced with the same evidence, different users arrive at incompatible conclusions. The system is not generating clear or reproducible criteria.",
         rev_mech3_title: "Application Failure",
         rev_mech3_desc: "The knowledge generated does not translate into actionable decisions or measurable results. There is a disconnection between analysis and execution.",
+        rev_governance: "As the community grows, the governance of this system will migrate toward a <strong>scientific evaluation committee</strong> responsible for auditing and updating the principles based on the latest evidence.",
 
         footer_quote: "Neosys Aeon is an open framework for the generation, validation and application of knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous review.",
         footer_copy: "Open Framework. No Owners. No Barriers. v4.7.0",
@@ -831,15 +833,16 @@ const translations = {
 
         // Section 8 - Review
         rev_label: "自我批判與演進",
-        rev_title: "一個自我驗證的系統",
-        rev_desc: "新系永恆是一個旨在被測試、質疑和持續改進的系統。<br><br>其有效性取決於其在現實環境中改善判斷和決策的能力。<br><br>如果失敗，它必須演進或被替換。其價值在於功能性，而非象徵性。",
-        rev_mech_label: "自我評估機制",
+        rev_title: "一個<span class='text-accent'>自我驗證</span>的系統",
+        rev_desc: "新系永恆是一個旨在被測試、質疑和持續改進的系統。其有效性取決於其在現實環境中改善判斷和決策的能力。如果失敗，它必須演進或被替換。其價值在於功能性，而非象徵性。",
+        rev_mech_label: "潛在失效與自我評估機制",
         rev_mech1_title: "誠信失效",
         rev_mech1_desc: "系統被用來為既定決策辯護而非對其進行評估。內部連貫性被置於外部證據之上。",
         rev_mech2_title: "一致性失效",
         rev_mech2_desc: "面對相同證據，不同使用者得出不相容的結論。系統未能產生清晰或可重複的標準。",
         rev_mech3_title: "應用失效",
         rev_mech3_desc: "產生的知識未能轉化為可操作的決策或可衡量的結果。分析與執行之間存在脫節。",
+        rev_governance: "隨著社群的成長，該系統的治理將轉向一個<strong>科學評估委員會</strong>，負責根據最新證據審計和更新這些原則。",
         footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
         footer_creator: "Created by yepzhi",
         footer_copy: "開放框架。無所有者。無障礙。v4.7.0",
