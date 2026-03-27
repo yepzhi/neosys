@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neosys Aeon — Admin Dashboard ✨</title>
+    <link rel="stylesheet" href="styles.css?v=4.7.4">
+    <style>
+        body { padding-top: 100px; }
+        .admin-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stat-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; text-align: center; }
+        .stat-card h3 { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; margin-bottom: 5px; }
+        .stat-card span { font-size: 2rem; font-weight: 800; }
+        
+        .data-table-container { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { background: rgba(255,255,255,0.05); text-align: left; padding: 15px; color: var(--accent); }
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        tr:hover { background: rgba(255,255,255,0.02); }
+        
+        .badge-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #222; }
+    </style>
+    <script>window.NEOSYS_SITE_ID = "neosys";</script>
+</head>
+<body class="admin-page">
+    <canvas id="particle-canvas"></canvas>
+    
+    <nav id="main-nav">
+        <a href="index.html" class="nav-logo">✨ <span>Neosys Aeon</span></a>
+        <div class="nav-links">
+            <a href="community.html">Back to Community</a>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="reveal">
+            <h1 class="section-title">Admin Dashboard</h1>
+            <p class="section-desc">Internal view of the Neosys membership database.</p>
+        </div>
+
+        <div class="stat-grid reveal">
+            <div class="stat-card">
+                <h3>Total Members</h3>
+                <span id="stat-total">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>Regions</h3>
+                <span id="stat-regions">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>Last 24h</h3>
+                <span id="stat-recent">0</span>
+            </div>
+        </div>
+
+        <div class="data-table-container reveal">
+            <table id="admin-table">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Location</th>
+                        <th>Email / Social</th>
+                        <th>Testimony / Decision</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-tbody">
+                    <!-- Data will be injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script src="translations.js?v=4.7.4"></script>
+    <script src="admin.js?v=4.7.4"></script>
+    <script src="https://yepzhi.com/visitors/tracker.js"></script>
+</body>
+</html>

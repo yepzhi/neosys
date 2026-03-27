@@ -35,6 +35,7 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
     <link rel="stylesheet" href="styles.css?v=4.7.4">
+    <script>window.NEOSYS_SITE_ID = "neosys";</script>
 </head>
 
 <body class="join-page">
@@ -101,10 +102,11 @@
                         <input type="text" id="badge-city" data-i18n-placeholder="join_city" placeholder="Ciudad (ej. Monterrey)" required maxlength="50">
                         <select id="badge-country" required>
                             <option value="" data-i18n="join_country_default">Selecciona tu país</option>
-                            <option value="MX"><span aria-hidden="true">🇲🇽</span> México</option>
-                            <option value="US"><span aria-hidden="true">🇺🇸</span> Estados Unidos</option>
-                            <!-- Rest of countries will be populated or handled by select if needed -->
+                            <option value="MX">🇲🇽 México</option>
+                            <option value="US">🇺🇸 Estados Unidos</option>
+                            <!-- Other countries could be added here -->
                         </select>
+                        <select id="badge-state" style="display: none; margin-top: 10px;"></select>
 
                         <div class="form-group reveal" style="margin-top: 20px; text-align: left;">
                             <label for="decision_evidencia" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary); font-size: 0.9rem;" data-i18n="form_decision_title">¿Qué decisión tomaste o cambiaste basándote en evidencia?</label>
@@ -207,6 +209,7 @@
 
     <script src="translations.js?v=4.7.4"></script>
     <script src="app.js?v=4.7.4"></script>
+    <script src="https://yepzhi.com/visitors/tracker.js"></script>
 </body>
 
 </html>

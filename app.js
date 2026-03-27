@@ -635,6 +635,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const socialInput = document.getElementById('badge-social');
         const cityInput = document.getElementById('badge-city');
         const countryInput = document.getElementById('badge-country');
+        const stateSelect = document.getElementById('badge-state');
         const sourceInput = document.getElementById('tipo_fuente');
         const refInput = document.getElementById('fuente_referencia');
         
@@ -645,6 +646,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             social: socialInput ? socialInput.value.trim() : '',
             city: cityInput ? cityInput.value.trim() : '',
             country: countryInput ? countryInput.value : '',
+            state: stateSelect ? stateSelect.value : '',
             decision_evidencia: decisionVal,
             tipo_fuente: sourceInput ? sourceInput.value : '',
             fuente_referencia: refInput ? refInput.value.trim() : '',
