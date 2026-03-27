@@ -374,6 +374,7 @@ function drawBadge() {
     const w = targetW;
     const h = targetH;
     const t = translations[currentLang] || translations.es;
+    console.log("Neosys: Rendering badge in " + currentLang);
 
     // --- 1. Background (Deep Space Premium + Pulse Sparkles) ---
     const grad = ctx.createLinearGradient(0, 0, 0, h);
