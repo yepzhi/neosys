@@ -816,26 +816,29 @@ async function fetchEvidencias(filterValue = 'all') {
     const evidenciasList = document.getElementById('evidencias-list');
     if (!evidenciasList || !db) return;
     
-    evidenciasList.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 40px;" data-i18n="comm_loading">Cargando evidencias científicas...</div>`;
+    console.log(`[Neosys] Fetching evidence (filter: ${filterValue})...`);
+    evidenciasList.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;" data-i18n="comm_loading">Analizando base de datos científica...</div>`;
 
     try {
-        // Obtenemos todos los miembros y filtramos en JS para evitar problemas de índices complejos en Firestore
-        let query = db.collection('miembros');
-        const snapshot = await query.get();
+        const snapshot = await db.collection('miembros').get();
+        console.log(`[Neosys] Loaded ${snapshot.size} members from Firestore.`);
         
         const t = translations[currentLang] || translations.es;
         const docs = [];
         snapshot.forEach(doc => {
             const data = doc.data();
-            // Solo incluimos los que tienen evidencia registrada
-            if (!data.decision_evidencia || data.decision_evidencia.trim() === '') return;
+            // Filter: must have evidence text
+            if (!data.decision_evidencia || String(data.decision_evidencia).trim() === '') return;
             
-            // Filtrado adicional por tipo de fuente si no es 'all'
-            if (filterValue !== 'all' && data.tipo_fuente !== filterValue) return;
+            // Filter: by source type
+            if (filterValue !== 'all' && String(data.tipo_fuente).toLowerCase() !== filterValue.toLowerCase()) return;
+            
             docs.push({ id: doc.id, ...data });
         });
 
-        // Ordenar en memoria por fecha (descendente)
+        console.log(`[Neosys] Found ${docs.length} valid evidence cases matched.`);
+
+        // Sort by date DESC
         docs.sort((a, b) => {
             const dateA = a.decision_fecha ? a.decision_fecha.toDate() : (a.timestamp ? a.timestamp.toDate() : 0);
             const dateB = b.decision_fecha ? b.decision_fecha.toDate() : (b.timestamp ? b.timestamp.toDate() : 0);
@@ -844,6 +847,11 @@ async function fetchEvidencias(filterValue = 'all') {
 
         evidenciasList.innerHTML = '';
         
+        if (docs.length === 0) {
+            evidenciasList.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">No se encontraron registros para esta categoría aún.</div>`;
+            return;
+        }
+
         docs.forEach(data => {
             const card = document.createElement('div');
             card.className = 'evidence-card reveal';
@@ -854,24 +862,24 @@ async function fetchEvidencias(filterValue = 'all') {
 
             card.innerHTML = `
                 <div class="evidence-card-header">
-                    <div class="evidence-card-name" style="color: var(--accent); font-size: 1.3rem; margin-bottom: 5px;">${data.name}</div>
-                    <div class="evidence-card-meta">
+                    <div class="evidence-card-name" style="color: var(--accent); font-size: 1.35rem; margin-bottom: 5px; font-weight: 800;">${data.name}</div>
+                    <div class="evidence-card-meta" style="display: flex; gap: 10px; font-size: 0.8rem; color: var(--text-tertiary);">
                         <span>${data.city || ''}${data.country ? `, ${data.country}` : ''}</span>
-                        ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
+                        ${data.social ? `<span class="evidence-card-social" style="color: var(--accent); font-family: monospace;">${data.social}</span>` : ''}
                         <span>${dateStr}</span>
                     </div>
                 </div>
-                <div class="evidence-card-body" style="margin-top: 15px;">
-                    <div class="evidence-card-label" style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">${t.card_decision_label || 'Decisión tomada:'}</div>
-                    <div class="evidence-card-decision" style="font-size: 1rem; line-height: 1.6; color: var(--text-primary); font-style: italic; border-left: 3px solid var(--accent); padding-left: 15px;">${data.decision_evidencia}</div>
+                <div class="evidence-card-body" style="margin-top: 20px;">
+                    <div class="evidence-card-label" style="font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px;">Enfoque científico / Decisión:</div>
+                    <div class="evidence-card-decision" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-primary); font-style: italic; border-left: 3px solid var(--accent); padding-left: 15px;">"${data.decision_evidencia}"</div>
                 </div>
-                <div class="evidence-card-footer" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05);">
+                <div class="evidence-card-footer" style="margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 10px;">
                     <div class="evidence-card-source" style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
                         <span>🔬 ${t.card_source_label || 'Fuente:'} ${sourceText}</span>
                     </div>
                     ${data.fuente_referencia ? `
-                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref" style="display: block; margin-top: 10px; font-size: 0.8rem; color: var(--accent); text-decoration: underline; opacity: 0.8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                            ${t.card_ref_label || 'Referencia:'} ${data.fuente_referencia}
+                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref" style="font-size: 0.8rem; color: var(--accent); text-decoration: underline; opacity: 0.8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            📦 ${t.card_ref_label || 'Referencia:'} ${data.fuente_referencia}
                         </a>
                     ` : ''}
                 </div>
@@ -879,13 +887,13 @@ async function fetchEvidencias(filterValue = 'all') {
             evidenciasList.appendChild(card);
         });
 
-        if (docs.length === 0) {
-            evidenciasList.innerHTML = `<p style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 40px;">No hay evidencias registradas en esta categoría aún.</p>`;
+        if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('.reveal', { interval: 100 });
         }
 
     } catch (err) {
         console.error("Error fetching evidencias:", err);
-        evidenciasList.innerHTML = `<p style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 40px;">No se pudieron cargar las evidencias. Verifica tu conexión o intenta más tarde.</p>`;
+        evidenciasList.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">Error al cargar datos científicos. Revisa tu conexión.</div>`;
     }
 }
 
