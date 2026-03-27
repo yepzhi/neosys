@@ -198,11 +198,11 @@ function applyLanguage(lang) {
 
     document.querySelectorAll('.wp-link-dynamic').forEach(link => {
         if (lang === 'en') {
-            link.href = 'neosysaeon-whitepaper-v4.1-EN.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.2-EN.pdf';
         } else if (lang === 'cn') {
-            link.href = 'neosysaeon-whitepaper-v4.1-ZH.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.2-ZH.pdf';
         } else {
-            link.href = 'neosysaeon-whitepaper-v4.1.pdf';
+            link.href = 'neosysaeon-whitepaper-v4.2-ES.pdf';
         }
     });
 
