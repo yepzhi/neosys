@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.7.4"; 
+const version = "4.8.7.5"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.7.4"; 
+const APP_VERSION = "4.8.7.5"; 
 
 let db = null;
 try {
@@ -467,21 +467,26 @@ function fetchEvidencias(filterValue = 'all') {
 
             card.innerHTML = `
                 <div class="evidence-card-header">
-                    <div class="evidence-card-name" style="color: var(--accent); font-size: 1.35rem; font-weight: 800; margin-bottom: 5px;">${data.name}</div>
-                    <div style="font-size: 0.8rem; color: var(--text-tertiary);">
-                        ${data.city || ''}${data.country ? `, ${data.country}` : ''}
-                        ${dateStr ? `<span style="margin-left: 10px; opacity: 0.5;">${dateStr}</span>` : ''}
+                    <div class="evidence-card-name">${data.name}</div>
+                    <div class="evidence-card-meta">
+                        <span>${data.city || ''}${data.country ? `, ${data.country}` : ''}</span>
+                        ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
+                        ${dateStr ? `<span>${dateStr}</span>` : ''}
                     </div>
                 </div>
-                <div class="evidence-card-body" style="margin-top: 20px;">
-                    <div style="font-size: 1.05rem; line-height: 1.6; color: var(--text-primary); border-left: 3px solid var(--accent); padding-left: 15px; font-style: italic;">
-                        "${data.decision_evidencia}"
-                    </div>
+                <div class="evidence-card-body">
+                    <div class="evidence-card-label">${t.card_decision_label || 'DECI SIÓN:'}</div>
+                    <div class="evidence-card-decision">"${data.decision_evidencia}"</div>
                 </div>
-                <div class="evidence-card-footer" style="margin-top: 20px; font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
-                    <span>🔬 ${t.card_source_label || 'Fuente:'} ${sourceText}</span>
+                <div class="evidence-card-footer">
+                    <div class="evidence-card-source">
+                        <span class="evidence-card-source-icon">🔬</span>
+                        <span>${t.card_source_label || 'FUENTE:'} ${sourceText}</span>
+                    </div>
                     ${data.fuente_referencia ? `
-                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" style="color: var(--accent); text-decoration: underline; opacity: 0.7; font-size: 0.8rem; margin-left: auto;">📦 Ref</a>
+                        <a href="${data.fuente_referencia.startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref">
+                            🔗 ${data.fuente_referencia}
+                        </a>
                     ` : ''}
                 </div>
             `;
@@ -490,7 +495,7 @@ function fetchEvidencias(filterValue = 'all') {
 
         // REVEAL ANIMATION (Crucial for newly injected DOM)
         if (typeof ScrollReveal !== 'undefined') {
-            console.log("[Neosys] Triggering ScrollReveal on new elements (v4.8.7.4).");
+            console.log("[Neosys] Triggering ScrollReveal on new elements (v4.8.7.5).");
             ScrollReveal().reveal('.reveal', { 
                 origin: 'bottom',
                 distance: '20px',
@@ -500,7 +505,7 @@ function fetchEvidencias(filterValue = 'all') {
                 interval: 100 
             });
         } else {
-            console.warn("[Neosys] ScrollReveal not found! Forcing evidence visibility (v4.8.7.4).");
+            console.warn("[Neosys] ScrollReveal not found! Forcing evidence visibility (v4.8.7.5).");
             document.querySelectorAll('.reveal').forEach(el => {
                 el.style.opacity = '1';
                 el.style.visibility = 'visible';
@@ -508,7 +513,7 @@ function fetchEvidencias(filterValue = 'all') {
             });
         }
     }, (err) => {
-        console.error("[Neosys] Access Error (v4.8.7.4):", err);
+        console.error("[Neosys] Access Error (v4.8.7.5):", err);
         list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">Error al conectar con la base de datos científica. Revisa tu conexión.</div>`;
     });
 }
