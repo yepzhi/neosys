@@ -210,11 +210,8 @@ function applyLanguage(lang) {
             grid.className = 'outreach-grid-items';
             
             cat.items.forEach(c => {
-                const card = document.createElement('a');
+                const card = document.createElement('div');
                 card.className = 'outreach-card reveal';
-                card.href = c.link;
-                card.target = '_blank';
-                card.rel = 'noopener noreferrer';
                 card.innerHTML = `
                     <div class="outreach-icon">${c.icon}</div>
                     <div class="outreach-name">${c.name}</div>
@@ -692,12 +689,17 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
         ctx.fillText(posterTitle, canvas.width / 2, 190);
 
+        // Tagline (Top - below title)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.font = 'italic 300 24px Inter, sans-serif';
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 280);
+
         // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
-        const startY = 320;
-        const col1X = 60;
-        const col2X = 640;
-        const spacingY = 205; // Increased for more breathing room
+        const startY = 400; // Shifted down for tagline
+        const col1X = 140; // Closer to center
+        const col2X = 640; // Closer to center
+        const spacingY = 190; // Slightly more compact
 
         slidesData.forEach((s, i) => {
             const isSecondCol = i >= 5;
@@ -728,12 +730,6 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             ctx.font = '400 14px Inter, sans-serif'; 
             wrapText(ctx, body, x + 90, y + bodyOffset, 430, 20); 
         });
-
-        // Final Quote
-        ctx.textAlign = 'center';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.font = 'italic 300 24px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 180);
 
         // Footer
         ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';

@@ -146,37 +146,31 @@ const translations = {
                                     {
                                                 "name": "Cosmos: A Personal Voyage",
                                                 "topic": "Serie (1980) / Clásico",
-                                                "link": "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan",
                                                 "icon": "📺"
                                     },
                                     {
                                                 "name": "El mundo y sus demonios",
                                                 "topic": "Libro / Pensamiento Crítico",
-                                                "link": "https://www.amazon.com.mx/mundo-sus-demonios-ciencia-oscuridad/dp/8466336332",
                                                 "icon": "📖"
                                     },
                                     {
                                                 "name": "Cosmos (Libro)",
                                                 "topic": "Libro / Astronomía",
-                                                "link": "https://www.amazon.com.mx/Cosmos-Carl-Sagan/dp/8408053073",
                                                 "icon": "🌌"
                                     },
                                     {
                                                 "name": "Contacto",
                                                 "topic": "Novela de Ciencia Ficción",
-                                                "link": "https://www.buscalibre.com.mx/libro-contacto/9788497592963/p/1031356",
                                                 "icon": "📡"
                                     },
                                     {
                                                 "name": "Los dragones del Edén",
                                                 "topic": "Libro / Evolución",
-                                                "link": "https://www.casadellibro.com/libro-los-dragones-del-eden-especulaciones-sobre-la-evolucion-de-la-inteligencia-humana/9788484323631/850125",
                                                 "icon": "🐉"
                                     },
                                     {
                                                 "name": "El cerebro de Broca",
                                                 "topic": "Ensayos Científicos",
-                                                "link": "https://www.amazon.com.mx/cerebro-Broca-reflexiones-sobre-ciencia/dp/8408053189",
                                                 "icon": "🧠"
                                     }
                         ]
@@ -188,19 +182,16 @@ const translations = {
                                     {
                                                 "name": "Cosmos: A Spacetime Odyssey",
                                                 "topic": "Serie (2014) / Disney+",
-                                                "link": "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ",
                                                 "icon": "🚀"
                                     },
                                     {
                                                 "name": "Cosmos: Possible Worlds",
                                                 "topic": "Serie (2020) / Disney+",
-                                                "link": "https://www.disneyplus.com/series/cosmos-possible-worlds/4UPg97O5lI9V",
                                                 "icon": "🪐"
                                     },
                                     {
                                                 "name": "StarTalk",
                                                 "topic": "Canal de YouTube / NDT",
-                                                "link": "https://www.youtube.com/@StarTalk",
                                                 "icon": "🎙️"
                                     }
                         ]
@@ -212,49 +203,41 @@ const translations = {
                                     {
                                                 "name": "QuantumFracture",
                                                 "topic": "Física, universo, cuántica",
-                                                "link": "https://www.youtube.com/@QuantumFracture",
                                                 "icon": "⚛️"
                                     },
                                     {
                                                 "name": "El Robot de Platón",
                                                 "topic": "Ciencia general, astronomía",
-                                                "link": "https://www.youtube.com/@ElRobotdePlaton",
                                                 "icon": "🤖"
                                     },
                                     {
                                                 "name": "CdeCiencia",
                                                 "topic": "Astronomía, filosofía y ciencia",
-                                                "link": "https://www.youtube.com/@CdeCiencia",
                                                 "icon": "🔭"
                                     },
                                     {
                                                 "name": "Date un Voltio",
                                                 "topic": "Física, cosmos",
-                                                "link": "https://www.youtube.com/@DateUnVoltio",
                                                 "icon": "⚡"
                                     },
                                     {
                                                 "name": "La Hiperactina",
                                                 "topic": "Biomedicina, salud",
-                                                "link": "https://www.youtube.com/@LaHiperactina",
                                                 "icon": "🧬"
                                     },
                                     {
                                                 "name": "La Gata de Schrödinger",
                                                 "topic": "Ciencia escéptica",
-                                                "link": "https://www.youtube.com/@LaGatadeSchrodinger",
                                                 "icon": "🐈"
                                     },
                                     {
                                                 "name": "Antroporama",
                                                 "topic": "Neurología y Biología",
-                                                "link": "https://www.youtube.com/@Antroporama",
                                                 "icon": "🧠"
                                     },
                                     {
                                                 "name": "Derivando",
                                                 "topic": "Matemáticas",
-                                                "link": "https://www.youtube.com/@Derivando",
                                                 "icon": "📐"
                                     }
                         ]
@@ -266,55 +249,46 @@ const translations = {
                                     {
                                                 "name": "Veritasium",
                                                 "topic": "Physics, engineering, experiments",
-                                                "link": "https://www.youtube.com/@veritasium",
                                                 "icon": "🎥"
                                     },
                                     {
                                                 "name": "Kurzgesagt",
                                                 "topic": "Animated Science / Philosophy",
-                                                "link": "https://www.youtube.com/@kurzgesagt",
                                                 "icon": "🐣"
                                     },
                                     {
                                                 "name": "Vsauce",
                                                 "topic": "Inquiry and Philosophy",
-                                                "link": "https://www.youtube.com/@Vsauce",
                                                 "icon": "❓"
                                     },
                                     {
                                                 "name": "SciShow Space",
                                                 "topic": "Space & Astronomy",
-                                                "link": "https://www.youtube.com/@scishowspace",
                                                 "icon": "🛸"
                                     },
                                     {
                                                 "name": "PBS Space Time",
                                                 "topic": "Advanced Physics",
-                                                "link": "https://www.youtube.com/@pbsspacetime",
                                                 "icon": "⏰"
                                     },
                                     {
                                                 "name": "SmarterEveryDay",
                                                 "topic": "Learning & Exploration",
-                                                "link": "https://www.youtube.com/@smartereveryday",
                                                 "icon": "👷"
                                     },
                                     {
                                                 "name": "Mark Rober",
                                                 "topic": "Engineering / Experiments",
-                                                "link": "https://www.youtube.com/@MarkRober",
                                                 "icon": "🏗️"
                                     },
                                     {
                                                 "name": "3Blue1Brown",
                                                 "topic": "Visual Mathematics",
-                                                "link": "https://www.youtube.com/@3blue1brown",
                                                 "icon": "📉"
                                     },
                                     {
                                                 "name": "CrashCourse",
                                                 "topic": "Complete Science Courses",
-                                                "link": "https://www.youtube.com/@crashcourse",
                                                 "icon": "🎓"
                                     }
                         ]
@@ -326,38 +300,43 @@ const translations = {
                                     {
                                                 "name": "Cosmos (1980)",
                                                 "topic": "Carl Sagan",
-                                                "link": "https://www.amazon.com/Cosmos-A-Personal-Voyage/dp/B000055ZE9",
                                                 "icon": "🎬"
                                     },
                                     {
                                                 "name": "Cosmos (2014 & 2020)",
                                                 "topic": "NDT (Disney+)",
-                                                "link": "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ",
                                                 "icon": "📽️"
                                     },
                                     {
                                                 "name": "Interstellar (2014)",
                                                 "topic": "Ficción Rigurosa",
-                                                "link": "https://www.warnerbros.com/movies/interstellar",
                                                 "icon": "🪐"
                                     },
                                     {
                                                 "name": "Contact (1997)",
                                                 "topic": "Novela Sagan",
-                                                "link": "https://www.warnerbros.com/movies/contact",
                                                 "icon": "🎥"
                                     },
                                     {
                                                 "name": "The Elegant Universe",
                                                 "topic": "Documental / Física",
-                                                "link": "https://www.pbs.org/wgbh/nova/elegant/",
                                                 "icon": "🎻"
                                     },
                                     {
                                                 "name": "A Brief History of Time",
                                                 "topic": "Documental Stephen Hawking",
-                                                "link": "https://www.youtube.com/watch?v=kYv_8E4E_Xo",
                                                 "icon": "⏱️"
+                                    }
+                        ]
+            },
+            {
+                        "id": "books",
+                        "title": "📚 Libros y Lectura Técnica",
+                        "items": [
+                                    {
+                                                "name": "The Bluebook",
+                                                "topic": "Investigación Técnica / STEM",
+                                                "icon": "📘"
                                     }
                         ]
             }
@@ -546,37 +525,31 @@ const translations = {
                                     {
                                                 "name": "Cosmos: A Personal Voyage",
                                                 "topic": "Series (1980) / Classic",
-                                                "link": "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan",
                                                 "icon": "📺"
                                     },
                                     {
                                                 "name": "The Demon-Haunted World",
                                                 "topic": "Book / Critical Thinking",
-                                                "link": "https://www.amazon.com/Demon-Haunted-World-Science-Candle-Dark/dp/0345409469",
                                                 "icon": "📖"
                                     },
                                     {
                                                 "name": "Cosmos (Book)",
                                                 "topic": "Book / Astronomy",
-                                                "link": "https://www.amazon.com/Cosmos-Carl-Sagan/dp/0345539435",
                                                 "icon": "🌌"
                                     },
                                     {
                                                 "name": "Contact",
                                                 "topic": "Science Fiction Novel",
-                                                "link": "https://www.amazon.com/Contact-Carl-Sagan/dp/1501197984",
                                                 "icon": "📡"
                                     },
                                     {
                                                 "name": "The Dragons of Eden",
                                                 "topic": "Book / Evolution",
-                                                "link": "https://www.amazon.com/Dragons-Eden-Speculations-Evolution-Intelligence/dp/0345346297",
                                                 "icon": "🐉"
                                     },
                                     {
                                                 "name": "Broca's Brain",
                                                 "topic": "Scientific Essays",
-                                                "link": "https://www.amazon.com/Brocas-Brain-Reflections-Romance-Science/dp/0345336895",
                                                 "icon": "🧠"
                                     }
                         ]
@@ -588,19 +561,16 @@ const translations = {
                                     {
                                                 "name": "Cosmos: A Spacetime Odyssey",
                                                 "topic": "Series (2014) / Disney+",
-                                                "link": "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ",
                                                 "icon": "🚀"
                                     },
                                     {
                                                 "name": "Cosmos: Possible Worlds",
                                                 "topic": "Series (2020) / Disney+",
-                                                "link": "https://www.disneyplus.com/series/cosmos-possible-worlds/4UPg97O5lI9V",
                                                 "icon": "🪐"
                                     },
                                     {
                                                 "name": "StarTalk",
                                                 "topic": "Podcast / YouTube",
-                                                "link": "https://www.youtube.com/@StarTalk",
                                                 "icon": "🎙️"
                                     }
                         ]
@@ -612,67 +582,56 @@ const translations = {
                                     {
                                                 "name": "Veritasium",
                                                 "topic": "Physics and Engineering",
-                                                "link": "https://www.youtube.com/@veritasium",
                                                 "icon": "🎥"
                                     },
                                     {
                                                 "name": "Kurzgesagt",
                                                 "topic": "Animated Science / Philosophy",
-                                                "link": "https://www.youtube.com/@kurzgesagt",
                                                 "icon": "🐣"
                                     },
                                     {
                                                 "name": "Vsauce",
                                                 "topic": "Inquiry and Philosophy",
-                                                "link": "https://www.youtube.com/@Vsauce",
                                                 "icon": "❓"
                                     },
                                     {
                                                 "name": "SciShow",
                                                 "topic": "General Science",
-                                                "link": "https://www.youtube.com/@SciShow",
                                                 "icon": "🧪"
                                     },
                                     {
                                                 "name": "SciShow Space",
                                                 "topic": "Space & Astronomy",
-                                                "link": "https://www.youtube.com/@scishowspace",
                                                 "icon": "🛸"
                                     },
                                     {
                                                 "name": "PBS Space Time",
                                                 "topic": "Advanced Physics",
-                                                "link": "https://www.youtube.com/@pbsspacetime",
                                                 "icon": "⏰"
                                     },
                                     {
                                                 "name": "SmarterEveryDay",
                                                 "topic": "Learning and Exploration",
-                                                "link": "https://www.youtube.com/@smartereveryday",
                                                 "icon": "👷"
                                     },
                                     {
                                                 "name": "MinutePhysics",
                                                 "topic": "Physics in Minutes",
-                                                "link": "https://www.youtube.com/@minutephysics",
                                                 "icon": "⏲️"
                                     },
                                     {
                                                 "name": "Mark Rober",
                                                 "topic": "Engineering / Experiments",
-                                                "link": "https://www.youtube.com/@MarkRober",
                                                 "icon": "🏗️"
                                     },
                                     {
                                                 "name": "3Blue1Brown",
                                                 "topic": "Visual Mathematics",
-                                                "link": "https://www.youtube.com/@3blue1brown",
                                                 "icon": "📉"
                                     },
                                     {
                                                 "name": "CrashCourse",
                                                 "topic": "Science Courses",
-                                                "link": "https://www.youtube.com/@crashcourse",
                                                 "icon": "🎓"
                                     }
                         ]
@@ -684,48 +643,45 @@ const translations = {
                                     {
                                                 "name": "Cosmos (1980)",
                                                 "topic": "Carl Sagan",
-                                                "link": "https://www.amazon.com/Cosmos-A-Personal-Voyage/dp/B000055ZE9",
                                                 "icon": "🎬"
                                     },
                                     {
                                                 "name": "Cosmos (2014 & 2020)",
                                                 "topic": "NDT (Disney+)",
-                                                "link": "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ",
                                                 "icon": "📽️"
                                     },
                                     {
                                                 "name": "Interstellar (2014)",
                                                 "topic": "Rigorous Fiction",
-                                                "link": "https://www.warnerbros.com/movies/interstellar",
                                                 "icon": "🪐"
                                     },
                                     {
                                                 "name": "Contact (1997)",
                                                 "topic": "Sagan's Novel",
-                                                "link": "https://www.warnerbros.com/movies/contact",
                                                 "icon": "🎥"
                                     },
                                     {
                                                 "name": "The Elegant Universe",
                                                 "topic": "String Theory Doc",
-                                                "link": "https://www.pbs.org/wgbh/nova/elegant/",
                                                 "icon": "🎻"
                                     },
                                     {
                                                 "name": "A Brief History of Time",
                                                 "topic": "Stephen Hawking Doc",
-                                                "link": "https://www.youtube.com/watch?v=kYv_8E4E_Xo",
                                                 "icon": "⏱️"
                                     }
                         ]
             },
             {
-                id: "books",
-                title: "Books & Reading",
-                items: [
-                    { name: "The BlueBook", topic: "JovenesSTEM Curriculum", link: "https://yepzhi.com/jovenesstem/", icon: "📘" },
-                    { name: "Broca's Brain", topic: "Scientific Essays", link: "https://www.amazon.com/Brocas-Brain-Reflections-Romance-Science/dp/0345336895", icon: "🧠" }
-                ]
+                        "id": "books",
+                        "title": "📚 Books & Reading",
+                        "items": [
+                                    {
+                                                "name": "The Bluebook",
+                                                "topic": "Technical Research / STEM",
+                                                "icon": "📘"
+                                    }
+                        ]
             }
         ],
 
@@ -755,94 +711,30 @@ const translations = {
         footer_copy: "Open framework. No owners. No barriers. v4.7.0",
         footer_creator: "✨ Created by yepzhi"
     },
-        cn: {
-        nav_mandamientos: "原則",
-        nav_marco: "宣言",
-        nav_whitepaper: "白皮書",
-        nav_acercate: "推廣",
-        nav_comunidad: "社區",
-        nav_unete: "加入",
-        nav_privacy: "隱私聲明",
-        comm_loading: "正在加載數據庫...",
-        wp_link: "neosysaeon-whitepaper-v4.1-ZH.pdf",
-        hero_tagline: "沒有科學就沒有清晰。沒有驗證就沒有進步。",
-        hero_subtitle: "一個透過可驗證證據理解現實的開放框架。",
-        hero_btn_mandamientos: "核心原則",
-        hero_btn_whitepaper: "閱讀白皮書",
-        hero_explore: "探索",
-        postulado_label: "從哲學到科學",
-        postulado_title_new: "科學方法是區分「有效」與「我們相信有效」的最強大工具。",
-        postulado_desc_new: "它不保護思想：它測試思想。它不依賴信念：它依賴證據。",
-        m1_title: "一、你當以真理\n凌駕於舒適之上。",
-        m2_title: "二、你當將好奇心\n培養為美德。",
-        m3_title: "三、你當記得\n自己是星塵。",
-        m4_title: "四、你當以證據\n為指南針。",
-        m5_title: "五、你當修習\n宇宙謙遜。",
-        m6_title: "六、你當守護地球\n視之為唯一確定的家園。",
-        m7_title: "七、你當愛護生命\n無論其存在或可能出現之處。",
-        m8_title: "八、你當不將神秘\n轉化為無知。",
-        m9_title: "九、你當傳播知識。",
-        m10_title: "十、你當不只是觀察者：\n你當成為建設者。",
-        m1_body: "不崇拜虛假的確定性；即便不舒服，也要追求真實。",
-        m2_body: "先提問，後斷言；先探索，後評判。",
-        m3_body: "非因渺小，而是因歸屬：你是具有意識的宇宙。",
-        m4_body: "非因教條，而是因為它是我們所擁有的最可靠的過濾器。",
-        m5_body: "面對無垠，拒絕自我，擁抱敬畏。",
-        m6_body: "別無他處在側；保護它是理性與責任之舉。",
-        m7_body: "每一種生命形式都值得尊嚴、關注與照料。",
-        m8_body: "未知非魔法；而是理解與探索的邀請。",
-        m9_body: "所學之物不作為權力保存；而是作為光芒分享。",
-        m10_body: "運用知識產生真實影響、改善條件，並擴展未來的可能性。",
-        manifesto_label: "宣言",
-        manifesto_title: "理解是不夠的。<br><span class=\"text-accent\">我們必須建設我們的未來。</span>",
-        manifesto_p1: "✨ 科學讓我們解釋世界。工程讓我們改變世界。技術讓我們擴大這種改變。然而，資訊的豐富並未導致理解力或產生進步能力的比例提高。",
-        manifesto_p2: "理解而無應用就沒有影響。行動而無理解會產生錯誤。Neosys Aeon 提議改善並整合這兩者。",
-        manifesto_p3: "它不是一個信仰體系。它是一個應用理解系統 —— <strong>宇宙的基本原則</strong> —— 旨在優先考慮真理，透過證據進行驗證，並將知識轉化為有形的進步。",
-        mand_label: "基本原則",
-        mand_title: "<span class=\"text-magical-purple\">宇宙的 10 個基本原則。</span>",
-        mand_desc: "我們面對宇宙的立場是我們行為的基礎。",
-        poster_download_btn: "下載原則白皮書 (HD)",
-        join_label: "成為一部分",
-        join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
-        join_desc: "不需要正式隸屬或註冊。採用這些原則，生活在一致性中。如果這個框架對你有用，就使用它。如果你發現它的缺陷，就改進它。",
-        join_privacy_note: "您的姓名、位置和社交網絡將公開顯示在社區部分。您的電子郵件和電話是私密的。",
-        join_badge_title: "生成你的證件。",
-        join_badge_desc: "上傳你的照片，寫下你的名字和電子郵件，創建你的數字證件並加入建設者基地。分享使用 #NeosysAeon",
-        join_upload_text: "上傳照片",
-        join_placeholder: "您的姓名",
-        join_btn_copy: "複製口號和標籤",
-        join_email: "電子郵件地址",
-        join_phone: "電話號碼",
-        join_social: "社交網絡 / 網站",
-        join_city: "城市 / 省份",
-        join_btn_share: "分享",
-        coll_title: "👋 你想合作或改進這個倡議嗎？",
-        coll_desc: "向我們發送你的評論、想法，或直接寫信加入推廣基於證據的思維的努力。",
-        coll_whatsapp: "💬 WhatsApp",
-        coll_yepzhi: "🌐 yepzhi.com",
-        join_privacy_check: "我已閱讀並接受 <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">隱私聲明</a>。我明白我的姓名、國家和社交網絡將公開顯示。",
-        badge_preview_alt: "您的 Neosys Aeon 證件預覽",
-        back_to_home: "← 返回首頁",
-        badge_member: "運動成員",
-        badge_name_placeholder: "您的姓名",
-        badge_phrase1_l1: "沒有科學就沒有清晰度。",
-        badge_phrase1_l2: "沒有驗證就沒有進步。",
-        badge_phrase2_l1: "一個透過可驗證證據",
-        badge_phrase2_l2: "理解現實的開放框架。",
-        badge_phrase3: "今天就了解宇宙的 10 個原則！",
-
-        // Section 8 - Review
-        rev_label: "自我批判與演進",
-        rev_title: "一個<span class='text-accent'>自我驗證</span>的系統",
-        rev_desc: "新系永恆是一個旨在被測試、質疑和持續改進的系統。其有效性取決於其在現實環境中改善判斷和決策的能力。如果失敗，它必須演進或被替換。其價值在於功能性，而非象徵性。",
-        rev_mech_label: "系統自我評估機制",
+    cn: {
+        nav_principles: "原則",
+        nav_entry_test: "入學測試",
+        nav_outreach: "走近科學",
+        nav_community: "社群",
+        hero_label: "NEOSYS AEON · v4.7.0",
+        hero_title: "現代世界的一種 <br><span class='text-accent'>結構化好奇心。</span>",
+        hero_subtitle: "Neosys Aeon 是一個用於知識生成、驗證和應用的開放框架。它致力於通過科學方法提高人類的判斷力。",
+        hero_btn_explore: "探索原則 →",
+        hero_btn_whitepaper: "下載白皮書 (PDF)",
+        pri_label: "基本支柱",
+        pri_title: "宇宙的 <br><span class='text-accent'>12 個原則。</span>",
+        pri_desc: "這不是教條，而是一套用於導航複雜性並根據證據做出決策的工具。",
+        rev_label: "自我修正案例研究",
+        rev_title: "一個 <span class='text-accent'>驗證自身</span> 的系統",
+        rev_desc: "Neosys Aeon 是一個旨在不斷被測試、質疑 and 改進的系統。其有效性取決於其在現實環境中提高判斷力。如果失敗了，它必須進化或被替換。其價值在於功能性，而非象徵性。",
+        rev_mech_label: "系統自評估機制",
         rev_mech1_title: "誠信失效",
         rev_mech1_desc: "如果框架被用來為決策辯護而非評估，那它就沒有被應用——它只是被偽裝了。標準在於行為：如果使用後沒有任何決策改變，則沒有真正的應用。",
         rev_mech2_title: "一致性失效",
         rev_mech2_desc: "如果兩個擁有相同證據的使用者無法以結構化的方式減少分歧，則這些原則過於籠統，無法排除任何主張。這不是共識——這是空虛。",
         rev_mech3_title: "過時失效",
         rev_mech3_desc: "如果無法證明其使用者的決策比不使用者更具一致性，或者如果未來版本無法反駁前一版本，則框架必須被替換。其價值在於功能性，而非象徵性。",
-        rev_governance: "隨著社群的成長，該系統的治理將轉向一個<strong>科學評估委員會</strong>，負責根據最新證據審計和更新這些原則。",
+        rev_governance: "隨著社群的成長，該系統的治理將轉向一個<strong>科學評估委員會</strong>，負責根據最新證據審計 and 更新這些原則。",
         footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
         footer_creator: "Created by yepzhi",
         footer_copy: "開放框架。無所有者。無障礙。v4.7.0",
@@ -858,7 +750,7 @@ const translations = {
         prob4_body: "經過驗證的知識沒有整合到決策或價值產生中。",
         stem_label: "科學、工程與進步",
         stem_title: "科學源於好奇。<br><span class='text-accent'>進步源於科學。</span>",
-        stem_desc: "科學方法是人類創造的最強大工具。但單靠知識並不能產生影響。",
+        stem_desc: "科學方法是人類創造的最強大工具。單靠知識並不能產生影響。",
         stem_s1_title: "科學",
         stem_s1_body: "產生知識",
         stem_s2_title: "工程",
@@ -893,7 +785,7 @@ const translations = {
         wp_btn: "下載白皮書 PDF",
         out_label: "推廣",
         out_title: "走近 <span class='text-accent'>科學</span>",
-        out_desc: "單擊以了解積極推廣科學和科學方法的劇集、書籍和 YouTube 頻道。",
+        out_desc: "單擊以了解積極推廣科學和科學方法的劇集、書籍 and YouTube 頻道。",
         out_btn_explore: "探索資源 →",
         con_label: "從哲學到行動",
         con_title: "Neosys Aeon 給出 <em>為什麼</em>。<br><span class='text-accent'>JovenesSTEM 給出 <em>如何做</em>。</span>",
@@ -911,209 +803,200 @@ const translations = {
                                     {
                                                 "name": "Cosmos: A Personal Voyage",
                                                 "topic": "系列 (1980) / 經典",
-                                                "link": "https://www.youtube.com/results?search_query=Cosmos+Carl+Sagan",
                                                 "icon": "📺"
                                     },
                                     {
                                                 "name": "魔鬼出沒的世界",
                                                 "topic": "書籍 / 批判性思維",
-                                                "link": "https://www.amazon.com/Demon-Haunted-World-Science-Candle-Dark/dp/0345409469",
                                                 "icon": "📖"
                                     },
                                     {
                                                 "name": "宇宙 (書籍)",
                                                 "topic": "書籍 / 天文學",
-                                                "link": "https://www.amazon.com/Cosmos-Carl-Sagan/dp/0345539435",
                                                 "icon": "🌌"
                                     },
                                     {
                                                 "name": "接觸 (Contact)",
                                                 "topic": "科幻小說",
-                                                "link": "https://www.amazon.com.mx/Contacto-Carl-Sagan/dp/8408044732",
-                                                "icon": "👽"
+                                                "icon": "📡"
+                                    },
+                                    {
+                                                "name": "伊甸園的飛龍",
+                                                "topic": "書籍 / 進化論",
+                                                "icon": "🐉"
+                                    },
+                                    {
+                                                "name": "布羅卡的腦",
+                                                "topic": "科學散文",
+                                                "icon": "🧠"
                                     }
                         ]
             },
             {
                         "id": "ndt",
-                        "title": "尼爾·德格拉斯·泰森",
+                        "title": "🚀 尼爾·德格拉斯·泰森",
                         "items": [
                                     {
                                                 "name": "浩瀚宇宙：時空之旅",
                                                 "topic": "系列 (2014) / Disney+",
-                                                "link": "https://www.disneyplus.com/series/cosmos-a-spacetime-odyssey/4oZ6U8P6z5GZ",
                                                 "icon": "🚀"
                                     },
                                     {
-                                                "name": "浩瀚宇宙：未知世界",
-                                                "topic": "系列 (2020) / NatGeo",
-                                                "link": "https://www.natgeotv.com/int/cosmos-possible-worlds",
+                                                "name": "浩瀚宇宙：未來世界",
+                                                "topic": "系列 (2020) / Disney+",
                                                 "icon": "🪐"
                                     },
                                     {
                                                 "name": "StarTalk",
                                                 "topic": "播客 / YouTube",
-                                                "link": "https://www.youtube.com/@StarTalk",
                                                 "icon": "🎙️"
-                                    },
-                                    {
-                                                "name": "給忙碌者的天體物理學",
-                                                "topic": "書籍 / NDT",
-                                                "link": "https://www.amazon.com/Astrophysics-People-Hurry-deGrasse-Tyson/dp/0393609391",
-                                                "icon": "📖"
                                     }
                         ]
             },
             {
                         "id": "youtube_es",
-                        "title": "YouTube — 西班牙語科學",
+                        "title": "📺 YouTube — 西班牙語科學頻道",
                         "items": [
                                     {
                                                 "name": "QuantumFracture",
-                                                "topic": "物理與量子",
-                                                "link": "https://www.youtube.com/@QuantumFracture",
+                                                "topic": "物理、宇宙、量子",
                                                 "icon": "⚛️"
                                     },
                                     {
                                                 "name": "El Robot de Platón",
-                                                "topic": "普通科學",
-                                                "link": "https://www.youtube.com/@ElRobotdePlaton",
+                                                "topic": "普通科學、天文學",
                                                 "icon": "🤖"
                                     },
                                     {
                                                 "name": "CdeCiencia",
-                                                "topic": "哲學與科學",
-                                                "link": "https://www.youtube.com/@CdeCiencia",
+                                                "topic": "天文學、哲學與科學",
                                                 "icon": "🔭"
                                     },
                                     {
                                                 "name": "Date un Voltio",
-                                                "topic": "物理與宇宙",
-                                                "link": "https://www.youtube.com/@DateUnVoltio",
+                                                "topic": "物理、宇宙",
                                                 "icon": "⚡"
                                     },
                                     {
                                                 "name": "La Hiperactina",
-                                                "topic": "生物醫學與健康",
-                                                "link": "https://www.youtube.com/@LaHiperactina",
+                                                "topic": "生物醫學、健康",
                                                 "icon": "🧬"
                                     },
                                     {
                                                 "name": "La Gata de Schrödinger",
                                                 "topic": "懷疑論科學",
-                                                "link": "https://www.youtube.com/@LaGatadeSchrodinger",
                                                 "icon": "🐈"
+                                    },
+                                    {
+                                                "name": "Antroporama",
+                                                "topic": "神經科學與生物學",
+                                                "icon": "🧠"
+                                    },
+                                    {
+                                                "name": "Derivando",
+                                                "topic": "數學",
+                                                "icon": "📐"
                                     }
                         ]
             },
             {
                         "id": "youtube_en",
-                        "title": "YouTube — 英語科學",
+                        "title": "🎬 YouTube — 英語科學頻道",
                         "items": [
                                     {
                                                 "name": "Veritasium",
-                                                "topic": "物理與工程",
-                                                "link": "https://www.youtube.com/@veritasium",
-                                                "icon": "🌌"
+                                                "topic": "物理、工程、實驗",
+                                                "icon": "🎥"
                                     },
                                     {
                                                 "name": "Kurzgesagt",
-                                                "topic": "動畫科學 / 哲學",
-                                                "link": "https://www.youtube.com/@kurzgesagt",
+                                                "topic": "科普動畫 / 哲學",
                                                 "icon": "🐣"
                                     },
                                     {
                                                 "name": "Vsauce",
                                                 "topic": "探究與哲學",
-                                                "link": "https://www.youtube.com/@Vsauce",
                                                 "icon": "❓"
                                     },
                                     {
                                                 "name": "SciShow Space",
                                                 "topic": "太空與天文學",
-                                                "link": "https://www.youtube.com/@scishowspace",
                                                 "icon": "🛸"
                                     },
                                     {
                                                 "name": "PBS Space Time",
                                                 "topic": "高級物理",
-                                                "link": "https://www.youtube.com/@pbsspacetime",
                                                 "icon": "⏰"
                                     },
                                     {
                                                 "name": "SmarterEveryDay",
                                                 "topic": "學習與探索",
-                                                "link": "https://www.youtube.com/@smartereveryday",
                                                 "icon": "👷"
                                     },
                                     {
                                                 "name": "Mark Rober",
                                                 "topic": "工程 / 實驗",
-                                                "link": "https://www.youtube.com/@MarkRober",
                                                 "icon": "🏗️"
                                     },
                                     {
                                                 "name": "3Blue1Brown",
                                                 "topic": "視覺數學",
-                                                "link": "https://www.youtube.com/@3blue1brown",
                                                 "icon": "📉"
                                     },
                                     {
                                                 "name": "CrashCourse",
-                                                "topic": "科學課程",
-                                                "link": "https://www.youtube.com/@crashcourse",
+                                                "topic": "完整科學課程",
                                                 "icon": "🎓"
                                     }
                         ]
             },
             {
                         "id": "media",
-                        "title": "科學系列與電影",
+                        "title": "🎞️ 系列劇集與電影",
                         "items": [
                                     {
-                                                "name": "星際穿越 (Interstellar)",
-                                                "topic": "嚴謹小說",
-                                                "link": "https://www.warnerbros.com/movies/interstellar",
+                                                "name": "Cosmos (1980)",
+                                                "topic": "卡爾·薩根",
+                                                "icon": "🎬"
+                                    },
+                                    {
+                                                "name": "Cosmos (2014 & 2020)",
+                                                "topic": "尼爾·德格拉斯·泰森",
+                                                "icon": "📽️"
+                                    },
+                                    {
+                                                "name": "星際效應 (2014)",
+                                                "topic": "嚴謹科幻",
                                                 "icon": "🪐"
                                     },
                                     {
-                                                "name": "接觸未來 (Contact)",
-                                                "topic": "第一次接觸",
-                                                "link": "https://www.warnerbros.com/movies/contact",
+                                                "name": "接觸未來 (1997)",
+                                                "topic": "薩根小說改編",
                                                 "icon": "🎥"
+                                    },
+                                    {
+                                                "name": "優雅的宇宙",
+                                                "topic": "紀錄片 / 物理",
+                                                "icon": "🎻"
                                     },
                                     {
                                                 "name": "時間簡史",
                                                 "topic": "斯蒂芬·霍金紀錄片",
-                                                "link": "https://www.youtube.com/watch?v=kYv_8E4E_Xo",
                                                 "icon": "⏱️"
-                                    },
-                                    {
-                                                "name": "優雅的宇宙",
-                                                "topic": "紀錄片 / 弦理論",
-                                                "link": "https://www.pbs.org/wgbh/nova/elegant/",
-                                                "icon": "🎻"
                                     }
                         ]
             },
             {
                         "id": "books",
-                        "title": "書籍與閱讀",
+                        "title": "📚 書籍與技術閱讀",
                         "items": [
                                     {
-                                                "name": "The BlueBook",
-                                                "topic": "JovenesSTEM 課程",
-                                                "link": "https://yepzhi.com/jovenesstem/",
+                                                "name": "The Bluebook",
+                                                "topic": "技術研究 / STEM",
                                                 "icon": "📘"
-                                    },
-                                    {
-                                                "name": "布若卡的腦",
-                                                "topic": "科學散文",
-                                                "link": "https://www.amazon.com/Brocas-Brain-Reflections-Romance-Science/dp/0345336895",
-                                                "icon": "🧠"
                                     }
                         ]
             }
-]
+        ]
     }
 };
