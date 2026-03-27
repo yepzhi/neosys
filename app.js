@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.7.6"; 
+const version = "4.8.7.7"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.7.6"; 
+const APP_VERSION = "4.8.7.7"; 
 
 let db = null;
 try {
@@ -468,7 +468,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card reveal';
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.7.7
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
