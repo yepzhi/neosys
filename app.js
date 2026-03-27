@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.7.4"; 
+const version = "4.7.5"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -23,7 +23,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.7.4"; 
+const APP_VERSION = "4.7.5"; 
 
 let db = null;
 try {
@@ -608,7 +608,21 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
     if (submitBtn) {
         submitBtn.addEventListener('click', async (e) => {
+            // Remove previous anim classes
+            submitBtn.classList.remove('btn-error-shake', 'btn-processing-animate');
+
             if (!form.checkValidity()) {
+                // Shake button to show error
+                submitBtn.classList.add('btn-error-shake');
+                setTimeout(() => submitBtn.classList.remove('btn-error-shake'), 500);
+
+                // Scroll to first invalid element
+                const firstInvalid = form.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalid.focus();
+                }
+
                 form.reportValidity();
                 return;
             }
@@ -621,23 +635,40 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const sourceVal = sourceInput ? sourceInput.value : '';
         
         if (!userPhoto) {
+            submitBtn.classList.add('btn-error-shake');
+            setTimeout(() => submitBtn.classList.remove('btn-error-shake'), 500);
+            
+            // Scroll to photo area
+            const photoArea = document.getElementById('photo-upload-area');
+            if (photoArea) photoArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
             alert(currentLang === 'es' ? 'Sube tu foto para generar el gafete.' : 'Upload your photo to generate the badge.');
             return;
         }
         if (decisionVal.length < 10) {
+            submitBtn.classList.add('btn-error-shake');
+            setTimeout(() => submitBtn.classList.remove('btn-error-shake'), 500);
+            if (decisionInput) decisionInput.focus();
             alert(currentLang === 'es' ? 'Describe tu decisión. Mínimo 10 caracteres.' : 'Describe your decision. Minimum 10 characters.');
             return;
         }
         if (decisionVal.length > 350) {
+            submitBtn.classList.add('btn-error-shake');
+            setTimeout(() => submitBtn.classList.remove('btn-error-shake'), 500);
+            if (decisionInput) decisionInput.focus();
             alert(currentLang === 'es' ? 'Tu decisión es muy larga. Máximo 350 caracteres.' : 'Your decision is too long. Maximum 350 characters.');
             return;
         }
         if (!sourceVal) {
+            submitBtn.classList.add('btn-error-shake');
+            setTimeout(() => submitBtn.classList.remove('btn-error-shake'), 500);
             alert(currentLang === 'es' ? 'Selecciona el tipo de evidencia que utilizaste.' : 'Select the type of evidence you used.');
             return;
         }
 
+        // --- SUCCESS FLOW ---
         submitBtn.disabled = true;
+        submitBtn.classList.add('btn-processing-animate');
         submitBtn.innerText = t.comm_loading_processing || (currentLang === 'es' ? 'Procesando...' : 'Processing...');
 
         const emailInput = document.getElementById('badge-email');
@@ -699,6 +730,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 
         // Reset button
         submitBtn.disabled = false;
+        submitBtn.classList.remove('btn-processing-animate');
         submitBtn.innerHTML = originalBtnText;
 
         // Ensure actions are visible

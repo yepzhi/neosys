@@ -1796,6 +1796,28 @@ img { max-width: 100%; display: block; }
     text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
 }
 
+/* ── Animations for Phase 4 (v4.7.5) ── */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes big-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(167, 139, 250, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(167, 139, 250, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(167, 139, 250, 0); }
+}
+
+.btn-error-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    border-color: #ef4444 !important;
+}
+
+.btn-processing-animate {
+    animation: big-pulse 1.5s infinite;
+}
+
 /* ── Filter Styling ───────────── */
 #filter-source-type {
     appearance: none;
