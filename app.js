@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.7.7"; 
+const version = "4.8"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.7.7"; 
+const APP_VERSION = "4.8"; 
 
 let db = null;
 try {
@@ -454,12 +454,6 @@ function fetchEvidencias(filterValue = 'all') {
 
         list.innerHTML = '';
         
-        // Diagnostic Tag
-        const diag = document.createElement('div');
-        diag.style = "width: 100%; text-align: center; font-size: 0.75rem; color: var(--accent); margin-bottom: 25px; opacity: 0.6; font-family: var(--font-mono);";
-        diag.innerHTML = `[ANALYZED_RECORDS: ${docs.length}]`;
-        list.appendChild(diag);
-
         if (docs.length === 0) {
             list.innerHTML += `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">No se encontraron registros de aplicación para esta categoría.</div>`;
             return;
@@ -468,7 +462,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.7.7
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
