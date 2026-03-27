@@ -2,7 +2,7 @@ const translations = {
     es: {
         // Navegación
         nav_mandamientos: "Principios",
-        nav_marco: "Marco Conceptual",
+        nav_marco: "Manifesto",
         nav_whitepaper: "Whitepaper",
         nav_acercate: "Divulgación",
         nav_comunidad: "Comunidad",
@@ -374,7 +374,14 @@ const translations = {
         // Sección 8 - Revisión
         rev_label: "Autocrítica y Evolución (v4.2)",
         rev_title: "Un Marco que se Cuestiona a Sí Mismo",
-        rev_desc: "Neosys Aeon no es un dogma. Se basa en su capacidad de ser corregido por la evidencia. Si el marco no mejora el juicio real de quienes lo usan, debe ser descartado o reemplazado. Su valor es plenamente funcional, no simbólico.",
+        rev_desc: "Neosys Aeon no es un dogma. Se basa en su capacidad de ser corregido por la evidencia. Si el marco no mejora el juicio real de quienes lo usan, debe ser descartado o reemplazado.",
+        rev_mech_label: "Mecanismos de Autoevaluación:",
+        rev_mech1_title: "⚡ Fallo de Integridad",
+        rev_mech1_desc: "Utilizar el marco para justificar decisiones ya tomadas (sesgo de confirmación) en lugar de evaluarlas.",
+        rev_mech2_title: "🔬 Fallo de Sistema",
+        rev_mech2_desc: "Incapacidad de reducir el desacuerdo entre usuarios que aplican el marco ante la misma evidencia.",
+        rev_mech3_title: "🏗️ Condición de Descarte",
+        rev_mech3_desc: "Si el marco no produce decisiones más coherentes con la realidad que no usarlo, es obsoleto.",
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
@@ -459,7 +466,14 @@ const translations = {
         // Section 8 - Review
         rev_label: "Self-Correction & Evolution (v4.2)",
         rev_title: "A Self-Questioning Framework",
-        rev_desc: "Neosys Aeon is not dogma. It is based on its capacity to be corrected by evidence. If the framework does not improve the real judgment of those who use it, it must be discarded or replaced. Its value is fully functional, not symbolic.",
+        rev_desc: "Neosys Aeon is not dogma. It is based on its capacity to be corrected by evidence. If the framework does not improve the real judgment of those who use it, it must be discarded or replaced.",
+        rev_mech_label: "Self-Evaluation Mechanisms:",
+        rev_mech1_title: "⚡ Integrity Failure",
+        rev_mech1_desc: "Using the framework to justify pre-made decisions (confirmation bias) instead of evaluating them.",
+        rev_mech2_title: "🔬 System Failure",
+        rev_mech2_desc: "Inability to resolve disagreement between users applying the framework to the same evidence.",
+        rev_mech3_title: "🏗️ Obsolescence Clause",
+        rev_mech3_desc: "If the framework fails to produce decisions more coherent with reality than not using it, it is obsolete.",
 
         footer_quote: "Neosys Aeon is an open framework for the generation, validation and application of knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous review.",
         footer_copy: "Open Framework. No Owners. No Barriers. v4.7.0",
@@ -741,7 +755,7 @@ const translations = {
     },
         cn: {
         nav_mandamientos: "原則",
-        nav_marco: "框架",
+        nav_marco: "宣言",
         nav_whitepaper: "白皮書",
         nav_acercate: "推廣",
         nav_comunidad: "社區",
@@ -818,7 +832,14 @@ const translations = {
         // Section 8 - Review
         rev_label: "自我修正與演進 (v4.2)",
         rev_title: "一個自我質疑的框架",
-        rev_desc: "新系永恆並非教條。它建立在被證據修正的能力之上。如果此框架無法改善使用者的實際判斷，則必須將其捨棄或替換。其價值在於功能性，而非象徵或身份認同。",
+        rev_desc: "新系永恆並非教條。它建立在被證據修正的能力之上。如果此框架無法改善使用者的實際判斷，則必須將其捨棄或替換。",
+        rev_mech_label: "自我評估機制：",
+        rev_mech1_title: "⚡ 誠信失效",
+        rev_mech1_desc: "利用框架來為既定決策辯護（確認偏誤），而非對其進行評估。",
+        rev_mech2_title: "🔬 系統失效",
+        rev_mech2_desc: "在面對相同證據時，應用框架的使用者之間無法解決分歧。",
+        rev_mech3_title: "🏗️ 過時條款",
+        rev_mech3_desc: "如果框架未能產生比不使用它更符合現實的決策，則其已過時。",
         footer_quote: "Neosys Aeon 是一個通過科學方法生成、驗證和應用知識的開放框架。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
         footer_creator: "Created by yepzhi",
         footer_copy: "開放框架。無所有者。無障礙。v4.7.0",

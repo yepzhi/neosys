@@ -1532,44 +1532,48 @@ img { max-width: 100%; display: block; }
 
 /* ── Section 8 - Revision ───────────────── */
 .revision-section {
-    padding: 100px 0;
+    padding: 120px 0;
     background: radial-gradient(circle at top right, rgba(167, 139, 250, 0.05), transparent 40%),
                 radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.05), transparent 40%);
 }
 
 .revision-card {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 60px 50px;
+    padding: 70px;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    text-align: center;
+    border-radius: 32px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
 .revision-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
+    top: 0; left: 0; width: 100%; height: 4px;
     background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
 }
 
-.revision-card .section-label {
-    margin-bottom: 20px;
+.revision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.revision-left .section-label {
+    margin-bottom: 24px;
     display: block;
 }
 
-.revision-card .section-title {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-bottom: 25px;
+.revision-left .section-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 30px;
     background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1577,23 +1581,53 @@ img { max-width: 100%; display: block; }
     font-weight: 800;
 }
 
-.revision-card .section-desc {
-    font-size: 1.15rem;
+.revision-left .section-desc {
+    font-size: 1.2rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .revision-card {
-        padding: 40px 24px;
-        margin: 0 16px;
+.revision-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mech-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.mech-item {
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mech-item:last-child { border-bottom: none; }
+
+.mech-item h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.mech-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 900px) {
+    .revision-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
-    .revision-card .section-title {
-        font-size: 1.6rem;
-    }
-    .revision-card .section-desc {
-        font-size: 1rem;
-    }
+    .revision-card { padding: 50px 30px; }
 }
 
