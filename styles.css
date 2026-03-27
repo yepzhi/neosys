@@ -6,70 +6,75 @@
 /* ── Principles Grid (Glassy) ────────────────── */
 .principles-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin: 60px auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
     .principles-grid {
         grid-template-columns: 1fr;
     }
 }
 
 .principle-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 32px;
-    padding: 40px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    min-height: 160px;
 }
 
 .principle-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(167, 139, 250, 0.4);
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(167, 139, 250, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(167, 139, 250, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .principle-icon {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
-    filter: drop-shadow(0 0 15px rgba(167, 139, 250, 0.4));
-    transition: transform 0.5s ease;
-}
-
-.principle-card:hover .principle-icon {
-    transform: scale(1.15) rotate(5deg);
+    display: none;
 }
 
 .principle-number {
     position: absolute;
-    top: -10px;
-    right: 20px;
-    font-size: 6rem;
+    bottom: 10px;
+    right: 15px;
+    font-size: 3rem;
     font-weight: 900;
-    opacity: 0.05;
+    opacity: 0.03;
     color: var(--text-accent);
     pointer-events: none;
     font-family: 'Inter', sans-serif;
 }
 
 .principle-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #fff;
-    background: var(--text-accent);
-    color: #000;
+    line-height: 1.3;
+}
+
+.principle-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 .slider-arrow.prev { left: 10px; }
