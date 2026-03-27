@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.7.6"; 
+const version = "4.7.7"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -23,7 +23,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.7.6"; 
+const APP_VERSION = "4.7.7"; 
 
 let db = null;
 try {
@@ -171,7 +171,13 @@ function applyLanguage(lang) {
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.innerHTML = t[key];
+        if (t[key] !== undefined) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = t[key];
+            } else {
+                el.innerHTML = t[key];
+            }
+        }
     });
 
     // Sync Badge
@@ -630,9 +636,19 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             const originalBtnText = submitBtn.innerHTML;
             const t = translations[currentLang] || translations.es;
 
-        // Validation
-        const decisionVal = decisionInput ? decisionInput.value.trim() : '';
-        const sourceVal = sourceInput ? sourceInput.value : '';
+            // --- Consolidated Input References ---
+            const emailInput = document.getElementById('badge-email');
+            const socialInput = document.getElementById('badge-social');
+            const cityInput = document.getElementById('badge-city');
+            const countryInput = document.getElementById('badge-country');
+            const stateSelect = document.getElementById('badge-state');
+            const decisionInput = document.getElementById('decision_evidencia');
+            const sourceInput = document.getElementById('tipo_fuente');
+            const refInput = document.getElementById('fuente_referencia');
+
+            // --- Extracted Values ---
+            const decisionVal = decisionInput ? decisionInput.value.trim() : '';
+            const sourceVal = sourceInput ? sourceInput.value : '';
         
         if (!userPhoto) {
             submitBtn.classList.add('btn-error-shake');
@@ -670,26 +686,18 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         submitBtn.disabled = true;
         submitBtn.classList.add('btn-processing-animate');
         submitBtn.innerText = t.comm_loading_processing || (currentLang === 'es' ? 'Procesando...' : 'Processing...');
-
-        const emailInput = document.getElementById('badge-email');
-        const socialInput = document.getElementById('badge-social');
-        const cityInput = document.getElementById('badge-city');
-        const countryInput = document.getElementById('badge-country');
-        const stateSelect = document.getElementById('badge-state');
-        const sourceInput = document.getElementById('tipo_fuente');
-        const refInput = document.getElementById('fuente_referencia');
         
-        // Build member data with ALL fields
+        // Build member data with ALL fields (using references from start of listener)
         const memberData = {
-            name: nameInput ? nameInput.value.trim() : '',
-            email: emailInput ? emailInput.value.trim() : '',
-            social: socialInput ? socialInput.value.trim() : '',
-            city: cityInput ? cityInput.value.trim() : '',
+            name: (nameInput && typeof nameInput.value === 'string') ? nameInput.value.trim() : '',
+            email: (emailInput && typeof emailInput.value === 'string') ? emailInput.value.trim() : '',
+            social: (socialInput && typeof socialInput.value === 'string') ? socialInput.value.trim() : '',
+            city: (cityInput && typeof cityInput.value === 'string') ? cityInput.value.trim() : '',
             country: countryInput ? countryInput.value : '',
             state: stateSelect ? stateSelect.value : '',
             decision_evidencia: decisionVal,
             tipo_fuente: sourceInput ? sourceInput.value : '',
-            fuente_referencia: refInput ? refInput.value.trim() : '',
+            fuente_referencia: (refInput && typeof refInput.value === 'string') ? refInput.value.trim() : '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             decision_fecha: firebase.firestore.FieldValue.serverTimestamp()
         };
@@ -702,8 +710,11 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
                 .then(() => console.log("Registro exitoso en Firestore"))
                 .catch(err => {
                     console.error("Error al registrar miembro:", err);
-                    // No alertamos aquí para no interrumpir el flujo del gafete,
-                    // pero el log quedará para debug.
+                    if (err.code === 'permission-denied') {
+                        alert(currentLang === 'es' ? 
+                            "Error de permisos en Firebase. Por favor revisa las reglas de seguridad de Firestore." : 
+                            "Firebase Permission Denied. Please check your Firestore security rules.");
+                    }
                 });
         }
 

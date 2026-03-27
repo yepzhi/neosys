@@ -71,6 +71,7 @@ const translations = {
         join_placeholder: "Tu nombre",
         join_email: "Tu correo electrónico",
         join_social: "@nickname",
+        join_btn_generate: "Guardar y Registrar",
         join_city: "Ciudad (ej. Monterrey)",
         join_badge_title: "Genera tu Gafete.",
         join_badge_desc: "Genera tu gafete, regístrate y comparte.",
@@ -270,7 +271,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.6",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.7",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -338,6 +339,7 @@ const translations = {
         join_placeholder: "Your Name",
         join_email: "Your email address",
         join_social: "@nickname",
+        join_btn_generate: "Save and Register",
         join_city: "City (e.g. New York)",
         join_badge_title: "Generate your Badge.",
         join_badge_desc: "Generate your badge, register, and share.",
@@ -523,7 +525,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v4.7.6",
+        footer_copy: "Open framework. No owners. No barriers. v4.7.7",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -605,6 +607,7 @@ const translations = {
         join_placeholder: "您的姓名",
         join_email: "您的電子郵件",
         join_social: "@昵称",
+        join_btn_generate: "保存并注册",
         join_city: "城市（例如：上海）",
         join_badge_title: "生成您的徽章。",
         join_badge_desc: "生成您的徽章，註冊並分享。",
@@ -804,7 +807,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v4.7.6",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.7",
         footer_creator: "Created by yepzhi"
     }
 };
