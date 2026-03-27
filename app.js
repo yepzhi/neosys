@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8"; 
+const version = "4.8.1"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8"; 
+const APP_VERSION = "4.8.1"; 
 
 let db = null;
 try {
@@ -462,7 +462,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -526,4 +526,18 @@ document.addEventListener('DOMContentLoaded', () => {
         filterSelect.addEventListener('change', (e) => fetchEvidencias(e.target.value));
     }
     fetchEvidencias();
+
+    // ── Poster Download Handler (v4.8.1.1) ───────────────────
+    const posterBtn = document.getElementById('download-poster');
+    if (posterBtn) {
+        posterBtn.addEventListener('click', () => {
+            const currentWp = document.getElementById('whitepaper-download');
+            if (currentWp && currentWp.href) {
+                window.open(currentWp.href, '_blank');
+            } else {
+                // Fallback to default ES if something fails
+                window.open('neosysaeon-whitepaper-v4.2-ES.pdf', '_blank');
+            }
+        });
+    }
 });
