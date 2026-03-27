@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.1"; 
+const version = "4.8.1.2"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -462,7 +462,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.2.2.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -516,10 +516,53 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
+function populateOutreachCategories() {
+    const outreachGrid = document.getElementById('outreach-grid');
+    if (!outreachGrid) return;
+
+    const t = translations[currentLang] || translations.es;
+    if (!t.outreach_categories) return;
+
+    outreachGrid.innerHTML = '';
+    t.outreach_categories.forEach(cat => {
+        const header = document.createElement('h3');
+        header.className = 'outreach-category-title reveal';
+        header.textContent = cat.title;
+        
+        const grid = document.createElement('div');
+        grid.className = 'outreach-grid-items';
+        
+        cat.items.forEach(c => {
+            const card = document.createElement('a');
+            card.className = 'outreach-card reveal';
+            card.href = c.link || '#';
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            card.innerHTML = `
+                <div class="outreach-icon">${c.icon || '✨'}</div>
+                <div class="outreach-name">${c.name}</div>
+                <div class="outreach-topic">${c.topic}</div>
+            `;
+            grid.appendChild(card);
+        });
+        
+        outreachGrid.appendChild(header);
+        outreachGrid.appendChild(grid);
+    });
+
+    // Re-initialize ScrollReveal for new elements
+    if (typeof ScrollReveal !== 'undefined') {
+        ScrollReveal().reveal('.reveal', { 
+            origin: 'bottom', distance: '20px', duration: 1000, delay: 200, interval: 100 
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCommunity();
     applyLanguage(currentLang);
     populateSourceSelects();
+    populateOutreachCategories();
     
     const filterSelect = document.getElementById('filter-source-type');
     if (filterSelect) {
@@ -527,17 +570,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.1.1) ───────────────────
+    // ── Poster Download Handler (v4.8.1.2.2.2.2) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
-            const currentWp = document.getElementById('whitepaper-download');
-            if (currentWp && currentWp.href) {
-                window.open(currentWp.href, '_blank');
-            } else {
-                // Fallback to default ES if something fails
-                window.open('neosysaeon-whitepaper-v4.2-ES.pdf', '_blank');
-            }
+            // Restore link to the original HD Poster PNG
+            window.open('principles_poster_hd.png', '_blank');
         });
     }
 });
