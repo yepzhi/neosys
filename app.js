@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.7.5"; 
+const version = "4.7.6"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -23,7 +23,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.7.5"; 
+const APP_VERSION = "4.7.6"; 
 
 let db = null;
 try {
@@ -694,17 +694,25 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             decision_fecha: firebase.firestore.FieldValue.serverTimestamp()
         };
 
-        // Guardar a Firebase
+        // Guardar a Firebase (Non-blocking UI)
+        let firebasePromise = Promise.resolve();
         if (db && firebaseConfig.projectId !== "YOUR_PROJECT_ID" && memberData.name && memberData.email) {
-            try {
-                await db.collection('miembros').add(memberData);
-            } catch (err) {
-                console.error("Error al registrar miembro:", err);
-            }
+            console.log("Registrando miembro...", memberData);
+            firebasePromise = db.collection('miembros').add(memberData)
+                .then(() => console.log("Registro exitoso en Firestore"))
+                .catch(err => {
+                    console.error("Error al registrar miembro:", err);
+                    // No alertamos aquí para no interrumpir el flujo del gafete,
+                    // pero el log quedará para debug.
+                });
         }
 
-        // Wait 1 second (UX Requirement)
+        // Wait 1 second (UX Requirement) while Firebase works in background
         await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Wait for Firebase only up to 2.5s total to not hang the UI
+        const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1500));
+        await Promise.race([firebasePromise, timeoutPromise]);
 
         drawBadge();
         

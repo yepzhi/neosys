@@ -70,7 +70,7 @@ const translations = {
         join_privacy_note: "Tu nombre, ciudad, red social y testimonio aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
         join_placeholder: "Tu nombre",
         join_email: "Tu correo electrónico",
-        join_social: "@ Red social pública (opcional)",
+        join_social: "@nickname",
         join_city: "Ciudad (ej. Monterrey)",
         join_badge_title: "Genera tu Gafete.",
         join_badge_desc: "Genera tu gafete, regístrate y comparte.",
@@ -111,7 +111,8 @@ const translations = {
             channel: "Canal de divulgación con método científico (Kurzgesagt, Veritasium, DW, etc.)",
             institution: "Institución científica oficial (OMS, NASA, CONACYT, etc.)",
             book: "Libro académico o técnico con referencias verificables",
-            own: "Estudio propio con datos medibles"
+            own: "Estudio propio con datos medibles",
+            youtube: "Canales de YouTube (Contenido estrictamente científico)"
         },
 
         // Evidencias Page
@@ -269,7 +270,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.5",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.7.6",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -336,7 +337,7 @@ const translations = {
         join_privacy_note: "Your name, city, social network, and testimonial will appear publicly in the Community section. Your email and phone are private.",
         join_placeholder: "Your Name",
         join_email: "Your email address",
-        join_social: "@ Public social network (optional)",
+        join_social: "@nickname",
         join_city: "City (e.g. New York)",
         join_badge_title: "Generate your Badge.",
         join_badge_desc: "Generate your badge, register, and share.",
@@ -377,7 +378,8 @@ const translations = {
             channel: "Scientific communication channel (Kurzgesagt, Veritasium, DW, etc.)",
             institution: "Official scientific institution (WHO, NASA, etc.)",
             book: "Academic or technical book with verifiable references",
-            own: "Own study with measurable data"
+            own: "Own study with measurable data",
+            youtube: "YouTube Channels (Strictly scientific content)"
         },
 
         // Testimonials Page
@@ -521,7 +523,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v4.7.5",
+        footer_copy: "Open framework. No owners. No barriers. v4.7.6",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -602,7 +604,7 @@ const translations = {
         join_privacy_note: "您的姓名、城市、社交網絡和證言將公開顯示在社群部分。您的電子郵件和電話是私有的。",
         join_placeholder: "您的姓名",
         join_email: "您的電子郵件",
-        join_social: "@ 公開社交網絡（選填）",
+        join_social: "@昵称",
         join_city: "城市（例如：上海）",
         join_badge_title: "生成您的徽章。",
         join_badge_desc: "生成您的徽章，註冊並分享。",
@@ -643,7 +645,8 @@ const translations = {
             channel: "具備科學方法的傳播頻道 (Kurzgesagt, Veritasium, DW 等)",
             institution: "官方科學機構 (WHO, NASA 等)",
             book: "具備可驗證參考資料的學術或技術書籍",
-            own: "具備可測量數據的個人研究"
+            own: "具備可測量數據的個人研究",
+            youtube: "YouTube 頻道（嚴謹科學內容）"
         },
 
         // Testimonials Page (CN)
@@ -801,7 +804,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v4.7.5",
+        footer_copy: "開放框架。無所有者。無障礙。v4.7.6",
         footer_creator: "Created by yepzhi"
     }
 };
