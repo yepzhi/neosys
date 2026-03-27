@@ -57,7 +57,7 @@ const translations = {
 
         // Únete al Movimiento
         join_label: "Sé Parte",
-        join_title: "Únete al Movimiento<br><span class='text-accent'>#NeosysAeon</span>",
+        join_title: "Únete al Movimiento<br><span class='text-accent'>#Neosys</span>",
         join_desc: "No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia, porta el símbolo ✨. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
         join_privacy_note: "Tu nombre, ciudad, red social y testimonio aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
         join_badge_title: "Genera tu Gafete.",
@@ -311,7 +311,7 @@ const translations = {
 
         // Únete al Movimiento
         join_label: "Be Part",
-        join_title: "Join the Movement<br><span class='text-accent'>#NeosysAeon</span>",
+        join_title: "Join the Movement<br><span class='text-accent'>#Neosys</span>",
         join_desc: "No formal affiliation or registration required. Adopt the principles, live the coherence, wear the symbol ✨. If the framework is useful to you, use it. If you find its flaws, improve it.",
         join_privacy_note: "Your name, city, social network, and testimonial will appear publicly in the Community section. Your email and phone are private.",
         join_badge_title: "Generate your Badge.",
@@ -552,7 +552,7 @@ const translations = {
 
         // Join
         join_label: "參與其中",
-        join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
+        join_title: "加入運動<br><span class='text-accent'>#Neosys</span>",
         join_desc: "無須正式隸屬或註冊。採用原則，活出連貫，佩戴標誌 ✨。如果框架對你有用，請使用它。如果發現缺點，請改進它。",
         join_privacy_note: "您的姓名、城市、社交網絡和證言將公開顯示在社群部分。您的電子郵件和電話是私有的。",
         join_badge_title: "生成您的徽章。",

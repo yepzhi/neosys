@@ -515,7 +515,7 @@ function drawBadge() {
     // --- 6. Footer & Tags ---
     ctx.fillStyle = 'rgba(167, 139, 250, 0.8)';
     ctx.font = '700 52px Inter, sans-serif';
-    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 140);
+    ctx.fillText('#ThinkWithEvidence  #Neosys', w / 2, h - 140);
 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.font = '300 24px Inter, sans-serif';
@@ -832,7 +832,7 @@ async function fetchEvidencias(filterValue = 'all') {
         // Tagline (Top - now even closer to the title/subtitle)
         ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
         ctx.font = 'italic 300 22px Inter, sans-serif';
-        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 160);
+        ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, 175);
 
         // 2-Column Grid of 10 Principles
         ctx.textAlign = 'left';
@@ -874,7 +874,8 @@ async function fetchEvidencias(filterValue = 'all') {
         // Footer
         ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
         ctx.font = '700 40px Inter, sans-serif';
-        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', canvas.width / 2, canvas.height - 110);
+        ctx.textAlign = 'center';
+        ctx.fillText('#ThinkWithEvidence  #Neosys', canvas.width / 2, canvas.height - 110);
 
         // Website
         ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
@@ -895,7 +896,7 @@ async function fetchEvidencias(filterValue = 'all') {
 
     // ── Share helpers ──
     const shareUrl = 'https://yepzhi.com/neosys/';
-    const shareText = 'Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon ' + shareUrl;
+    const shareText = 'Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #Neosys ' + shareUrl;
 
     function downloadBadge() {
         canvas.toBlob((blob) => {
@@ -916,7 +917,7 @@ async function fetchEvidencias(filterValue = 'all') {
     if (copyBtn) { // Changed from shareCopy to copyBtn
         copyBtn.addEventListener('click', () => {
             const t = translations[currentLang] || translations.es; // Get translations for dynamic text
-            const fullText = t.join_share_text || "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #NeosysAeon https://yepzhi.com/neosys/";
+            const fullText = t.join_share_text || "Implementando el Framework NEOSYS #SystemsThinking #EvidenceBased — Hacia una toma de decisiones basada en datos. #Neosys https://yepzhi.com/neosys/";
             navigator.clipboard.writeText(fullText).then(() => {
                 const originalContent = copyBtn.innerHTML; // Changed from shareCopy to copyBtn
                 copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
@@ -929,7 +930,7 @@ async function fetchEvidencias(filterValue = 'all') {
     const sloganBtn = document.getElementById('copy-slogan-btn');
     if (sloganBtn) {
         sloganBtn.addEventListener('click', () => {
-            const slogan = "Soy parte del movimiento NEOSYS AEON ✨ — Hacia una toma de decisiones basada en evidencias con el método cientifico. #NeosysAeon #EvidenceBased https://yepzhi.com/neosys/";
+            const slogan = "Soy parte del movimiento NEOSYS AEON ✨ — Hacia una toma de decisiones basada en evidencias con el método cientifico. #Neosys #EvidenceBased https://yepzhi.com/neosys/";
             navigator.clipboard.writeText(slogan).then(() => {
                 const original = sloganBtn.innerHTML;
                 sloganBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ¡Copiado!';
