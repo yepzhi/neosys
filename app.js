@@ -471,7 +471,8 @@ function drawBadge() {
     // --- 4. Identification ---
     const nameY = 820;
     const nameInput = document.getElementById('badge-name');
-    const nameStr = nameInput ? (nameInput.value.trim() || 'Tu Nombre') : 'Tu Nombre';
+    const defaultName = t.badge_name_placeholder || 'TU NOMBRE';
+    const nameStr = nameInput ? (nameInput.value.trim() || defaultName) : defaultName;
     
     ctx.fillStyle = '#fff';
     ctx.font = '900 90px Inter, sans-serif';
@@ -487,7 +488,7 @@ function drawBadge() {
 
     ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
     ctx.font = '600 40px Inter, sans-serif';
-    ctx.fillText('MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 110);
+    ctx.fillText(t.badge_member || 'MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 110);
 
     // --- 5. Centered Phrases (Enlarged & Clearer) ---
     const phraseStartY = nameY + 220;
@@ -495,17 +496,17 @@ function drawBadge() {
     ctx.font = '500 38px Inter, sans-serif'; 
 
     // Phrase 1
-    ctx.fillText('Sin ciencia no hay claridad.', w / 2, phraseStartY);
-    ctx.fillText('Sin validación no hay progreso.', w / 2, phraseStartY + 50);
+    ctx.fillText(t.badge_phrase1_l1 || 'Sin ciencia no hay claridad.', w / 2, phraseStartY);
+    ctx.fillText(t.badge_phrase1_l2 || 'Sin validación no hay progreso.', w / 2, phraseStartY + 50);
 
     // Phrase 2
-    ctx.fillText('Un marco abierto para entender la realidad', w / 2, phraseStartY + 120);
-    ctx.fillText('a través de evidencia verificable.', w / 2, phraseStartY + 170);
+    ctx.fillText(t.badge_phrase2_l1 || 'Un marco abierto para entender la realidad', w / 2, phraseStartY + 120);
+    ctx.fillText(t.badge_phrase2_l2 || 'a través de evidencia verificable.', w / 2, phraseStartY + 170);
 
     // Call to Action (Purple)
     ctx.fillStyle = 'rgba(167, 139, 250, 1)';
     ctx.font = '700 42px Inter, sans-serif'; 
-    ctx.fillText('¡Conoce los 10 principios del Cosmos hoy!', w / 2, phraseStartY + 270);
+    ctx.fillText(t.badge_phrase3 || '¡Conoce los 10 principios del Cosmos hoy!', w / 2, phraseStartY + 270);
 
     // --- 6. Footer & Tags ---
     ctx.fillStyle = 'rgba(167, 139, 250, 0.8)';
@@ -586,8 +587,9 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
+        const t = translations[currentLang] || translations.es;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + (currentLang === 'es' ? 'Registrando...' : 'Registering...');
+        submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + (t.comm_loading_register || (currentLang === 'es' ? 'Registrando...' : 'Registering...'));
 
         const emailInput = document.getElementById('badge-email');
         const phoneInput = document.getElementById('badge-phone');
