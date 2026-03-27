@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.7.2"; 
+const version = "4.8.7.3"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.7.2"; 
+const APP_VERSION = "4.8.7.3"; 
 
 let db = null;
 try {
@@ -463,8 +463,25 @@ async function fetchEvidencias(filterValue = 'all') {
             list.appendChild(card);
         });
 
+        // REVEAL ANIMATION (Crucial for newly injected DOM)
         if (typeof ScrollReveal !== 'undefined') {
-            ScrollReveal().reveal('.reveal', { interval: 100 });
+            console.log("[Neosys] Triggering ScrollReveal on new elements.");
+            ScrollReveal().reveal('.reveal', { 
+                origin: 'bottom',
+                distance: '20px',
+                duration: 1000,
+                delay: 200,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                interval: 100 
+            });
+        } else {
+            // FALLBACK (v4.8.7.3) - Ensure visibility if library is blocked
+            console.warn("[Neosys] ScrollReveal not found! Forcing evidence visibility.");
+            document.querySelectorAll('.reveal').forEach(el => {
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
+                el.style.transform = 'none';
+            });
         }
     } catch (err) {
         console.error("Error:", err);
