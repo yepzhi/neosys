@@ -1796,7 +1796,7 @@ img { max-width: 100%; display: block; }
     text-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
 }
 
-/* ── Animations for Phase 4 (v4.8.7.3) ── */
+/* ── Animations for Phase 4 (v4.8.7.4) ── */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -1842,7 +1842,7 @@ img { max-width: 100%; display: block; }
 }
 
 
-/* ── Success Notification (v4.8.7.3) ───────── */
+/* ── Success Notification (v4.8.7.4) ───────── */
 .neo-success-toast {
     position: fixed;
     top: -100px;
@@ -1889,7 +1889,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ═══════════════════════════════════════════
-   PREMIUM SELECT STYLES (v4.8.7.3)
+   PREMIUM SELECT STYLES (v4.8.7.4)
    ═══════════════════════════════════════════ */
 .neo-select {
     background: var(--glass);
