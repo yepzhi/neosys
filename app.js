@@ -409,29 +409,33 @@ function drawBadge() {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     
-    // Sparkle (Matches Hero)
+    // Sparkle (2.5x larger, slightly lower)
     ctx.fillStyle = 'rgba(167, 139, 250, 1)';
-    ctx.font = '600 50px Inter, sans-serif';
-    ctx.fillText('✨', w / 2, 80);
+    ctx.font = '600 120px Inter, sans-serif';
+    ctx.fillText('✨', w / 2, 100);
 
+    // Neosys Aeon (Hero Style: Large & Glowing)
     ctx.fillStyle = '#fff';
-    ctx.font = '900 70px Inter, sans-serif';
-    ctx.letterSpacing = '8px';
-    ctx.fillText('NEOSYS AEON', w / 2, 160);
+    ctx.font = '900 110px Inter, sans-serif';
+    ctx.letterSpacing = '12px';
+    ctx.shadowColor = 'rgba(167, 139, 250, 0.7)';
+    ctx.shadowBlur = 30;
+    ctx.fillText('NEOSYS AEON', w / 2, 230);
+    ctx.shadowBlur = 0;
     ctx.letterSpacing = '0px';
 
     // --- 3. User Photo ---
-    const photoY = 480; 
-    const photoSize = 380;
+    const photoY = 560; 
+    const photoSize = 400;
     
     // Glowing ring
     ctx.beginPath();
-    ctx.arc(w / 2, photoY, (photoSize / 2) + 12, 0, Math.PI * 2);
-    const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 15);
+    ctx.arc(w / 2, photoY, (photoSize / 2) + 15, 0, Math.PI * 2);
+    const radGrad = ctx.createRadialGradient(w/2, photoY, photoSize/2, w/2, photoY, photoSize/2 + 20);
     radGrad.addColorStop(0, 'rgba(167, 139, 250, 0.8)');
     radGrad.addColorStop(1, 'rgba(167, 139, 250, 0)');
     ctx.strokeStyle = radGrad;
-    ctx.lineWidth = 15;
+    ctx.lineWidth = 20;
     ctx.stroke();
 
     if (userPhoto) {
@@ -459,52 +463,52 @@ function drawBadge() {
         ctx.fillText('👤', w / 2, photoY + 15);
     }
 
-    // --- 4. Identification (Centered) ---
-    const nameY = 750;
+    // --- 4. Identification ---
+    const nameY = 820;
     const nameInput = document.getElementById('badge-name');
     const nameStr = nameInput ? (nameInput.value.trim() || 'Tu Nombre') : 'Tu Nombre';
     
     ctx.fillStyle = '#fff';
-    ctx.font = '900 80px Inter, sans-serif';
+    ctx.font = '900 90px Inter, sans-serif';
     ctx.fillText(nameStr.toUpperCase(), w / 2, nameY);
 
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-    ctx.font = '600 32px Inter, sans-serif';
-    ctx.fillText('MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 80);
-
-    // Divider
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 2;
+    // Line under name
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(w / 2 - 350, nameY + 35);
-    ctx.lineTo(w / 2 + 350, nameY + 35);
+    ctx.moveTo(w / 2 - 400, nameY + 50);
+    ctx.lineTo(w / 2 + 400, nameY + 50);
     ctx.stroke();
 
-    // --- 5. Centered Phrases (v4.6.0) ---
-    const phraseStartY = nameY + 160;
-    ctx.fillStyle = 'rgba(255,255,255,0.35)'; // More gray
-    ctx.font = '500 24px Inter, sans-serif'; 
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+    ctx.font = '600 40px Inter, sans-serif';
+    ctx.fillText('MIEMBRO DEL MOVIMIENTO', w / 2, nameY + 110);
 
-    // Phrase 1 (Specific lines)
+    // --- 5. Centered Phrases (Enlarged & Clearer) ---
+    const phraseStartY = nameY + 220;
+    ctx.fillStyle = 'rgba(255,255,255,0.7)'; // Brighter gray
+    ctx.font = '500 38px Inter, sans-serif'; 
+
+    // Phrase 1
     ctx.fillText('Sin ciencia no hay claridad.', w / 2, phraseStartY);
-    ctx.fillText('Sin validación no hay progreso.', w / 2, phraseStartY + 35);
+    ctx.fillText('Sin validación no hay progreso.', w / 2, phraseStartY + 50);
 
-    // Phrase 2 (Specific lines)
-    ctx.fillText('Un marco abierto para entender la realidad', w / 2, phraseStartY + 85);
-    ctx.fillText('a través de evidencia verificable.', w / 2, phraseStartY + 120);
+    // Phrase 2
+    ctx.fillText('Un marco abierto para entender la realidad', w / 2, phraseStartY + 120);
+    ctx.fillText('a través de evidencia verificable.', w / 2, phraseStartY + 170);
 
-    // Call to Action (Purple & Focused)
-    ctx.fillStyle = 'rgba(167, 139, 250, 1)'; // Signature Purple
-    ctx.font = '700 32px Inter, sans-serif'; 
-    ctx.fillText('¡Conoce los 10 principios del Cosmos hoy!', w / 2, phraseStartY + 195);
+    // Call to Action (Purple)
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+    ctx.font = '700 42px Inter, sans-serif'; 
+    ctx.fillText('¡Conoce los 10 principios del Cosmos hoy!', w / 2, phraseStartY + 270);
 
     // --- 6. Footer & Tags ---
     ctx.fillStyle = 'rgba(167, 139, 250, 0.8)';
-    ctx.font = '700 42px Inter, sans-serif';
-    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 130);
+    ctx.font = '700 52px Inter, sans-serif';
+    ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w / 2, h - 140);
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.font = '300 22px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.font = '300 24px Inter, sans-serif';
     ctx.fillText('YEPZHI.COM/NEOSYS', w / 2, h - 60);
 
     const preview = document.getElementById('badge-preview');
