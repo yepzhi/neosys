@@ -48,6 +48,12 @@ db.collection('miembros').orderBy('timestamp', 'desc').onSnapshot((snapshot) => 
 
         const dateStr = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'N/A';
         
+        const locParts = [];
+        if (data.city) locParts.push(data.city);
+        if (data.state) locParts.push(data.state);
+        if (data.country) locParts.push(data.country);
+        const locStr = locParts.length > 0 ? locParts.join(', ') : 'N/A';
+
         const row = `
             <tr>
                 <td>
@@ -59,7 +65,7 @@ db.collection('miembros').orderBy('timestamp', 'desc').onSnapshot((snapshot) => 
                         </div>
                     </div>
                 </td>
-                <td>${data.city || 'N/A'}, ${data.country || 'N/A'}</td>
+                <td>${locStr}</td>
                 <td>
                     <div style="font-size: 0.8rem;">
                         ${data.email || '-'}<br>
@@ -67,8 +73,8 @@ db.collection('miembros').orderBy('timestamp', 'desc').onSnapshot((snapshot) => 
                     </div>
                 </td>
                 <td style="max-width: 300px; font-size: 0.8rem; line-height: 1.4;">
-                    <strong>Decision:</strong> ${data.decision || 'No description'}<br>
-                    <em style="opacity: 0.7;">Source: ${data.evidence_source || 'N/A'}</em>
+                    <strong>Decision:</strong> ${data.decision_evidencia || 'No description'}<br>
+                    <em style="opacity: 0.7;">Source: ${data.tipo_fuente || 'N/A'}</em>
                 </td>
                 <td>${dateStr}</td>
             </tr>

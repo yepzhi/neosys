@@ -604,12 +604,17 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     }
 
     // --- 4. Registration & Download ---
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        const t = translations[currentLang] || translations.es;
+    const submitBtn = document.getElementById('btn-register-final');
+
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async (e) => {
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            const originalBtnText = submitBtn.innerHTML;
+            const t = translations[currentLang] || translations.es;
 
         // Validation
         const decisionVal = decisionInput ? decisionInput.value.trim() : '';
@@ -629,7 +634,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         }
 
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="loading-spinner"></span> ' + (t.comm_loading_register || (currentLang === 'es' ? 'Registrando...' : 'Registering...'));
+        submitBtn.innerText = t.comm_loading_processing || (currentLang === 'es' ? 'Procesando...' : 'Processing...');
 
         const emailInput = document.getElementById('badge-email');
         const socialInput = document.getElementById('badge-social');
@@ -663,6 +668,9 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
             }
         }
 
+        // Wait 1 second (UX Requirement)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
         drawBadge();
         
         // Finalize Download
@@ -692,6 +700,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         // Ensure actions are visible
         if (actions) actions.style.display = 'flex';
     });
+}
 })();
 
 // --- 5. Populate Source Selects ---

@@ -16,6 +16,8 @@ const translations = {
         comm_tab_map: "Mapa",
         comm_join_btn: "✨ Únete al movimiento",
         comm_loading: "Cargando base de datos...",
+        comm_loading_processing: "Procesando...",
+        comm_loading_register: "Registrando...",
         wp_link: "neosysaeon-whitepaper-v4.1.pdf",
 
         // Hero
@@ -286,6 +288,8 @@ const translations = {
         comm_tab_map: "Map",
         comm_join_btn: "✨ Join the movement",
         comm_loading: "Loading database...",
+        comm_loading_processing: "Processing...",
+        comm_loading_register: "Registering...",
         wp_link: "neosysaeon-whitepaper-v4.1-EN.pdf",
         hero_tagline: "Without science there is no clarity. Without validation there is no progress.",
         hero_subtitle: "An open framework to understand reality through verifiable evidence.",
@@ -549,6 +553,8 @@ const translations = {
         comm_tab_map: "地圖",
         comm_join_btn: "✨ 加入運動",
         comm_loading: "正在加載資料庫...",
+        comm_loading_processing: "處理中...",
+        comm_loading_register: "註冊中...",
         wp_link: "neosysaeon-whitepaper-v4.1-ZH.pdf",
 
         // Hero
