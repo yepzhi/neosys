@@ -462,7 +462,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.2.2.2
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.3.2.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -514,6 +514,126 @@ function fetchEvidencias(filterValue = 'all') {
         console.error("[Neosys] DB Error:", err);
         list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); padding: 60px;">Error de conexión con la base de datos.</div>`;
     });
+}
+
+const slidesData = [
+    { id: 1, title: 'm1_title', body: 'm1_body' }, { id: 2, title: 'm2_title', body: 'm2_body' },
+    { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
+    { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
+    { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
+    { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
+];
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(' ');
+    let line = '';
+    let testY = y;
+    for (let n = 0; n < words.length; n++) {
+        let testLine = line + words[n] + ' ';
+        let metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+            ctx.fillText(line, x, testY);
+            line = words[n] + ' ';
+            testY += lineHeight;
+        } else {
+            line = testLine;
+        }
+    }
+    ctx.fillText(line, x, testY);
+}
+
+function generateCommandmentsPoster() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1200;
+    canvas.height = 1600; 
+    const ctx = canvas.getContext('2d');
+    const t = translations[currentLang] || translations.es;
+
+    // Background Gradient
+    const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    grad.addColorStop(0, '#0a0a20');
+    grad.addColorStop(1, '#020208');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Header
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '900 90px Inter, sans-serif';
+    ctx.shadowColor = 'rgba(167, 139, 250, 0.4)';
+    ctx.shadowBlur = 20;
+    ctx.fillText('NEOSYS AEON ✨', canvas.width / 2, 140);
+    ctx.shadowBlur = 0;
+
+    ctx.font = '700 36px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(167, 139, 250, 1)';
+    const posterTitle = (t.mand_title || "10 PRINCIPIOS OPERATIVOS").replace('<br>', ' ').replace(/<[^>]*>?/gm, '').toUpperCase();
+    ctx.fillText(posterTitle, canvas.width / 2, 220);
+
+    // Grid Layout
+    ctx.textAlign = 'left';
+    const startY = 380;
+    const col1X = 80;
+    const col2X = 660;
+    const spacingY = 220;
+
+    slidesData.forEach((s, i) => {
+        const isSecondCol = i >= 5;
+        const x = isSecondCol ? col2X : col1X;
+        const row = isSecondCol ? i - 5 : i;
+        const y = startY + (row * spacingY);
+
+        const title = t[s.title] || '';
+        const body = t[s.body] || '';
+
+        // Background Roman Numeral
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.12)';
+        ctx.font = '900 130px Inter, sans-serif';
+        const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+        ctx.fillText(roman[i], x - 15, y + 60);
+
+        // Title
+        ctx.fillStyle = '#fff';
+        ctx.font = '700 24px Inter, sans-serif';
+        const titleClean = title.replace(/\*\*/g, '').toUpperCase();
+        const titleParts = titleClean.split('\n');
+        titleParts.forEach((part, idx) => {
+            ctx.fillText(part, x + 100, y + (idx * 30));
+        });
+
+        // Body
+        const bodyOffset = titleParts.length > 1 ? 70 : 50;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+        ctx.font = '400 15px Inter, sans-serif';
+        wrapText(ctx, body, x + 100, y + bodyOffset, 420, 22);
+    });
+
+    // Footer Tagline
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.font = 'italic 300 28px Inter, sans-serif';
+    ctx.fillText(t.hero_tagline || 'Sin ciencia no hay verdad. Sin validación no hay progreso.', canvas.width / 2, canvas.height - 200);
+
+    // Brand
+    ctx.fillStyle = '#a78bfa';
+    ctx.font = '700 48px Inter, sans-serif';
+    ctx.fillText('#ThinkWithEvidence  #Neosys', canvas.width / 2, canvas.height - 120);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.font = '300 22px Inter, sans-serif';
+    ctx.fillText('YEPZHI.COM/NEOSYS', canvas.width / 2, canvas.height - 60);
+
+    // Save and Trigger
+    canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.download = `neosysaeon-poster-${currentLang}.jpg`;
+        link.href = url;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }, 'image/jpeg', 0.95);
 }
 
 function populateOutreachCategories() {
@@ -570,12 +690,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.1.2.2.2.2) ───────────────────
+    // ── Poster Download Handler (v4.8.1.3) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
-            // Restore link to the original HD Poster PNG
-            window.open('principles_poster_hd.png', '_blank');
+            // Trigger dynamic generator
+            generateCommandmentsPoster();
         });
     }
 });
