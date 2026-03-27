@@ -647,63 +647,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         if (actions) actions.style.display = 'flex';
     });
 
-    // ── Commandments Slider Logic ────────────
-    const slidesData = [
-        { id: 1, title: 'm1_title', body: 'm1_body' }, { id: 2, title: 'm2_title', body: 'm2_body' },
-        { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
-        { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
-        { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
-        { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
-    ];
-    let currentSlide = 0;
+    // ── Principles Section Logic (Grid is static) ────────────
 
-    function initSlider() {
-        const track = document.getElementById('mandamientos-track');
-        const nav = document.getElementById('slider-nav');
-        if (!track || !nav) return;
-
-        track.innerHTML = '';
-        nav.innerHTML = '';
-
-        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
-
-        slidesData.forEach((slide, index) => {
-            const slideEl = document.createElement('div');
-            slideEl.className = `mandamiento-slide ${index === 0 ? 'active' : ''}`;
-            const t = translations[currentLang] || translations.es;
-            slideEl.innerHTML = `
-                <div class="slide-num-magical">${romanNumerals[index]}</div>
-                <div class="slide-content">
-                    <h3 data-i18n="${slide.title}">${t[slide.title] || ''}</h3>
-                    <p data-i18n="${slide.body}">${t[slide.body] || ''}</p>
-                </div>
-            `;
-            track.appendChild(slideEl);
-
-            const dot = document.createElement('div');
-            dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => goToSlide(index));
-            nav.appendChild(dot);
-        });
-
-        document.getElementById('slider-prev')?.addEventListener('click', () => goToSlide(currentSlide - 1));
-        document.getElementById('slider-next')?.addEventListener('click', () => goToSlide(currentSlide + 1));
-    }
-
-    function goToSlide(n) {
-        const track = document.getElementById('mandamientos-track');
-        const dots = document.querySelectorAll('.slider-dot');
-        const slides = document.querySelectorAll('.mandamiento-slide');
-        if (!track || slides.length === 0) return;
-
-        currentSlide = (n + slidesData.length) % slidesData.length;
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-        slides.forEach((s, idx) => s.classList.toggle('active', idx === currentSlide));
-        dots.forEach((d, idx) => d.classList.toggle('active', idx === currentSlide));
-    }
-
-    initSlider();
 
     // ── Poster Generator Logic ───────────────
     const posterBtn = document.getElementById('download-poster');
@@ -712,6 +657,13 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     }
 
     function generateCommandmentsPoster() {
+        const slidesData = [
+            { id: 1, title: 'm1_title', body: 'm1_body' }, { id: 2, title: 'm2_title', body: 'm2_body' },
+            { id: 3, title: 'm3_title', body: 'm3_body' }, { id: 4, title: 'm4_title', body: 'm4_body' },
+            { id: 5, title: 'm5_title', body: 'm5_body' }, { id: 6, title: 'm6_title', body: 'm6_body' },
+            { id: 7, title: 'm7_title', body: 'm7_body' }, { id: 8, title: 'm8_title', body: 'm8_body' },
+            { id: 9, title: 'm9_title', body: 'm9_body' }, { id: 10, title: 'm10_title', body: 'm10_body' }
+        ];
         const canvas = document.createElement('canvas');
         canvas.width = 1200;
         canvas.height = 1400; // More compact card format
