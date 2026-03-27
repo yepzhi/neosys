@@ -349,6 +349,14 @@ img { max-width: 100%; display: block; }
     color: var(--accent); /* Fallback */
 }
 
+.text-magical-purple {
+    background: linear-gradient(135deg, #a78bfa 0%, #7dd3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
 .section-desc {
     font-size: 1.1rem;
     color: var(--text-secondary);
