@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.2"; 
+const version = "4.8.2.1"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.2"; 
+const APP_VERSION = "4.8.2.1"; 
 
 let db = null;
 try {
@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2.1
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,16 +517,21 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.2) ──────────────────
+// ── Community Map Logic (v4.8.2.1) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
 // Geocoding Fallback for common cities
 const CITY_COORDINATES = {
     'GUADALAJARA': [20.6597, -103.3496],
+    'JALISCO': [20.6597, -103.3496],
     'CDMX': [19.4326, -99.1332],
     'MÉXICO': [19.4326, -99.1332],
+    'MEXICO': [19.4326, -99.1332],
+    'CIUDAD DE MÉXICO': [19.4326, -99.1332],
+    'DF': [19.4326, -99.1332],
     'MONTERREY': [25.6866, -100.3161],
+    'NUEVO LEÓN': [25.6866, -100.3161],
     'PUEBLA': [19.0413, -98.2062],
     'QUERÉTARO': [20.5888, -100.3899],
     'MÉRIDA': [20.9674, -89.5926],
@@ -534,6 +539,7 @@ const CITY_COORDINATES = {
     'CANCÚN': [21.1619, -86.8515],
     'TIJUANA': [32.5149, -117.0382],
     'LEÓN': [21.1224, -101.6851],
+    'GUANAJUATO': [21.0190, -101.2574],
     'MADRID': [40.4168, -3.7038],
     'BARCELONA': [41.3851, 2.1734],
     'BOGOTÁ': [4.7110, -74.0721],
@@ -770,6 +776,9 @@ function populateOutreachCategories() {
         ScrollReveal().reveal('.reveal', { 
             origin: 'bottom', distance: '20px', duration: 1000, delay: 200, interval: 100 
         });
+    } else {
+        // Fallback for invisibility
+        document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
     }
 }
 
@@ -790,7 +799,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.2) ───────────────────
+    // ── Poster Download Handler (v4.8.2.1) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
