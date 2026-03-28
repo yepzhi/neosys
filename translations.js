@@ -65,7 +65,7 @@ const translations = {
 
         // Únete al Movimiento
         join_label: "Sé Parte",
-        join_title: "Únete al Movimiento<br><span class='text-accent'>#Neosys</span>",
+        join_title: "Únete al Movimiento<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "No requiere afiliación ni registro formal. Adopta los principios, vive la coherencia, porta el símbolo ✨. Si el marco te es útil, úsalo. Si encuentras sus fallas, mejóralo.",
         join_privacy_note: "Tu nombre, ciudad, red social y testimonio aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
         join_placeholder: "Tu nombre",
@@ -273,7 +273,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.8.4",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v4.8.4.2",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -335,7 +335,7 @@ const translations = {
 
         // Únete al Movimiento
         join_label: "Be Part",
-        join_title: "Join the Movement<br><span class='text-accent'>#Neosys</span>",
+        join_title: "Join the Movement<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "No formal affiliation or registration required. Adopt the principles, live the coherence, wear the symbol ✨. If the framework is useful to you, use it. If you find its flaws, improve it.",
         join_privacy_note: "Your name, city, social network, and testimonial will appear publicly in the Community section. Your email and phone are private.",
         join_placeholder: "Your Name",
@@ -529,7 +529,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v4.8.4",
+        footer_copy: "Open framework. No owners. No barriers. v4.8.4.2",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -605,7 +605,7 @@ const translations = {
 
         // Join
         join_label: "參與其中",
-        join_title: "加入運動<br><span class='text-accent'>#Neosys</span>",
+        join_title: "加入運動<br><span class='text-accent'>#NeosysAeon</span>",
         join_desc: "無須正式隸屬或註冊。採用原則，活出連貫，佩戴標誌 ✨。如果框架對你有用，請使用它。如果發現缺點，請改進它。",
         join_privacy_note: "您的姓名、城市、社交網絡和證言將公開顯示在社群部分。您的電子郵件和電話是私有的。",
         join_placeholder: "您的姓名",
@@ -813,7 +813,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v4.8.4",
+        footer_copy: "開放框架。無所有者。無障礙。v4.8.4.2",
         footer_creator: "Created by yepzhi"
     }
 };

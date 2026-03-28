@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.4
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.4.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,7 +517,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.4) ──────────────────
+// ── Community Map Logic (v4.8.4.2) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -555,7 +555,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.4");
+    console.log("[Neosys] Initializing Map v4.8.4.2");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -812,7 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.4) ───────────────────
+    // ── Poster Download Handler (v4.8.4.2) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
