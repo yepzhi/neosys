@@ -8,11 +8,10 @@ window.NeosysPoster = (function() {
     const CANVAS_HEIGHT = 4961;
 
     async function generate(lang = 'en') {
-        const canvas = document.createElement('canvas');
-        canvas.width = CANVAS_WIDTH;
-        canvas.height = CANVAS_HEIGHT;
-        const ctx = canvas.getContext('2d');
-        const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
+        const version = 'v5.1.3';
+
+        // Wait for fonts to be ready
+        await document.fonts.ready;
 
         // 1. Background (Deep Cosmic Gradient)
         const bg = ctx.createLinearGradient(0, 0, 0, CANVAS_HEIGHT);
@@ -57,14 +56,14 @@ window.NeosysPoster = (function() {
 
         // Title: NEOSYS AEON (Large & Central)
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 280px Inter, sans-serif';
+        ctx.font = '800 280px Outfit, sans-serif';
         ctx.letterSpacing = '25px';
         ctx.fillText('NEOSYS AEON', CANVAS_WIDTH / 2, 650);
 
         // Tagline: Below the main title
         const tagline = (t.hero_tagline || 'Without science there is no clarity. Without validation there is no progress.').toUpperCase();
         ctx.fillStyle = '#a78bfa';
-        ctx.font = '700 85px Inter, sans-serif';
+        ctx.font = '600 82px Outfit, sans-serif';
         ctx.letterSpacing = '6px';
         ctx.fillText(tagline, CANVAS_WIDTH / 2, 850);
 
@@ -78,9 +77,10 @@ window.NeosysPoster = (function() {
 
         // 5. The 10 Principles (Two Columns)
         const startY = 1350;
-        const spacingY = 620; // More vertical space per principle
+        const spacingY = 660; // Extra breathing room
         const col1X = 500;
         const col2X = 2150;
+        const colMaxWidth = 1050; // Narrower for safer layout
         const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
         function wrapText(text, x, y, maxWidth, lineHeight) {
@@ -99,6 +99,7 @@ window.NeosysPoster = (function() {
                 }
             }
             ctx.fillText(line, x, currentY);
+            return currentY;
         }
 
         for (let i = 1; i <= 10; i++) {
@@ -107,25 +108,30 @@ window.NeosysPoster = (function() {
             const currentX = isSecondCol ? col2X : col1X;
             const currentY = startY + rowIndex * spacingY;
             
-            const title = (t[`m${i}_title`] || '').replace(/\n/g, ' ').toUpperCase();
+            // Handle multi-line titles by splitting by \n
+            const titleLines = (t[`m${i}_title`] || '').toUpperCase().split('\n');
             const body = (t[`m${i}_body`] || '');
 
             // Roman Numeral (Large Subtle Background)
             ctx.fillStyle = 'rgba(167, 139, 250, 0.08)';
-            ctx.font = 'bold 380px Inter, sans-serif';
+            ctx.font = '800 380px Outfit, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(romanNumerals[i-1], currentX - 250, currentY + 120);
 
-            // Principle Title
+            // Principle Title (Wrapped if \n present)
             ctx.textAlign = 'left';
             ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 95px Inter, sans-serif';
-            ctx.fillText(title, currentX, currentY);
+            ctx.font = '800 82px Outfit, sans-serif'; // Slightly smaller for fit
+            let titleY = currentY;
+            titleLines.forEach((line, idx) => {
+                ctx.fillText(line, currentX, titleY + (idx * 90));
+            });
 
             // Principle Body (Wrapped)
             ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
-            ctx.font = '400 60px Inter, sans-serif';
-            wrapText(body, currentX, currentY + 110, 1100, 75);
+            ctx.font = '400 54px Outfit, sans-serif';
+            const bodyStartY = titleY + (titleLines.length * 90) + 15;
+            wrapText(body, currentX, bodyStartY, colMaxWidth, 70);
         }
 
         // 6. Footer Section
@@ -134,16 +140,16 @@ window.NeosysPoster = (function() {
         // Symbol & Domain
         ctx.textAlign = 'center';
         ctx.fillStyle = '#a78bfa';
-        ctx.font = 'bold 90px Inter, sans-serif';
+        ctx.font = '700 90px Outfit, sans-serif';
         ctx.fillText('#ThinkWithEvidence  #NeosysAeon', CANVAS_WIDTH / 2, footerY);
 
         ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.font = '500 50px Inter, sans-serif';
+        ctx.font = '500 50px Outfit, sans-serif';
         ctx.fillText('OPEN CONCEPTUAL FRAMEWORK — YEPZHI.COM/NEOSYS', CANVAS_WIDTH / 2, footerY + 120);
 
         // Version & Date
-        ctx.font = '40px monospace';
-        ctx.fillText('v5.1.2 — MARCH 2026', CANVAS_WIDTH / 2, footerY + 220);
+        ctx.font = '500 40px monospace';
+        ctx.fillText(`${version} — MARCH 2026`, CANVAS_WIDTH / 2, footerY + 220);
 
         return canvas.toDataURL('image/png');
     }
