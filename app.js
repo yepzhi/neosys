@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v4.9.4.0 FINAL STABLE
+   NEOSYS AEON — App Logic v4.9.5.0 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.9.4.0"; 
+const version = "4.9.5.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -71,6 +71,20 @@ function safeToDate(val) {
     return isNaN(d.getTime()) ? null : d;
 }
 
+const STATE_CODES = {
+    'VERACRUZ': 'VE', 'JALISCO': 'JA', 'CDMX': 'MX', 'MEXICO': 'MX', 'MÉXICO': 'MX',
+    'NUEVO LEON': 'NL', 'PUEBLA': 'PU', 'QUERETARO': 'QT', 'GUANAJUATO': 'GT',
+    'CALIFORNIA': 'CA', 'TEXAS': 'TX', 'NEW YORK': 'NY', 'FLORIDA': 'FL'
+};
+
+function getShortLoc(data) {
+    const s = (data.state || data.estado || '').toUpperCase().trim();
+    const c = (data.country || data.pais || '').toUpperCase().trim();
+    const st = STATE_CODES[s] || s.substring(0, 2);
+    const co = c.length > 2 ? c.substring(0, 2) : c;
+    return (st && co) ? `${st}, ${co}` : (st || co || '');
+}
+
 // ── Evidence Loading ─────────────────────────────
 function fetchEvidencias(filterValue = 'all') {
     const list = document.getElementById('evidencias-list');
@@ -92,7 +106,8 @@ function fetchEvidencias(filterValue = 'all') {
         if (docs.length === 0) { list.innerHTML = `<p style="text-align:center; padding:40px;">No se encontraron registros activos.</p>`; return; }
         docs.forEach(data => {
             const card = document.createElement('div'); card.className = 'evidence-card';
-            card.innerHTML = `<div class="evidence-card-header"><div class="evidence-card-name">${data.name || data.nombre || 'Member'}</div><div class="evidence-card-meta"><span>${data.city || data.ciudad || ''}</span></div></div><div class="evidence-card-body"><p>${data.decision_evidencia || 'Registro Neosys Aeon.'}</p></div>`;
+            const loc = getShortLoc(data);
+            card.innerHTML = `<div class="evidence-card-header"><div class="evidence-card-name">${data.name || data.nombre || 'Member'}</div><div class="evidence-card-meta"><span>${loc}</span></div></div><div class="evidence-card-body"><p>${data.decision_evidencia || 'Registro Neosys Aeon.'}</p></div>`;
             list.appendChild(card);
         });
     }, (err) => console.error("[NEOSYS] Permission Error:", err));
@@ -108,7 +123,8 @@ function loadCommunity() {
         snapshot.forEach(doc => {
             const data = doc.data();
             const el = document.createElement('div'); el.className = 'community-member';
-            el.innerHTML = `<div class="member-dot"></div><span class="member-name">${data.name || data.nombre || 'Member'}</span>`;
+            const loc = getShortLoc(data);
+            el.innerHTML = `<div class="member-dot"></div><span class="member-name">${data.name || data.nombre || 'Member'}</span>${loc ? `<span class="member-location" style="margin-left:auto; opacity:0.6; font-size:0.8em;">${loc}</span>` : ''}`;
             list.appendChild(el);
         });
     }, (err) => console.error("[NEOSYS] Permission Error:", err));
@@ -148,7 +164,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v4.9.4.0)
+    // Tab switching logic (v4.9.5.0)
     const btnDir = document.getElementById('btn-directory');
     const btnMap = document.getElementById('btn-map');
     const dirContent = document.getElementById('directory-content');
