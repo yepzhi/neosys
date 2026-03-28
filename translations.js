@@ -28,8 +28,8 @@ const translations = {
         hero_explore: "Explorar",
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
-        manifesto_p1: "Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
-        manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
+        manifesto_p1: "La ciencia nos permite explicar el mundo. La ingeniería lo transforma. La tecnología escala ese cambio. Y sin embargo, la abundancia de información no ha producido una mejora proporcional en la comprensión ni en nuestra capacidad de generar progreso real.",
+        manifesto_p2: "La proliferación de pseudociencia, la normalización de modelos de pensamiento no validados y la persistencia de sesgos cognitivos distorsionan nuestra capacidad de interpretar la realidad — y con ello, nuestra posibilidad de construir un futuro mejor.",
         manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
         postulado_label: "De la Filosofía a la Ciencia",
@@ -297,7 +297,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.1.4",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.1.6",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -326,8 +326,8 @@ const translations = {
         hero_explore: "Explore",
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
-        manifesto_p1: "Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
-        manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
+        manifesto_p1: "Science allows us to explain the world. Engineering transforms it. Technology scales that change. And yet, the abundance of information has not produced a proportional improvement in understanding nor in our ability to generate real progress.",
+        manifesto_p2: "The proliferation of pseudoscience, the normalization of unvalidated thinking models, and the persistence of cognitive biases distort our ability to interpret reality — and with it, our possibility of building a better future.",
         manifesto_p3: "It is not a belief system. It is an applied framework of understanding — the <strong>Principles of the Cosmos</strong> — oriented towards prioritizing truth, validating through evidence, and translating knowledge into real action.",
 
         // 10 Principles Operativos
@@ -553,7 +553,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.1.4",
+        footer_copy: "Open framework. No owners. No barriers. v5.1.6",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -621,8 +621,8 @@ const translations = {
         hero_explore: "探索",
         manifesto_label: "宣言",
         manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來決。</span>",
-        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon 是一個開放的概念框架，旨在改善個人理解現實以及基於證據做出決策的方式。它提議將應用認識論、科學方法和負責任的行動結合起來。",
-        manifesto_p2: "沒有應用的綜合缺乏影響。沒有建模的執行會產生系統誤差。該框架將這兩個向量整合到一個持續的反饋路徑中。",
+        manifesto_p1: "科學讓我們得以解釋世界，工程將其轉化，技術則擴展這種變革。然而，資訊的氾濫並未成比例地提升我們的理解力，也未能增強我們產生實質進步的能力。",
+        manifesto_p2: "偽科學的擴散、未經驗證思維模式的正當化，以及認知偏見的持續存在，扭曲了我們詮釋現實的能力 —— 同時也損害了我們建設更美好未來的機會。",
         manifesto_p3: "它不是一個信仰體系。它是一個應用的理解框架 —— <strong>宇宙原則</strong> —— 旨在優先考慮真理，通過證據進行驗證，並將知識轉化為實際行動。",
 
         mand_label: "操作原則",
@@ -861,7 +861,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.1.4",
+        footer_copy: "開放框架。無所有者。無障礙。v5.1.6",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",

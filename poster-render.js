@@ -13,7 +13,7 @@ window.NeosysPoster = (function() {
         canvas.height = CANVAS_HEIGHT;
         const ctx = canvas.getContext('2d');
         const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
-        const version = 'v5.1.4';
+        const version = 'v5.1.6';
 
         // Wait for fonts to be ready
         await document.fonts.ready;
@@ -83,9 +83,9 @@ window.NeosysPoster = (function() {
         // 5. The 10 Principles (Two Columns)
         const startY = 1350;
         const spacingY = 660; // Extra breathing room
-        const col1X = 500;
-        const col2X = 2150;
-        const colMaxWidth = 1050; // Narrower for safer layout
+        const col1X = 580;
+        const col2X = 1980;
+        const colMaxWidth = 1000;
         const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
         function wrapText(text, x, y, maxWidth, lineHeight) {
