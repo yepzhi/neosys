@@ -1,143 +1,66 @@
-// Use global firebaseConfig from firebase-config.js
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-const db = firebase.firestore();
+/* ═══════════════════════════════════════════
+   NEOSYS AEON — Admin Logic v4.9.0 FINAL
+   Dashboard for User Management
+   ═══════════════════════════════════════════ */
 
-// Simple Password Prompt for Privacy (Run immediately)
+// ── Initialize Auth ──────────────────────────
 const adminKey = prompt("Please enter the Admin Access Key:");
 if (adminKey !== "neosys2026") {
     alert("Unauthorized access.");
     window.location.href = "index.html";
 }
 
-// ── Initialize Animations ───────────────────
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof ScrollReveal !== 'undefined') {
-        const sr = ScrollReveal({
-            origin: 'bottom',
-            distance: '20px',
-            duration: 1000,
-            delay: 200,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            mobile: true
-        });
-        sr.reveal('.reveal', { interval: 100 });
+let db = null;
+try {
+    if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.firestore();
     }
-});
-
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+} catch (e) {
+    console.warn("[NEOSYS] Admin Firebase Error:", e);
 }
 
-const db = firebase.firestore();
+// ── Dashboard Logic ──────────────────────────
+function loadAdminData() {
+    const tableBody = document.getElementById('admin-tbody');
+    if (!tableBody || !db) return;
 
-const tbody = document.getElementById('admin-tbody');
-const statTotal = document.getElementById('stat-total');
-const statRegions = document.getElementById('stat-regions');
-const statRecent = document.getElementById('stat-recent');
-
-// Load Data from 'neosys_usuarios'
-db.collection('neosys_usuarios').onSnapshot((snapshot) => {
-    let total = 0;
-    let regions = new Set();
-    let recent = 0;
-    const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000;
-
-    tbody.innerHTML = '';
-    
-    snapshot.forEach(doc => {
-        const data = doc.data();
-        total++;
-        if (data.city) regions.add(data.city);
-        if (data.timestamp && (now - data.timestamp.toMillis() < oneDay)) {
-            recent++;
+    db.collection('neosys_usuarios').limit(200).onSnapshot((snapshot) => {
+        tableBody.innerHTML = '';
+        if (snapshot.empty) {
+            tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No hay usuarios registrados aún.</td></tr>';
+            return;
         }
 
-        const dateStr = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'N/A';
-        
-        const locParts = [];
-        if (data.city) locParts.push(data.city);
-        if (data.state) locParts.push(data.state);
-        if (data.country) locParts.push(data.country);
-        const locStr = locParts.length > 0 ? locParts.join(', ') : 'N/A';
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const tr = document.createElement('tr');
+            const jsDate = (data.timestamp && typeof data.timestamp.toDate === 'function') ? data.timestamp.toDate() : new Date(data.timestamp);
+            const dateStr = !isNaN(jsDate.getTime()) ? jsDate.toLocaleDateString() : 'N/A';
 
-        const row = `
-            <tr>
-                <td>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <img src="${data.photoUrl || 'https://via.placeholder.com/40'}" class="badge-img" alt="Photo">
-                        <div>
-                            <strong>${data.name || 'Anonymous'}</strong><br>
-                            <span style="font-size: 0.75rem; opacity: 0.6;">${data.occupation || 'Member'}</span>
-                        </div>
-                    </div>
-                </td>
-                <td>${locStr}</td>
-                <td>
-                    <div style="font-size: 0.8rem;">
-                        ${data.email || '-'}<br>
-                        <span style="color: var(--accent);">${data.social || '-'}</span>
-                    </div>
-                </td>
-                <td style="max-width: 300px; font-size: 0.8rem; line-height: 1.4;">
-                    <strong>Decision:</strong> ${data.decision_evidencia || 'No description'}<br>
-                    <em style="opacity: 0.7;">Source: ${data.tipo_fuente || 'N/A'}</em>
-                </td>
+            tr.innerHTML = `
+                <td>${data.name || data.nombre || 'Anonymous'}</td>
+                <td>${data.email || ''}</td>
+                <td>${data.city || data.ciudad || ''}, ${data.country || data.pais || ''}</td>
+                <td>${data.tipo_fuente || ''}</td>
                 <td>${dateStr}</td>
-            </tr>
-        `;
-        tbody.innerHTML += row;
+                <td>
+                    <button class="btn btn-delete" onclick="deleteUser('${doc.id}')" style="background:#f44; color:#fff; border:none; padding:5px 10px; cursor:pointer; border-radius:4px;">Eliminar</button>
+                </td>
+            `;
+            tableBody.appendChild(tr);
+        });
     });
-
-    statTotal.innerText = total;
-    statRegions.innerText = regions.size;
-    statRecent.innerText = recent;
-});
-
-// Particles Background (Partial copy from app.js)
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-function initCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 }
-window.addEventListener('resize', initCanvas);
-initCanvas();
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random();
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = `rgba(167, 139, 250, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+function deleteUser(docId) {
+    if (confirm("¿Estás seguro de que quieres eliminar este registro permanentemente?")) {
+        db.collection('neosys_usuarios').doc(docId).delete()
+            .then(() => alert("Registro eliminado."))
+            .catch(err => alert("Error al eliminar: " + err.message));
     }
 }
-function createParticles() {
-    for (let i = 0; i < 50; i++) particles.push(new Particle());
-}
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
-}
-createParticles();
-animate();
+
+document.addEventListener('DOMContentLoaded', loadAdminData);
