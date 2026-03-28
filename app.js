@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.1.0 FINAL STABLE
+   NEOSYS AEON — App Logic v5.1.1 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "5.0.2"; 
+const version = "5.1.1"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -269,16 +269,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // HD Poster Download (v5.1.0)
+    // HD Poster Download (v5.1.1 restored)
     const downloadPosterBtn = document.getElementById('download-poster-btn');
     if (downloadPosterBtn) {
-        downloadPosterBtn.addEventListener('click', () => {
-            const link = document.createElement('a');
-            link.href = 'neosysaeon-principios-hd.jpg';
-            link.download = 'Neosys-Aeon-10-Principios-Cosmos.jpg';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        downloadPosterBtn.addEventListener('click', async () => {
+            const originalText = downloadPosterBtn.innerHTML;
+            downloadPosterBtn.innerHTML = "<span>Generando HD...</span>";
+            downloadPosterBtn.disabled = true;
+            
+            try {
+                if (window.NeosysPoster) {
+                    await window.NeosysPoster.download(currentLang);
+                } else {
+                    // Fallback to static if script somehow missing
+                    const link = document.createElement('a');
+                    link.href = 'neosysaeon-principios-hd.jpg';
+                    link.download = 'Neosys-Aeon-10-Principios-Cosmos.jpg';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            } catch (e) {
+                console.error("Poster Gen Error:", e);
+            } finally {
+                downloadPosterBtn.innerHTML = originalText;
+                downloadPosterBtn.disabled = false;
+            }
         });
     }
 
@@ -294,13 +310,13 @@ function renderOutreach() {
     
     grid.innerHTML = categories.map(cat => `
         <div class="outreach-category reveal">
-            <h3 class="category-title" style="color:var(--accent); margin-bottom:20px; font-size:1.4rem;">${cat.title}</h3>
+            <h3 class="outreach-category-title">${cat.title}</h3>
             <div class="outreach-grid-items">
                 ${cat.items.map(item => `
-                    <div class="outreach-card" style="background:var(--glass); border:1px solid var(--glass-border); padding:20px; border-radius:12px; transition:var(--transition);">
-                        <div style="font-size:2rem; margin-bottom:12px;">${item.icon}</div>
-                        <h4 style="font-size:1rem; margin-bottom:6px; color:#fff;">${item.name}</h4>
-                        <p style="font-size:0.8rem; color:var(--text-secondary);">${item.topic}</p>
+                    <div class="outreach-card">
+                        <div class="outreach-icon">${item.icon}</div>
+                        <h4 class="outreach-name">${item.name}</h4>
+                        <p class="outreach-topic">${item.topic}</p>
                     </div>
                 `).join('')}
             </div>
