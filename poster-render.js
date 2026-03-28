@@ -60,9 +60,14 @@ window.NeosysPoster = (function() {
         ctx.fillText('✨', CANVAS_WIDTH / 2, 350);
 
         // Title: NEOSYS AEON (Large & Central)
-        ctx.fillStyle = '#ffffff';
-        ctx.font = '900 280px Inter, sans-serif'; // Matched to Hero title
-        ctx.letterSpacing = '25px';
+        ctx.font = '900 280px Inter, sans-serif'; 
+        ctx.letterSpacing = '-12px'; // Matched to Hero -0.04em (280 * -0.04 ≈ -11)
+        
+        const titleGrad = ctx.createLinearGradient(0, 500, 0, 800);
+        titleGrad.addColorStop(0, '#ffffff');
+        titleGrad.addColorStop(1, 'rgba(255, 255, 255, 0.6)');
+        ctx.fillStyle = titleGrad;
+        
         ctx.fillText('NEOSYS AEON', CANVAS_WIDTH / 2, 650);
 
         // Tagline: Below the main title (Split into two lines)
