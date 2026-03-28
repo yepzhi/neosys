@@ -28,7 +28,7 @@ const translations = {
         hero_explore: "Explorar",
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
-        manifesto_p1: "La ciencia nos permite explicar el mundo. La ingeniería lo transforma. La tecnología escala ese cambio. Y sin embargo, la abundancia de información no ha producido una mejora proporcional en la comprensión ni en nuestra capacidad de generar progreso real.",
+        manifesto_p1: "✨ La ciencia nos permite explicar el mundo. La ingeniería lo transforma. La tecnología escala ese cambio. Y sin embargo, la abundancia de información no ha producido una mejora proporcional en la comprensión ni en nuestra capacidad de generar progreso real.",
         manifesto_p2: "La proliferación de pseudociencia, la normalización de modelos de pensamiento no validados y la persistencia de sesgos cognitivos distorsionan nuestra capacidad de interpretar la realidad — y con ello, nuestra posibilidad de construir un futuro mejor.",
         manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
@@ -326,7 +326,7 @@ const translations = {
         hero_explore: "Explore",
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
-        manifesto_p1: "Science allows us to explain the world. Engineering transforms it. Technology scales that change. And yet, the abundance of information has not produced a proportional improvement in understanding nor in our ability to generate real progress.",
+        manifesto_p1: "✨ Science allows us to explain the world. Engineering transforms it. Technology scales that change. And yet, the abundance of information has not produced a proportional improvement in understanding nor in our ability to generate real progress.",
         manifesto_p2: "The proliferation of pseudoscience, the normalization of unvalidated thinking models, and the persistence of cognitive biases distort our ability to interpret reality — and with it, our possibility of building a better future.",
         manifesto_p3: "It is not a belief system. It is an applied framework of understanding — the <strong>Principles of the Cosmos</strong> — oriented towards prioritizing truth, validating through evidence, and translating knowledge into real action.",
 
@@ -621,7 +621,7 @@ const translations = {
         hero_explore: "探索",
         manifesto_label: "宣言",
         manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來決。</span>",
-        manifesto_p1: "科學讓我們得以解釋世界，工程將其轉化，技術則擴展這種變革。然而，資訊的氾濫並未成比例地提升我們的理解力，也未能增強我們產生實質進步的能力。",
+        manifesto_p1: "✨ 科學讓我們得以解釋世界，工程將其轉化，技術則擴展這種變革。然而，資訊的氾濫並未成比例地提升我們的理解力，也未能增強我們產生實質進步的能力。",
         manifesto_p2: "偽科學的擴散、未經驗證思維模式的正當化，以及認知偏見的持續存在，扭曲了我們詮釋現實的能力 —— 同時也損害了我們建設更美好未來的機會。",
         manifesto_p3: "它不是一個信仰體系。它是一個應用的理解框架 —— <strong>宇宙原則</strong> —— 旨在優先考慮真理，通過證據進行驗證，並將知識轉化為實際行動。",
 

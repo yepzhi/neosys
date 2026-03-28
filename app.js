@@ -96,6 +96,11 @@ function initi18n() {
         }
     });
 
+    document.querySelectorAll('[data-i18n-href]').forEach(el => {
+        const val = getVal(el.getAttribute('data-i18n-href'));
+        if (val) el.setAttribute('href', val);
+    });
+
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const val = getVal(el.getAttribute('data-i18n-placeholder'));
         if (val) el.placeholder = val;
