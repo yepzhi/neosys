@@ -136,8 +136,32 @@ const translations = {
         prob_label: "¿POR QUÉ EXISTE?",
         prob_title: "¿Por qué es necesario <br><span class=\"text-accent\">Neosys Aeon?</span>",
         prob1_title: "⚡ 1. Sustitución de evidencia por creencias",
-        prob1_body: "Las ideas y juicios se forman con base en creencias, sin recurrir a evidencia verificable desde su origen.",
         prob2_title: "🔬 2. Ausencia de validación sistemática",
+        join_btn_copied: "¡Copiado!",
+        privacy_title: "Aviso de Privacidad",
+        privacy_update: "Última actualización: marzo 2026",
+        privacy_body: `
+            <h2>RESPONSABLE</h2>
+            <p>El responsable del tratamiento de datos es el administrador de yepzhi.com, con domicilio en Hermosillo, Sonora, México. Contacto: formulario en <a href="https://yepzhi.com" target="_blank" style="color:var(--accent);">yepzhi.com</a> o WhatsApp +52 662 205 6304.</p>
+            <h2>DATOS QUE RECABAMOS</h2>
+            <ul>
+                <li>Nombre o alias</li>
+                <li>Correo electrónico</li>
+                <li>Teléfono (opcional)</li>
+                <li>País de residencia</li>
+                <li>Red social (opcional)</li>
+                <li>Fotografía de perfil (opcional)</li>
+            </ul>
+            <h2>FINALIDADES</h2>
+            <ul>
+                <li>1. Generar y registrar tu gafete digital Neosys Aeon.</li>
+                <li>2. Mostrar tu nombre, país y red social en la sección Comunidad.</li>
+                <li>3. Contactarte sobre actualizaciones del marco (solo si aceptas).</li>
+            </ul>
+            <h2>DERECHOS ARCO</h2>
+            <p>Puedes Acceder, Rectificar, Cancelar u Oponerte al tratamiento de tus datos conforme a la LFPDPPP. Envía solicitud vía WhatsApp o formulario en yepzhi.com indicando: nombre, datos a modificar/cancelar, copia de identificación. Plazo de respuesta: 20 días hábiles.</p>
+        `
+        ,
         prob2_body: "Las afirmaciones no se someten a procesos estructurados de comprobación, incluso después de ser formuladas.",
         prob3_title: "🔗 3. Ruptura entre conocimiento y aplicación",
         prob3_body: "El conocimiento no se traduce en acción efectiva ni en resultados medibles.",
@@ -273,7 +297,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.0.6",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.0.7",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -529,7 +553,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.0.6",
+        footer_copy: "Open framework. No owners. No barriers. v5.0.7",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -544,6 +568,30 @@ const translations = {
         rev_mech3_title: "Obsolescence Failure",
         rev_mech3_desc: "If it cannot be demonstrated that its users make more coherent decisions than those who do not, or if a future version cannot contradict a previous one, the framework must be replaced. Its value is functional, not symbolic.",
         rev_governance: "As the community grows, the governance of this system will migrate toward a <strong>scientific evaluation committee</strong> responsible for auditing and updating the principles based on the latest evidence.",
+        join_btn_copied: "Copied!",
+        privacy_title: "Privacy Policy",
+        privacy_update: "Last updated: March 2026",
+        privacy_body: `
+            <h2>RESPONSABLE</h2>
+            <p>The entity responsible for data processing is the administrator of yepzhi.com. Contact: form at <a href="https://yepzhi.com" target="_blank" style="color:var(--accent);">yepzhi.com</a> or WhatsApp +52 662 205 6304.</p>
+            <h2>DATA WE COLLECT</h2>
+            <ul>
+                <li>Name or alias</li>
+                <li>Email address</li>
+                <li>Phone number (optional)</li>
+                <li>Country of residence</li>
+                <li>Social network (optional)</li>
+                <li>Profile photo (optional)</li>
+            </ul>
+            <h2>PURPOSES</h2>
+            <ul>
+                <li>1. Generate and register your Neosys Aeon digital badge.</li>
+                <li>2. Display your name, country, and social network in the Community section.</li>
+                <li>3. Contact you regarding framework updates (only if opted in).</li>
+            </ul>
+            <h2>YOUR RIGHTS</h2>
+            <p>You can Access, Rectify, Cancel, or Oppose the processing of your data. Send a request via WhatsApp or the form at yepzhi.com indicating: name, data to modify/cancel. Response time: 20 business days.</p>
+        `
     },
     cn: {
         nav_mandamientos: "原則",
@@ -813,7 +861,31 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.0.6",
-        footer_creator: "Created by yepzhi"
+        footer_copy: "開放框架。無所有者。無障礙。v5.0.7",
+        footer_creator: "Created by yepzhi",
+        join_btn_copied: "已復制！",
+        privacy_title: "隱私政策",
+        privacy_update: "最後更新：2026年3月",
+        privacy_body: `
+            <h2>負責人</h2>
+            <p>數據處理負責人是 yepzhi.com 的管理員。聯繫方式：<a href="https://yepzhi.com" target="_blank" style="color:var(--accent);">yepzhi.com</a> 上的表格或 WhatsApp +52 662 205 6304。</p>
+            <h2>我們收集的數據</h2>
+            <ul>
+                <li>姓名或別名</li>
+                <li>電子郵件地址</li>
+                <li>電話號碼（可選）</li>
+                <li>居住國家</li>
+                <li>社交網絡（可選）</li>
+                <li>個人資料照片（可選）</li>
+            </ul>
+            <h2>目的</h2>
+            <ul>
+                <li>1. 生成並註冊您的 Neosys Aeon 數字徽章。</li>
+                <li>2. 在社群部分顯示您的姓名、國家和社交網絡。</li>
+                <li>3. 就框架更新與您聯繫（僅限選擇加入的情況）。</li>
+            </ul>
+            <h2>您的權利 (ARCO)</h2>
+            <p>您可以訪問、更正、取消或反對處理您的數據。請通過 yepzhi.com 上的 WhatsApp 或表格發送請求，註明：姓名、要修改/取消的數據。回复時間：20個工作日。</p>
+        `
     }
 };

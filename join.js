@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.6
+   NEOSYS AEON — Luxury Badge Generator v5.0.7
    Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.6 Localized) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.7 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -157,7 +157,7 @@
     if (cityInput) cityInput.addEventListener('input', updateBadge);
     window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.6) ──────
+    // ── Firebase Registration (Sync v5.0.7) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -201,6 +201,43 @@
                 registerBtn.disabled = false;
                 registerBtn.innerText = "Reintentar Registro";
                 alert("Error al conectar con el servidor: " + err.message);
+            }
+        });
+    }
+
+    const copySloganBtn = document.getElementById('copy-slogan-btn');
+    const shareCopyBtn = document.getElementById('share-copy');
+
+    async function handleCopy() {
+        const t = (typeof translations !== 'undefined') ? (translations[currentLang] || translations.en) : {};
+        const slogan = "#ThinkWithEvidence #NeosysAeon\nSin ciencia no hay claridad. Sin validación no hay progreso.";
+        try {
+            await navigator.clipboard.writeText(slogan);
+            const originalText = copySloganBtn ? copySloganBtn.innerHTML : '';
+            if (copySloganBtn) copySloganBtn.innerText = t.join_btn_copied || "¡Copiado!";
+            if (shareCopyBtn) shareCopyBtn.innerHTML = `<span style="font-size:0.8em;">${t.join_btn_copied || "OK!"}</span>`;
+            setTimeout(() => {
+                if (copySloganBtn) copySloganBtn.innerHTML = originalText;
+                if (shareCopyBtn) shareCopyBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><span style="margin-left:8px;">Copiar</span>`;
+            }, 2000);
+        } catch (err) {
+            console.error("Error al copiar:", err);
+        }
+    }
+
+    if (copySloganBtn) copySloganBtn.addEventListener('click', handleCopy);
+    if (shareCopyBtn) shareCopyBtn.addEventListener('click', handleCopy);
+
+    const shareNativeBtn = document.getElementById('share-native');
+    if (shareNativeBtn) {
+        shareNativeBtn.addEventListener('click', async () => {
+            const slogan = "#ThinkWithEvidence #NeosysAeon — Sin ciencia no hay claridad.";
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: 'Neosys Aeon', text: slogan, url: window.location.href });
+                } catch (err) { console.log("Share cancelled"); }
+            } else {
+                handleCopy();
             }
         });
     }

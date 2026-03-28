@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.0.6 FINAL STABLE
+   NEOSYS AEON — App Logic v5.0.7 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -184,20 +184,30 @@ function initCommunityMap() {
         communityMap = L.map('community-map', { zoomControl: false }).setView([20, -100], 3);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(communityMap);
     }
-    db.collection('miembros').limit(100).onSnapshot((snapshot) => {
+    db.collection('miembros').onSnapshot((snapshot) => {
         mapMarkers.forEach(m => communityMap.removeLayer(m)); mapMarkers = [];
+        const stateCounts = {};
+
         snapshot.forEach(doc => {
             const data = doc.data();
-            let lat = 20, lng = -100;
-            const city = (data.city || data.ciudad || '').toUpperCase().trim();
-            const state = (data.state || data.estado || '').toUpperCase().trim();
-            
-            if (CITY_COORDS[city]) [lat, lng] = CITY_COORDS[city];
-            else if (CITY_COORDS[state]) [lat, lng] = CITY_COORDS[state];
-            
-            const circle = L.circleMarker([lat, lng], { radius: 10, fillColor: '#a78bfa', color: '#fff', weight: 2, fillOpacity: 0.8 }).addTo(communityMap);
-            mapMarkers.push(circle);
+            const state = (data.state || data.estado || 'UNKNOWN').toUpperCase().trim();
+            stateCounts[state] = (stateCounts[state] || 0) + 1;
         });
+
+        for (const [state, count] of Object.entries(stateCounts)) {
+            let lat = 23.6345, lng = -102.5528;
+            if (CITY_COORDS[state]) [lat, lng] = CITY_COORDS[state];
+
+            const countIcon = L.divIcon({
+                html: `<div class="map-badge" style="background: var(--accent); color: #000; width: 28px; height: 18px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 0 10px var(--accent); border: 1.5px solid #fff; font-size: 11px;">${count}</div>`,
+                className: '',
+                iconSize: [28, 18]
+            });
+
+            const marker = L.marker([lat, lng], { icon: countIcon }).addTo(communityMap);
+            marker.bindPopup(`<strong style="color:#000;">${state}</strong><br><span style="color:#666;">${count} Members</span>`);
+            mapMarkers.push(marker);
+        }
     }, (err) => console.error("[NEOSYS] Map Permission Error:", err));
 }
 
@@ -205,7 +215,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.0.6)
+    // Tab switching logic (v5.0.7)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
