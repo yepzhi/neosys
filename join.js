@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.0.0
+   NEOSYS AEON — Luxury Badge Generator v5.0.0.1
    Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v5.0.0.0 - Tall for philosophy)
+    // Set Canvas Size (v5.0.0.1 - Tall for philosophy)
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Replication v5.0.0.0) ──
+    // ── Badge Drawing Logic (Replication v5.0.0.1) ──
     function updateBadge() {
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
@@ -92,7 +92,7 @@
             ctx.beginPath(); ctx.arc(s[0], s[1], 2, 0, Math.PI*2); ctx.fill();
         });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.0.0) ────
+    // ── Badge Drawing Logic (Ultimate v5.0.0.1) ────
     function updateBadge() {
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
@@ -181,7 +181,7 @@
     // ── Listeners ─────────────────────────────────
     [nameInput, cityInput, stateInput].forEach(el => el && el.addEventListener('input', updateBadge));
 
-    // ── Firebase Registration (Sync v5.0.0.0) ──────
+    // ── Firebase Registration (Sync v5.0.0.1) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();

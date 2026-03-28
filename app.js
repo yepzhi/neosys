@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.0.0.0 FINAL STABLE
+   NEOSYS AEON — App Logic v5.0.0.1 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.9.7.0"; 
+const version = "5.0.0.1"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -61,6 +61,25 @@ try {
     const nav = document.getElementById('main-nav');
     if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 })();
+
+function initi18n() {
+    if (typeof translations === 'undefined') return;
+    const t = translations[currentLang] || translations.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t[key];
+            else el.innerHTML = t[key];
+        }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+    });
+}
 
 // ── UTILS ────────────────────────────────────────
 function safeToDate(val) {
@@ -172,7 +191,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.0.0.0)
+    // Tab switching logic (v5.0.0.1)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -197,4 +216,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (document.getElementById('evidencias-list')) fetchEvidencias();
+
+    // Language Switcher Logic
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentLang = btn.getAttribute('data-lang');
+            localStorage.setItem('neosys_lang', currentLang);
+            initi18n();
+            // Optional: Re-fetch list if needed
+        });
+    });
+    initi18n();
 });
