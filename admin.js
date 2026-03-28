@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Admin Logic v5.1.9 FINAL
+   NEOSYS AEON — Admin Logic v5.2.0 FINAL
    Dashboard for User Management
    ═══════════════════════════════════════════ */
 
@@ -65,6 +65,8 @@ function loadAdminData() {
             `;
             tableBody.appendChild(tr);
         });
+        
+        if (typeof refreshReveal === 'function') refreshReveal();
     }, (err) => {
         console.error("[NEOSYS] Admin Snapshot Error:", err);
         tableBody.innerHTML = `<tr><td colspan="6" style="color:#f44; text-align:center;">Error de permisos de Firestore: ${err.message}</td></tr>`;
@@ -79,4 +81,26 @@ function deleteUser(docId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initDB);
+// ── Reveal Animation Logic ──────────────────
+let revealObserver;
+function initReveal() {
+    revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) { 
+                entry.target.classList.add('visible'); 
+                revealObserver.unobserve(entry.target); 
+            } 
+        });
+    }, { threshold: 0.1 });
+    refreshReveal();
+}
+
+function refreshReveal() {
+    if (!revealObserver) return;
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initDB();
+    initReveal();
+});
