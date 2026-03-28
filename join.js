@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.3
+   NEOSYS AEON — Luxury Badge Generator v5.0.4
    Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.3 Localized) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.4 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -157,7 +157,7 @@
     if (cityInput) cityInput.addEventListener('input', updateBadge);
     window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.3) ──────
+    // ── Firebase Registration (Sync v5.0.4) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -183,11 +183,18 @@
 
             try {
                 await db.collection('miembros').add(payload);
-                registerBtn.innerText = "¡REGISTRO EXITOSO!";
+                registerBtn.innerText = t.join_success_title || "¡REGISTRO EXITOSO!";
                 registerBtn.style.background = "#0f0";
                 const actions = document.getElementById('badge-actions');
                 if (actions) actions.style.display = 'flex';
-                alert("¡Bienvenido al movimiento! Tu gafete ha sido generado y tus datos están en el directorio.");
+                
+                // Automatic Download
+                const link = document.createElement('a');
+                link.download = `Neosys-Badge-${nameInput.value.replace(/\s+/g, '-')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                alert(t.join_success_msg || "¡Bienvenido al movimiento!");
             } catch (err) {
                 console.error("Error al registrar:", err);
                 registerBtn.disabled = false;
