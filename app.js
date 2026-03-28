@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.1.5"; 
+const version = "4.8.2"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.1"; 
+const APP_VERSION = "4.8.2"; 
 
 let db = null;
 try {
@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.1.5.2.2
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,9 +517,33 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.1.5) ──────────────────
+// ── Community Map Logic (v4.8.2) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
+
+// Geocoding Fallback for common cities
+const CITY_COORDINATES = {
+    'GUADALAJARA': [20.6597, -103.3496],
+    'CDMX': [19.4326, -99.1332],
+    'MÉXICO': [19.4326, -99.1332],
+    'MONTERREY': [25.6866, -100.3161],
+    'PUEBLA': [19.0413, -98.2062],
+    'QUERÉTARO': [20.5888, -100.3899],
+    'MÉRIDA': [20.9674, -89.5926],
+    'ZACATECAS': [22.7709, -102.5831],
+    'CANCÚN': [21.1619, -86.8515],
+    'TIJUANA': [32.5149, -117.0382],
+    'LEÓN': [21.1224, -101.6851],
+    'MADRID': [40.4168, -3.7038],
+    'BARCELONA': [41.3851, 2.1734],
+    'BOGOTÁ': [4.7110, -74.0721],
+    'NEW YORK': [40.7128, -74.0060],
+    'LOS ANGELES': [34.0522, -118.2437],
+    'MIAMI': [25.7617, -80.1918],
+    'LIMA': [-12.0464, -77.0428],
+    'SANTIAGO': [-33.4489, -70.6693],
+    'BUENOS AIRES': [-34.6037, -58.3816]
+};
 
 function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
@@ -536,13 +560,22 @@ function initCommunityMap() {
 
     // Load members for markers
     if (db) {
-        db.collection('miembros').limit(200).get().then((snapshot) => {
+        db.collection('miembros').limit(300).get().then((snapshot) => {
             snapshot.forEach(doc => {
                 const data = doc.data();
-                // Simple geocoding simulation or using city/country strings if available
-                // For now, we use a placeholder logic or real coords if data has them
-                if (data.lat && data.lng) {
-                    const marker = L.marker([data.lat, data.lng]).addTo(communityMap);
+                let lat = data.lat;
+                let lng = data.lng;
+
+                // Fallback to City Lookup if no raw coordinates
+                if (!lat || !lng) {
+                    const cityKey = (data.city || '').toUpperCase().trim();
+                    if (CITY_COORDINATES[cityKey]) {
+                        [lat, lng] = CITY_COORDINATES[cityKey];
+                    }
+                }
+
+                if (lat && lng) {
+                    const marker = L.marker([lat, lng]).addTo(communityMap);
                     marker.bindPopup(`<b>${data.name}</b><br>${data.city || ''}, ${data.country || ''}`);
                     mapMarkers.push(marker);
                 }
@@ -757,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.1.5) ───────────────────
+    // ── Poster Download Handler (v4.8.2) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
