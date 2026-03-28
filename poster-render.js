@@ -135,17 +135,17 @@ window.NeosysPoster = (function() {
             // Principle Title (Wrapped if \n present)
             ctx.textAlign = 'left';
             ctx.fillStyle = '#ffffff';
-            ctx.font = '800 82px Outfit, sans-serif'; // Slightly smaller for fit
+            ctx.font = '800 58px Outfit, sans-serif'; // Reduced 30% from 82px
             let titleY = currentY;
             titleLines.forEach((line, idx) => {
-                ctx.fillText(line, currentX, titleY + (idx * 90));
+                ctx.fillText(line, currentX, titleY + (idx * 64)); // Reduced line height from 90 to 64
             });
 
             // Principle Body (Wrapped)
             ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
-            ctx.font = '400 54px Outfit, sans-serif';
-            const bodyStartY = titleY + (titleLines.length * 90) + 15;
-            wrapText(body, currentX, bodyStartY, colMaxWidth, 70);
+            ctx.font = '400 38px Outfit, sans-serif'; // Reduced 30% from 54px
+            const bodyStartY = titleY + (titleLines.length * 64) + 12; // Adjusting offset
+            wrapText(body, currentX, bodyStartY, colMaxWidth, 50); // Reduced line height from 70 to 50
         }
 
         // 6. Footer Section
