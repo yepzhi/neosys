@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Admin Logic v5.0.2 FINAL
+   NEOSYS AEON — Admin Logic v5.0.3 FINAL
    Dashboard for User Management
    ═══════════════════════════════════════════ */
 
@@ -37,21 +37,33 @@ function loadAdminData() {
         snapshot.forEach(doc => {
             const data = doc.data();
             const tr = document.createElement('tr');
-            const jsDate = (data.timestamp && typeof data.timestamp.toDate === 'function') ? data.timestamp.toDate() : new Date(data.timestamp);
-            const dateStr = !isNaN(jsDate.getTime()) ? jsDate.toLocaleDateString() : 'N/A';
+            
+            // Safe date parsing
+            const ts = data.timestamp;
+            let dateStr = '---';
+            if (ts) {
+                const jsDate = (typeof ts.toDate === 'function') ? ts.toDate() : new Date(ts);
+                if (!isNaN(jsDate.getTime())) dateStr = jsDate.toLocaleDateString();
+            }
 
             tr.innerHTML = `
-                <td>${data.name || data.nombre || 'Anonymous'}</td>
-                <td>${data.email || ''}</td>
-                <td>${data.city || data.ciudad || ''}, ${data.country || data.pais || ''}</td>
-                <td>${data.tipo_fuente || ''}</td>
+                <td style="font-weight:700; color:#fff;">${data.name || 'Anonymous'}</td>
+                <td>${data.city || ''}, ${data.state || ''} ${data.country || ''}</td>
+                <td style="color:var(--accent); font-family:monospace;">${data.email || ''}<br><small>${data.social || ''}</small></td>
+                <td style="max-width:300px; font-size:0.8rem; opacity:0.8; line-height:1.2;">
+                    <strong>Decision:</strong> ${data.decision_evidencia || '---'}<br>
+                    <small><em>Source: ${data.fuente_referencia || '---'}</em></small>
+                </td>
                 <td>${dateStr}</td>
                 <td>
-                    <button class="btn btn-delete" onclick="deleteUser('${doc.id}')" style="background:#f44; color:#fff; border:none; padding:5px 10px; cursor:pointer; border-radius:4px;">Eliminar</button>
+                    <button class="btn-delete" onclick="deleteUser('${doc.id}')" style="background:rgba(255,100,100,0.1); border:1px solid #f44; color:#f44; padding:5px 10px; border-radius:4px; font-size:0.7rem; cursor:pointer;">X</button>
                 </td>
             `;
             tableBody.appendChild(tr);
         });
+    }, (err) => {
+        console.error("[NEOSYS] Admin Snapshot Error:", err);
+        tableBody.innerHTML = `<tr><td colspan="6" style="color:#f44; text-align:center;">Error de permisos de Firestore: ${err.message}</td></tr>`;
     });
 }
 
