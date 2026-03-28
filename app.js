@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2.1
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2.3
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,7 +517,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.2.1) ──────────────────
+// ── Community Map Logic (v4.8.2.3) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -811,7 +811,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchEvidencias();
 
-    // ── Poster Download Handler (v4.8.2.1) ───────────────────
+    // ── Poster Download Handler (v4.8.2.3) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
