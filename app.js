@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.2.1"; 
+const version = "4.8.2.2"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.2.1"; 
+const APP_VERSION = "4.8.2.2"; 
 
 let db = null;
 try {
@@ -566,7 +566,9 @@ function initCommunityMap() {
 
     // Load members for markers
     if (db) {
+        console.log("[Neosys] Fetching members for map...");
         db.collection('miembros').limit(300).get().then((snapshot) => {
+            console.log(`[Neosys] Map Snapshot: ${snapshot.size} members found.`);
             snapshot.forEach(doc => {
                 const data = doc.data();
                 let lat = data.lat;
@@ -574,16 +576,26 @@ function initCommunityMap() {
 
                 // Fallback to City Lookup if no raw coordinates
                 if (!lat || !lng) {
-                    const cityKey = (data.city || '').toUpperCase().trim();
+                    const rawCity = (data.city || '').toUpperCase().trim();
+                    // Basic normalization (accents)
+                    const cityKey = rawCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    
+                    console.log(`[Neosys] Processing member: ${data.name} from ${rawCity} (Key: ${cityKey})`);
+                    
                     if (CITY_COORDINATES[cityKey]) {
                         [lat, lng] = CITY_COORDINATES[cityKey];
+                    } else if (CITY_COORDINATES[rawCity]) {
+                        [lat, lng] = CITY_COORDINATES[rawCity];
                     }
                 }
 
                 if (lat && lng) {
+                    console.log(`[Neosys] Adding marker at [${lat}, ${lng}] for ${data.name}`);
                     const marker = L.marker([lat, lng]).addTo(communityMap);
                     marker.bindPopup(`<b>${data.name}</b><br>${data.city || ''}, ${data.country || ''}`);
                     mapMarkers.push(marker);
+                } else {
+                    console.warn(`[Neosys] Could not geocode member: ${data.name} (${data.city})`);
                 }
             });
         });
