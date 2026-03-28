@@ -6,38 +6,28 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.8.5"; 
-console.log("%c[NEOSYS] SEARCHING FOR DATA v" + version, "color: #a78bfa; font-weight: bold; font-size: 1.2rem;");
+const version = "4.8.8.6"; 
+console.log("%c[NEOSYS] Loader v" + version, "color: #a78bfa; font-weight: bold;");
 
 // ═══════════════════════════════════════════
-// FIREBASE CONFIGURATION
+// FIREBASE INITIALIZATION v4.8.8.6
 // ═══════════════════════════════════════════
-const firebaseConfig = {
-    apiKey: "AIzaSyD-tbdD6eHip2fCBAJnGEj3_4eqLMc1EhE",
-    authDomain: "neosys-4dc42.firebaseapp.com",
-    projectId: "neosys-4dc42",
-    storageBucket: "neosys-4dc42.firebasestorage.app",
-    messagingSenderId: "1009059504450",
-    appId: "1:1009059504450:web:d26dd042f2139dcaa6e8db",
-    measurementId: "G-V2FD2WR82B"
-};
-
-const APP_VERSION = "4.8.8.5"; 
-console.log("%c[NEOSYS] PROJECT_ID:", "color: #00ffff", firebaseConfig.projectId);
+const APP_VERSION = "4.8.8.6"; 
+console.log(`%c[NEOSYS] App starting v${APP_VERSION}`, "color: #a78bfa; font-weight: bold;");
 
 let db = null;
 try {
-    if (typeof firebase !== 'undefined') {
+    if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
         db = firebase.firestore();
-        if (typeof firebase.analytics === 'function') {
-            firebase.analytics();
-        }
+        console.log(`%c[NEOSYS] Firestore connected to ${firebaseConfig.projectId}`, "color: #00ffff; font-weight: bold;");
+    } else {
+        console.error("[NEOSYS] Firebase SDK or Global Config MISSING.");
     }
 } catch (e) {
-    console.warn("Firebase no inicializado aún:", e);
+    console.warn("[NEOSYS] Firebase Init Error:", e);
 }
 
 // ═══════════════════════════════════════════
@@ -484,7 +474,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.5
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.6
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -538,7 +528,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.8.5) ──────────────────
+// ── Community Map Logic (v4.8.8.6) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -576,7 +566,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.8.5");
+    console.log("[Neosys] Initializing Map v4.8.8.6");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -650,7 +640,7 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Robust Refresh Strategy for v4.8.8.5
+        // Robust Refresh Strategy for v4.8.8.6
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
@@ -847,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.8.5) ───────────────────
+    // ── Poster Download Handler (v4.8.8.6) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
@@ -857,7 +847,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global responsiveness for map (v4.8.8.5)
+// Global responsiveness for map (v4.8.8.6)
 window.addEventListener('resize', () => {
     if (typeof communityMap !== 'undefined' && communityMap) {
         communityMap.invalidateSize();

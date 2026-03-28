@@ -1,14 +1,8 @@
-// ── Admin Logic for Neosys Dashboard ──
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD-tbdD6eHip2fCBAJnGEj3_4eqLMc1EhE",
-    authDomain: "neosys-4dc42.firebaseapp.com",
-    projectId: "neosys-4dc42",
-    storageBucket: "neosys-4dc42.firebasestorage.app",
-    messagingSenderId: "1009059504450",
-    appId: "1:1009059504450:web:d26dd042f2139dcaa6e8db",
-    measurementId: "G-V2FD2WR82B"
-};
+// Use global firebaseConfig from firebase-config.js
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.firestore();
 
 // Simple Password Prompt for Privacy (Run immediately)
 const adminKey = prompt("Please enter the Admin Access Key:");
