@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.5"; 
+const version = "4.8.6"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.5"; 
+const APP_VERSION = "4.8.6"; 
 
 let db = null;
 try {
@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.5
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.6
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,7 +517,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.5) ──────────────────
+// ── Community Map Logic (v4.8.6) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -555,7 +555,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.5");
+    console.log("[Neosys] Initializing Map v4.8.6");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -605,8 +605,10 @@ function initCommunityMap() {
                 }
             });
             
-            // Map Refresh Size
-            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 500);
+            // Triple-Refresh Layout Strategy (Safari/Firefox)
+            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 300);
+            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 600);
+            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 1200);
         }, (err) => {
             console.error("[Neosys] Map Error:", err);
         });
@@ -627,11 +629,14 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Init map on first show
+        // Triple-Refresh Layout Strategy for Cross-Browser Consistency
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
-        }, 100);
+        }, 150);
+        setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 500);
+        setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 1000);
+        window.dispatchEvent(new Event('resize'));
     } else {
         dirView.style.display = 'block';
         mapView.style.display = 'none';
@@ -822,12 +827,19 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.5) ───────────────────
+    // ── Poster Download Handler (v4.8.6) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
             // Trigger dynamic generator
             generateCommandmentsPoster();
         });
+    }
+});
+
+// Global responsiveness for map (v4.8.6)
+window.addEventListener('resize', () => {
+    if (typeof communityMap !== 'undefined' && communityMap) {
+        communityMap.invalidateSize();
     }
 });

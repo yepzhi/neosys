@@ -2014,3 +2014,23 @@ img { max-width: 100%; display: block; }
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+
+/* ── Cross-Browser Map Compatibility (v4.8.6) ── */
+#community-map {
+    z-index: 10;
+    overflow: visible !important;
+}
+
+.leaflet-container {
+    background: #0d0d1a !important;
+    outline: none;
+}
+
+.leaflet-pane, .leaflet-svg-pane {
+    z-index: 400 !important;
+    pointer-events: auto !important;
+}
+
+.leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-image-layer, .leaflet-pane > svg path, .leaflet-tile-container {
+    pointer-events: auto !important;
+}
