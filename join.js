@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.0.2
+   NEOSYS AEON — Luxury Badge Generator v5.0.1
    Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v5.0.0.2 - Tall for philosophy)
+    // Set Canvas Size (v5.0.1 - Tall for philosophy)
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.0.2) ────
+    // ── Badge Drawing Logic (Ultimate v5.0.1) ────
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -153,7 +153,7 @@
     if (nameInput) nameInput.addEventListener('input', updateBadge);
     if (cityInput) cityInput.addEventListener('input', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.0.2) ──────
+    // ── Firebase Registration (Sync v5.0.1) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
