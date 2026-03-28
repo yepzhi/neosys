@@ -215,7 +215,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.1.0)
+    // Tab switching logic (v5.1.3)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (v5.1.0)
+    // Mobile Menu Toggle (v5.1.3)
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // HD Poster Download (v5.1.1 restored)
+    // HD Poster Download (v5.1.3 restored)
     const downloadPosterBtn = document.getElementById('download-poster-btn');
     if (downloadPosterBtn) {
         downloadPosterBtn.addEventListener('click', async () => {
