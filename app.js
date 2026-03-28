@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.3"; 
+const version = "4.8.4"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.3"; 
+const APP_VERSION = "4.8.4"; 
 
 let db = null;
 try {
@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.2.3
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.4
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,7 +517,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.2.3) ──────────────────
+// ── Community Map Logic (v4.8.4) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -555,7 +555,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.3...");
+    console.log("[Neosys] Initializing Map v4.8.4");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -584,6 +584,9 @@ function initCommunityMap() {
                     const cityKey = rawCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     if (CITY_COORDINATES[cityKey]) [lat, lng] = CITY_COORDINATES[cityKey];
                     else if (CITY_COORDINATES[rawCity]) [lat, lng] = CITY_COORDINATES[rawCity];
+                    else if (rawCity.includes("MEXICO")) [lat, lng] = CITY_COORDINATES['MEXICO'];
+                    else if (rawCity.includes("GUADALAJARA")) [lat, lng] = CITY_COORDINATES['GUADALAJARA'];
+                    else if (rawCity.includes("JALISCO")) [lat, lng] = CITY_COORDINATES['GUADALAJARA'];
                 }
 
                 if (lat && lng) {
@@ -757,7 +760,7 @@ function populateOutreachCategories() {
     outreachGrid.innerHTML = '';
     t.outreach_categories.forEach(cat => {
         const header = document.createElement('h3');
-        header.className = 'outreach-category-title reveal';
+        header.className = 'outreach-category-title'; // Removed reveal
         header.textContent = cat.title;
         
         const grid = document.createElement('div');
@@ -788,12 +791,7 @@ function populateOutreachCategories() {
         });
     }, 100);
 
-    // Re-initialize ScrollReveal for title only
-    if (typeof ScrollReveal !== 'undefined') {
-        ScrollReveal().reveal('.outreach-category-title', { 
-            origin: 'bottom', distance: '20px', duration: 1000, delay: 200 
-        });
-    }
+    // Re-initialize ScrollReveal is no longer needed for dynamic titles
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -814,7 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.3) ───────────────────
+    // ── Poster Download Handler (v4.8.4) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {

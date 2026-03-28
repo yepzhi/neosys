@@ -1944,3 +1944,73 @@ img { max-width: 100%; display: block; }
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ── Outreach Grid Refinements (v4.8.4) ── */
+.outreach-category-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    display: block;
+    opacity: 1 !important;
+}
+
+.outreach-grid-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    .outreach-grid-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .outreach-grid-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+.outreach-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.outreach-card:hover {
+    background: var(--glass-hover);
+    border-color: var(--accent);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 15px var(--accent-glow);
+}
+
+.outreach-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.outreach-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.outreach-topic {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
