@@ -1472,7 +1472,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 640px) {
     .nav-links { display: none; }
-    .nav-links.open {
+    .nav-links.active {
         display: flex;
         flex-direction: column;
         position: absolute;

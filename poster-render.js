@@ -143,7 +143,7 @@ window.NeosysPoster = (function() {
 
         // Version & Date
         ctx.font = '40px monospace';
-        ctx.fillText('v5.1.1 — MARCH 2026', CANVAS_WIDTH / 2, footerY + 220);
+        ctx.fillText('v5.1.2 — MARCH 2026', CANVAS_WIDTH / 2, footerY + 220);
 
         return canvas.toDataURL('image/png');
     }
