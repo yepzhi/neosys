@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v4.9.5.0 FINAL STABLE
+   NEOSYS AEON — App Logic v4.9.6.0 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.9.5.0"; 
+const version = "4.9.6.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -164,11 +164,11 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v4.9.5.0)
-    const btnDir = document.getElementById('btn-directory');
-    const btnMap = document.getElementById('btn-map');
-    const dirContent = document.getElementById('directory-content');
-    const mapContent = document.getElementById('map-content');
+    // Tab switching logic (v4.9.6.0)
+    const btnDir = document.getElementById('tab-directory');
+    const btnMap = document.getElementById('tab-map');
+    const dirContent = document.getElementById('directory-view');
+    const mapContent = document.getElementById('map-view');
 
     if (btnDir && btnMap && dirContent && mapContent) {
         btnDir.addEventListener('click', () => {
