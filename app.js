@@ -6,8 +6,8 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.8.3"; 
-console.log("Neosys Aeon Loader v" + version);
+const version = "4.8.8.4"; 
+console.log("%c[NEOSYS DIAGNOSTIC] Neosys Aeon Loader v" + version, "color: #a78bfa; font-weight: bold; font-size: 1.2rem;");
 
 // ═══════════════════════════════════════════
 // FIREBASE CONFIGURATION
@@ -22,7 +22,8 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.8.3"; 
+const APP_VERSION = "4.8.8.4"; 
+console.log("%c[NEOSYS DIAGNOSTIC] PROJECT_ID:", "color: #00ffff", firebaseConfig.projectId);
 
 let db = null;
 try {
@@ -117,18 +118,18 @@ function loadCommunity() {
     if (!list || !db) return;
     
     db.collection('neosys_usuarios').limit(100).onSnapshot((snapshot) => {
-        console.log(`[Neosys] Community Snapshot RAW Size: ${snapshot.size}`);
+        console.log(`%c[NEOSYS DIAGNOSTIC] Community Snapshot RAW Size: ${snapshot.size}`, "background: #f0f; color: #fff; padding: 2px 5px;");
         list.innerHTML = '';
         
         if (snapshot.empty) {
-            console.warn("[Neosys] DATABASE IS EMPTY in Firestore (neosys_usuarios). Check Project ID.");
+            console.warn("[NEOSYS DIAGNOSTIC] DATABASE IS EMPTY in Firestore (neosys_usuarios).");
             list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Sé el primero en unirte al directorio.</p>';
             return;
         }
 
         snapshot.forEach(doc => {
             const data = doc.data();
-            console.log(`[Neosys] RAW_DOC [${doc.id}]:`, data);
+            console.log(`[NEOSYS DIAGNOSTIC] RAW_DOC [${doc.id}]:`, data);
             
             const el = document.createElement('div');
             el.className = 'community-member reveal';
@@ -474,7 +475,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.3
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.4
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -528,7 +529,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.8.3) ──────────────────
+// ── Community Map Logic (v4.8.8.4) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -566,7 +567,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.8.3");
+    console.log("[Neosys] Initializing Map v4.8.8.4");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -640,7 +641,7 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Robust Refresh Strategy for v4.8.8.3
+        // Robust Refresh Strategy for v4.8.8.4
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
@@ -837,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.8.3) ───────────────────
+    // ── Poster Download Handler (v4.8.8.4) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
@@ -847,7 +848,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global responsiveness for map (v4.8.8.3)
+// Global responsiveness for map (v4.8.8.4)
 window.addEventListener('resize', () => {
     if (typeof communityMap !== 'undefined' && communityMap) {
         communityMap.invalidateSize();
