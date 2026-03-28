@@ -43,8 +43,8 @@ const statTotal = document.getElementById('stat-total');
 const statRegions = document.getElementById('stat-regions');
 const statRecent = document.getElementById('stat-recent');
 
-// Load Data from 'miembros'
-db.collection('miembros').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
+// Load Data from 'neosys_usuarios'
+db.collection('neosys_usuarios').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
     let total = 0;
     let regions = new Set();
     let recent = 0;
