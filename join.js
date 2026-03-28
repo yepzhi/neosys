@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Badge Generator v4.9.8.0
-   Restored & Stable Logic for join.html
+   NEOSYS AEON — Luxury Badge Generator v4.9.9.0
+   Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
 (function initBadgeGenerator() {
@@ -11,6 +11,10 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
+    // Set Canvas Size (v4.9.9.0 - Tall for philosophy)
+    canvas.width = 800;
+    canvas.height = 1000;
+
     // Inputs
     const nameInput = document.getElementById('badge-name');
     const cityInput = document.getElementById('badge-city');
@@ -50,70 +54,112 @@
                 const img = new Image();
                 img.onload = () => { userPhoto = img; updateBadge(); };
                 img.src = ev.target.result;
-                document.getElementById('photo-preview').src = ev.target.result;
-                document.getElementById('photo-preview').style.display = 'block';
-                document.getElementById('photo-placeholder').style.display = 'none';
+                const prev = document.getElementById('photo-preview');
+                if (prev) {
+                    prev.src = ev.target.result;
+                    prev.style.display = 'block';
+                }
+                const placeholder = document.getElementById('photo-placeholder');
+                if (placeholder) placeholder.style.display = 'none';
             };
             reader.readAsDataURL(file);
         }
     });
 
-    // ── Badge Drawing ────────────────────────────
+    // ── Badge Drawing Logic (Replication v4.9.9.0) ──
     function updateBadge() {
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
 
-        // Background
-        const grad = ctx.createLinearGradient(0, 0, 0, h);
-        grad.addColorStop(0, '#0a0a1a'); grad.addColorStop(1, '#050510');
-        ctx.fillStyle = grad; ctx.fillRect(0, 0, w, h);
+        // 1. Background (Dark Blue/Black)
+        ctx.fillStyle = '#050510';
+        ctx.fillRect(0, 0, w, h);
 
-        // Border
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)'; ctx.lineWidth = 10;
-        ctx.strokeRect(5, 5, w-10, h-10);
+        // 2. Subtle Grid
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.05)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= w; x += 50) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+        }
+        for (let y = 0; y <= h; y += 50) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+        }
 
-        // Sparkle ✨
-        ctx.fillStyle = '#a78bfa'; ctx.font = '80px Inter';
+        // 3. Bokeh Particles (Static stars)
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
+        const stars = [[100,200],[700,100],[50,600],[750,800],[300,50],[500,900],[200,400],[600,700]];
+        stars.forEach(s => {
+            ctx.beginPath(); ctx.arc(s[0], s[1], 2, 0, Math.PI*2); ctx.fill();
+        });
+
+        // 4. Sparkle ✨ Top
+        ctx.shadowBlur = 0; ctx.fillStyle = '#ffef33'; ctx.font = '70px Inter';
         ctx.textAlign = 'center'; ctx.fillText('✨', w/2, 100);
 
-        // Name
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 45px Inter';
-        ctx.fillText((nameInput.value || 'TU NOMBRE').toUpperCase(), w/2, 450);
+        // 5. Header: NEOSYS AEON
+        ctx.shadowColor = 'rgba(167, 139, 250, 0.8)'; ctx.shadowBlur = 30;
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 80px Inter'; ctx.letterSpacing = '5px';
+        ctx.fillText('NEOSYS AEON', w/2, 180);
+        ctx.shadowBlur = 0; // Reset shadow
 
-        // Location
-        ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '24px Inter';
-        const locText = `${cityInput.value || 'CIUDAD'}, ${countryInput.value || 'XX'}`;
-        ctx.fillText(locText.toUpperCase(), w/2, 490);
-
-        // Status
-        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 18px JetBrains Mono';
-        ctx.fillText('STATUS: NEOSYS AEON MEMBER', w/2, 540);
-        ctx.fillText('VERSION: 4.9.8.0', w/2, 570);
-
-        // Photo Mask
+        // 6. PHOTO (Circle with circular mask and glow)
+        const photoY = 360; const photoR = 170;
         ctx.save();
-        ctx.beginPath();
-        ctx.arc(w/2, 270, 120, 0, Math.PI * 2);
-        ctx.clip();
+        ctx.beginPath(); ctx.arc(w/2, photoY, photoR, 0, Math.PI * 2); ctx.clip();
         if (userPhoto) {
-            const ratio = Math.max(240/userPhoto.width, 240/userPhoto.height);
-            ctx.drawImage(userPhoto, w/2 - (userPhoto.width*ratio)/2, 270 - (userPhoto.height*ratio)/2, userPhoto.width*ratio, userPhoto.height*ratio);
+            const ratio = Math.max((photoR*2)/userPhoto.width, (photoR*2)/userPhoto.height);
+            ctx.drawImage(userPhoto, w/2 - (userPhoto.width*ratio)/2, photoY - (userPhoto.height*ratio)/2, userPhoto.width*ratio, userPhoto.height*ratio);
         } else {
-            ctx.fillStyle = '#1a1a2e'; ctx.fillRect(w/2-120, 150, 240, 240);
-            ctx.fillStyle = '#333'; ctx.font = '30px Inter'; ctx.fillText('SUBE FOTO', w/2, 280);
+            ctx.fillStyle = '#1a1a2e'; ctx.fillRect(w/2-photoR, photoY-photoR, photoR*2, photoR*2);
+            ctx.fillStyle = '#fff'; ctx.font = '30px Inter'; ctx.fillText('SUBE FOTO', w/2, photoY);
         }
         ctx.restore();
-        ctx.strokeStyle = '#a78bfa'; ctx.lineWidth = 4;
-        ctx.beginPath(); ctx.arc(w/2, 270, 122, 0, Math.PI * 2); ctx.stroke();
+        // Photo Ring Glow
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.6)'; ctx.lineWidth = 6;
+        ctx.beginPath(); ctx.arc(w/2, photoY, photoR+2, 0, Math.PI * 2); ctx.stroke();
 
-        // Reveal image
+        // 7. NAME: HOLA ES TEST
+        ctx.fillStyle = '#fff'; ctx.font = '900 70px Inter'; ctx.letterSpacing = '1px';
+        const nameVal = (nameInput.value || 'TU NOMBRE').toUpperCase();
+        ctx.fillText(nameVal, w/2, 600);
+        
+        // Horizontal Line
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(w/2-250, 620); ctx.lineTo(w/2+250, 620); ctx.stroke();
+
+        // 8. Role: MEMBER OF THE MOVEMENT
+        ctx.fillStyle = '#a78bfa'; ctx.font = '700 30px Inter'; ctx.letterSpacing = '2px';
+        ctx.fillText('MEMBER OF THE MOVEMENT', w/2, 670);
+
+        // 9. Philosophy Text Block
+        ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.font = '400 28px Inter';
+        ctx.fillText('Without science there is no clarity.', w/2, 740);
+        ctx.fillText('Without validation there is no progress.', w/2, 780);
+        
+        ctx.font = '400 26px Inter';
+        ctx.fillText('An open framework for understanding reality', w/2, 830);
+        ctx.fillText('through verifiable evidence.', w/2, 870);
+
+        // 10. CTA: Learn the 10 Principles...
+        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 32px Inter';
+        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 930);
+
+        // 11. Hashtags
+        ctx.font = 'bold 36px Inter';
+        ctx.fillText('#ThinkWithEvidence  #Neosys', w/2, 980);
+
+        // 12. Footer Website (Very small)
+        ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.font = '16px Inter'; ctx.letterSpacing = '1px';
+        ctx.fillText('YEPZHI.COM/NEOSYS', w/2, 1010); // Wait, adjusted height if needed
+        
+        // Push to preview img
         previewImg.src = canvas.toDataURL('image/png');
     }
 
     // ── Listeners ─────────────────────────────────
     [nameInput, cityInput, stateInput].forEach(el => el && el.addEventListener('input', updateBadge));
 
-    // ── Firebase Registration ─────────────────────
+    // ── Firebase Registration (Sync v4.9.9.0) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -127,7 +173,7 @@
             const payload = {
                 name: nameInput.value,
                 email: document.getElementById('badge-email').value,
-                city: cityInput.value,
+                city: cityInput.value || '',
                 state: stateInput.value || '',
                 country: countryInput.value,
                 social: document.getElementById('badge-social').value || '',
@@ -141,7 +187,8 @@
                 await db.collection('miembros').add(payload);
                 registerBtn.innerText = "¡REGISTRO EXITOSO!";
                 registerBtn.style.background = "#0f0";
-                document.getElementById('badge-actions').style.display = 'flex';
+                const actions = document.getElementById('badge-actions');
+                if (actions) actions.style.display = 'flex';
                 alert("¡Bienvenido al movimiento! Tu gafete ha sido generado y tus datos están en el directorio.");
             } catch (err) {
                 console.error("Error al registrar:", err);
@@ -152,6 +199,5 @@
         });
     }
 
-    // Init
     updateBadge();
 })();
