@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.1.3 FINAL STABLE
+   NEOSYS AEON — App Logic v5.1.4 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "5.1.3"; 
+const version = "5.1.4"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -215,7 +215,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.1.3)
+    // Tab switching logic (v5.1.4)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (v5.1.3)
+    // Mobile Menu Toggle (v5.1.4)
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // HD Poster Download (v5.1.3 restored)
+    // HD Poster Download (v5.1.4 restored)
     const downloadPosterBtn = document.getElementById('download-poster-btn');
     if (downloadPosterBtn) {
         downloadPosterBtn.addEventListener('click', async () => {

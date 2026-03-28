@@ -13,7 +13,7 @@ window.NeosysPoster = (function() {
         canvas.height = CANVAS_HEIGHT;
         const ctx = canvas.getContext('2d');
         const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
-        const version = 'v5.1.3';
+        const version = 'v5.1.4';
 
         // Wait for fonts to be ready
         await document.fonts.ready;
