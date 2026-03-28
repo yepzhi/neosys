@@ -50,12 +50,23 @@ try {
     window.addEventListener('resize', () => { resize(); createParticles(); });
 })();
 
-(function initReveal() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+let revealObserver;
+function initReveal() {
+    revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) { 
+                entry.target.classList.add('visible'); 
+                revealObserver.unobserve(entry.target); 
+            } 
+        });
     }, { threshold: 0.05 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-})();
+    refreshReveal();
+}
+function refreshReveal() {
+    if (!revealObserver) return;
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+}
+initReveal();
 
 (function initNav() {
     const nav = document.getElementById('main-nav');
@@ -322,4 +333,6 @@ function renderOutreach() {
             </div>
         </div>
     `).join('');
+    
+    if (typeof refreshReveal === 'function') refreshReveal();
 }
