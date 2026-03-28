@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.1.6 FINAL STABLE
+   NEOSYS AEON — App Logic v5.1.7 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "5.1.6"; 
+const version = "5.1.7"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────

@@ -13,7 +13,7 @@ window.NeosysPoster = (function() {
         canvas.height = CANVAS_HEIGHT;
         const ctx = canvas.getContext('2d');
         const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
-        const version = 'v5.1.6';
+        const version = 'v5.1.7';
 
         // Wait for fonts to be ready
         await document.fonts.ready;
@@ -61,16 +61,20 @@ window.NeosysPoster = (function() {
 
         // Title: NEOSYS AEON (Large & Central)
         ctx.fillStyle = '#ffffff';
-        ctx.font = '800 280px Outfit, sans-serif';
+        ctx.font = '900 280px Inter, sans-serif'; // Matched to Hero title
         ctx.letterSpacing = '25px';
         ctx.fillText('NEOSYS AEON', CANVAS_WIDTH / 2, 650);
 
-        // Tagline: Below the main title
-        const tagline = (t.hero_tagline || 'Without science there is no clarity. Without validation there is no progress.').toUpperCase();
+        // Tagline: Below the main title (Split into two lines)
         ctx.fillStyle = '#a78bfa';
-        ctx.font = '600 82px Outfit, sans-serif';
+        ctx.font = '600 80px Inter, sans-serif';
         ctx.letterSpacing = '6px';
-        ctx.fillText(tagline, CANVAS_WIDTH / 2, 850);
+        
+        const line1 = "Without science there is no clarity.";
+        const line2 = "Without validation there is no progress.";
+        
+        ctx.fillText(line1.toUpperCase(), CANVAS_WIDTH / 2, 820);
+        ctx.fillText(line2.toUpperCase(), CANVAS_WIDTH / 2, 920);
 
         // Divider
         const gradLine = ctx.createLinearGradient(CANVAS_WIDTH/2 - 900, 0, CANVAS_WIDTH/2 + 900, 0);
