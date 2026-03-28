@@ -6,13 +6,13 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.8.6"; 
-console.log("%c[NEOSYS] Loader v" + version, "color: #a78bfa; font-weight: bold;");
+const version = "4.8.8.7"; 
+console.log("%c[NEOSYS] INTERACTIVE DEBUGGER v" + version, "color: #ff0; font-weight: bold; background: #000;");
 
 // ═══════════════════════════════════════════
-// FIREBASE INITIALIZATION v4.8.8.6
+// FIREBASE INITIALIZATION v4.8.8.7
 // ═══════════════════════════════════════════
-const APP_VERSION = "4.8.8.6"; 
+const APP_VERSION = "4.8.8.7"; 
 console.log(`%c[NEOSYS] App starting v${APP_VERSION}`, "color: #a78bfa; font-weight: bold;");
 
 let db = null;
@@ -474,7 +474,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.6
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.7
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -528,7 +528,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.8.6) ──────────────────
+// ── Community Map Logic (v4.8.8.7) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -566,7 +566,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.8.6");
+    console.log("[Neosys] Initializing Map v4.8.8.7");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -640,7 +640,7 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Robust Refresh Strategy for v4.8.8.6
+        // Robust Refresh Strategy for v4.8.8.7
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
@@ -837,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.8.6) ───────────────────
+    // ── Poster Download Handler (v4.8.8.7) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
@@ -847,9 +847,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global responsiveness for map (v4.8.8.6)
+// Global responsiveness for map (v4.8.8.7)
 window.addEventListener('resize', () => {
     if (typeof communityMap !== 'undefined' && communityMap) {
         communityMap.invalidateSize();
     }
 });
+
+// ── Interactive Debugger Overlay (v4.8.8.7) ────────
+(function initDebug() {
+    // Only show if URL contains #debug
+    if (window.location.hash !== '#debug' && !window.location.search.includes('debug')) return;
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const div = document.createElement('div');
+        div.id = 'neosys-debug-overlay';
+        div.style = 'position:fixed; bottom:20px; right:20px; z-index:10000; background:rgba(10,10,25,0.95); border:1px solid #ff0; padding:15px; border-radius:12px; font-family:monospace; color:#ff0; width:300px; box-shadow:0 10px 40px rgba(0,0,0,0.8); font-size:12px; border: 2px solid #ff0;';
+        div.innerHTML = \`
+            <div style="margin-bottom:12px; font-weight:bold; color:#fff; font-size:14px; text-shadow: 0 0 10px #ff0;">✨ FIRESTORE DEBUGGER v4.8.8.7</div>
+            <div style="opacity:0.8; margin-bottom:12px; border-bottom: 1px solid #333; padding-bottom: 8px;">Project: neosys-4dc42</div>
+            <label style="display:block; margin-bottom:5px; color:#aaa;">Nombre de Colección:</label>
+            <input type="text" id="debug-coll-name" value="neosys_usuarios" style="width:100%; background:#000; border:1px solid #ff0; color:#fff; padding:8px; margin-bottom:12px; border-radius:4px; outline:none;">
+            <button id="debug-test-btn" style="width:100%; background:#ff0; color:#000; border:none; padding:10px; cursor:pointer; font-weight:900; border-radius:4px; text-transform:uppercase;">Probar Conexión</button>
+            <div id="debug-result" style="margin-top:15px; color:#fff; word-break:break-all; padding:10px; background:rgba(255,255,255,0.05); border-radius:6px; min-height:40px;">Esperando acción...</div>
+            <div style="margin-top:10px; font-size:10px; opacity:0.5;">*Los resultados reales se verán en la consola (F12)</div>
+        \`;
+        document.body.appendChild(div);
+        
+        document.getElementById('debug-test-btn').addEventListener('click', async () => {
+            const res = document.getElementById('debug-result');
+            const coll = document.getElementById('debug-coll-name').value.trim();
+            res.innerHTML = \`🔍 Buscando en [\${coll}]...\`;
+            res.style.color = '#ff0';
+            
+            try {
+                if (!db) throw new Error("Firebase DB no inicializado.");
+                const snapshot = await db.collection(coll).get();
+                if (snapshot.size > 0) {
+                   res.innerHTML = \`<span style="color:#0f0; font-weight:bold;">✅ ¡DATOS ENCONTRADOS!</span><br>Tamaño: \${snapshot.size} documentos.<br>Primer ID: \${snapshot.docs[0].id}\`;
+                   console.log(\`%c[NEOSYS DEBUG] ¡EXITO! Docs en \${coll}:\`, "background: #0f0; color: #000; font-weight: bold;", snapshot.docs.map(d => ({id:d.id, ...d.data()})));
+                } else {
+                   res.innerHTML = \`<span style="color:#f44;">⚠️ Colección vacía (Size: 0).</span><br>Nombre: \${coll}\`;
+                }
+            } catch (e) {
+                res.innerHTML = \`<span style="color:#f44; font-weight:bold;">❌ ERROR:</span><br>\${e.message}\`;
+                console.error("[NEOSYS DEBUG] Error:", e);
+            }
+        });
+    });
+})();
