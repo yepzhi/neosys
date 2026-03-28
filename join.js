@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.0.1
+   NEOSYS AEON — Luxury Badge Generator v5.0.0.2
    Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v5.0.0.1 - Tall for philosophy)
+    // Set Canvas Size (v5.0.0.2 - Tall for philosophy)
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,34 +66,9 @@
         }
     });
 
-    // ── Badge Drawing Logic (Replication v5.0.0.1) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.0.2) ────
     function updateBadge() {
-        const w = canvas.width; const h = canvas.height;
-        ctx.clearRect(0,0,w,h);
-
-        // 1. Background (Dark Blue/Black)
-        ctx.fillStyle = '#050510';
-        ctx.fillRect(0, 0, w, h);
-
-        // 2. Subtle Grid
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.05)';
-        ctx.lineWidth = 1;
-        for (let x = 0; x <= w; x += 50) {
-            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
-        }
-        for (let y = 0; y <= h; y += 50) {
-            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-        }
-
-        // 3. Bokeh Particles (Static stars)
-        ctx.fillStyle = 'rgba(167, 139, 250, 0.3)';
-        const stars = [[100,200],[700,100],[50,600],[750,800],[300,50],[500,900],[200,400],[600,700]];
-        stars.forEach(s => {
-            ctx.beginPath(); ctx.arc(s[0], s[1], 2, 0, Math.PI*2); ctx.fill();
-        });
-
-    // ── Badge Drawing Logic (Ultimate v5.0.0.1) ────
-    function updateBadge() {
+        if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
 
@@ -173,15 +148,12 @@
         
         previewImg.src = canvas.toDataURL('image/png');
     }
-        
-        // Push to preview img
-        previewImg.src = canvas.toDataURL('image/png');
-    }
 
     // ── Listeners ─────────────────────────────────
-    [nameInput, cityInput, stateInput].forEach(el => el && el.addEventListener('input', updateBadge));
+    if (nameInput) nameInput.addEventListener('input', updateBadge);
+    if (cityInput) cityInput.addEventListener('input', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.0.1) ──────
+    // ── Firebase Registration (Sync v5.0.0.2) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();

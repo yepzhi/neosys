@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.0.0.1 FINAL STABLE
+   NEOSYS AEON — App Logic v5.0.0.2 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -191,7 +191,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.0.0.1)
+    // Tab switching logic (v5.0.0.2)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
