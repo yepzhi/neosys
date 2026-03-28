@@ -1,13 +1,16 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v4.9.1.0 FINAL
+   NEOSYS AEON — App Logic v4.9.2.0 DIAGNOSTIC
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
+
+// ── BROWSER ALERT DIAGNOSTIC ───────────────────────
+alert("Neosys v4.9.2.0 Startup Check");
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.9.0"; 
-console.log(`%c[NEOSYS] Platform v${version} Stable`, "color: #a78bfa; font-weight: bold; font-size: 1.1rem;");
+const version = "4.9.2.0"; 
+console.log(`%c[NEOSYS] DIAGNOSTIC v${version} BROWSER SYNC`, "color: #ff0; font-weight: bold; background: #000;");
 
 // ── Firebase Initialization (Shared Config) ───────
 let db = null;
@@ -106,7 +109,7 @@ function fetchEvidencias(filterValue = 'all') {
     const list = document.getElementById('evidencias-list');
     if (!list || !db) return;
     
-    list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">🚀 Sincronizando evidencia científica...</div>`;
+    list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">🚀 Sincronizando evidencia...</div>`;
 
     db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         const t = (translations && translations[currentLang]) || (translations && translations.es) || {};
@@ -118,7 +121,6 @@ function fetchEvidencias(filterValue = 'all') {
             docs.push({ id: doc.id, ...data });
         });
 
-        // Manual Sort (preventing Firestore filtering issue)
         docs.sort((a, b) => {
             const dateA = safeToDate(a.timestamp);
             const dateB = safeToDate(b.timestamp);
@@ -127,31 +129,23 @@ function fetchEvidencias(filterValue = 'all') {
 
         list.innerHTML = '';
         if (docs.length === 0) {
-            list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">No se encontraron registros activos.</div>`;
+            list.innerHTML = `<p style="text-align:center; padding:40px;">No se encontraron registros activos.</p>`;
             return;
         }
 
         docs.forEach(data => {
             const card = document.createElement('div');
             card.className = 'evidence-card';
-            const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
-            const jsDate = safeToDate(data.decision_fecha || data.timestamp);
-            const dateStr = jsDate ? jsDate.toLocaleDateString() : '';
-            const name = data.name || data.nombre || 'Anonymous Researcher';
-
+            const name = data.name || data.nombre || 'Researcher';
             card.innerHTML = `
                 <div class="evidence-card-header">
                     <div class="evidence-card-name">${name}</div>
                     <div class="evidence-card-meta">
                         <span>${data.city || data.ciudad || ''}${ (data.country || data.pais) ? `, ${data.country || data.pais}` : ''}</span>
-                        ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
-                        ${dateStr ? `<span>${dateStr}</span>` : ''}
                     </div>
                 </div>
                 <div class="evidence-card-body">
-                    <div class="evidence-card-tag">${sourceText}</div>
                     <p>${data.decision_evidencia || 'Registro de participación de Neosys Aeon.'}</p>
-                    ${data.fuente_referencia ? `<a href="${String(data.fuente_referencia).startsWith('http') ? data.fuente_referencia : '#'}" target="_blank" class="evidence-card-ref">🔗 Ref: ${data.fuente_referencia}</a>` : ''}
                 </div>
             `;
             list.appendChild(card);
@@ -165,82 +159,58 @@ function loadCommunity() {
     if (!list || !db) return;
     
     db.collection('miembros').limit(100).onSnapshot((snapshot) => {
-        console.log(`[NEOSYS] Data Size: ${snapshot.size}`);
+        console.log(`%c[NEOSYS] Data Size: ${snapshot.size}`, "background:#ff0; color:#000; font-weight:bold;");
         list.innerHTML = '';
         if (snapshot.empty) {
-            list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Sé el primero en unirte al directorio.</p>';
+            list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Sé el primero en unirte.</p>';
             return;
         }
         snapshot.forEach(doc => {
             const data = doc.data();
             const el = document.createElement('div');
             el.className = 'community-member';
-            const dot = document.createElement('div');
-            dot.className = 'member-dot';
-            const nameSpan = document.createElement('span');
-            nameSpan.className = 'member-name';
-            nameSpan.textContent = data.name || data.nombre || 'Anonymous Researcher';
-            el.appendChild(dot);
-            el.appendChild(nameSpan);
-
-            const rawCountry = data.country || data.pais;
-            if (rawCountry) {
-                const locSpan = document.createElement('span');
-                locSpan.className = 'member-location';
-                locSpan.textContent = data.city || data.ciudad || rawCountry;
-                el.appendChild(locSpan);
-            }
+            el.innerHTML = `<div class="member-dot"></div><span class="member-name">${data.name || data.nombre || 'Member'}</span>`;
             list.appendChild(el);
         });
     });
 }
 
-// ── Community Map Logic ──────────────────────────
+// ── Community Map ────────────────────────────────
 let communityMap = null;
 let mapMarkers = [];
-
-const CITY_COORDINATES = {
-    'GUADALAJARA': [20.6597, -103.3496], 'JALISCO': [20.6597, -103.3496],
-    'CDMX': [19.4326, -99.1332], 'MEXICO': [19.4326, -99.1332], 'MÉXICO': [19.4326, -99.1332],
-    'MONTERREY': [25.6866, -100.3161], 'VERACRUZ': [19.1738, -96.1342]
-};
 
 function initCommunityMap() {
     const mapDiv = document.getElementById('community-map');
     if (!mapDiv || !db) return;
 
     if (!communityMap) {
-        communityMap = L.map('community-map', { 
-            zoomControl: false, 
-            attributionControl: false 
-        }).setView([20, -100], 3);
+        communityMap = L.map('community-map', { zoomControl: false }).setView([20, -100], 3);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(communityMap);
     }
 
     db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         mapMarkers.forEach(m => communityMap.removeLayer(m));
         mapMarkers = [];
-
         snapshot.forEach(doc => {
-            const data = doc.data();
-            let lat = data.lat, lng = data.lng;
-            if (!lat || !lng) {
-                const city = (data.city || data.ciudad || '').toUpperCase().trim();
-                if (CITY_COORDINATES[city]) [lat, lng] = CITY_COORDINATES[city];
-                else [lat, lng] = CITY_COORDINATES['MEXICO'];
-            }
-            
-            const circle = L.circleMarker([lat, lng], {
-                radius: 12, fillColor: '#a78bfa', color: '#fff', weight: 3, opacity: 1, fillOpacity: 0.8
-            }).addTo(communityMap);
-            circle.bindTooltip(data.name || data.nombre || 'Member');
+            const circle = L.circleMarker([20, -100], { radius: 10, fillColor: '#ff0', color: '#fff', weight: 2, fillOpacity: 0.8 }).addTo(communityMap);
             mapMarkers.push(circle);
         });
     });
 }
 
-// ── Initialize Event Listeners ───────────────────
+// ── Initialize ───────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+    // Add Force Sync Button
+    const forceBtn = document.createElement('button');
+    forceBtn.innerHTML = "⚡ FORCE SYNC";
+    forceBtn.style = "position:fixed; top:20px; left:20px; z-index:99999; background:#ff0; color:#000; border:none; padding:12px 20px; font-weight:900; border-radius:30px; cursor:pointer; box-shadow:0 0 20px rgba(255,255,0,0.5); border: 2px solid #000;";
+    forceBtn.onclick = () => {
+        loadCommunity();
+        if (typeof initCommunityMap === 'function') initCommunityMap();
+        alert("Manually syncing collection 'miembros'...");
+    };
+    document.body.appendChild(forceBtn);
+
     if (document.getElementById('community-list')) loadCommunity();
     
     const btnDir = document.getElementById('btn-directory');
