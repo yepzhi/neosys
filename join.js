@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v4.9.9.1
+   NEOSYS AEON — Luxury Badge Generator v5.0.0.0
    Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v4.9.9.1 - Tall for philosophy)
+    // Set Canvas Size (v5.0.0.0 - Tall for philosophy)
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Replication v4.9.9.1) ──
+    // ── Badge Drawing Logic (Replication v5.0.0.0) ──
     function updateBadge() {
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
@@ -92,63 +92,87 @@
             ctx.beginPath(); ctx.arc(s[0], s[1], 2, 0, Math.PI*2); ctx.fill();
         });
 
-        // 4. Sparkle ✨ Top
-        ctx.shadowBlur = 0; ctx.fillStyle = '#ffef33'; ctx.font = '60px Helvetica, -apple-system, sans-serif';
-        ctx.textAlign = 'center'; ctx.fillText('✨', w/2, 90);
+    // ── Badge Drawing Logic (Ultimate v5.0.0.0) ────
+    function updateBadge() {
+        const w = canvas.width; const h = canvas.height;
+        ctx.clearRect(0,0,w,h);
 
-        // 5. Header: NEOSYS AEON
-        ctx.shadowColor = 'rgba(167, 139, 250, 0.6)'; ctx.shadowBlur = 20;
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 64px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '6px';
-        ctx.fillText('NEOSYS AEON', w/2, 170);
+        // 1. Nebula Background
+        ctx.fillStyle = '#050510'; ctx.fillRect(0, 0, w, h);
+        const blobs = [[150,200,'rgba(167,139,250,0.08)'],[600,600,'rgba(255,239,51,0.03)'],[400,800,'rgba(167,139,250,0.05)']];
+        blobs.forEach(b => {
+            const rad = ctx.createRadialGradient(b[0],b[1],0,b[0],b[1],300);
+            rad.addColorStop(0, b[2]); rad.addColorStop(1, 'transparent');
+            ctx.fillStyle = rad; ctx.fillRect(0,0,w,h);
+        });
+
+        // 2. Subtle Grid
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.04)'; ctx.lineWidth = 1;
+        for (let x=0; x<=w; x+=100){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+        for (let y=0; y<=h; y+=100){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+
+        // 3. Glowing Stars (+20% Size)
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.4)'; ctx.shadowBlur = 10; ctx.shadowColor = '#a78bfa';
+        const stars = [[80,180],[720,120],[40,650],[740,850],[280,40],[520,950],[180,380],[620,720]];
+        stars.forEach(s => {
+            ctx.beginPath(); ctx.arc(s[0], s[1], 3.2, 0, Math.PI*2); ctx.fill();
+        });
         ctx.shadowBlur = 0;
 
-        // 6. PHOTO (Circle with circular mask and glow)
+        // 4. Sparkle ✨ Top
+        ctx.fillStyle = '#ffef33'; ctx.font = '60px Helvetica, -apple-system, sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('✨', w/2, 90);
+
+        // 5. Header: NEOSYS AEON (Glow 20px)
+        ctx.shadowColor = 'rgba(167, 139, 250, 0.6)'; ctx.shadowBlur = 20;
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 64px Helvetica'; ctx.letterSpacing = '6px';
+        ctx.fillText('NEOSYS AEON', w/2, 170); ctx.shadowBlur = 0;
+
+        // 6. PHOTO
         const photoY = 340; const photoR = 145;
-        ctx.save();
-        ctx.beginPath(); ctx.arc(w/2, photoY, photoR, 0, Math.PI * 2); ctx.clip();
+        ctx.save(); ctx.beginPath(); ctx.arc(w/2, photoY, photoR, 0, Math.PI * 2); ctx.clip();
         if (userPhoto) {
-            const ratio = Math.max((photoR*2)/userPhoto.width, (photoR*2)/userPhoto.height);
-            ctx.drawImage(userPhoto, w/2 - (userPhoto.width*ratio)/2, photoY - (userPhoto.height*ratio)/2, userPhoto.width*ratio, userPhoto.height*ratio);
+            const r = Math.max((photoR*2)/userPhoto.width, (photoR*2)/userPhoto.height);
+            ctx.drawImage(userPhoto, w/2 - (userPhoto.width*r)/2, photoY - (userPhoto.height*r)/2, userPhoto.width*r, userPhoto.height*r);
         } else {
             ctx.fillStyle = '#1a1a2e'; ctx.fillRect(w/2-photoR, photoY-photoR, photoR*2, photoR*2);
             ctx.fillStyle = '#fff'; ctx.font = '24px Helvetica'; ctx.fillText('SUBE FOTO', w/2, photoY);
         }
         ctx.restore();
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)'; ctx.lineWidth = 5;
-        ctx.beginPath(); ctx.arc(w/2, photoY, photoR+2, 0, Math.PI * 2); ctx.stroke();
+        ctx.strokeStyle = 'rgba(167,139,250,0.5)'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(w/2, photoY, photoR+2, 0, Math.PI*2); ctx.stroke();
 
-        // 7. NAME: HOLA ES TEST
-        ctx.fillStyle = '#fff'; ctx.font = '900 60px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '1px';
-        const nameVal = (nameInput.value || 'TU NOMBRE').toUpperCase();
-        ctx.fillText(nameVal, w/2, 560);
-        
-        ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.moveTo(w/2-240, 580); ctx.lineTo(w/2+240, 580); ctx.stroke();
+        // 7. NAME
+        ctx.fillStyle = '#fff'; ctx.font = '900 60px Helvetica'; ctx.letterSpacing = '1px';
+        ctx.fillText((nameInput.value || 'TU NOMBRE').toUpperCase(), w/2, 560);
+        ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(w/2-240, 580); ctx.lineTo(w/2+240, 580); ctx.stroke();
 
-        // 8. Role: MEMBER OF THE MOVEMENT
-        ctx.fillStyle = '#a78bfa'; ctx.font = '700 26px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '3px';
+        // 8. Role
+        ctx.fillStyle = '#a78bfa'; ctx.font = '700 24px Helvetica'; ctx.letterSpacing = '3px';
         ctx.fillText('MEMBER OF THE MOVEMENT', w/2, 630);
 
-        // 9. Philosophy Text Block (Reduced for breathing room)
-        ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.font = '400 24px Helvetica, -apple-system, sans-serif';
-        ctx.fillText('Without science there is no clarity.', w/2, 700);
-        ctx.fillText('Without validation there is no progress.', w/2, 740);
+        // 9. Philosophy Phrases (-30%)
+        ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '400 18px Helvetica';
+        ctx.fillText('Without science there is no clarity.', w/2, 690);
+        ctx.fillText('Without validation there is no progress.', w/2, 725);
+        ctx.font = '400 16px Helvetica';
+        ctx.fillText('An open framework for understanding reality', w/2, 775);
+        ctx.fillText('through verifiable evidence.', w/2, 810);
+
+        // 10. CTA Gradient (-15%)
+        const ctaGrad = ctx.createLinearGradient(w/2-250, 0, w/2+250, 0);
+        ctaGrad.addColorStop(0, '#a78bfa'); ctaGrad.addColorStop(0.5, '#fff'); ctaGrad.addColorStop(1, '#a78bfa');
+        ctx.fillStyle = ctaGrad; ctx.font = 'bold 24px Helvetica';
+        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 880);
+
+        // 11. Hashtags (-25% + #NeosysAeon)
+        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 24px Helvetica';
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w/2, 940);
+
+        // 12. Footer
+        ctx.fillStyle = 'rgba(255,255,255,0.1)'; ctx.font = '14px Helvetica'; ctx.fillText('YEPZHI.COM/NEOSYS', w/2, 975);
         
-        ctx.font = '400 22px Helvetica';
-        ctx.fillText('An open framework for understanding reality', w/2, 790);
-        ctx.fillText('through verifiable evidence.', w/2, 830);
-
-        // 10. CTA: Learn the 10 Principles...
-        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 28px Helvetica';
-        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 890);
-
-        // 11. Hashtags
-        ctx.font = 'bold 32px Helvetica';
-        ctx.fillText('#ThinkWithEvidence  #Neosys', w/2, 940);
-
-        // 12. Footer Website (Very small)
-        ctx.fillStyle = 'rgba(255,255,255,0.15)'; ctx.font = '14px Helvetica'; ctx.letterSpacing = '1px';
-        ctx.fillText('YEPZHI.COM/NEOSYS', w/2, 975);
+        previewImg.src = canvas.toDataURL('image/png');
+    }
         
         // Push to preview img
         previewImg.src = canvas.toDataURL('image/png');
@@ -157,7 +181,7 @@
     // ── Listeners ─────────────────────────────────
     [nameInput, cityInput, stateInput].forEach(el => el && el.addEventListener('input', updateBadge));
 
-    // ── Firebase Registration (Sync v4.9.9.1) ──────
+    // ── Firebase Registration (Sync v5.0.0.0) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
