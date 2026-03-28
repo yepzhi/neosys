@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.1
-   Identical Replication based on User Image
+   NEOSYS AEON — Luxury Badge Generator v5.0.2
+   Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
 (function initBadgeGenerator() {
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v5.0.1 - Tall for philosophy)
+    // Set Canvas Size
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,11 +66,14 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.1) ────
+    // ── Badge Drawing Logic (Ultimate v5.0.2 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
+
+        // Fetch translations for text on canvas
+        const t = (typeof translations !== 'undefined') ? (translations[currentLang] || translations.en) : {};
 
         // 1. Nebula Background
         ctx.fillStyle = '#050510'; ctx.fillRect(0, 0, w, h);
@@ -111,35 +114,35 @@
             ctx.drawImage(userPhoto, w/2 - (userPhoto.width*r)/2, photoY - (userPhoto.height*r)/2, userPhoto.width*r, userPhoto.height*r);
         } else {
             ctx.fillStyle = '#1a1a2e'; ctx.fillRect(w/2-photoR, photoY-photoR, photoR*2, photoR*2);
-            ctx.fillStyle = '#fff'; ctx.font = '24px Helvetica'; ctx.fillText('SUBE FOTO', w/2, photoY);
+            ctx.fillStyle = '#fff'; ctx.font = '24px Helvetica'; ctx.fillText('PHOTO', w/2, photoY);
         }
         ctx.restore();
         ctx.strokeStyle = 'rgba(167,139,250,0.5)'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(w/2, photoY, photoR+2, 0, Math.PI*2); ctx.stroke();
 
         // 7. NAME
         ctx.fillStyle = '#fff'; ctx.font = '900 60px Helvetica'; ctx.letterSpacing = '1px';
-        ctx.fillText((nameInput.value || 'TU NOMBRE').toUpperCase(), w/2, 560);
+        ctx.fillText((nameInput.value || t.badge_name_placeholder || 'YOUR NAME').toUpperCase(), w/2, 560);
         ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(w/2-240, 580); ctx.lineTo(w/2+240, 580); ctx.stroke();
 
-        // 8. Role
+        // 8. Role (Localized)
         ctx.fillStyle = '#a78bfa'; ctx.font = '700 24px Helvetica'; ctx.letterSpacing = '3px';
-        ctx.fillText('MEMBER OF THE MOVEMENT', w/2, 630);
+        ctx.fillText((t.badge_member || 'MEMBER OF THE MOVEMENT').toUpperCase(), w/2, 630);
 
-        // 9. Philosophy Phrases (-30%)
+        // 9. Philosophy Phrases (Localized)
         ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '400 18px Helvetica';
-        ctx.fillText('Without science there is no clarity.', w/2, 690);
-        ctx.fillText('Without validation there is no progress.', w/2, 725);
+        ctx.fillText(t.badge_phrase1_l1 || 'Without science there is no clarity.', w/2, 690);
+        ctx.fillText(t.badge_phrase1_l2 || 'Without validation there is no progress.', w/2, 725);
         ctx.font = '400 16px Helvetica';
-        ctx.fillText('An open framework for understanding reality', w/2, 775);
-        ctx.fillText('through verifiable evidence.', w/2, 810);
+        ctx.fillText(t.badge_phrase2_l1 || 'An open framework for understanding reality', w/2, 775);
+        ctx.fillText(t.badge_phrase2_l2 || 'through verifiable evidence.', w/2, 810);
 
-        // 10. CTA Gradient (-15%)
+        // 10. CTA Gradient (Localized)
         const ctaGrad = ctx.createLinearGradient(w/2-250, 0, w/2+250, 0);
         ctaGrad.addColorStop(0, '#a78bfa'); ctaGrad.addColorStop(0.5, '#fff'); ctaGrad.addColorStop(1, '#a78bfa');
         ctx.fillStyle = ctaGrad; ctx.font = 'bold 24px Helvetica';
-        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 880);
+        ctx.fillText(t.badge_phrase3 || 'Learn the 10 Principles of the Cosmos today!', w/2, 880);
 
-        // 11. Hashtags (-25% + #NeosysAeon)
+        // 11. Hashtags
         ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 24px Helvetica';
         ctx.fillText('#ThinkWithEvidence  #NeosysAeon', w/2, 940);
 
@@ -152,8 +155,9 @@
     // ── Listeners ─────────────────────────────────
     if (nameInput) nameInput.addEventListener('input', updateBadge);
     if (cityInput) cityInput.addEventListener('input', updateBadge);
+    window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.1) ──────
+    // ── Firebase Registration (Sync v5.0.2) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();

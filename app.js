@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.0.1 FINAL STABLE
+   NEOSYS AEON — App Logic v5.0.2 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "5.0.0.1"; 
+const version = "5.0.2"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -65,17 +65,31 @@ try {
 function initi18n() {
     if (typeof translations === 'undefined') return;
     const t = translations[currentLang] || translations.en;
+    
+    function getVal(key) {
+        if (!key) return null;
+        if (key.includes('.')) {
+            const parts = key.split('.');
+            let val = t;
+            parts.forEach(p => val = val ? val[p] : null);
+            return val;
+        }
+        return t[key];
+    }
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t[key];
-            else el.innerHTML = t[key];
+        const val = getVal(el.getAttribute('data-i18n'));
+        if (val) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+            else el.innerHTML = val;
         }
     });
+
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key]) el.placeholder = t[key];
+        const val = getVal(el.getAttribute('data-i18n-placeholder'));
+        if (val) el.placeholder = val;
     });
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
     });
@@ -191,7 +205,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.0.1)
+    // Tab switching logic (v5.0.2)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -223,7 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLang = btn.getAttribute('data-lang');
             localStorage.setItem('neosys_lang', currentLang);
             initi18n();
-            // Optional: Re-fetch list if needed
+            // Dispatch event for other scripts (like join.js)
+            window.dispatchEvent(new CustomEvent('neosys:langChange', { detail: { lang: currentLang } }));
         });
     });
     initi18n();
