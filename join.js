@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v4.9.9.0
+   NEOSYS AEON — Luxury Badge Generator v4.9.9.1
    Identical Replication based on User Image
    ═══════════════════════════════════════════ */
 
@@ -11,7 +11,7 @@
     const form = document.getElementById('badge-form');
     const registerBtn = document.getElementById('btn-register-final');
     
-    // Set Canvas Size (v4.9.9.0 - Tall for philosophy)
+    // Set Canvas Size (v4.9.9.1 - Tall for philosophy)
     canvas.width = 800;
     canvas.height = 1000;
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Replication v4.9.9.0) ──
+    // ── Badge Drawing Logic (Replication v4.9.9.1) ──
     function updateBadge() {
         const w = canvas.width; const h = canvas.height;
         ctx.clearRect(0,0,w,h);
@@ -93,17 +93,17 @@
         });
 
         // 4. Sparkle ✨ Top
-        ctx.shadowBlur = 0; ctx.fillStyle = '#ffef33'; ctx.font = '70px Inter';
-        ctx.textAlign = 'center'; ctx.fillText('✨', w/2, 100);
+        ctx.shadowBlur = 0; ctx.fillStyle = '#ffef33'; ctx.font = '60px Helvetica, -apple-system, sans-serif';
+        ctx.textAlign = 'center'; ctx.fillText('✨', w/2, 90);
 
         // 5. Header: NEOSYS AEON
-        ctx.shadowColor = 'rgba(167, 139, 250, 0.8)'; ctx.shadowBlur = 30;
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 80px Inter'; ctx.letterSpacing = '5px';
-        ctx.fillText('NEOSYS AEON', w/2, 180);
-        ctx.shadowBlur = 0; // Reset shadow
+        ctx.shadowColor = 'rgba(167, 139, 250, 0.6)'; ctx.shadowBlur = 20;
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 64px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '6px';
+        ctx.fillText('NEOSYS AEON', w/2, 170);
+        ctx.shadowBlur = 0;
 
         // 6. PHOTO (Circle with circular mask and glow)
-        const photoY = 360; const photoR = 170;
+        const photoY = 340; const photoR = 145;
         ctx.save();
         ctx.beginPath(); ctx.arc(w/2, photoY, photoR, 0, Math.PI * 2); ctx.clip();
         if (userPhoto) {
@@ -111,46 +111,44 @@
             ctx.drawImage(userPhoto, w/2 - (userPhoto.width*ratio)/2, photoY - (userPhoto.height*ratio)/2, userPhoto.width*ratio, userPhoto.height*ratio);
         } else {
             ctx.fillStyle = '#1a1a2e'; ctx.fillRect(w/2-photoR, photoY-photoR, photoR*2, photoR*2);
-            ctx.fillStyle = '#fff'; ctx.font = '30px Inter'; ctx.fillText('SUBE FOTO', w/2, photoY);
+            ctx.fillStyle = '#fff'; ctx.font = '24px Helvetica'; ctx.fillText('SUBE FOTO', w/2, photoY);
         }
         ctx.restore();
-        // Photo Ring Glow
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.6)'; ctx.lineWidth = 6;
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)'; ctx.lineWidth = 5;
         ctx.beginPath(); ctx.arc(w/2, photoY, photoR+2, 0, Math.PI * 2); ctx.stroke();
 
         // 7. NAME: HOLA ES TEST
-        ctx.fillStyle = '#fff'; ctx.font = '900 70px Inter'; ctx.letterSpacing = '1px';
+        ctx.fillStyle = '#fff'; ctx.font = '900 60px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '1px';
         const nameVal = (nameInput.value || 'TU NOMBRE').toUpperCase();
-        ctx.fillText(nameVal, w/2, 600);
+        ctx.fillText(nameVal, w/2, 560);
         
-        // Horizontal Line
-        ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(w/2-250, 620); ctx.lineTo(w/2+250, 620); ctx.stroke();
+        ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(w/2-240, 580); ctx.lineTo(w/2+240, 580); ctx.stroke();
 
         // 8. Role: MEMBER OF THE MOVEMENT
-        ctx.fillStyle = '#a78bfa'; ctx.font = '700 30px Inter'; ctx.letterSpacing = '2px';
-        ctx.fillText('MEMBER OF THE MOVEMENT', w/2, 670);
+        ctx.fillStyle = '#a78bfa'; ctx.font = '700 26px Helvetica, -apple-system, sans-serif'; ctx.letterSpacing = '3px';
+        ctx.fillText('MEMBER OF THE MOVEMENT', w/2, 630);
 
-        // 9. Philosophy Text Block
-        ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.font = '400 28px Inter';
-        ctx.fillText('Without science there is no clarity.', w/2, 740);
-        ctx.fillText('Without validation there is no progress.', w/2, 780);
+        // 9. Philosophy Text Block (Reduced for breathing room)
+        ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.font = '400 24px Helvetica, -apple-system, sans-serif';
+        ctx.fillText('Without science there is no clarity.', w/2, 700);
+        ctx.fillText('Without validation there is no progress.', w/2, 740);
         
-        ctx.font = '400 26px Inter';
-        ctx.fillText('An open framework for understanding reality', w/2, 830);
-        ctx.fillText('through verifiable evidence.', w/2, 870);
+        ctx.font = '400 22px Helvetica';
+        ctx.fillText('An open framework for understanding reality', w/2, 790);
+        ctx.fillText('through verifiable evidence.', w/2, 830);
 
         // 10. CTA: Learn the 10 Principles...
-        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 32px Inter';
-        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 930);
+        ctx.fillStyle = '#a78bfa'; ctx.font = 'bold 28px Helvetica';
+        ctx.fillText('Learn the 10 Principles of the Cosmos today!', w/2, 890);
 
         // 11. Hashtags
-        ctx.font = 'bold 36px Inter';
-        ctx.fillText('#ThinkWithEvidence  #Neosys', w/2, 980);
+        ctx.font = 'bold 32px Helvetica';
+        ctx.fillText('#ThinkWithEvidence  #Neosys', w/2, 940);
 
         // 12. Footer Website (Very small)
-        ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.font = '16px Inter'; ctx.letterSpacing = '1px';
-        ctx.fillText('YEPZHI.COM/NEOSYS', w/2, 1010); // Wait, adjusted height if needed
+        ctx.fillStyle = 'rgba(255,255,255,0.15)'; ctx.font = '14px Helvetica'; ctx.letterSpacing = '1px';
+        ctx.fillText('YEPZHI.COM/NEOSYS', w/2, 975);
         
         // Push to preview img
         previewImg.src = canvas.toDataURL('image/png');
@@ -159,7 +157,7 @@
     // ── Listeners ─────────────────────────────────
     [nameInput, cityInput, stateInput].forEach(el => el && el.addEventListener('input', updateBadge));
 
-    // ── Firebase Registration (Sync v4.9.9.0) ──────
+    // ── Firebase Registration (Sync v4.9.9.1) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
