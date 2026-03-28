@@ -1,25 +1,29 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Admin Logic v5.0.7 FINAL
+   NEOSYS AEON — Admin Logic v5.0.8 FINAL
    Dashboard for User Management
    ═══════════════════════════════════════════ */
 
-// ── Initialize Auth ──────────────────────────
-const adminKey = prompt("Please enter the Admin Access Key:");
-if (adminKey !== "neosys2026") {
-    alert("Unauthorized access.");
-    window.location.href = "index.html";
-}
-
 let db = null;
-try {
-    if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        db = firebase.firestore();
+function initDB() {
+    console.log("[NEOSYS] Admin Initializing Auth...");
+    const adminKey = prompt("Please enter the Admin Access Key:");
+    if (adminKey !== "neosys2026") {
+        alert("Unauthorized access.");
+        window.location.href = "index.html"; return;
     }
-} catch (e) {
-    console.warn("[NEOSYS] Admin Firebase Error:", e);
+    try {
+        if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
+            if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            console.log("[NEOSYS] Admin DB Ready.");
+            loadAdminData();
+        } else {
+            console.error("[NEOSYS] Admin Missing SDK or Config.");
+            document.getElementById('admin-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center;color:#f44;">Error: SDK de Firebase o Configuración no cargada.</td></tr>';
+        }
+    } catch (e) {
+        console.error("[NEOSYS] Admin Firebase Error:", e);
+    }
 }
 
 // ── Dashboard Logic ──────────────────────────
@@ -75,4 +79,4 @@ function deleteUser(docId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadAdminData);
+document.addEventListener('DOMContentLoaded', initDB);
