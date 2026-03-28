@@ -116,7 +116,7 @@ function loadCommunity() {
     const list = document.getElementById('community-list');
     if (!list || !db) return;
     
-    db.collection('neosys_usuarios').orderBy('timestamp', 'desc').limit(100).onSnapshot((snapshot) => {
+    db.collection('neosys_usuarios').limit(100).onSnapshot((snapshot) => {
         list.innerHTML = '';
         if (snapshot.empty) {
             list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Sé el primero en unirte al directorio.</p>';
@@ -132,21 +132,23 @@ function loadCommunity() {
             
             const nameSpan = document.createElement('span');
             nameSpan.className = 'member-name';
-            nameSpan.textContent = data.name || 'Constructor Anónimo';
+            nameSpan.textContent = data.name || data.nombre || 'Constructor Anónimo';
             
             el.appendChild(dot);
             el.appendChild(nameSpan);
 
-            if (data.country) {
+            const rawCountry = data.country || data.pais;
+            if (rawCountry) {
                 const locSpan = document.createElement('span');
                 locSpan.className = 'member-location';
                 const countryEl = document.getElementById('badge-country');
-                let countryName = data.country;
+                let countryName = rawCountry;
                 if (countryEl) {
-                    const opt = countryEl.querySelector(`option[value="${data.country}"]`);
+                    const opt = countryEl.querySelector(`option[value="${rawCountry}"]`);
                     if (opt) countryName = opt.textContent;
                 }
-                locSpan.textContent = data.state ? `${data.state}, ${countryName}` : countryName;
+                const city = data.city || data.ciudad || '';
+                locSpan.textContent = data.state ? `${data.state}, ${countryName}` : (city ? `${city}, ${countryName}` : countryName);
                 el.appendChild(locSpan);
             }
 
@@ -438,7 +440,7 @@ function fetchEvidencias(filterValue = 'all') {
 
         snapshot.forEach(doc => {
             const data = doc.data();
-            if (!data.decision_evidencia || String(data.decision_evidencia).trim() === '') return;
+            // In evidence list, we still want to show entries even if they have minor missing fields
             if (filterValue !== 'all' && data.tipo_fuente !== filterValue) return;
             docs.push({ id: doc.id, ...data });
         });
@@ -463,7 +465,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.1
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.8.2
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -473,7 +475,7 @@ function fetchEvidencias(filterValue = 'all') {
                     <div class="evidence-card-header">
                         <div class="evidence-card-name">${data.name || 'Anonymous Researcher'}</div>
                         <div class="evidence-card-meta">
-                            <span>${data.city || ''}${data.country ? `, ${data.country}` : ''}</span>
+                            <span>${data.city || data.ciudad || ''}${ (data.country || data.pais) ? `, ${data.country || data.pais}` : ''}</span>
                             ${data.social ? `<span class="evidence-card-social">${data.social}</span>` : ''}
                             ${dateStr ? `<span>${dateStr}</span>` : ''}
                         </div>
@@ -517,7 +519,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.8.1) ──────────────────
+// ── Community Map Logic (v4.8.8.2) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -555,7 +557,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.8.1");
+    console.log("[Neosys] Initializing Map v4.8.8.2");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -580,11 +582,12 @@ function initCommunityMap() {
                 let lng = data.lng;
 
                 if (!lat || !lng) {
-                    const rawCity = (data.city || '').toUpperCase().trim();
+                    const rawCity = (data.city || data.ciudad || '').toUpperCase().trim();
+                    const rawCountry = (data.country || data.pais || '').toUpperCase().trim();
                     const cityKey = rawCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     if (CITY_COORDINATES[cityKey]) [lat, lng] = CITY_COORDINATES[cityKey];
                     else if (CITY_COORDINATES[rawCity]) [lat, lng] = CITY_COORDINATES[rawCity];
-                    else if (rawCity.includes("MEXICO")) [lat, lng] = CITY_COORDINATES['MEXICO'];
+                    else if (rawCity.includes("MEXICO") || rawCountry === "MX") [lat, lng] = CITY_COORDINATES['MEXICO'];
                     else if (rawCity.includes("GUADALAJARA")) [lat, lng] = CITY_COORDINATES['GUADALAJARA'];
                     else if (rawCity.includes("JALISCO")) [lat, lng] = CITY_COORDINATES['GUADALAJARA'];
                 }
@@ -628,7 +631,7 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Robust Refresh Strategy for v4.8.8.1
+        // Robust Refresh Strategy for v4.8.8.2
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
@@ -825,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.8.1) ───────────────────
+    // ── Poster Download Handler (v4.8.8.2) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
@@ -835,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global responsiveness for map (v4.8.8.1)
+// Global responsiveness for map (v4.8.8.2)
 window.addEventListener('resize', () => {
     if (typeof communityMap !== 'undefined' && communityMap) {
         communityMap.invalidateSize();
