@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.6"; 
+const version = "4.8.7"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.6"; 
+const APP_VERSION = "4.8.7"; 
 
 let db = null;
 try {
@@ -463,7 +463,7 @@ function fetchEvidencias(filterValue = 'all') {
         docs.forEach(data => {
             try {
                 const card = document.createElement('div');
-                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.6
+                card.className = 'evidence-card'; // REMOVED REVEAL: Guaranteed Visibility v4.8.7
                 
                 const sourceText = (t.source_types && t.source_types[data.tipo_fuente]) || data.tipo_fuente || 'Scientific Source';
                 const jsDate = safeToDate(data.decision_fecha || data.timestamp);
@@ -517,7 +517,7 @@ function fetchEvidencias(filterValue = 'all') {
     });
 }
 
-// ── Community Map Logic (v4.8.6) ──────────────────
+// ── Community Map Logic (v4.8.7) ──────────────────
 let communityMap = null;
 let mapMarkers = [];
 
@@ -555,7 +555,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    console.log("[Neosys] Initializing Map v4.8.6");
+    console.log("[Neosys] Initializing Map v4.8.7");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -592,12 +592,13 @@ function initCommunityMap() {
                 if (lat && lng) {
                     console.log(`[Neosys] Markers: Placing ${data.name} at [${lat}, ${lng}]`);
                     const marker = L.circleMarker([lat, lng], {
-                        radius: 8,
+                        radius: 12,
                         fillColor: "#a78bfa",
                         color: "#fff",
                         weight: 2,
                         opacity: 1,
-                        fillOpacity: 0.8
+                        fillOpacity: 0.8,
+                        className: 'neon-glow'
                     }).addTo(communityMap);
                     
                     marker.bindPopup(`<b>${data.name}</b><br>${data.city || ''}, ${data.country || ''}`);
@@ -605,10 +606,8 @@ function initCommunityMap() {
                 }
             });
             
-            // Triple-Refresh Layout Strategy (Safari/Firefox)
+            // Final Refresh Size
             setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 300);
-            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 600);
-            setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 1200);
         }, (err) => {
             console.error("[Neosys] Map Error:", err);
         });
@@ -629,12 +628,11 @@ function switchCommunityTab(tabId) {
         btnDir.classList.remove('active');
         btnMap.classList.add('active');
         
-        // Triple-Refresh Layout Strategy for Cross-Browser Consistency
+        // Robust Refresh Strategy for v4.8.7
         setTimeout(() => {
             initCommunityMap();
             if (communityMap) communityMap.invalidateSize();
-        }, 150);
-        setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 500);
+        }, 300);
         setTimeout(() => { if (communityMap) communityMap.invalidateSize(); }, 1000);
         window.dispatchEvent(new Event('resize'));
     } else {
@@ -827,7 +825,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchEvidencias();
     if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.6) ───────────────────
+    // ── Poster Download Handler (v4.8.7) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
@@ -837,7 +835,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global responsiveness for map (v4.8.6)
+// Global responsiveness for map (v4.8.7)
 window.addEventListener('resize', () => {
     if (typeof communityMap !== 'undefined' && communityMap) {
         communityMap.invalidateSize();
