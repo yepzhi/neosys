@@ -70,9 +70,9 @@ const translations = {
         join_privacy_note: "Tu nombre, ciudad, red social y testimonio aparecerán públicamente en la sección de Comunidad. Tu correo y teléfono son privados.",
         join_placeholder: "Tu nombre",
         join_email: "Tu correo electrónico",
-        join_social: 'Usuario "@tunickname" en redes sociales',
+        join_social: 'Usuario "@tunickname" (Opcional)',
         join_btn_generate: "Guardar y Registrar",
-        join_city: "Ciudad (ej. Monterrey)",
+        join_city: "Ciudad (ej. Monterrey) (Opcional)",
         join_badge_title: "Genera tu Gafete.",
         join_badge_desc: "Genera tu gafete, regístrate y comparte.",
         join_success_title: "¡Bienvenido a Neosys Aeon✨!",
@@ -273,7 +273,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.0.4",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.0.5",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -340,9 +340,9 @@ const translations = {
         join_privacy_note: "Your name, city, social network, and testimonial will appear publicly in the Community section. Your email and phone are private.",
         join_placeholder: "Your Name",
         join_email: "Your email address",
-        join_social: 'User "@yournickname" on social media',
+        join_social: 'User "@yournickname" (Optional)',
         join_btn_generate: "Save and Register",
-        join_city: "City (e.g. New York)",
+        join_city: "City (e.g. New York) (Optional)",
         join_badge_title: "Generate your Badge.",
         join_badge_desc: "Generate your badge, register, and share.",
         join_success_title: "Welcome to Neosys Aeon ✨!",
@@ -529,7 +529,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.0.4",
+        footer_copy: "Open framework. No owners. No barriers. v5.0.5",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -610,9 +610,9 @@ const translations = {
         join_privacy_note: "您的姓名、城市、社交網絡和證言將公開顯示在社群部分。您的電子郵件和電話是私有的。",
         join_placeholder: "您的姓名",
         join_email: "您的電子郵件",
-        join_social: '社群媒體用戶名 "@您的暱稱"',
+        join_social: '社群媒體用戶名 "@您的暱稱" (選填)',
         join_btn_generate: "保存并注册",
-        join_city: "城市（例如：上海）",
+        join_city: "城市（例如：上海）(選填)",
         join_badge_title: "生成您的徽章。",
         join_badge_desc: "生成您的徽章，註冊並分享。",
         join_success_title: "歡迎來到 Neosys Aeon ✨！",
@@ -813,7 +813,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.0.4",
+        footer_copy: "開放框架。無所有者。無障礙。v5.0.5",
         footer_creator: "Created by yepzhi"
     }
 };

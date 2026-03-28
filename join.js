@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.4
+   NEOSYS AEON — Luxury Badge Generator v5.0.5
    Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.4 Localized) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.5 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -157,7 +157,7 @@
     if (cityInput) cityInput.addEventListener('input', updateBadge);
     window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.4) ──────
+    // ── Firebase Registration (Sync v5.0.5) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
