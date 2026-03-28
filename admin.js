@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Admin Logic v4.9.0 FINAL
+   NEOSYS AEON — Admin Logic v4.9.1.0 FINAL
    Dashboard for User Management
    ═══════════════════════════════════════════ */
 
@@ -27,7 +27,7 @@ function loadAdminData() {
     const tableBody = document.getElementById('admin-tbody');
     if (!tableBody || !db) return;
 
-    db.collection('neosys_usuarios').limit(200).onSnapshot((snapshot) => {
+    db.collection('miembros').limit(200).onSnapshot((snapshot) => {
         tableBody.innerHTML = '';
         if (snapshot.empty) {
             tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No hay usuarios registrados aún.</td></tr>';
@@ -57,7 +57,7 @@ function loadAdminData() {
 
 function deleteUser(docId) {
     if (confirm("¿Estás seguro de que quieres eliminar este registro permanentemente?")) {
-        db.collection('neosys_usuarios').doc(docId).delete()
+        db.collection('miembros').doc(docId).delete()
             .then(() => alert("Registro eliminado."))
             .catch(err => alert("Error al eliminar: " + err.message));
     }

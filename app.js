@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v4.9.0 FINAL
+   NEOSYS AEON — App Logic v4.9.1.0 FINAL
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -108,7 +108,7 @@ function fetchEvidencias(filterValue = 'all') {
     
     list.innerHTML = `<div style="text-align: center; color: var(--text-tertiary); width: 100%; padding: 60px;">🚀 Sincronizando evidencia científica...</div>`;
 
-    db.collection('neosys_usuarios').limit(100).onSnapshot((snapshot) => {
+    db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         const t = (translations && translations[currentLang]) || (translations && translations.es) || {};
         const docs = [];
         
@@ -164,7 +164,7 @@ function loadCommunity() {
     const list = document.getElementById('community-list');
     if (!list || !db) return;
     
-    db.collection('neosys_usuarios').limit(100).onSnapshot((snapshot) => {
+    db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         console.log(`[NEOSYS] Data Size: ${snapshot.size}`);
         list.innerHTML = '';
         if (snapshot.empty) {
@@ -217,7 +217,7 @@ function initCommunityMap() {
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(communityMap);
     }
 
-    db.collection('neosys_usuarios').limit(100).onSnapshot((snapshot) => {
+    db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         mapMarkers.forEach(m => communityMap.removeLayer(m));
         mapMarkers = [];
 
