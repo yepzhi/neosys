@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v4.9.6.0 FINAL STABLE
+   NEOSYS AEON — App Logic v4.9.7.0 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.9.6.0"; 
+const version = "4.9.7.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -137,7 +137,11 @@ let mapMarkers = [];
 const CITY_COORDS = {
     'GUADALAJARA': [20.6597, -103.3496], 'JALISCO': [20.6597, -103.3496],
     'CDMX': [19.4326, -99.1332], 'MEXICO': [19.4326, -99.1332], 'MÉXICO': [19.4326, -99.1332],
-    'MONTERREY': [25.6866, -100.3161], 'VERACRUZ': [19.1738, -96.1342]
+    'MONTERREY': [25.6866, -100.3161], 'VERACRUZ': [19.1738, -96.1342],
+    'SONORA': [29.2972, -110.3309], 'HERMOSILLO': [29.0892, -110.9613],
+    'TIJUANA': [32.5149, -117.0382], 'BAJA CALIFORNIA': [32.5149, -117.0382],
+    'MERIDA': [20.9674, -89.5926], 'MÉRIDA': [20.9674, -89.5926], 'YUCATAN': [20.9674, -89.5926],
+    'CHIHUAHUA': [28.6330, -106.0691], 'QUERETARO': [20.5888, -100.3899]
 };
 
 function initCommunityMap() {
@@ -153,7 +157,11 @@ function initCommunityMap() {
             const data = doc.data();
             let lat = 20, lng = -100;
             const city = (data.city || data.ciudad || '').toUpperCase().trim();
+            const state = (data.state || data.estado || '').toUpperCase().trim();
+            
             if (CITY_COORDS[city]) [lat, lng] = CITY_COORDS[city];
+            else if (CITY_COORDS[state]) [lat, lng] = CITY_COORDS[state];
+            
             const circle = L.circleMarker([lat, lng], { radius: 10, fillColor: '#a78bfa', color: '#fff', weight: 2, fillOpacity: 0.8 }).addTo(communityMap);
             mapMarkers.push(circle);
         });
@@ -164,7 +172,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v4.9.6.0)
+    // Tab switching logic (v4.9.7.0)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');

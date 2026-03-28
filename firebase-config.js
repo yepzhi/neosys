@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Global Firebase Configuration v4.9.6.0
+   NEOSYS AEON — Global Firebase Configuration v4.9.7.0
    This is the source of truth for the entire platform.
    ═══════════════════════════════════════════ */
 
