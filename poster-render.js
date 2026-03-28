@@ -8,6 +8,11 @@ window.NeosysPoster = (function() {
     const CANVAS_HEIGHT = 4961;
 
     async function generate(lang = 'en') {
+        const canvas = document.createElement('canvas');
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
+        const ctx = canvas.getContext('2d');
+        const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
         const version = 'v5.1.3';
 
         // Wait for fonts to be ready
