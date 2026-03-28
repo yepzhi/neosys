@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.5
+   NEOSYS AEON — Luxury Badge Generator v5.0.6
    Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.5 Localized) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.6 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -157,10 +157,11 @@
     if (cityInput) cityInput.addEventListener('input', updateBadge);
     window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.5) ──────
+    // ── Firebase Registration (Sync v5.0.6) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
+            const t = (typeof translations !== 'undefined') ? (translations[currentLang] || translations.en) : {};
             if (!db) return alert("Error: Firebase no inicializado.");
             if (!form.checkValidity()) return form.reportValidity();
             if (!document.getElementById('privacy-consent').checked) return alert("Debes aceptar la política de privacidad.");
