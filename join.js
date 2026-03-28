@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Luxury Badge Generator v5.0.8
+   NEOSYS AEON — Luxury Badge Generator v5.0.9
    Multi-Language & Reactive Design
    ═══════════════════════════════════════════ */
 
@@ -66,7 +66,7 @@
         }
     });
 
-    // ── Badge Drawing Logic (Ultimate v5.0.8 Localized) ──
+    // ── Badge Drawing Logic (Ultimate v5.0.9 Localized) ──
     function updateBadge() {
         if (!canvas) return;
         const w = canvas.width; const h = canvas.height;
@@ -157,7 +157,7 @@
     if (cityInput) cityInput.addEventListener('input', updateBadge);
     window.addEventListener('neosys:langChange', updateBadge);
 
-    // ── Firebase Registration (Sync v5.0.8) ──────
+    // ── Firebase Registration (Sync v5.0.9) ──────
     if (registerBtn) {
         registerBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -210,7 +210,7 @@
 
     async function handleCopy() {
         const t = (typeof translations !== 'undefined') ? (translations[currentLang] || translations.en) : {};
-        const slogan = "#ThinkWithEvidence #NeosysAeon\nSin ciencia no hay claridad. Sin validación no hay progreso.";
+        const slogan = "Soy parte del movimiento #NeosysAeon✨ #ThinkWithEvidence, Sin ciencia no hay claridad. Sin validación no hay progreso.";
         try {
             await navigator.clipboard.writeText(slogan);
             const originalText = copySloganBtn ? copySloganBtn.innerHTML : '';
@@ -231,7 +231,7 @@
     const shareNativeBtn = document.getElementById('share-native');
     if (shareNativeBtn) {
         shareNativeBtn.addEventListener('click', async () => {
-            const slogan = "#ThinkWithEvidence #NeosysAeon — Sin ciencia no hay claridad.";
+            const slogan = "Soy parte del movimiento #NeosysAeon✨ #ThinkWithEvidence, Sin ciencia no hay claridad. Sin validación no hay progreso.";
             if (navigator.share) {
                 try {
                     await navigator.share({ title: 'Neosys Aeon', text: slogan, url: window.location.href });
