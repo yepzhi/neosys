@@ -89,7 +89,7 @@ const translations = {
         badge_phrase2_l2: "a través de evidencia verificable.",
         badge_phrase3: "¡Conoce los 10 principios del Cosmos hoy!",
         join_country_default: "Selecciona tu país",
-        join_privacy_check: "He leído y acepto el <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles en Comunidad, y mi decisión en Evidencias.",
+        join_privacy_check: "He leído y acepto el <a href=\"privacy.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Aviso de Privacidad</a>. Entiendo que mi nombre, país y red social serán visibles en Comunidad, y mi decisión en Evidencias.",
         badge_preview_alt: "Vista previa de tu gafete Neosys Aeon",
         back_to_home: "← Volver al Inicio",
         coll_title: "👋 ¿Te gustaría colaborar o mejorar esta iniciativa?",
@@ -297,7 +297,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.1.7",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.1.8",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -383,7 +383,7 @@ const translations = {
         badge_phrase2_l2: "through verifiable evidence.",
         badge_phrase3: "Learn the 10 Principles of the Cosmos today!",
         join_country_default: "Select your country",
-        join_privacy_check: "I have read and accept the <a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Privacy Policy</a>. I understand that my name, country, and social network will be visible in Community, and my decision in Testimonials.",
+        join_privacy_check: "I have read and accept the <a href=\"privacy.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">Privacy Policy</a>. I understand that my name, country, and social network will be visible in Community, and my decision in Testimonials.",
         badge_preview_alt: "Preview of your Neosys Aeon badge",
         back_to_home: "← Back to Home",
         coll_title: "👋 Would you like to collaborate or improve this initiative?",
@@ -553,7 +553,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.1.7",
+        footer_copy: "Open framework. No owners. No barriers. v5.1.8",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -677,7 +677,7 @@ const translations = {
         badge_phrase2_l2: "通過可驗證的證據。",
         badge_phrase3: "今天就了解宇宙的 10 個原則！",
         join_country_default: "選擇您的國家",
-        join_privacy_check: "我已閱讀並接受<a href=\"privacidad.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">隱私政策</a>。我了解我的姓名、國家和社交網絡將公開在社群，而我的決策將在證據頁面可見。",
+        join_privacy_check: "我已閱讀並接受<a href=\"privacy.html\" target=\"_blank\" style=\"color: var(--text-accent); text-decoration: underline;\">隱私政策</a>。我了解我的姓名、國家和社交網絡將公開在社群，而我的決策將在證據頁面可見。",
         badge_preview_alt: "您的 Neosys Aeon 徽章預覽",
         back_to_home: "← 返回首頁",
         coll_title: "👋 您想合作或改進此倡議嗎？",
@@ -861,7 +861,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.1.7",
+        footer_copy: "開放框架。無所有者。無障礙。v5.1.8",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",

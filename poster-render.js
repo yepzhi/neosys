@@ -4,27 +4,31 @@
  */
 
 window.NeosysPoster = (function() {
-    const CANVAS_WIDTH = 3508;
-    const CANVAS_HEIGHT = 4961;
+    const IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const MODIFIER = IS_MOBILE ? 0.6 : 1.0; // 60% scale on mobile to prevent memory limits
+    const BASE_WIDTH = 3508;
+    const BASE_HEIGHT = 4961;
 
     async function generate(lang = 'en') {
         const canvas = document.createElement('canvas');
-        canvas.width = CANVAS_WIDTH;
-        canvas.height = CANVAS_HEIGHT;
+        canvas.width = BASE_WIDTH * MODIFIER;
+        canvas.height = BASE_HEIGHT * MODIFIER;
         const ctx = canvas.getContext('2d');
+        ctx.scale(MODIFIER, MODIFIER); // Scale all drawing operations to fit the smaller canvas
+        
         const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
-        const version = 'v5.1.7';
+        const version = 'v5.1.8';
 
         // Wait for fonts to be ready
         await document.fonts.ready;
 
         // 1. Background (Deep Cosmic Gradient)
-        const bg = ctx.createLinearGradient(0, 0, 0, CANVAS_HEIGHT);
+        const bg = ctx.createLinearGradient(0, 0, 0, BASE_HEIGHT);
         bg.addColorStop(0, '#050510');
         bg.addColorStop(0.5, '#0a0a1a');
         bg.addColorStop(1, '#050510');
         ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        ctx.fillRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
 
         // 2. Nebula Glows
         const glows = [
@@ -37,17 +41,17 @@ window.NeosysPoster = (function() {
             rad.addColorStop(0, g.c);
             rad.addColorStop(1, 'transparent');
             ctx.fillStyle = rad;
-            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            ctx.fillRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
         });
 
         // 3. Subtle Grid
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
         ctx.lineWidth = 2;
-        for (let x = 0; x <= CANVAS_WIDTH; x += 300) {
-            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, CANVAS_HEIGHT); ctx.stroke();
+        for (let x = 0; x <= BASE_WIDTH; x += 300) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, BASE_HEIGHT); ctx.stroke();
         }
-        for (let y = 0; y <= CANVAS_HEIGHT; y += 300) {
-            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(CANVAS_WIDTH, y); ctx.stroke();
+        for (let y = 0; y <= BASE_HEIGHT; y += 300) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(BASE_WIDTH, y); ctx.stroke();
         }
 
         // 4. Header Section
@@ -57,7 +61,7 @@ window.NeosysPoster = (function() {
         // Sparkle ✨
         ctx.fillStyle = '#ffef33';
         ctx.font = '240px serif';
-        ctx.fillText('✨', CANVAS_WIDTH / 2, 350);
+        ctx.fillText('✨', BASE_WIDTH / 2, 350);
 
         // Title: NEOSYS AEON (Large & Central)
         ctx.font = '900 280px Inter, sans-serif'; 
@@ -68,7 +72,7 @@ window.NeosysPoster = (function() {
         titleGrad.addColorStop(1, 'rgba(255, 255, 255, 0.6)');
         ctx.fillStyle = titleGrad;
         
-        ctx.fillText('NEOSYS AEON', CANVAS_WIDTH / 2, 650);
+        ctx.fillText('NEOSYS AEON', BASE_WIDTH / 2, 650);
 
         // Tagline: Below the main title (Split into two lines)
         ctx.fillStyle = '#a78bfa';
@@ -78,16 +82,16 @@ window.NeosysPoster = (function() {
         const line1 = "Without science there is no clarity.";
         const line2 = "Without validation there is no progress.";
         
-        ctx.fillText(line1.toUpperCase(), CANVAS_WIDTH / 2, 820);
-        ctx.fillText(line2.toUpperCase(), CANVAS_WIDTH / 2, 920);
+        ctx.fillText(line1.toUpperCase(), BASE_WIDTH / 2, 820);
+        ctx.fillText(line2.toUpperCase(), BASE_WIDTH / 2, 920);
 
         // Divider
-        const gradLine = ctx.createLinearGradient(CANVAS_WIDTH/2 - 900, 0, CANVAS_WIDTH/2 + 900, 0);
+        const gradLine = ctx.createLinearGradient(BASE_WIDTH/2 - 900, 0, BASE_WIDTH/2 + 900, 0);
         gradLine.addColorStop(0, 'transparent');
         gradLine.addColorStop(0.5, 'rgba(167, 139, 250, 0.6)');
         gradLine.addColorStop(1, 'transparent');
         ctx.fillStyle = gradLine;
-        ctx.fillRect(CANVAS_WIDTH/2 - 900, 1050, 1800, 5);
+        ctx.fillRect(BASE_WIDTH/2 - 900, 1050, 1800, 5);
 
         // 5. The 10 Principles (Two Columns)
         const startY = 1350;
@@ -149,33 +153,46 @@ window.NeosysPoster = (function() {
         }
 
         // 6. Footer Section
-        const footerY = CANVAS_HEIGHT - 350;
+        const footerY = BASE_HEIGHT - 350;
         
         // Symbol & Domain
         ctx.textAlign = 'center';
         ctx.fillStyle = '#a78bfa';
         ctx.font = '700 90px Outfit, sans-serif';
-        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', CANVAS_WIDTH / 2, footerY);
+        ctx.fillText('#ThinkWithEvidence  #NeosysAeon', BASE_WIDTH / 2, footerY);
 
         ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.font = '500 50px Outfit, sans-serif';
-        ctx.fillText('OPEN CONCEPTUAL FRAMEWORK — YEPZHI.COM/NEOSYS', CANVAS_WIDTH / 2, footerY + 120);
+        ctx.fillText('OPEN CONCEPTUAL FRAMEWORK — YEPZHI.COM/NEOSYS', BASE_WIDTH / 2, footerY + 120);
 
         // Version & Date
         ctx.font = '500 40px monospace';
-        ctx.fillText(`${version} — MARCH 2026`, CANVAS_WIDTH / 2, footerY + 220);
+        ctx.fillText(`${version} — MARCH 2026`, BASE_WIDTH / 2, footerY + 220);
 
-        return canvas.toDataURL('image/png');
+        return canvas;
     }
 
     async function download(lang = 'en') {
-        const dataUrl = await generate(lang);
-        const link = document.createElement('a');
-        link.download = `Neosys-Aeon-Poster-10-Principles-${lang.toUpperCase()}.png`;
-        link.href = dataUrl;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        const canvas = await generate(lang);
+        
+        canvas.toBlob((blob) => {
+            if (!blob) {
+                console.error("Canvas to Blob failed");
+                return;
+            }
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = `Neosys-Aeon-Poster-10-Principles-${lang.toUpperCase()}.png`;
+            link.href = url;
+            
+            document.body.appendChild(link);
+            link.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }, 'image/png');
     }
 
     return { generate, download };
