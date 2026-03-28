@@ -6,7 +6,7 @@
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "4.8.2.2"; 
+const version = "4.8.3"; 
 console.log("Neosys Aeon Loader v" + version);
 
 // ═══════════════════════════════════════════
@@ -22,7 +22,7 @@ const firebaseConfig = {
     measurementId: "G-V2FD2WR82B"
 };
 
-const APP_VERSION = "4.8.2.2"; 
+const APP_VERSION = "4.8.3"; 
 
 let db = null;
 try {
@@ -555,7 +555,7 @@ function initCommunityMap() {
     const mapContainer = document.getElementById('community-map');
     if (!mapContainer || communityMap) return;
 
-    // Default center (World view)
+    console.log("[Neosys] Initializing Map v4.8.3...");
     communityMap = L.map('community-map').setView([20, 0], 2);
     
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -564,40 +564,38 @@ function initCommunityMap() {
         maxZoom: 19
     }).addTo(communityMap);
 
-    // Load members for markers
+    // Real-time listener for markers
     if (db) {
-        console.log("[Neosys] Fetching members for map...");
-        db.collection('miembros').limit(300).get().then((snapshot) => {
-            console.log(`[Neosys] Map Snapshot: ${snapshot.size} members found.`);
+        console.log("[Neosys] Map: Listening for members...");
+        db.collection('miembros').onSnapshot((snapshot) => {
+            console.log(`[Neosys] Map Update: ${snapshot.size} members found.`);
+            
+            // Clear old markers if any
+            mapMarkers.forEach(m => communityMap.removeLayer(m));
+            mapMarkers = [];
+
             snapshot.forEach(doc => {
                 const data = doc.data();
                 let lat = data.lat;
                 let lng = data.lng;
 
-                // Fallback to City Lookup if no raw coordinates
                 if (!lat || !lng) {
                     const rawCity = (data.city || '').toUpperCase().trim();
-                    // Basic normalization (accents)
                     const cityKey = rawCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                    
-                    console.log(`[Neosys] Processing member: ${data.name} from ${rawCity} (Key: ${cityKey})`);
-                    
-                    if (CITY_COORDINATES[cityKey]) {
-                        [lat, lng] = CITY_COORDINATES[cityKey];
-                    } else if (CITY_COORDINATES[rawCity]) {
-                        [lat, lng] = CITY_COORDINATES[rawCity];
-                    }
+                    if (CITY_COORDINATES[cityKey]) [lat, lng] = CITY_COORDINATES[cityKey];
+                    else if (CITY_COORDINATES[rawCity]) [lat, lng] = CITY_COORDINATES[rawCity];
                 }
 
                 if (lat && lng) {
-                    console.log(`[Neosys] Adding marker at [${lat}, ${lng}] for ${data.name}`);
                     const marker = L.marker([lat, lng]).addTo(communityMap);
                     marker.bindPopup(`<b>${data.name}</b><br>${data.city || ''}, ${data.country || ''}`);
                     mapMarkers.push(marker);
-                } else {
-                    console.warn(`[Neosys] Could not geocode member: ${data.name} (${data.city})`);
                 }
             });
+            
+            if (communityMap) communityMap.invalidateSize();
+        }, (err) => {
+            console.error("[Neosys] Map Error:", err);
         });
     }
 }
@@ -767,7 +765,7 @@ function populateOutreachCategories() {
         
         cat.items.forEach(c => {
             const card = document.createElement('a');
-            card.className = 'outreach-card reveal';
+            card.className = 'outreach-card';
             card.href = c.link || '#';
             card.target = '_blank';
             card.rel = 'noopener noreferrer';
@@ -783,14 +781,18 @@ function populateOutreachCategories() {
         outreachGrid.appendChild(grid);
     });
 
-    // Re-initialize ScrollReveal for new elements
-    if (typeof ScrollReveal !== 'undefined') {
-        ScrollReveal().reveal('.reveal', { 
-            origin: 'bottom', distance: '20px', duration: 1000, delay: 200, interval: 100 
+    // Ensure visibility with a short timeout to trigger CSS transition
+    setTimeout(() => {
+        document.querySelectorAll('.outreach-card').forEach((el, index) => {
+            setTimeout(() => el.classList.add('loaded'), index * 50);
         });
-    } else {
-        // Fallback for invisibility
-        document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
+    }, 100);
+
+    // Re-initialize ScrollReveal for title only
+    if (typeof ScrollReveal !== 'undefined') {
+        ScrollReveal().reveal('.outreach-category-title', { 
+            origin: 'bottom', distance: '20px', duration: 1000, delay: 200 
+        });
     }
 }
 
@@ -810,8 +812,9 @@ document.addEventListener('DOMContentLoaded', () => {
         filterSelect.addEventListener('change', (e) => fetchEvidencias(e.target.value));
     }
     fetchEvidencias();
+    if (typeof populateOutreachCategories === 'function') populateOutreachCategories();
 
-    // ── Poster Download Handler (v4.8.2.3) ───────────────────
+    // ── Poster Download Handler (v4.8.3) ───────────────────
     const posterBtn = document.getElementById('download-poster');
     if (posterBtn) {
         posterBtn.addEventListener('click', () => {
