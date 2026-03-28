@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.0.9 FINAL STABLE
+   NEOSYS AEON — App Logic v5.1.0 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -215,7 +215,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.0.9)
+    // Tab switching logic (v5.1.0)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -247,9 +247,63 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLang = btn.getAttribute('data-lang');
             localStorage.setItem('neosys_lang', currentLang);
             initi18n();
-            // Dispatch event for other scripts (like join.js)
+            if (document.getElementById('outreach-grid')) renderOutreach();
             window.dispatchEvent(new CustomEvent('neosys:langChange', { detail: { lang: currentLang } }));
         });
     });
+
+    // Mobile Menu Toggle (v5.1.0)
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
+
+    // HD Poster Download (v5.1.0)
+    const downloadPosterBtn = document.getElementById('download-poster-btn');
+    if (downloadPosterBtn) {
+        downloadPosterBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = 'neosysaeon-principios-hd.jpg';
+            link.download = 'Neosys-Aeon-10-Principios-Cosmos.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    if (document.getElementById('outreach-grid')) renderOutreach();
     initi18n();
 });
+
+function renderOutreach() {
+    const grid = document.getElementById('outreach-grid');
+    if (!grid) return;
+    const t = translations[currentLang] || translations.en;
+    const categories = t.outreach_categories || [];
+    
+    grid.innerHTML = categories.map(cat => `
+        <div class="outreach-category reveal">
+            <h3 class="category-title" style="color:var(--accent); margin-bottom:20px; font-size:1.4rem;">${cat.title}</h3>
+            <div class="outreach-grid-items">
+                ${cat.items.map(item => `
+                    <div class="outreach-card" style="background:var(--glass); border:1px solid var(--glass-border); padding:20px; border-radius:12px; transition:var(--transition);">
+                        <div style="font-size:2rem; margin-bottom:12px;">${item.icon}</div>
+                        <h4 style="font-size:1rem; margin-bottom:6px; color:#fff;">${item.name}</h4>
+                        <p style="font-size:0.8rem; color:var(--text-secondary);">${item.topic}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}

@@ -28,8 +28,8 @@ const translations = {
         hero_explore: "Explorar",
         manifesto_label: "El Manifiesto",
         manifesto_title: "Entender no es suficiente.<br><span class='text-accent'>Debemos construir nuestro futuro.</span>",
-        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon es un marco conceptual abierto diseñado para mejorar la forma en que los individuos entienden la realidad y toman decisiones basadas en evidencia. Propone integrar epistemología aplicada, método científico y acción responsable.",
-        manifesto_p2: "La síntesis sin aplicación carece de impacto. La ejecución sin modelado genera error sistémico. El marco integra ambos vectores en un bucle de retroalimentación continuo.",
+        manifesto_p1: "Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
+        manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
         manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
         postulado_label: "De la Filosofía a la Ciencia",
@@ -136,9 +136,9 @@ const translations = {
         prob_label: "¿POR QUÉ EXISTE?",
         prob_title: "¿Por qué es necesario <br><span class=\"text-accent\">Neosys Aeon?</span>",
         prob1_title: "⚡ 1. Sustitución de evidencia por creencias",
+        prob1_body: "Las ideas y los juicios se forman con base en creencias, sin recurrir a evidencia verificable desde su origen.",
         prob2_title: "🔬 2. Ausencia de validación sistemática",
-        join_btn_copied: "¡Copiado!",
-        privacy_title: "Aviso de Privacidad",
+        poster_download_btn: "Descarga los 10 principios del Cosmos",
         privacy_update: "Última actualización: marzo 2026",
         privacy_body: `
             <h2>RESPONSABLE</h2>
@@ -297,7 +297,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.0.9",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.1.0",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -326,7 +326,7 @@ const translations = {
         hero_explore: "Explore",
         manifesto_label: "The Manifesto",
         manifesto_title: "Understanding is not enough.<br><span class='text-accent'>We must build our future.</span>",
-        manifesto_p1: "<span aria-hidden=\"true\">✨</span> Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
+        manifesto_p1: "Neosys Aeon is an open conceptual framework designed to improve how individuals understand reality and take decisions based on evidence. It proposes integrating applied epistemology, scientific method, and responsible action.",
         manifesto_p2: "Synthesis without application lacks impact. Execution without modeling generates systemic error. The framework integrates both vectors in a continuous feedback loop.",
         manifesto_p3: "It is not a belief system. It is an applied framework of understanding — the <strong>Principles of the Cosmos</strong> — oriented towards prioritizing truth, validating through evidence, and translating knowledge into real action.",
 
@@ -334,7 +334,7 @@ const translations = {
         mand_label: "Principles",
         mand_title: "<span class=\"text-magical-purple\">THE 10 FUNDAMENTAL PRINCIPLES OF THE COSMOS.</span>",
         mand_desc: "Guidelines for evaluating, building, and applying knowledge coherently with reality.",
-        poster_download_btn: "Download Principles Whitepaper (HD)",
+        poster_download_btn: "Download the 10 Principles of the Cosmos",
 
         m1_title: "I. PRIORITIZE TRUTH\nOVER COMFORT.",
         m1_body: "Do not rely on false certainty; seek what is real, even when it is inconvenient.",
@@ -553,7 +553,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.0.9",
+        footer_copy: "Open framework. No owners. No barriers. v5.1.0",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -861,7 +861,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.0.9",
+        footer_copy: "開放框架。無所有者。無障礙。v5.1.0",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",
