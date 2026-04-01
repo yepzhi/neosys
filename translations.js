@@ -32,15 +32,11 @@ const translations = {
         manifesto_p2: "La proliferación de pseudociencia, la normalización de modelos de pensamiento no validados y la persistencia de sesgos cognitivos distorsionan nuestra capacidad de interpretar la realidad — y con ello, nuestra posibilidad de construir un futuro mejor.",
         manifesto_p3: "No es un sistema de creencias. Es un marco de entendimiento aplicado — los <strong>Principios del Cosmos</strong> — orientados a priorizar la verdad, validar mediante evidencia y traducir conocimiento en acción real.",
 
-        postulado_label: "De la Filosofía a la Ciencia",
-        postulado_title_new: "El método científico es la herramienta más poderosa para distinguir lo que funciona de lo que creemos que funciona.",
-        postulado_desc_new: "No protege ideas: las somete a prueba. No depende de creencias: depende de evidencia. Por eso es la base del conocimiento que realmente transforma.",
-
         // 10 Principios Operativos
         mand_label: "Principios Operativos",
         mand_title: "<span class=\"text-magical-purple\">LOS 10 PRINCIPIOS FUNDAMENTALES DEL COSMOS.</span>",
         mand_desc: "Lineamientos para evaluar, construir y aplicar conocimiento de forma coherente con la realidad.",
-        poster_download_btn: "Descargar Whitepaper de Principios (HD)",
+        poster_download_btn: "Descarga los 10 principios del Cosmos",
 
         m1_title: "I. HONRARARÁS LA VERDAD\nPOR ENCIMA DE LA COMODIDAD.",
         m1_body: "No adorarás la certeza falsa; buscarás lo real, aunque incomode.",
@@ -138,7 +134,6 @@ const translations = {
         prob1_title: "⚡ 1. Sustitución de evidencia por creencias",
         prob1_body: "Las ideas y los juicios se forman con base en creencias, sin recurrir a evidencia verificable desde su origen.",
         prob2_title: "🔬 2. Ausencia de validación sistemática",
-        poster_download_btn: "Descarga los 10 principios del Cosmos",
         privacy_update: "Última actualización: marzo 2026",
         privacy_body: `
             <h2>RESPONSABLE</h2>
@@ -187,7 +182,7 @@ const translations = {
 
         // Distinción y Alcance
         dist_label: "DISTINCIÓN Y ALCANCE",
-        dist_title: "Qué es Neosys Aeon。<br><span class='text-accent'>Y qué no es.</span>",
+        dist_title: "Qué es Neosys Aeon.<br><span class='text-accent'>Y qué no es.</span>",
         dist_is_header: "✨ Lo que ES",
         dist_is_1: "<strong>Abierto:</strong> no pertenece a ninguna entidad",
         dist_is_2: "<strong>No dogmático:</strong> sus principios pueden ser cuestionados",
@@ -299,6 +294,14 @@ const translations = {
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
         footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.3.0",
         footer_creator: "Created by yepzhi",
+        join_btn_copied: "¡Copiado!",
+        privacy_title: "Aviso de Privacidad",
+        page_title: "Neosys Aeon ✨ — Sin ciencia no hay claridad, sin validación no hay progreso.",
+        page_desc: "No pretende tener todas las respuestas. Pretende hacer mejores preguntas. Un sistema para la generación, validación y aplicación de conocimiento.",
+        comm_empty: "Esperando primer registro...",
+        evidencias_empty: "No se encontraron registros activos.",
+        comm_map_members: "Miembros",
+        poster_generating: "Generando HD...",
     },
     en: {
         nav_mandamientos: "Principles",
@@ -570,6 +573,12 @@ const translations = {
         rev_governance: "As the community grows, the governance of this system will migrate toward a <strong>scientific evaluation committee</strong> responsible for auditing and updating the principles based on the latest evidence.",
         join_btn_copied: "Copied!",
         privacy_title: "Privacy Policy",
+        page_title: "Neosys Aeon ✨ — Without science there is no clarity. Without validation there is no progress.",
+        page_desc: "It doesn't claim to have all the answers. It aims to ask better questions. A system for generating, validating, and applying knowledge.",
+        comm_empty: "Waiting for first registration...",
+        evidencias_empty: "No active records found.",
+        comm_map_members: "Members",
+        poster_generating: "Generating HD...",
         privacy_update: "Last updated: March 2026",
         privacy_body: `
             <h2>RESPONSABLE</h2>
@@ -620,7 +629,7 @@ const translations = {
         hero_btn_whitepaper: "閱讀白皮書 (v4.2)",
         hero_explore: "探索",
         manifesto_label: "宣言",
-        manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來決。</span>",
+        manifesto_title: "僅僅理解是不夠的。<br><span class='text-accent'>我們必須建設我們的未來。</span>",
         manifesto_p1: "<span aria-hidden='true'>✨</span> 科學讓我們得以解釋世界，工程將其轉化，技術則擴展這種變革。然而，資訊的氾濫並未成比例地提升我們的理解力，也未能增強我們產生實質進步的能力。",
         manifesto_p2: "偽科學的擴散、未經驗證思維模式的正當化，以及認知偏見的持續存在，扭曲了我們詮釋現實的能力 —— 同時也損害了我們建設更美好未來的機會。",
         manifesto_p3: "它不是一個信仰體系。它是一個應用的理解框架 —— <strong>宇宙原則</strong> —— 旨在優先考慮真理，通過證據進行驗證，並將知識轉化為實際行動。",
@@ -865,6 +874,12 @@ const translations = {
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",
+        page_title: "Neosys Aeon ✨ — 無科學，無明晰。無驗證，無進步。",
+        page_desc: "它不聲稱擁有所有答案，而是提出更好的問題。一個生成、驗證和應用知識的系統。",
+        comm_empty: "等待第一個註冊...",
+        evidencias_empty: "未找到活躍記錄。",
+        comm_map_members: "成員",
+        poster_generating: "生成中...",
         privacy_update: "最後更新：2026年3月",
         privacy_body: `
             <h2>負責人</h2>

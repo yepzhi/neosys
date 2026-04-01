@@ -117,6 +117,11 @@ function initi18n() {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
     });
+
+    // Actualizar título de página y meta description dinámicamente
+    if (t.page_title) document.title = t.page_title;
+    const _metaDesc = document.querySelector('meta[name="description"]');
+    if (_metaDesc && t.page_desc) _metaDesc.setAttribute('content', t.page_desc);
 }
 
 // ── UTILS ────────────────────────────────────────
@@ -160,7 +165,7 @@ function fetchEvidencias(filterValue = 'all') {
             return (dateB ? dateB.getTime() : 0) - (dateA ? dateA.getTime() : 0);
         });
         list.innerHTML = '';
-        if (docs.length === 0) { list.innerHTML = `<p style="text-align:center; padding:40px;">No se encontraron registros activos.</p>`; return; }
+        if (docs.length === 0) { list.innerHTML = `<p style="text-align:center; padding:40px;">${t.evidencias_empty || 'No active records found.'}</p>`; return; }
         docs.forEach(data => {
             const card = document.createElement('div'); card.className = 'evidence-card';
             const loc = getShortLoc(data);
@@ -176,7 +181,8 @@ function loadCommunity() {
     if (!list || !db) return;
     db.collection('miembros').limit(100).onSnapshot((snapshot) => {
         list.innerHTML = '';
-        if (snapshot.empty) { list.innerHTML = '<p style="color: var(--text-tertiary); width: 100%;">Esperando primer registro...</p>'; return; }
+        const t = (translations && translations[currentLang]) || translations.en || {};
+        if (snapshot.empty) { list.innerHTML = `<p style="color: var(--text-tertiary); width: 100%;">${t.comm_empty || 'Waiting for first registration...'}</p>`; return; }
         snapshot.forEach(doc => {
             const data = doc.data();
             const el = document.createElement('div'); el.className = 'community-member';
@@ -229,7 +235,8 @@ function initCommunityMap() {
             });
 
             const marker = L.marker([lat, lng], { icon: countIcon }).addTo(communityMap);
-            marker.bindPopup(`<strong style="color:#000;">${state}</strong><br><span style="color:#666;">${count} Members</span>`);
+            const _mapT = (translations && translations[currentLang]) || translations.en || {};
+            marker.bindPopup(`<strong style="color:#000;">${state}</strong><br><span style="color:#666;">${count} ${_mapT.comm_map_members || 'Members'}</span>`);
             mapMarkers.push(marker);
         }
     }, (err) => console.error("[NEOSYS] Map Permission Error:", err));
@@ -298,7 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (downloadPosterBtn) {
         downloadPosterBtn.addEventListener('click', async () => {
             const originalText = downloadPosterBtn.innerHTML;
-            downloadPosterBtn.innerHTML = "<span>Generando HD...</span>";
+            const _pt = (translations && translations[currentLang]) || translations.en || {};
+            downloadPosterBtn.innerHTML = `<span>${_pt.poster_generating || 'Generating HD...'}</span>`;
             downloadPosterBtn.disabled = true;
             
             try {
