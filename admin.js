@@ -9,7 +9,7 @@ function initDB() {
     const adminKey = prompt("Please enter the Admin Access Key:");
     if (adminKey !== "neosys2026") {
         alert("Unauthorized access.");
-        window.location.href = "index.html"; return;
+        window.location.href = "./"; return;
     }
     try {
         if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined') {
