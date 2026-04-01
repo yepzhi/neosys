@@ -1,12 +1,19 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.2.0 FINAL STABLE
+   NEOSYS AEON — App Logic v5.3.0 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
 // ── Global Localization Setup ─────────────────────
 let currentLang = localStorage.getItem('neosys_lang') || 'en';
 if (!['es', 'en', 'cn'].includes(currentLang)) currentLang = 'en';
-const version = "5.2.0"; 
+try {
+    const q = new URLSearchParams(window.location.search).get('lang');
+    if (q && ['es', 'en', 'cn'].includes(q)) {
+        currentLang = q;
+        localStorage.setItem('neosys_lang', currentLang);
+    }
+} catch (_) { /* noop */ }
+const version = "5.3.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -75,6 +82,7 @@ initReveal();
 
 function initi18n() {
     if (typeof translations === 'undefined') return;
+    document.documentElement.lang = currentLang === 'cn' ? 'zh-Hant' : currentLang;
     const t = translations[currentLang] || translations.en;
     
     function getVal(key) {
@@ -231,7 +239,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.2.0)
+    // Tab switching logic (v5.3.0)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -268,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (v5.2.0)
+    // Mobile Menu Toggle (v5.3.0)
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
@@ -285,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // HD Poster Download (v5.2.0 restored)
+    // HD Poster Download (v5.3.0 restored)
     const downloadPosterBtn = document.getElementById('download-poster-btn');
     if (downloadPosterBtn) {
         downloadPosterBtn.addEventListener('click', async () => {

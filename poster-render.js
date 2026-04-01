@@ -17,7 +17,7 @@ window.NeosysPoster = (function() {
         ctx.scale(MODIFIER, MODIFIER); // Scale all drawing operations to fit the smaller canvas
         
         const t = (typeof translations !== 'undefined') ? (translations[lang] || translations.en) : {};
-        const version = 'v5.2.0';
+        const version = 'v5.3.0';
 
         // Wait for fonts to be ready
         await document.fonts.ready;

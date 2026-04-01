@@ -272,15 +272,15 @@ const translations = {
             }
         ],
 
-        // JovenesSTEM Link
+        // JóvenesSTEM Link
         con_label: "DE LA FILOSOFÍA A LA ACCIÓN",
-        con_title: "Neosys Aeon da el <em>por qué</em>.<br><span class='text-accent'>JovenesSTEM da el cómo.</span>",
+        con_title: "Neosys Aeon da el <em>por qué</em>.<br><span class='text-accent'>JóvenesSTEM da el cómo.</span>",
         con_node1: "Marco filosófico",
         con_node2: "Programa aplicado",
         con_node3: "Currículo STEM",
-        con_btn: "🚀 Conoce JovenesSTEM",
-        con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JovenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
-        con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JovenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.",
+        con_btn: "🚀 Conoce JóvenesSTEM",
+        con_p1: "Los principios de Neosys Aeon — curiosidad estructurada, transmisión del conocimiento, evidencia como criterio — son exactamente la base filosófica del programa <strong>JóvenesSTEM</strong> y su currículo aplicado, el <strong>BlueBook</strong>.",
+        con_p2: "Donde Neosys Aeon propone el marco de pensamiento, JóvenesSTEM lo aplica a la educación de la próxima generación en ciencia y tecnología.",
 
         // Sección 8 - Revisión
         rev_label: "Autocrítica y Evolución",
@@ -297,7 +297,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.2.0",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.3.0",
         footer_creator: "Created by yepzhi",
     },
     en: {
@@ -553,7 +553,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.2.0",
+        footer_copy: "Open framework. No owners. No barriers. v5.3.0",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -861,7 +861,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.2.0",
+        footer_copy: "開放框架。無所有者。無障礙。v5.3.0",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",
