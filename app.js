@@ -305,13 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (window.NeosysPoster) {
                     await window.NeosysPoster.download(currentLang);
                 } else {
-                    // Fallback to static if script somehow missing
-                    const link = document.createElement('a');
-                    link.href = 'neosysaeon-principios-hd.jpg';
-                    link.download = 'Neosys-Aeon-10-Principios-Cosmos.jpg';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    console.error("[NEOSYS] NeosysPoster not loaded; poster is generated client-side only.");
                 }
             } catch (e) {
                 console.error("Poster Gen Error:", e);
