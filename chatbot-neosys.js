@@ -61,13 +61,25 @@ const NEOSYS_FAQ = {
 };
 
 const GEMINI_CONFIG = {
-    // SECURE PROXY: All sensitive keys are now on the backend
-    proxyUrl: 'https://askneosys-d26dd042f2139dcaa6e8db-uc.a.run.app', // Neosys Proxy V2
+    // Keys are now fetched dynamically from Firebase Remote Config (GEMINI_KEY)
     systemPrompt: `You are the Neosys Aeon AI Assistant. 
     Your expertise is STRICTLY LIMITED to the Neosys Aeon framework...`
 };
 
 /** --- Logic Engine --- */
+
+// Initialize Remote Config (Spark Plan compatible)
+let remoteConfig;
+try {
+    if (typeof firebase !== 'undefined') {
+        remoteConfig = firebase.remoteConfig();
+        // Relax settings for development/immediate testing
+        remoteConfig.settings.minimumFetchIntervalMillis = 300000; // 5 minutes
+        remoteConfig.defaultConfig = { 'GEMINI_KEY': '' };
+    }
+} catch (e) {
+    console.error("Remote Config Init Error:", e);
+}
 
 function detectLanguage(text) {
     const spanishWords = ['que', 'como', 'donde', 'hola', 'principios', 'metodo', 'verdad'];
@@ -89,6 +101,23 @@ function findOfflineAnswer(input, lang) {
 }
 
 async function getAIResponse(messages) {
+    let apiKey = '';
+    
+    // Fetch and activate the key from Remote Config
+    try {
+        if (remoteConfig) {
+            await remoteConfig.fetchAndActivate();
+            apiKey = remoteConfig.getValue('GEMINI_KEY').asString();
+        }
+    } catch (e) {
+        console.warn("Could not fetch Remote Config, fallback to local error:", e);
+    }
+
+    if (!apiKey) {
+        console.error("SECURE CONFIG Error: GEMINI_KEY is missing from Firebase Remote Config.");
+        return null; 
+    }
+
     const contents = messages.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
         parts: [{ text: msg.content }]
@@ -100,7 +129,7 @@ async function getAIResponse(messages) {
     }
 
     try {
-        const response = await fetch(GEMINI_CONFIG.proxyUrl, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
@@ -108,13 +137,13 @@ async function getAIResponse(messages) {
 
         if (!response.ok) {
             const errData = await response.json();
-            throw new Error(errData.error?.details || `HTTP ${response.status}`);
+            throw new Error(errData.error?.message || `HTTP ${response.status}`);
         }
         
         const data = await response.json();
         return data.candidates[0].content.parts[0].text;
     } catch (e) {
-        console.error('SECURE PROXY Error:', e.message);
+        console.error('Gemini API Error:', e.message);
         return null;
     }
 }
