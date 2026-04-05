@@ -61,16 +61,10 @@ const NEOSYS_FAQ = {
 };
 
 const GEMINI_CONFIG = {
-    apiKey: 'AIzaSyDVaIjrPhvAxqTgTXfRH5B4g7IwAisT1us', // 'promixing serg' key
+    // SECURE PROXY: All sensitive keys are now on the backend
+    proxyUrl: 'https://askneosys-d26dd042f2139dcaa6e8db-uc.a.run.app', // Neosys Proxy V2
     systemPrompt: `You are the Neosys Aeon AI Assistant. 
-    Your expertise is STRICTLY LIMITED to the Neosys Aeon framework, its 10 Principles, and the foundational Whitepaper v4.2 written by Alberto Yépiz.
-    
-    CORE RULES:
-    1. If the user asks about ANYTHING outside Neosys Aeon (cooking, general science, math, life advice, personal chat), you MUST politely refuse. 
-    2. Example refusal: "I am designed to discuss Neosys Aeon principles and the scientific framework. I cannot help with that specific topic."
-    3. Always encourage evidence-based thinking.
-    4. Your answers should be concise, professional, and slightly "cosmic" but rational.
-    5. Language: Answer in the same language the user uses (Spanish or English).`
+    Your expertise is STRICTLY LIMITED to the Neosys Aeon framework...`
 };
 
 /** --- Logic Engine --- */
@@ -100,13 +94,13 @@ async function getAIResponse(messages) {
         parts: [{ text: msg.content }]
     }));
 
-    // Inject System Instruction into the first message
+    // Inject System Instruction into the context
     if (contents.length > 0) {
         contents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${GEMINI_CONFIG.systemPrompt}]\n\n` + contents[0].parts[0].text;
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_CONFIG.apiKey}`, {
+        const response = await fetch(GEMINI_CONFIG.proxyUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
@@ -114,13 +108,13 @@ async function getAIResponse(messages) {
 
         if (!response.ok) {
             const errData = await response.json();
-            throw new Error(errData.error?.message || `HTTP ${response.status}`);
+            throw new Error(errData.error?.details || `HTTP ${response.status}`);
         }
         
         const data = await response.json();
         return data.candidates[0].content.parts[0].text;
     } catch (e) {
-        console.error('AI Error Details:', e.message);
+        console.error('SECURE PROXY Error:', e.message);
         return null;
     }
 }
