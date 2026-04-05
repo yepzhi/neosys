@@ -106,17 +106,21 @@ async function getAIResponse(messages) {
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_CONFIG.apiKey}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_CONFIG.apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
         });
 
-        if (!response.ok) throw new Error('AI Engine busy');
+        if (!response.ok) {
+            const errData = await response.json();
+            throw new Error(errData.error?.message || `HTTP ${response.status}`);
+        }
+        
         const data = await response.json();
         return data.candidates[0].content.parts[0].text;
     } catch (e) {
-        console.error('AI Error:', e);
+        console.error('AI Error Details:', e.message);
         return null;
     }
 }
