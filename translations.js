@@ -292,7 +292,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon es un marco abierto para la generación, validación y aplicación de conocimiento mediante el método científico.<br><br><strong>Es un sistema.</strong><br><br>Su valor depende de su aplicación y de su revisión continua.",
-        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.4.1",
+        footer_copy: "Marco abierto. Sin propietarios. Sin barreras. v5.4.2",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "¡Copiado!",
         privacy_title: "Aviso de Privacidad",
@@ -556,7 +556,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon is an open framework for generating, validating, and applying knowledge through the scientific method.<br><br><strong>It is a system.</strong><br><br>Its value depends on its application and continuous revision.",
-        footer_copy: "Open framework. No owners. No barriers. v5.4.1",
+        footer_copy: "Open framework. No owners. No barriers. v5.4.2",
         footer_creator: "Created by yepzhi",
 
         // Revision
@@ -870,7 +870,7 @@ const translations = {
 
         // Footer
         footer_quote: "Neosys Aeon 是一個開放框架，用於通過科學方法生成、驗證和應用知識。<br><br><strong>它是一個系統。</strong><br><br>它的價值取決於它的應用和持續審查。",
-        footer_copy: "開放框架。無所有者。無障礙。v5.4.1",
+        footer_copy: "開放框架。無所有者。無障礙。v5.4.2",
         footer_creator: "Created by yepzhi",
         join_btn_copied: "已復制！",
         privacy_title: "隱私政策",
