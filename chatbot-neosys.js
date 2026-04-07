@@ -160,14 +160,17 @@ async function getAIResponse(messages) {
     }
 
     try {
-        // Switching to gemini-1.5-flash-8b on v1beta for maximum free-tier quota stability
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${apiKey}`, {
+        // Switching to gemini-2.0-flash-lite on v1beta. High performance, 2.0 only.
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
         });
 
         if (!response.ok) {
+            if (response.status === 429) {
+                return "Reintenta más tarde, modelo agotado. Reintenta en 30s.";
+            }
             const errData = await response.json();
             throw new Error(errData.error?.message || `HTTP ${response.status}`);
         }
