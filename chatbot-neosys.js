@@ -160,16 +160,23 @@ async function getAIResponse(messages) {
     }
 
     try {
-        // Switching to gemini-2.0-flash-lite on v1beta. High performance, 2.0 only.
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`, {
+        // Moving API key to header for better security (prevents visibility in URL logs)
+        // Using gemini-2.0-flash-lite on v1beta
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'x-goog-api-key': apiKey 
+            },
             body: JSON.stringify({ contents })
         });
 
         if (!response.ok) {
             if (response.status === 429) {
-                return "Reintenta más tarde, modelo agotado. Reintenta en 30s.";
+                const lang = typeof currentLang !== 'undefined' ? currentLang : 'en';
+                return lang === 'es' 
+                    ? "Reintenta más tarde, modelo agotado. Reintenta en 30s."
+                    : "Quota exceeded. Please retry in 30s.";
             }
             const errData = await response.json();
             throw new Error(errData.error?.message || `HTTP ${response.status}`);

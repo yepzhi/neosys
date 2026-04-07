@@ -13,7 +13,7 @@ try {
         localStorage.setItem('neosys_lang', currentLang);
     }
 } catch (_) { /* noop */ }
-const version = "5.4.9"; 
+const version = "5.5.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
