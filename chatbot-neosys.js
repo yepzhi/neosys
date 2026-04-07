@@ -81,16 +81,25 @@ const GEMINI_CONFIG = {
 // Initialize Remote Config (Spark Plan compatible)
 // Initialize Remote Config (Spark Plan compatible)
 let remoteConfig;
+let cachedApiKey = '';
+
 function initRemoteConfig() {
     try {
         if (typeof firebase !== 'undefined' && firebase.apps.length > 0) {
             remoteConfig = firebase.remoteConfig();
-            // Relax settings for development/immediate testing
-            remoteConfig.settings.minimumFetchIntervalMillis = 3600000; // 1 hour for production balance
+            remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
             remoteConfig.defaultConfig = { 'GEMINI_KEY': '' };
+            
+            // Initial fetch to avoid issues later
+            remoteConfig.fetchAndActivate()
+                .then(() => {
+                    cachedApiKey = remoteConfig.getValue('GEMINI_KEY').asString();
+                    console.log("[NEOSYS] Remote Config Synced successfully.");
+                })
+                .catch(err => console.warn("[NEOSYS] Remote Config Initial Fetch Warning:", err));
+
             console.log("[NEOSYS] Remote Config Module Ready.");
         } else {
-            // Retry in 500ms if firebase isn't ready
             setTimeout(initRemoteConfig, 500);
         }
     } catch (e) {
@@ -119,17 +128,19 @@ function findOfflineAnswer(input, lang) {
 }
 
 async function getAIResponse(messages) {
-    let apiKey = '';
+    let apiKey = cachedApiKey;
     const currentPlatformLang = localStorage.getItem('neosys_lang') || 'en';
 
-    // Fetch and activate the key from Remote Config
+    // Try to refresh key if it's missing (with guard for database errors)
     try {
-        if (remoteConfig) {
+        if (remoteConfig && !apiKey) {
             await remoteConfig.fetchAndActivate();
             apiKey = remoteConfig.getValue('GEMINI_KEY').asString();
+            cachedApiKey = apiKey;
         }
     } catch (e) {
-        console.warn("Could not fetch Remote Config:", e);
+        console.warn("[NEOSYS] Could not fetch Remote Config (IDB error):", e);
+        apiKey = cachedApiKey;
     }
 
     if (!apiKey) {
