@@ -149,8 +149,8 @@ async function getAIResponse(messages) {
     }
 
     try {
-        // Use v1 (Stable) instead of v1beta to ensure model availability
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        // Switching back to v1beta for better model coverage and experimental features
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
