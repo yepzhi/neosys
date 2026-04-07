@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.4.4 FINAL STABLE
+   NEOSYS AEON — App Logic v5.4.5 FINAL STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -13,7 +13,7 @@ try {
         localStorage.setItem('neosys_lang', currentLang);
     }
 } catch (_) { /* noop */ }
-const version = "5.4.4"; 
+const version = "5.4.5"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────
@@ -246,7 +246,7 @@ function initCommunityMap() {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('community-list')) loadCommunity();
     
-    // Tab switching logic (v5.4.4)
+    // Tab switching logic (v5.4.5)
     const btnDir = document.getElementById('tab-directory');
     const btnMap = document.getElementById('tab-map');
     const dirContent = document.getElementById('directory-view');
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (v5.4.4)
+    // Mobile Menu Toggle (v5.4.5)
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // HD Poster Download (v5.4.4 restored)
+    // HD Poster Download (v5.4.5 restored)
     const downloadPosterBtn = document.getElementById('download-poster-btn');
     if (downloadPosterBtn) {
         downloadPosterBtn.addEventListener('click', async () => {
