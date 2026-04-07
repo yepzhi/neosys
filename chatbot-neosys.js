@@ -134,7 +134,7 @@ async function getAIResponse(messages) {
 
     if (!apiKey) {
         console.error("CONFIG Error: GEMINI_KEY missing from Firebase Console (Remote Config).");
-        return "⚠️ Error de configuración: GEMINI_KEY no encontrada en Remote Config. Por favor, asegúrate de haberla publicado en la consola de Firebase."; 
+        return "⚠️ Configuration Error: GEMINI_KEY missing from Remote Config. Please ensure it is published in the Firebase Console."; 
     }
 
     const contents = messages.map(msg => ({
@@ -149,7 +149,8 @@ async function getAIResponse(messages) {
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        // Use v1 (Stable) instead of v1beta to ensure model availability
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents })
@@ -164,7 +165,7 @@ async function getAIResponse(messages) {
         return data.candidates[0].content.parts[0].text;
     } catch (e) {
         console.error('Gemini API Error:', e.message);
-        return null;
+        return "System Error: Connection to AI core lost. Try again later.";
     }
 }
 
@@ -184,7 +185,7 @@ const chatbotUI = {
         const btn = document.createElement('button');
         btn.id = 'neosysChatBtn';
         btn.className = 'neosys-chat-btn';
-        btn.innerHTML = `<span>🔭</span> <span class="btn-text">Dudas ¿? Talk here</span>`;
+        btn.innerHTML = `<span class="btn-text">🤖 ¿? Dudas</span>`;
         document.body.appendChild(btn);
 
         // Overlay Modal
@@ -327,9 +328,9 @@ const chatbotUI = {
         const btn = document.getElementById('neosysChatBtn');
         if (!btn) return;
         const textSpan = btn.querySelector('.btn-text');
-        if (lang === 'es') textSpan.textContent = '🤖 ¿? Charla Aquí ESP';
-        else if (lang === 'cn') textSpan.textContent = '🤖 ¿? 在这里聊聊 CN';
-        else textSpan.textContent = '🤖 ¿? Talk Here ENG';
+        if (lang === 'es') textSpan.textContent = '🤖 ¿? Charla Aquí';
+        else if (lang === 'cn') textSpan.textContent = '🤖 ¿? 在这里聊聊';
+        else textSpan.textContent = '🤖 ¿? Talk Here';
     },
 
     toggle(open) {
