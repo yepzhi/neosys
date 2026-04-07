@@ -57,6 +57,16 @@ const NEOSYS_FAQ = {
             keywords: ['religion', 'belief', 'faith', 'cult', 'dogma'],
             answer: 'Neosys Aeon is **NOT** a religion. It does not propose supernatural entities or require faith. It is an open system based on falsifiability and scientific evidence.'
         }
+    ],
+    cn: [
+        {
+            keywords: ['什么是', 'neosys', 'aeon', '定义', '概念', '框架', '项目'],
+            answer: 'Neosys Aeon 是一个开放的概念框架，旨在改善我们理解现实和基于证据做出决策的方式。由 Alberto Yépiz 创立，它整合了认识论、科学方法和负责任的行动。'
+        },
+        {
+            keywords: ['原则', '10', '规则', '宇宙'],
+            answer: '宇宙的 10 条原则是：\n1. 真实高于舒适。\n2. 好奇心是美德。\n3. 星尘的归属。\n4. 证据是指南针。\n5. 宇宙的谦逊。\n6. 地球是家。\n7. 热爱生命。\n8. 神秘不是无知。\n9. 传递知识。\n10. 成为建设者，而不仅仅是观察者。'
+        }
     ]
 };
 
@@ -69,17 +79,25 @@ const GEMINI_CONFIG = {
 /** --- Logic Engine --- */
 
 // Initialize Remote Config (Spark Plan compatible)
+// Initialize Remote Config (Spark Plan compatible)
 let remoteConfig;
-try {
-    if (typeof firebase !== 'undefined') {
-        remoteConfig = firebase.remoteConfig();
-        // Relax settings for development/immediate testing
-        remoteConfig.settings.minimumFetchIntervalMillis = 300000; // 5 minutes
-        remoteConfig.defaultConfig = { 'GEMINI_KEY': '' };
+function initRemoteConfig() {
+    try {
+        if (typeof firebase !== 'undefined' && firebase.apps.length > 0) {
+            remoteConfig = firebase.remoteConfig();
+            // Relax settings for development/immediate testing
+            remoteConfig.settings.minimumFetchIntervalMillis = 3600000; // 1 hour for production balance
+            remoteConfig.defaultConfig = { 'GEMINI_KEY': '' };
+            console.log("[NEOSYS] Remote Config Module Ready.");
+        } else {
+            // Retry in 500ms if firebase isn't ready
+            setTimeout(initRemoteConfig, 500);
+        }
+    } catch (e) {
+        console.error("Remote Config Init Error:", e);
     }
-} catch (e) {
-    console.error("Remote Config Init Error:", e);
 }
+initRemoteConfig();
 
 function detectLanguage(text) {
     const spanishWords = ['que', 'como', 'donde', 'hola', 'principios', 'metodo', 'verdad'];
@@ -102,7 +120,8 @@ function findOfflineAnswer(input, lang) {
 
 async function getAIResponse(messages) {
     let apiKey = '';
-    
+    const currentPlatformLang = localStorage.getItem('neosys_lang') || 'en';
+
     // Fetch and activate the key from Remote Config
     try {
         if (remoteConfig) {
@@ -110,12 +129,12 @@ async function getAIResponse(messages) {
             apiKey = remoteConfig.getValue('GEMINI_KEY').asString();
         }
     } catch (e) {
-        console.warn("Could not fetch Remote Config, fallback to local error:", e);
+        console.warn("Could not fetch Remote Config:", e);
     }
 
     if (!apiKey) {
-        console.error("SECURE CONFIG Error: GEMINI_KEY is missing from Firebase Remote Config.");
-        return null; 
+        console.error("CONFIG Error: GEMINI_KEY missing from Firebase Console (Remote Config).");
+        return "⚠️ Error de configuración: GEMINI_KEY no encontrada en Remote Config. Por favor, asegúrate de haberla publicado en la consola de Firebase."; 
     }
 
     const contents = messages.map(msg => ({
@@ -123,9 +142,10 @@ async function getAIResponse(messages) {
         parts: [{ text: msg.content }]
     }));
 
-    // Inject System Instruction into the context
+    // Inject System Instruction with priority language
     if (contents.length > 0) {
-        contents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${GEMINI_CONFIG.systemPrompt}]\n\n` + contents[0].parts[0].text;
+        const langContext = `[IMPORTANT: Respond ALWAYS in ${currentPlatformLang.toUpperCase()} language level]`;
+        contents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${GEMINI_CONFIG.systemPrompt}]\n${langContext}\n\n` + contents[0].parts[0].text;
     }
 
     try {
@@ -268,6 +288,7 @@ const chatbotUI = {
             .msg { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; color: white; position: relative; }
             .msg.bot { align-self: flex-start; background: rgba(255,255,255,0.05); border-bottom-left-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
             .msg.user { align-self: flex-end; background: linear-gradient(135deg, #6d28d9, #4c1d95); border-bottom-right-radius: 4px; }
+            .msg.typing { font-style: italic; opacity: 0.7; padding: 8px 12px; }
             .chat-input-area { padding: 20px; display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.1); }
             .chat-input-area input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 25px; padding: 12px 20px; color: white; outline: none; transition: border-color 0.3s; }
             .chat-input-area input:focus { border-color: #a78bfa; }
@@ -294,14 +315,35 @@ const chatbotUI = {
         
         send.addEventListener('click', () => this.handleSendMessage());
         input.addEventListener('keypress', (e) => { if (e.key === 'Enter') this.handleSendMessage(); });
+
+        // Listen for platform language changes
+        window.addEventListener('neosys:langChange', (e) => {
+            this.updateButtonText(e.detail.lang);
+        });
+        this.updateButtonText(localStorage.getItem('neosys_lang') || 'en');
+    },
+
+    updateButtonText(lang) {
+        const btn = document.getElementById('neosysChatBtn');
+        if (!btn) return;
+        const textSpan = btn.querySelector('.btn-text');
+        if (lang === 'es') textSpan.textContent = '🤖 ¿? Charla Aquí ESP';
+        else if (lang === 'cn') textSpan.textContent = '🤖 ¿? 在这里聊聊 CN';
+        else textSpan.textContent = '🤖 ¿? Talk Here ENG';
     },
 
     toggle(open) {
         const overlay = document.getElementById('neosysChatOverlay');
+        const lang = localStorage.getItem('neosys_lang') || 'en';
         if (open) {
             overlay.classList.add('active');
             if (this.messages.length === 0) {
-                this.addMessage('¡Hola! 👋 Soy el asistente de Neosys Aeon. ¿En qué puedo ayudarte a entender la realidad hoy?', 'bot');
+                const greetings = {
+                    es: '¡Hola! 👋 Soy el asistente de Neosys Aeon. ¿En qué puedo ayudarte hoy?',
+                    en: 'Hello! 👋 I am the Neosys Aeon assistant. How can I help you today?',
+                    cn: '你好！👋 我是 Neosys Aeon 助手。今天我能帮你什么？'
+                };
+                this.addMessage(greetings[lang] || greetings.en, 'bot');
             }
         } else {
             overlay.classList.remove('active');
