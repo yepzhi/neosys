@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Global Firebase Configuration v5.3.0
+   NEOSYS AEON — Global Firebase Configuration v5.6.0
    This is the source of truth for the entire platform.
    ═══════════════════════════════════════════ */
 
@@ -14,5 +14,5 @@ const firebaseConfig = {
 };
 
 // Global reference for versioning
-const NEOSYS_VERSION = "4.8.8.6";
+const NEOSYS_VERSION = "5.6.0";
 console.log(`%c[NEOSYS] Global Config v${NEOSYS_VERSION} Loaded.`, "background: #a78bfa; color: #fff; font-weight: bold;");

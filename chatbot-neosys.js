@@ -1,5 +1,5 @@
 /**
- * Neosys Aeon Chatbot - Implementation
+ * Neosys Aeon Chatbot - v5.6.0 Implementation
  * Layer 1: Offline FAQ (Whitepaper 4.2)
  * Layer 2: AI Power (Gemini API)
  * UI: Glassmorphism Floating Button + Modal
@@ -109,7 +109,11 @@ function initRemoteConfig() {
 initRemoteConfig();
 
 function detectLanguage(text) {
-    const spanishWords = ['que', 'como', 'donde', 'hola', 'principios', 'metodo', 'verdad'];
+    // Detect Chinese characters
+    const cnRegex = /[\u4e00-\u9fa5]/;
+    if (cnRegex.test(text)) return 'cn';
+
+    const spanishWords = ['que', 'como', 'donde', 'hola', 'principios', 'metodo', 'verdad', 'ayuda'];
     const lowerText = text.toLowerCase();
     const spanishScore = spanishWords.filter(w => lowerText.includes(w)).length;
     return spanishScore > 0 ? 'es' : 'en';
@@ -378,7 +382,20 @@ const chatbotUI = {
         const container = document.getElementById('neosysChatMessages');
         const msgDiv = document.createElement('div');
         msgDiv.className = `msg ${side}`;
-        msgDiv.innerHTML = text;
+        
+        // Simple and safe rendering: Escape HTML, then allow basic markdown-like formatting
+        let safeText = text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+            
+        // Convert **bold** to <strong> and \n to <br>
+        safeText = safeText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        safeText = safeText.replace(/\n/g, '<br>');
+        
+        msgDiv.innerHTML = safeText;
         container.appendChild(msgDiv);
         container.scrollTop = container.scrollHeight;
     },

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — App Logic v5.4.5 FINAL STABLE
+   NEOSYS AEON — App Logic v5.6.0 STABLE
    Particles / Reveal / Badge / Nav / i18n / Firestore
    ═══════════════════════════════════════════ */
 
@@ -13,7 +13,7 @@ try {
         localStorage.setItem('neosys_lang', currentLang);
     }
 } catch (_) { /* noop */ }
-const version = "5.5.0"; 
+const version = "5.6.0"; 
 console.log(`%c[NEOSYS] Platform v${version} Active`, "color: #a78bfa; font-weight: bold;");
 
 // ── Firebase Initialization (Shared Config) ───────

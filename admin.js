@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   NEOSYS AEON — Admin Logic v5.3.0 FINAL
+   NEOSYS AEON — Admin Logic v5.6.0 STABLE
    Dashboard for User Management
    ═══════════════════════════════════════════ */
 
